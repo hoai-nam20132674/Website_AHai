@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateServiceCatesTable extends Migration
+class CreateOrdersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,13 @@ class CreateServiceCatesTable extends Migration
      */
     public function up()
     {
-        Schema::create('service_cates', function (Blueprint $table) {
+        Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('parent_id')->nullable();
             $table->string('name');
-            $table->string('title');
-            $table->longText('seo_description');
-            $table->string('seo_keyword');
-            $table->string('url');
-            $table->string('avata');
-            $table->boolean('display');
+            $table->string('phone');
+            $table->string('address')->nullable();
+            $table->string('messages')->nullable();
+            $table->boolean('status');
             $table->timestamps();
         });
     }
@@ -34,6 +31,6 @@ class CreateServiceCatesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('service_cates');
+        Schema::dropIfExists('orders');
     }
 }

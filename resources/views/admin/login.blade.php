@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Labo Hải Dương</title>
+    <title>Admin</title>
     <link rel="stylesheet" type="text/css" href="{{asset('css/admin/login/bootstrap.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/admin/login/fontawesome-all.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/admin/login/iofrm-style.css')}}">
@@ -31,7 +31,7 @@
             <div class="form-holder">
                 <div class="form-content">
                     <div class="form-items">
-                        <h3>Labo Hải Dương</h3>
+                        <h3>Trang thương mại điện tử </h3>
                         <p></p>
                         <div class="page-links">
                             <a href="#" class="active">Login</a><a href="#">Register</a>

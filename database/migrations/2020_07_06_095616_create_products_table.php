@@ -17,13 +17,17 @@ class CreateProductsTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('title');
-            $table->longText('content');
-            $table->longText('seo_description');
-            $table->string('seo_keyword');
+            $table->longText('content')->nullable();
+            $table->longText('seo_description')->nullable();
+            $table->string('seo_keyword')->nullable();
             $table->string('url');
             $table->boolean('display');
             $table->boolean('hot');
+            $table->boolean('best_sale');
             $table->string('avata');
+            $table->integer('price');
+            $table->integer('sale');
+            $table->boolean('status');
             $table->timestamps();
         });
     }

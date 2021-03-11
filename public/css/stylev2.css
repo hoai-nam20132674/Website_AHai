@@ -3852,6 +3852,10 @@ button:focus {
     -webkit-box-shadow: 0 2px 9px 0 rgba(0, 0, 0, .2);
     box-shadow: 0 2px 9px 0 rgba(0, 0, 0, .2)
 }
+.owl-carousel:hover .owl-prev{
+    width: 40px;
+    height: 40px;
+}
 
 .b__vosoMall .b__vosoMall--info .b__vosoMall--content .b__vosoMall--right .owl-nav .owl-next .svg-inline--fa,
 .b__vosoMall .b__vosoMall--info .b__vosoMall--content .b__vosoMall--right .owl-nav .owl-prev .svg-inline--fa {

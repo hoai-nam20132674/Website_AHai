@@ -18,7 +18,6 @@ class CreateSystemsTable extends Migration
             $table->string('name')->nullable();
             $table->string('logo')->nullable();
             $table->string('shortcut_logo')->nullable();
-            $table->string('banner')->nullable();
             $table->string('title')->nullable();
             $table->string('seo_keyword')->nullable();
             $table->longText('seo_description')->nullable();

@@ -29,7 +29,7 @@ class Controller extends BaseController
 
     public function index(){
         
-        return view('front-end.checkout');
+        return view('front-end.index');
     }
 
     public function page($url){
