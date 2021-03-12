@@ -129,7 +129,7 @@
 			                    	<input type="hidden" name="_token" value="{{ csrf_token()}}">
 
 
-			                        <div class="form-group col-md-12"  >
+			                        <div class="form-group col-md-6"  >
 			    
 									    <label for="name" class="control-label required">Họ Tên</label>
 									    <input class="form-control" data-counter="30" name="name" type="text" value="{{$user->name}}" id="name">
@@ -146,6 +146,35 @@
 			    
 									    <label for="email" class="control-label required">Email</label>
 									    <input class="form-control" placeholder="Ex: example@gmail.com" data-counter="60" name="email" type="text" value="{{$user->email}}" id="email">
+							        </div>
+							        
+							        <div class="form-group col-md-6">
+							        	<div class="widget meta-boxes">
+							        		
+							        		<div class="widget-body" style="padding: 0px">
+							        			<label for="email" class="control-label required">Trạng thái</label>
+							        			<div class="ui-select-wrapper">
+							        				
+							        				<select class="form-control ui-select ui-select" id="status" name="status">
+												    	@if($user->status == 0)
+												            <option value="0">Tạm khóa</option>
+												            <option value="1">Hoạt động</option>
+											            @else
+											            	<option value="1">Hoạt động</option>
+												            <option value="0">Tạm khóa</option>
+												            
+											            @endif
+											        </select>
+							        				<svg class="svg-next-icon svg-next-icon-size-16">
+							        					<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#select-chevron"></use>
+							        				</svg>
+							        			</div>
+
+
+
+
+							        		</div>
+							        	</div>
 							        </div>
 			    
 			                        <div class="clearfix"></div>

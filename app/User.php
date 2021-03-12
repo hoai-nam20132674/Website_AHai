@@ -59,6 +59,7 @@ class User extends Authenticatable
             $user->name = $request->name;
             $user->phone = $request->phone;
             $user->email = $request->email;
+            $user->status = $request->status;
             $user->save();
             return true;
         }

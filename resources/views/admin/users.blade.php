@@ -99,11 +99,15 @@
                                             
                                             <td class="  column-key-created_at">{{$user->created_at}}</td>
                                             <td class="  column-key-status">
-                                                <a href="#" class="btn btn-success">Active</a>
-                                                @if($user->role ==1)
-                                                <a href="#" onclick="change({{$user->id}})" class="btn btn-info">Quản trị viên</a>
+                                                @if($user->status ==0)
+                                                <a href="#" class="btn btn-danger">Tạm khóa</a>
                                                 @else
-                                                <a href="#" onclick="change({{$user->id}})" class="btn btn-info">Cộng tác viên</a>
+                                                <a href="#" class="btn btn-success">Hoạt động</a>
+                                                @endif
+                                                @if($user->role ==1)
+                                                <a href="#" onclick="change({{$user->id}})" class="btn btn-info">Super Admin</a>
+                                                @else
+                                                <a href="#" onclick="change({{$user->id}})" class="btn btn-info">Admin</a>
                                                 @endif
                                             </td>
                                             

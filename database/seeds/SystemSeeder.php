@@ -14,7 +14,7 @@ class SystemSeeder extends Seeder
         //
         DB::table('systems')->insert([
         	[
-        		'name' =>'Dental Plus'
+        		'name' =>'Website thương mại điện tử'
         		
         	]
         	

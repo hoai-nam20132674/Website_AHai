@@ -14,14 +14,14 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>Labohaiduong Admin</title>
+    <title>Admin</title>
 
     <meta name="robots" content="noindex,follow"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="pDJd5ehSBKJT4WE8iMOSN1ClgOvWNSeSJ2isp5H5">
     <meta property="og:image" content="">
-    <meta name="description" content="Bản quyền 2020 &amp;copy; Labohaiduong. Phiên bản: 1.0">
-    <meta property="og:description" content="Bản quyền 2020 &amp;copy; Labohaiduong. Phiên bản: 1.0">
+    <meta name="description" content="Bản quyền 2021 &amp;copy; NamNguyen. Phiên bản: 1.0">
+    <meta property="og:description" content="Bản quyền 2021 &amp;copy; NamNguyen. Phiên bản: 1.0">
 
     <link rel="icon shortcut" href="{{asset('uploads/images/systems/'.$system->shortcut_logo)}}">
     <link rel='stylesheet'
@@ -174,7 +174,7 @@
     <div class="page-footer-inner">
         <div class="row">
             <div class="col-md-6">
-                Bản quyền 2020 © Labohaiduong. Phiên bản: <span>1.0</span>
+                Bản quyền 2021 © NamNguyen. Phiên bản: <span>1.0</span>
             </div>
             <div class="col-md-6 text-right">
                  Trang tải xong trong 0.1s             </div>
