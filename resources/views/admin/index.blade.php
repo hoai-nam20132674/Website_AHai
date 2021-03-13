@@ -32,7 +32,7 @@
                     <div id="main">
                             
     <div class="note note-success">
-        <p>Chào {{Auth::user()->name}} đến với trình quản trị nội dung của website Labohaiduong</p>
+        <p>Chào {{Auth::user()->name}} đến với trình quản trị nội dung của website</p>
     </div>
     <div class="row">
         

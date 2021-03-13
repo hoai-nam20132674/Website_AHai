@@ -1,6 +1,6 @@
 @extends('front-end.layout.default')
 @section('head')
-	<head>
+	
 
 	    <meta charset="utf-8">
 	    <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,7 +16,11 @@
 	    <meta property="og:type" content="website" />
 	    <meta name="apple-itunes-app" content="app-id=1504041888">
 	    <meta name="google-play-app" content="app-id=vn.voso.buyer">
-	    <meta property="og:description" content="Sàn thương mại điện tử của khách hàng Viettelpost" /><meta property="og:url" content="https://voso.vn" /><meta property="og:image" content="http://voso.vn/static/images/logo/avatar_voso.png" /><meta property="og:locale" content="vi_VN" /><link rel="canonical" href="https://voso.vn" /> <link rel="shortcut icon" href="https://voso.vn/static/v2/images/favicon.ico" />
+	    <meta property="og:description" content="Sàn thương mại điện tử của khách hàng Viettelpost" />
+        <meta property="og:url" content="https://voso.vn" />
+        <meta property="og:image" content="http://voso.vn/static/images/logo/avatar_voso.png" /><meta property="og:locale" content="vi_VN" />
+        <link rel="canonical" href="" /> 
+        
 	    <title>Sàn thương mại điện tử của khách hàng Viettelpost</title>
 
 	    <link href="css/bootstrap.css?v=1568371445" rel="stylesheet">
@@ -204,7 +208,7 @@
 	            display: none !important;
 	        }
 	    </style>
-	</head>
+	
 @endsection
 
 @section('content')

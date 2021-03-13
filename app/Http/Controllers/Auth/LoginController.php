@@ -49,8 +49,13 @@ class LoginController extends Controller
             'password'=>$request->password
         );
         if(Auth::attempt($login)){
+            if(Auth::user()->role ==1 || Auth::user()->role ==2){
             
-            return redirect()->route('home');
+                return redirect()->route('home');
+            }
+            else{
+                return redirect()->route('index');
+            }
             
         }
         else{
@@ -60,13 +65,16 @@ class LoginController extends Controller
     }
     public function logout(Request $request)
     {
+        $role = Auth::user()->role;
         $this->guard()->logout();
 
         $request->session()->flush();
 
         $request->session()->regenerate();
 
-        return redirect()->route('login');
+        
+        return redirect()->route('index');
+
     }
 
 }

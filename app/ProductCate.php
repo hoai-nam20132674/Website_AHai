@@ -18,8 +18,8 @@ class ProductCate extends Model
     	$this->display = $request->display;
     	$file_name = $request->file('avata')->getClientOriginalName();
 		$this->avata = $file_name;
-    	$request->file('avata')->move('public/uploads/images/products/categories/',$file_name);
-    	// $request->file('avata')->move('uploads/images/blogs/categories/',$file_name);
+    	// $request->file('avata')->move('public/uploads/images/products/categories/',$file_name);
+    	$request->file('avata')->move('uploads/images/products/categories/',$file_name);
     	$this->save();
 
     }
@@ -35,8 +35,8 @@ class ProductCate extends Model
     	if($request->hasFile('avata')){ 
             $file_name = $request->file('avata')->getClientOriginalName();
             $cate->avata = $file_name;
-            $request->file('avata')->move('public/uploads/images/products/categories/',$file_name);
-    		// $request->file('avata')->move('uploads/images/blogs/categories/',$file_name);
+            // $request->file('avata')->move('public/uploads/images/products/categories/',$file_name);
+    		$request->file('avata')->move('uploads/images/products/categories/',$file_name);
         }  	
     	$cate->save();
     }

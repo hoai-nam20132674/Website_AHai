@@ -298,7 +298,7 @@
             $('.page-title-seo').empty();
             $('.page-title-seo').append(title);
             $('.page-url-seo').empty();
-            $('.page-url-seo').append('<p>https://lobohaiduong.com/'+url+'</p>');
+            $('.page-url-seo').append('<p>https://domain/'+url+'</p>');
             $('.page-description-seo').empty();
             $('.page-description-seo').append(seo_description);
             
@@ -320,7 +320,7 @@
             $('.page-title-seo').empty();
             $('.page-title-seo').append(title);
             $('.page-url-seo').empty();
-            $('.page-url-seo').append('<p>https://lobohaiduong.com/'+url+'</p>');
+            $('.page-url-seo').append('<p>https://domain/'+url+'</p>');
             $('.page-description-seo').empty();
             $('.page-description-seo').append(seo_description);
      }

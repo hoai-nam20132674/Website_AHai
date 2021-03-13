@@ -1,6 +1,6 @@
 @extends('front-end.layout.default')
 @section('head')
-	<head>
+
 
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,8 +15,7 @@
 		<meta name="keywords" content="" />
 		<meta name="description" content="" />
 		<meta property="og:type" content="website" />
-		<link rel="shortcut icon" href="/static/v2/images/favicon.ico" />
-		<title>Giỏ hàng - Sàn thương mại điện tử của khách hàng Viettelpost</title>
+		<title>Giỏ hàng</title>
 
 		<link href="css/bootstrap.css?v=1568371445" rel="stylesheet">
 	  <link href="css/font-awesome.min.css?v=1566957476" rel="stylesheet">
@@ -91,7 +90,7 @@
 	    		display: none !important;
 	    	}
 	    </style>
-	</head>
+	
 @endsection
 
 @section('content')

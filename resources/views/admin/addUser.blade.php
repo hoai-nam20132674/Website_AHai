@@ -126,8 +126,28 @@
                             <div class="widget-body">
                                 <div class="ui-select-wrapper">
                                     <select class="form-control roles-list ui-select ui-select" id="role_id" name="role">
-                                        <option value="0" selected="selected">Biên tập viên</option>
-                                        <option value="1" >Quản trị cấp cao</option>
+                                        
+                                        <option value="2" >Quản trị viên</option>
+                                        <option value="3" >Gian hàng chiến lược</option>
+                                        <option value="4" >Gian hàng vãng lai</option>
+                                    </select>
+                                    <svg class="svg-next-icon svg-next-icon-size-16">
+                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#select-chevron"></use>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="widget meta-boxes">
+                            <div class="widget-title">
+                                <h4><label for="status_id" class="control-label">Trạng thái</label></h4>
+                            </div>
+                            <div class="widget-body">
+                                <div class="ui-select-wrapper">
+                                    <select class="form-control roles-list ui-select ui-select" id="status_id" name="status">
+                                        
+                                        <option value="0" >Tạm khóa</option>
+                                        <option value="1" >Hoạt động</option>
+                                        
                                     </select>
                                     <svg class="svg-next-icon svg-next-icon-size-16">
                                         <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#select-chevron"></use>

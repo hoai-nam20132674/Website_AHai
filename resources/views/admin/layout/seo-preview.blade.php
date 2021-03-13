@@ -32,7 +32,7 @@
                 <label class="control-label required" for="current-slug">Đường dẫn:</label>
                 <span id="sample-permalink">
             
-                <span class="default-slug">http://lobohaiduong.com/<span id="editable-post-name">
+                <span class="default-slug">http://domain/<span id="editable-post-name">
                     <input type="text" onchange="seo_preview()" value="{{old('url')}}" name="url" id="new-post-slug" class="form-control is-valid" required value="" autocomplete="off"></span></span></span>
             ‎    <span id="edit-slug-buttons">
                     <!-- <button type="button" class="btn btn-secondary" id="change_slug">Sửa</button> -->

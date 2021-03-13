@@ -1,6 +1,6 @@
 @extends('front-end.layout.default')
 @section('head')
-	<head>
+	
 
 	    <meta charset="utf-8">
 	    <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,20 +15,15 @@
 	    <meta name="keywords" content="" />
 	    <meta name="description" content="" />
 	    <meta property="og:type" content="website" />
-
-	    <meta name="apple-itunes-app" content="app-id=1504041888, app-argument=vosoapp://DetailProduct?id=101533&affiliateId=0">
-	    <meta name="google-play-app" content="app-id=vn.voso.buyer, app-argument=vosoapp://DetailProduct?id=101533&affiliateId=0">
-	    <meta property="og:title" content="Giày Sneaker Nam Thể Thao - P101533 | Sàn thương mại điện tử của khách hàng Viettelpost" />
-
-	    <meta property="al:ios:url" content="vosoapp://DetailProduct?id=101533&affiliateId=0" />
-	    <meta property="al:ios:app_store_id" content="1504041888" />
-	    <meta property="al:ios:app_name" content="Voso" />
-
-	    <meta property="al:android:url" content="vosoapp://DetailProduct?id=101533&affiliateId=0">
-	    <meta property="al:android:package" content="vn.voso.buyer">
-	    <meta property="al:android:app_name" content="Voso">
-	    <meta property="og:title" content="Giày Sneaker Nam Thể Thao - P101533 | Sàn thương mại điện tử của khách hàng Viettelpost" /><meta property="og:description" content="Giày Sneaker Nam Thể Thao trên Sàn thương mại điện tử của khách hàng Viettelpost" /><meta property="og:site_name" content="Sàn thương mại điện tử của khách hàng Viettelpost" /><meta property="og:url" content="https://voso.vn/giay-sneaker-nam-den-giay-sneaker-nam-giay-sneaker-nam-the-thao-p101533.html" /><meta property="og:image" content="https://image.voso.vn/users/vosoimage/images/47ab29ffff6fb2024a887ee17f656adc?t%5B0%5D=thumbnail%3Awidth%3D320%2Cheight%3D320%2Cfit%3Doutbound&t%5B1%5D=compress%3Alevel%3D100&accessToken=0059693a5f9f0ffd84e488f4548436ce5f31ab945e04b66943ca440908ae451d" /><meta property="og:locale" content="vi_VN" /><link rel="canonical" href="https://voso.vn/giay-sneaker-nam-den-giay-sneaker-nam-giay-sneaker-nam-the-thao-p101533.html" /> <link rel="shortcut icon" href="/static/v2/images/favicon.ico" />
-	    <title>Giày Sneaker Nam Thể Thao - P101533 | Sàn thương mại điện tử của khách hàng Viettelpost</title>
+	    <meta property="og:title" content="Giày Sneaker Nam Thể Thao - P101533 " />
+	    <meta property="og:title" content="" />
+	    <meta property="og:description" content="" />
+	    <meta property="og:site_name" content="" />
+	    <meta property="og:url" content="" />
+	    <meta property="og:image" content="" />
+	    <meta property="og:locale" content="vi_VN" />
+	    <link rel="canonical" href="" /> 
+	    <title>Giày Sneaker Nam Thể Thao - P101533 </title>
 
 	    <link href="css/bootstrap.css?v=1568371445" rel="stylesheet">
 	    <link href="css/font-awesome.min.css?v=1566957476" rel="stylesheet">
@@ -103,7 +98,7 @@
 	            display: none !important;
 	        }
 	    </style>
-	</head>
+	
 @endsection
 
 @section('content')

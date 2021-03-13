@@ -30,6 +30,21 @@
 
     <div class="clearfix"></div>
 	<div id="main">
+	
+		@if( Session::has('flash_message'))
+            <div class="note note-{{ Session::get('flash_level')}}">
+			    <p>{{ Session::get('flash_message')}}</p>
+			</div>
+        @endif
+        @if( count($errors) > 0)
+	    	
+			@foreach($errors->all() as $error)
+				<div class="note note-danger">
+				    <p>{{$error}}</p>
+				</div>
+			@endforeach
+	    		
+    	@endif
         <div class="user-profile row">
 	        <div class="col-md-3 col-sm-5 crop-avatar hidden">
 	            <!-- Profile links -->
@@ -125,32 +140,89 @@
 	                    <div class="tab-content">
 		                    <!-- PERSONAL INFO TAB -->
 		                    <div class="tab-pane active" id="tab_1_1">
-			                    <form method="POST" action="{{URL::route('postEditUser',$user->id)}}" accept-charset="UTF-8" id="profile-form" class="row">
-			                    	<input type="hidden" name="_token" value="{{ csrf_token()}}">
+		                    	
+			                    <form method="POST" action="{{URL::route('postEditUser',$user->id)}}" accept-charset="UTF-8" id="profile-form" class="row"> 
+			                    	<div class="col-md-9" style="display: flex; flex-wrap: wrap;">
+				                    	<input type="hidden" name="_token" value="{{ csrf_token()}}">
 
 
-			                        <div class="form-group col-md-6"  >
-			    
-									    <label for="name" class="control-label required">Họ Tên</label>
-									    <input class="form-control" data-counter="30" name="name" type="text" value="{{$user->name}}" id="name">
-							        </div>
-			    
-			    
-			                        <div class="form-group col-md-6"  >
-			    
-									    <label for="phone" class="control-label required">Điện thoại</label>
-									    <input class="form-control" data-counter="30" name="phone" type="number" value="{{$user->phone}}" id="phone">
-							        </div>
-			    
-			                        <div class="form-group col-md-6"  >
-			    
-									    <label for="email" class="control-label required">Email</label>
-									    <input class="form-control" placeholder="Ex: example@gmail.com" data-counter="60" name="email" type="text" value="{{$user->email}}" id="email">
-							        </div>
-							        
-							        <div class="form-group col-md-6">
+				                        <div class="form-group col-md-12"  >
+				    
+										    <label for="name" class="control-label required">Họ Tên</label>
+										    <input class="form-control" data-counter="30" name="name" type="text" value="{{$user->name}}" id="name">
+								        </div>
+				    
+				    
+				                        <div class="form-group col-md-6"  >
+				    
+										    <label for="phone" class="control-label required">Điện thoại</label>
+										    <input class="form-control" data-counter="30" name="phone" type="number" value="{{$user->phone}}" id="phone">
+								        </div>
+				    
+				                        <div class="form-group col-md-6"  >
+				    
+										    <label for="email" class="control-label required">Email</label>
+										    <input class="form-control" placeholder="Ex: example@gmail.com" data-counter="60" name="email" type="text" value="{{$user->email}}" id="email">
+								        </div>
+								        
+								        
+				    
+				                        <div class="clearfix"></div>
+
+
+
+										<div class="form-group col-12">
+										    <div class="form-actions">
+										        <div class="btn-set text-center">
+										            <button type="submit" name="submit" value="submit" class="btn btn-success">
+										                <i class="fa fa-check-circle"></i> Cập nhật
+										            </button>
+										        </div>
+										    </div>
+										</div>
+									</div>
+									<div class="col-md-3">
+										<div class="widget meta-boxes">
+								        		
+							        		<div class="widget-body" style="padding: 0px">
+							        			<label for="email" class="control-label required">Phân quyền</label>
+							        			<div class="ui-select-wrapper">
+							        				
+							        				<select class="form-control ui-select ui-select" id="role" name="role">
+												    	@if($user->role == 1)
+												            <option value="1">Super Admin</option>
+												            <option value="2">Admin</option>
+												            <option value="3">Gian hàng chiến lược</option>
+												            <option value="4">Gian hàng vãng lai</option>
+											            @elseif($user->role == 2)
+											            	<option value="2">Admin</option>
+											            	<option value="1">Super Admin</option>
+												            <option value="3">Gian hàng chiến lược</option>
+												            <option value="4">Gian hàng vãng lai</option>
+												        @elseif($user->role == 3)
+												        	<option value="3">Gian hàng chiến lược</option>
+											            	<option value="2">Admin</option>
+											            	<option value="1">Super Admin</option>
+												            <option value="4">Gian hàng vãng lai</option>
+												        @else
+												        	<option value="4">Gian hàng vãng lai</option>
+												        	<option value="3">Gian hàng chiến lược</option>
+											            	<option value="2">Admin</option>
+											            	<option value="1">Super Admin</option>
+											            @endif
+											        </select>
+							        				<svg class="svg-next-icon svg-next-icon-size-16">
+							        					<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#select-chevron"></use>
+							        				</svg>
+							        			</div>
+
+
+
+
+							        		</div>
+							        	</div>
 							        	<div class="widget meta-boxes">
-							        		
+								        		
 							        		<div class="widget-body" style="padding: 0px">
 							        			<label for="email" class="control-label required">Trạng thái</label>
 							        			<div class="ui-select-wrapper">
@@ -175,23 +247,12 @@
 
 							        		</div>
 							        	</div>
-							        </div>
-			    
-			                        <div class="clearfix"></div>
-
-
-
-									<div class="form-group col-12">
-									    <div class="form-actions">
-									        <div class="btn-set text-center">
-									            <button type="submit" name="submit" value="submit" class="btn btn-success">
-									                <i class="fa fa-check-circle"></i> Cập nhật
-									            </button>
-									        </div>
-									    </div>
 									</div>
 
+									
+
 			    				</form>
+			    				
 
 		                
 

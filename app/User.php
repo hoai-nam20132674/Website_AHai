@@ -45,6 +45,7 @@ class User extends Authenticatable
             $this->email = $request->email;
             $this->phone = $request->phone;
             $this->role = $request->role;
+            $this->status = $request->status;
             $this->password = Hash::make($request->password);
             $this->save();
             return true;
@@ -54,12 +55,13 @@ class User extends Authenticatable
         }
     }
     public function edit($request, $id){
-        if(Auth::user()->id == $id){
+        if(Auth::user()->id == $id || Auth::user()->role ==1){
             $user = $this::where('id',$id)->get()->first();
             $user->name = $request->name;
             $user->phone = $request->phone;
             $user->email = $request->email;
             $user->status = $request->status;
+            $user->role = $request->role;
             $user->save();
             return true;
         }

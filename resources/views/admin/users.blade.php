@@ -106,14 +106,18 @@
                                                 @endif
                                                 @if($user->role ==1)
                                                 <a href="#" onclick="change({{$user->id}})" class="btn btn-info">Super Admin</a>
-                                                @else
+                                                @elseif($user->role == 2)
                                                 <a href="#" onclick="change({{$user->id}})" class="btn btn-info">Admin</a>
+                                                @elseif($user->role == 3)
+                                                <a href="#" onclick="change({{$user->id}})" class="btn btn-info">Gian hàng chiến lược</a>
+                                                @else
+                                                <a href="#" onclick="change({{$user->id}})" class="btn btn-info">Gian hàng vãng lai</a>
                                                 @endif
                                             </td>
                                             
                                             <td class=" text-right">
                                                 
-                                                <a href="{{URL::route('editUser',$user->id)}}" class="btn btn-icon btn-primary" data-toggle="tooltip" data-original-title="View user's profile"><i class="fa fa-eye"></i></a>
+                                                <a href="{{URL::route('editUser',$user->id)}}" class="btn btn-icon btn-primary" data-toggle="tooltip" data-original-title="Sửa bản ghi"><i class="fa fa-edit"></i></a>
                                                 <a href="#" class="btn btn-icon btn-danger deleteDialog" data-toggle="tooltip" data-section="" role="button" data-original-title="Xóa bản ghi"><i class="fa fa-trash"></i></a>
                                             </td>
                                         </tr>

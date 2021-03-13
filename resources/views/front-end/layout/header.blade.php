@@ -27,9 +27,10 @@ body-home-page 	    " ng-cloak>
                 <li><a href="https://voso.vn/cdn-cgi/l/email-protection#462e293234290630293529683028"><span class="__cf_email__" >email@gmail.com</span></a></li>
             </ul>
             <ul class="b__top--right b__top--ls">
+                @if(Auth::user())
                 <li>
                     <div class="b-notification">
-                        <div ng-if="user != null" id="formButton" ng-click="toggleNotificationDropdown($event)">
+                        <div id="formButton" ng-click="toggleNotificationDropdown($event)">
                             <div class="icon-notification">
                                 <i class="far fa-bell"></i>
                                 <span class="n-news" ng-if="notificationUnreadCount > 0">3</span>
@@ -58,19 +59,19 @@ body-home-page 	    " ng-cloak>
                                    </a>
                                </div>
                                <div ng-if="isNotificationListLoading" class="loading-wrapper d-flex flex-row justify-content-center">
-                                <i class="fa fa-spinner fa-pulse fa-1x fa-fw"></i>
+                                    <i class="fa fa-spinner fa-pulse fa-1x fa-fw"></i>
+                                </div>
                             </div>
+                            <a ng-if="notificationList.length || !isNotificationListLoading" class="see-all" href="https://voso.vn/thong-bao-cap-nhat-don-hang.html">
+                                Xem tất cả
+                            </a>
                         </div>
-                        <a ng-if="notificationList.length || !isNotificationListLoading" class="see-all" href="https://voso.vn/thong-bao-cap-nhat-don-hang.html">
-                            Xem tất cả
-                        </a>
                     </div>
-                </div>
-            </li>
-            <li class="login_succses" style="display: block;" ng-if="user != null">
-                <a href="https://voso.vn/khach-hang.html">
-                    <img src="https://voso.vn/static/v2/images/avatar_default.png" />
-                    <span class="c-admin__text">Nguyễn Hoài Nam</span>
+                </li>
+            <li class="login_succses" style="display: block;" >
+                <a href="#">
+                    <img src="{{asset('uploads/images/systems/avatar_default.png')}}" />
+                    <span class="c-admin__text">{{Auth::user()->name}}</span>
                 </a>
                 <ul class="login_succses_menu">
                     <div class="container-arrow">
@@ -78,19 +79,20 @@ body-home-page 	    " ng-cloak>
                     </div>
                     <li><a href="https://voso.vn/khach-hang.html">Hồ sơ của tôi</a></li>
                     <li><a href="https://voso.vn/lich-su-mua-hang.html">Lịch sử đơn hàng</a></li>
-                    <li><a href="https://voso.vn/wallet/history">Ví VoSo</a></li>
-                    <li><a href="">Đăng xuất</a></li>
+                    <li><a href="{{URL::route('logout')}}">Đăng xuất</a></li>
                 </ul>
             </li>
-            <li ng-if="user != null">
-                <a href="https://voso.vn/gian-hang-cua-toi.html">
+            <li >
+                <a href="">
 
                     <i class="fas fa-store-alt"></i>
                     <span>Gian hàng của tôi</span>
                 </a>
             </li>
+            @else
             <li class="login_none" ng-if="user == null" ng-click="signin()"><a href="#">Đăng Nhập</a></li>
             <li class="login_none bdr_none" ng-if="user == null" ng-click="signup()"><a href="#">Đăng Ký</a></li>
+            @endif
 
         </ul>
     </div>

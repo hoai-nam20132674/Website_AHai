@@ -704,12 +704,13 @@
                     <div class="b__login">
                         <div class="b__title--modal">
                             <h3>Đăng nhập </h3>
-                            <p>Dễ dàng truy cập lịch sử đơn hàng, lưu sản phẩm yêu thích, xem giỏ hàng, nhận ưu đãi và nhiều hơn nữa.</p>
+                            <p>Quản lý gian hàng kinh doanh sản phẩm của bạn trên hệ thống website</p>
                         </div><!-- end .b__title--modal-->
-                        <form ng-submit="ok()">
+                        <form action="{{URL::route('postLogin')}}" method="POST">
+                            {{ csrf_field() }}
                             <div class="form-group">
                                 <label>Tên đăng nhập</label>
-                                <input type="text" class="form-control form-height" placeholder="Số điện thoại/Email" ng-model="email">
+                                <input type="text" class="form-control form-height" name="email" placeholder="Số điện thoại/Email" ng-model="email">
                                 <small class="form-text text-muted" ng-if="errors.email">
                                     <i class="fas fa-times-circle"></i>Lỗi Email
                                 </small>
@@ -717,7 +718,7 @@
                             <div class="form-group">
                                 <label>Mật khẩu</label>
                                 <div style="position: relative">
-                                    <input type="password"
+                                    <input name="password" type="password"
                                     class="form-control form-height"
                                     placeholder="Nhập mật khẩu"
                                     ng-model="password"

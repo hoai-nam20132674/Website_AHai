@@ -86,11 +86,12 @@ class HomeController extends Controller
         $item = new User;
         $item->edit($request,$id);
         if($item-> edit($request,$id)){
-            return redirect()->route('editUser',$id)->with(['flash_level'=>'success','flash_message'=>'Sửa thành công']);
+            return redirect()->route('editUser',$id)->with(['flash_level'=>'success','flash_message'=>'Sửa thông tin tài khoản thành công']);
         }
         else{
-            return redirect()->route('editUser',$id)->with(['flash_level'=>'danger','flash_message'=>'Sửa không thành công']);
+            return redirect()->route('editUser',$id)->with(['flash_level'=>'danger','flash_message'=>'Sửa thông tin tài khoản không thành công vui lòng liên hệ quản trị viên hệ thống để biết chi tiết']);
         }
+
     }
     public function postEditPassword(editPasswordRequest $request, $id){
         $item = new User;

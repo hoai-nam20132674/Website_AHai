@@ -62,20 +62,20 @@
                     
                     <li class="nav-item " id="cms-plugins-ecommerce">
                         <a href="" class="nav-link nav-toggle">
-                            <i class="fa fa-user-md"></i>
+                            <i class="fa fa-product-hunt"></i>
                             <span class="title">Sản phẩm</span>
                             <span class="arrow "></span>
                         </a>
                         <ul class="sub-menu  hidden-ul ">
                             <li class="nav-item " id="cms-plugins-ecommerce-customer">
                                 <a href="{{URL::route('products')}}" class="nav-link">
-                                    <i class="fa fa-users"></i>
+                                    <i class="fa fa-list-alt"></i>
                                     Sản phẩm
                                 </a>
                             </li>
                             <li class="nav-item " id="cms-plugins-product-categories">
                                 <a href="{{URL::route('productCategories')}}" class="nav-link">
-                                    <i class="fa fa-archive"></i>
+                                    <i class="fa fa-list"></i>
                                     Danh mục sản phẩm
                                 </a>
                             </li>
@@ -99,7 +99,7 @@
                     
                     <li class="nav-item " id="cms-core-appearance">
                         <a href="#" class="nav-link nav-toggle">
-                            <i class="fa fa-paint-brush"></i>
+                            <i class="fa fa-television"></i>
                             <span class="title">Hiển thị </span>
                             <span class="arrow "></span>
                         </a>
@@ -107,7 +107,7 @@
                             
                             <li class="nav-item " id="cms-core-menu">
                                 <a href="{{URL::route('editMenu')}}" class="nav-link">
-                                    <i class=""></i>
+                                    <i class="fa fa-bars"></i>
                                     Menu
                                 </a>
                             </li>
