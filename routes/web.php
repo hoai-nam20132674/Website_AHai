@@ -108,3 +108,4 @@ Route::get('/lien-he', 'Controller@contact')->name('contact');
 Route::get('/tra-cuu', 'Controller@cardSearch')->name('cardSearch');
 Route::get('/{url}', 'Controller@page')->name('page');
 Route::get('/', 'Controller@index')->name('index');
+Route::post('/user/add', 'Controller@postAddUserMerchant')->name('postAddUserMerchant');

@@ -781,7 +781,7 @@
             <div class="clearfix"></div>
         </div><!-- modal-body -->
         <div class="modal-footer">
-            <p>Bạn chưa có tài khoản tại voso.vn?</p>
+            <p>Bạn chưa có tài khoản?</p>
             <button class="btn btn-primary btn-login" ng-click="signup()">Đăng Ký</button>
         </div>
     </script>
@@ -830,44 +830,46 @@
                     <h3>Tạo tài khoản </h3>
                     <p>Dễ dàng truy cập lịch sử đơn hàng, lưu sản phẩm yêu thích, xem giỏ hàng, nhận ưu đãi và nhiều hơn nữa.</p>
                 </div><!-- end .b__title--modal-->
-                <form ng-submit="ok()">
+                
+                <form method="POST" action="{{URL::route('postAddUserMerchant')}}" accept-charset="UTF-8">
+                    <input type="hidden" name="_token" value="{{ csrf_token()}}">
                     <div class="form-group">
                         <label>Họ tên</label>
-                        <input type="text" class="form-control form-height" placeholder="họ và tên" ng-class="errors.name?'form-error':''" ng-model="user.name">
+                        <input type="text" name="name" class="form-control form-height" placeholder="họ và tên" ng-class="errors.name?'form-error':''" ng-model="user.name">
                         <small class="form-text text-muted" ng-if="errors.name">
                             <i class="fas fa-times-circle"></i>Lỗi 1
                         </small>
                     </div>
                     <div class="form-group">
                         <label>Email</label>
-                        <input type="text" class="form-control form-height" placeholder="Email" ng-class="errors.email?'form-error':''" ng-model="user.email">
+                        <input type="text" name="email" class="form-control form-height" placeholder="Email" ng-class="errors.email?'form-error':''" ng-model="user.email">
                         <small class="form-text text-muted" ng-if="errors.email">
                             <i class="fas fa-times-circle"></i>Lỗi Email
                         </small>
                     </div>
                     <div class="form-group">
                         <label>Số điện thoại</label>
-                        <input type="text" class="form-control form-height" placeholder="Số điện thoại" ng-class="errors.phone?'form-error':''" ng-model="user.phone">
+                        <input type="text" name="phone" class="form-control form-height" placeholder="Số điện thoại" ng-class="errors.phone?'form-error':''" ng-model="user.phone">
                         <small class="form-text text-muted" ng-if="errors.phone">
                             <i class="fas fa-times-circle"></i>Lỗi số điện thoại
                         </small>
                     </div>
                     <div class="form-group">
                         <label>Mật khẩu</label>
-                        <input ng-class="errors.password?'form-error':''" type="password" class="form-control form-height" placeholder="Mật khẩu" ng-model="user.password">
+                        <input name="password" ng-class="errors.password?'form-error':''" type="password" class="form-control form-height" placeholder="Mật khẩu" ng-model="user.password">
                         <small class="form-text text-muted" ng-if="errors.password">
                             <i class="fas fa-times-circle"></i>Lỗi pass
                         </small>
                     </div>
                     <div class="form-group">
                         <label>Nhập lại mật khẩu</label>
-                        <input ng-class="errors.repassword?'form-error':''" type="password" class="form-control form-height" placeholder="Xác nhận mật khẩu" ng-model="user.repassword">
+                        <input name="confirm_password" ng-class="errors.repassword?'form-error':''" type="password" class="form-control form-height" placeholder="Xác nhận mật khẩu" ng-model="user.repassword">
                         <small class="form-text text-muted" ng-if="errors.repassword">
                             <i class="fas fa-times-circle"></i>Lỗi pass
                         </small>
                     </div>
                     <div class="m-rules">
-                        <p>Bằng việc đăng kí, bạn đã đồng ý với Voso về <a href="https://tintuc.voso.vn/quy-che-hoat-dong/">Điều khoản dịch vụ</a> & <a href="https://tintuc.voso.vn/quy-che-hoat-dong/">chính sách bảo mật.</a></p>
+                        <p>Bằng việc đăng kí, bạn đã đồng ý với chúng tôi về <a href="https://tintuc.voso.vn/quy-che-hoat-dong/">Điều khoản dịch vụ</a> & <a href="https://tintuc.voso.vn/quy-che-hoat-dong/">chính sách bảo mật.</a></p>
                     </div>
                     <div class="form-group">
                         <button type="submit" class="btn btn-register">Đăng ký</button>
@@ -944,7 +946,7 @@
                 <div class="clearfix"></div>
             </div><!-- modal-body -->
             <div class="modal-footer" ng-show="user.step == 1">
-                <p>Bạn đã có tài khoản tại voso.vn?</p>
+                <p>Bạn đã có tài khoản ?</p>
                 <button class="btn btn-primary btn-login" ng-click="signin()">Đăng Nhập</button>
             </div>
         </script>
@@ -958,7 +960,7 @@
                 <div class="b__login">
                     <div class="b__title--modal">
                         <h3>Quên mật khẩu</h3>
-                        <p>Vui lòng nhập địa chỉ email bạn đã đăng ký trên voso.vn </p>
+                        <p>Vui lòng nhập địa chỉ email bạn đã đăng ký với chúng tôi</p>
                     </div><!-- end .b__title--modal-->
                     <form ng-submit="ok()">
                         <div class="form-group">

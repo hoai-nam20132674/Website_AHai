@@ -53,7 +53,7 @@
                         @endif
                         <form action="{{URL::route('postLogin')}}" method="POST">
                             {{ csrf_field() }}
-                            <input class="form-control" type="email" name="email" placeholder="E-mail Address" value="{{old('email')}}" required>
+                            <input class="form-control" name="email" placeholder="E-mail Address" value="{{old('email')}}" required>
                             <input class="form-control" type="password" name="password" placeholder="Password" value="{{old('password')}}" required>
                             <div class="form-button">
                                 <button id="submit" type="submit" class="ibtn">Đăng nhập</button> <a href="#">Forget password?</a>

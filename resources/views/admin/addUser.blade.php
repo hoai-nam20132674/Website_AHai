@@ -31,6 +31,20 @@
 
         <div class="clearfix"></div>
         <div id="main">
+            @if( Session::has('flash_message'))
+                <div class="note note-{{ Session::get('flash_level')}}">
+                    <p>{{ Session::get('flash_message')}}</p>
+                </div>
+            @endif
+            @if( count($errors) > 0)
+                
+                @foreach($errors->all() as $error)
+                    <div class="note note-danger">
+                        <p>{{$error}}</p>
+                    </div>
+                @endforeach
+                    
+            @endif
             <form method="POST" action="{{URL::route('postAddUser')}}" accept-charset="UTF-8" id="form_56d0a8f2e8c8165e444275f5c4091d06">
                 <input type="hidden" name="_token" value="{{ csrf_token()}}">
     

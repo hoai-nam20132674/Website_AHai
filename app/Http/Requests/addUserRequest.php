@@ -26,6 +26,7 @@ class addUserRequest extends FormRequest
         return [
             
             'email' => 'unique:users,email',
+            'phone' => 'unique:users,phone',
             'confirm_password'=>'same:password'
             
         ];
@@ -33,6 +34,7 @@ class addUserRequest extends FormRequest
     public function messages(){
         return [
             'email.unique' => 'Email này đã được sử dụng',
+            'phone.unique' => 'Số điện thoại này đã được sử dụng',
             'confirm_password.same'=>'Xác thực mật khẩu không chính xác'
             
         ];

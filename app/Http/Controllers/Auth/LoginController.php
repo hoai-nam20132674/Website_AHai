@@ -48,13 +48,17 @@ class LoginController extends Controller
             'email'=>$request->email,
             'password'=>$request->password
         );
-        if(Auth::attempt($login)){
+        $login2 =array(
+            'phone'=>$request->email,
+            'password'=>$request->password
+        );
+        if(Auth::attempt($login) || Auth::attempt($login2)){
             if(Auth::user()->role ==1 || Auth::user()->role ==2){
             
                 return redirect()->route('home');
             }
             else{
-                return redirect()->route('index');
+                return redirect()->route('index')->with(['flash_level'=>'success','flash_message'=>'Tạo tài và đăng nhập thành công']);
             }
             
         }

@@ -38,9 +38,21 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    public function addMerchant($request){
+        
+        $this->name = $request->name;
+        $this->email = $request->email;
+        $this->phone = $request->phone;
+        $this->role = 4;
+        $this->status = 1;
+        $this->password = Hash::make($request->password);
+        $this->save();
+        return true;
+        
+    }
 
     public function add($request){
-        if(Auth::user()->role == 1){
+        if(Auth::user()->role == 1 || Auth::user()->role == 2){
             $this->name = $request->name;
             $this->email = $request->email;
             $this->phone = $request->phone;

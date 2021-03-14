@@ -7,6 +7,8 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Http\Request;
+use App\Http\Requests\addUserRequest;
+use App\Http\Controllers\Auth\LoginController;
 use App\User;
 use App\BlogCate;
 use App\Blog;
@@ -30,6 +32,19 @@ class Controller extends BaseController
     public function index(){
         
         return view('front-end.index');
+    }
+    public function postAddUserMerchant(addUserRequest $request){
+        $item = new User;
+        $item -> addMerchant($request);
+        if($item-> addMerchant($request)){
+            $login = new LoginController;
+            $login->postLogin($request);
+            return redirect()->route('index')->with(['flash_level'=>'success','flash_message'=>'Tạo tài và đăng nhập thành công']);
+        }
+        else{
+            return redirect()->route('index')->with(['flash_level'=>'danger','flash_message'=>'Tạo tài khoản không thành công']);
+        }
+
     }
 
     public function page($url){

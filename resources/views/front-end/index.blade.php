@@ -605,6 +605,20 @@
         </div>
     </div>
 </div>
+@if( Session::has('flash_message'))
+    <div style="display: none;" class="note note-{{ Session::get('flash_level')}}">
+        <p class="flash_message">{{ Session::get('flash_message')}}</p>
+    </div>
+@endif
+@if( count($errors) > 0)
+                
+    @foreach($errors->all() as $error)
+        <div style="display: none;" class="note note-danger">
+            <p class="error">{{$error}}</p>
+        </div>
+    @endforeach
+        
+@endif
 <div class="b__vosoMall--box_list">
     <div class="b__vosoMall">
         <div class="container">
@@ -4606,6 +4620,7 @@
     <script src="https://voso.vn/jsv2/currency-mask.js?v=1603338118"></script>
     <script src="https://voso.vn/jsv2/toastr.min.js?v=1603338118"></script>
     <script src="https://voso.vn/jsv2/recommendation.js?v=1614350823"></script> <script>
+
         CloudZoom.quickStart();
         $('.nstSlider').nstSlider({
             "rounding": {
@@ -4620,11 +4635,7 @@
             }
         });
     </script>
-    <script>
-        $(document).ready(function () {
-            ;
-        });
-    </script>
+   
     <div id="fb-root"></div>
     <script>
         !function (f, b, e, v, n, t, s) {
@@ -4710,4 +4721,17 @@
             });
         });
     </script>
+    @if( Session::has('flash_message'))
+        <script>
+            var message = $(".flash_message").text();
+            toastr.success(message);
+        </script>
+    @endif
+    @if( count($errors) > 0)
+        <script>
+            $(".error").each(function(){
+                toastr.warning($(this).text());
+            });
+        </script>
+    @endif
 @endsection
