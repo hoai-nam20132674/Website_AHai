@@ -31,11 +31,11 @@ class Menu extends Model
     		$url = $cate->url;
 
     	}
-    	else if($type == 'serviceCategory'){
-    		$cate = ServiceCate::where('id',$type_id)->get()->first();
-    		$url = $cate->url;
+    	// else if($type == 'serviceCategory'){
+    	// 	$cate = ServiceCate::where('id',$type_id)->get()->first();
+    	// 	$url = $cate->url;
 
-    	}
+    	// }
     	else{
     		$url = $request->data_custom_url;
     	}

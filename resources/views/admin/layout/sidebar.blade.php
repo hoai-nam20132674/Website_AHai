@@ -17,21 +17,21 @@
                     </li> -->
                     <li class="nav-item" id="cms-plugins-blog">
                         <a href="" class="nav-link nav-toggle">
-                            <i class="fa fa-edit"></i>
+                            <i class="fa fa-file-contract"></i>
                             <span class="title">Tin tức</span>
                             <span class="arrow "></span>
                         </a>
                         <ul class="sub-menu ">
                             <li class="nav-item  active " id="cms-plugins-blog-post">
                                 <a href="{{URL::route('blogs')}}" class="nav-link">
-                                    <i class=""></i>
-                                    Bài viết
+                                    <i class="fa fa-list-ol"></i>
+                                    Tất cả bài viết
                                 </a>
                             </li>
                             <li class="nav-item " id="cms-plugins-blog-categories">
                                 <a href="{{URL::route('blogCategories')}}" class="nav-link">
-                                    <i class=""></i>
-                                    Danh mục
+                                    <i class="fa fa-list"></i>
+                                    Danh mục bài viết
                                 </a>
                             </li>
                             
@@ -62,15 +62,15 @@
                     
                     <li class="nav-item " id="cms-plugins-ecommerce">
                         <a href="" class="nav-link nav-toggle">
-                            <i class="fa fa-product-hunt"></i>
+                            <i class="fa fa-cube"></i>
                             <span class="title">Sản phẩm</span>
                             <span class="arrow "></span>
                         </a>
                         <ul class="sub-menu  hidden-ul ">
                             <li class="nav-item " id="cms-plugins-ecommerce-customer">
                                 <a href="{{URL::route('products')}}" class="nav-link">
-                                    <i class="fa fa-list-alt"></i>
-                                    Sản phẩm
+                                    <i class="fa fa-cubes"></i>
+                                    Tất cả sản phẩm
                                 </a>
                             </li>
                             <li class="nav-item " id="cms-plugins-product-categories">
@@ -111,6 +111,12 @@
                                     Menu
                                 </a>
                             </li>
+                            <li class="nav-item " id="cms-core-menu">
+                                <a href="{{URL::route('sliders')}}" class="nav-link">
+                                    <i class="fa fa-sliders-h"></i>
+                                    Slider
+                                </a>
+                            </li>
                             
                             <!-- <li class="nav-item " id="cms-core-appearance-custom-css">
                                 <a href="#" class="nav-link">
@@ -139,7 +145,7 @@
                             @endif
                             <li class="nav-item " id="cms-core-system-information">
                                 <a href="{{URL::route('editSystem')}}" class="nav-link">
-                                    <i class="fa fa-cogs"></i>
+                                    <i class="fa fa-cog fa-spin fa-3x fa-fw"></i>
                                     Cài đặt hệ thống
                                 </a>
                             </li>

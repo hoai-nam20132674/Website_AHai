@@ -21,6 +21,8 @@ use App\Http\Requests\editProductRequest;
 use App\Http\Requests\addCardRequest;
 use App\Http\Requests\editCardRequest;
 use App\Http\Requests\ImportExcelRequest;
+use App\Http\Requests\addSliderRequest;
+use App\Http\Requests\editSliderRequest;
 use App\User;
 use App\BlogCate;
 use App\Blog;
@@ -32,6 +34,7 @@ use App\ProductImage;
 use App\System;
 use App\Menu;
 use App\Card;
+use App\Slider;
 use Excel;
 use App\Imports\CardImport;
 use Maatwebsite\Excel\HeadingRowImport;
@@ -368,10 +371,9 @@ class HomeController extends Controller
     // menu 
     public function editMenu(){
         $menus = Menu::where('parent_id',null)->orderBy('stt','ASC')->get();
-        $serviceCategories = ServiceCate::where('display',1)->get();
         $productCategories = ProductCate::where('display',1)->get();
         $blogCategories = BlogCate::where('display',1)->get();
-        return view('admin.menu',['serviceCategories'=>$serviceCategories,'productCategories'=>$productCategories,'blogCategories'=>$blogCategories,'menus'=>$menus]);
+        return view('admin.menu',['productCategories'=>$productCategories,'blogCategories'=>$blogCategories,'menus'=>$menus]);
     }
     public function updateMenu(Request $request){
         $item = new Menu;
@@ -382,8 +384,34 @@ class HomeController extends Controller
         $item->deleteItems($array);
     }
     // end menu
-    public function test(){
-        $items = Card::select()->get();
-        dd($items);
+    //slider
+    public function sliders(Request $request){
+        $sliders = Slider::select()->paginate(10);
+        return view('admin.sliders',['sliders'=>$sliders,'request'=>$request]);
     }
+    public function addSlider(){
+        
+        return view('admin.addSlider');
+    }
+    public function postAddSlider(addSliderRequest $request){
+        $item = new Slider;
+        $item -> add($request);
+        return redirect()->route('sliders')->with(['flash_level'=>'success','flash_message'=>'Thêm slider thành công']); 
+    }
+    public function editSlider($id){
+        
+        $slider = Slider::where('id',$id)->get()->first();
+        return view('admin.editSlider',['slider'=>$slider]);
+    }
+    public function postEditSlider(editSliderRequest $request, $id){
+        $item = new Slider;
+        $item->edit($request,$id);
+        return redirect()->route('editSlider',$id)->with(['flash_level'=>'success','flash_message'=>'Sửa slider thành công']);
+    }
+    public function deleteSlider($id){
+        $item = Slider::where('id',$id)->get()->first();
+        $item->delete();
+        return redirect()->route('sliders')->with(['flash_level'=>'success','flash_message'=>'Xóa slider thành công']); 
+    }
+    // end slider
 }

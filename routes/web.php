@@ -101,6 +101,15 @@ Route::get('admin/card/delete/{id}', 'HomeController@deleteCard')->name('deleteC
 Route::post('admin/card/uploadExcel', 'HomeController@uploadExcel')->name('uploadExcel');
 // end card
 
+// Slider 
+Route::get('admin/sliders', 'HomeController@sliders')->name('sliders');
+Route::get('admin/slider/add', 'HomeController@addSlider')->name('addSlider');
+Route::post('admin/slider/add', 'HomeController@postAddSlider')->name('postAddSlider');
+Route::get('admin/slider/edit/{id}', 'HomeController@editSlider')->name('editSlider');
+Route::post('admin/slider/edit/{id}', 'HomeController@postEditSlider')->name('postEditSlider');
+Route::get('admin/slider/delete/{id}', 'HomeController@deleteSlider')->name('deleteSlider');
+// end sliders
+
 Route::get('admin/test', 'HomeController@test')->name('test');
 
 Route::post('/addContact', 'Controller@addContact')->name('addContact');
