@@ -23,6 +23,8 @@ use App\Http\Requests\editCardRequest;
 use App\Http\Requests\ImportExcelRequest;
 use App\Http\Requests\addSliderRequest;
 use App\Http\Requests\editSliderRequest;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Middleware\CheckAdmin;
 use App\User;
 use App\BlogCate;
 use App\Blog;
@@ -49,6 +51,8 @@ class HomeController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        $this->middleware(CheckAdmin::class);
+        
     }
 
     /**

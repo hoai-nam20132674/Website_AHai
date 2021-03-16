@@ -39,7 +39,7 @@ class Controller extends BaseController
         if($item-> addMerchant($request)){
             $login = new LoginController;
             $login->postLogin($request);
-            return redirect()->route('index')->with(['flash_level'=>'success','flash_message'=>'Tạo tài và đăng nhập thành công']);
+            return redirect()->route('index')->with(['flash_level'=>'success','flash_message'=>'Tạo tài khoản và đăng nhập thành công']);
         }
         else{
             return redirect()->route('index')->with(['flash_level'=>'danger','flash_message'=>'Tạo tài khoản không thành công']);

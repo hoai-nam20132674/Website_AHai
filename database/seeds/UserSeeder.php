@@ -19,6 +19,7 @@ class UserSeeder extends Seeder
         		'password'=>Hash::make('1'),
                 'role' => 1,
                 'phone' => '0848384333',
+                'status' =>1
         	]
         	
         	]
