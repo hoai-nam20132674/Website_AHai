@@ -4546,11 +4546,11 @@
                Hàng tiêu dùng - Thực phẩm </a>
            </div>
            <div class="m-items b__tags--ls b_tags02">
-            <a href="https://voso.vn/dac-san-trai-cay-c225">
-            Đặc sản trái cây </a>
+                <a href="https://voso.vn/dac-san-trai-cay-c225">
+                Đặc sản trái cây </a>
+            </div>
         </div>
     </div>
-</div>
 </div>
 
 

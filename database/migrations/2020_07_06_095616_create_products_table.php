@@ -20,6 +20,7 @@ class CreateProductsTable extends Migration
             $table->string('name');
             $table->string('title');
             $table->longText('content')->nullable();
+            $table->longText('short_description')->nullable();
             $table->longText('seo_description')->nullable();
             $table->string('seo_keyword')->nullable();
             $table->string('url');

@@ -287,6 +287,7 @@ class HomeController extends Controller
     }
     public function addProduct(){
         $categories = ProductCate::select()->get();
+        $users = User::where('role',[3,4])->select()->get();
         return view('admin.addProduct',['categories'=>$categories]);
     }
     public function postAddProduct(addProductRequest $request){
