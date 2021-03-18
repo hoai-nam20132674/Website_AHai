@@ -25,7 +25,11 @@ class editProductRequest extends FormRequest
     {
         return [
             
-            'url' => 'unique:service_cates,url|unique:services,url|unique:blog_cates,url|unique:product_cates,url|unique:blogs,url|unique:products,url,'.$this->id,
+            'url' => 'unique:blog_cates,url|unique:product_cates,url|unique:blogs,url|unique:products,url,'.$this->id,
+            'avata' => 'mimes:jpg,jpeg,png,gif',
+            'avata' => 'max:1000000',
+            'images' => 'mimes:jpg,jpeg,png,gif',
+            'images' => 'max:1000000'
 
             
             
@@ -34,7 +38,11 @@ class editProductRequest extends FormRequest
     public function messages(){
         return [
             
-            'url.unique' => 'Đường dẫn này đã được sử dụng'
+            'url.unique' => 'Đường dẫn này đã được sử dụng',
+            'avata.mimes' => 'Chọn ảnh đại diện sai định dạng, vui lòng chọn ảnh Jpg, Jpeg, Png, Gif',
+            'avata.max' => 'Dung lượng ảnh đại diện quá lớn vui lòng chọn ảnh dung lượng < 1M',
+            'images.mimes' => 'Chọn ảnh chi tiết sai định dạng, vui lòng chọn ảnh Jpg, Jpeg, Png, Gif',
+            'images.max' => 'Dung lượng ảnh chi tiết quá lớn vui lòng chọn ảnh dung lượng < 1M',
             
         ];
     }

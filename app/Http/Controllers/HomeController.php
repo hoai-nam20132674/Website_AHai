@@ -287,18 +287,22 @@ class HomeController extends Controller
     }
     public function addProduct(){
         $categories = ProductCate::select()->get();
-        $users = User::where('role',[3,4])->select()->get();
-        return view('admin.addProduct',['categories'=>$categories]);
+        $users = User::where('role',3)->orWhere('role',4)->select()->get();
+        return view('admin.addProduct',compact('categories','users'));
     }
     public function postAddProduct(addProductRequest $request){
         $item = new Product;
         $item -> add($request);
         return redirect()->route('products')->with(['flash_level'=>'success','flash_message'=>'Thêm sản phẩm thành công']); 
+
+        
+
     }
     public function editProduct($id){
         $categories = ProductCate::select()->get();
+        $users = User::where('role',3)->orWhere('role',4)->select()->get();
         $product = Product::where('id',$id)->get()->first();
-        return view('admin.editProduct',['product'=>$product,'categories'=>$categories]);
+        return view('admin.editProduct',compact('categories','users','product'));
     }
     public function postEditProduct(editProductRequest $request, $id){
         $item = new Product;

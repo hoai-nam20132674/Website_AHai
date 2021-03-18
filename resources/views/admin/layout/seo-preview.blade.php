@@ -47,11 +47,11 @@
         </div>
         <div class="form-group">
             <label for="seo_description" class="control-label">Từ khóa</label>
-            <textarea class="form-control" onchange="seo_preview()" rows="3" id="seo_keyword" placeholder="từ khóa" data-counter="500" name="seo_keyword" required cols="50">{{old('seo_keyword')}}</textarea>
+            <textarea class="form-control" onchange="seo_preview()" rows="3" id="seo_keyword" placeholder="từ khóa" data-counter="500" name="seo_keyword" cols="50">{{old('seo_keyword')}}</textarea>
         </div>
         <div class="form-group">
             <label for="seo_description" class="control-label">Mô tả trang</label>
-            <textarea class="form-control" onchange="seo_preview()" rows="3" id="seo_description" placeholder="Mô tả trang" data-counter="500" required name="seo_description" cols="50">{{old('seo_description')}}</textarea>
+            <textarea class="form-control" onchange="seo_preview()" rows="3" id="seo_description" placeholder="Mô tả trang" data-counter="500" name="seo_description" cols="50">{{old('seo_description')}}</textarea>
         </div>
     </div>
 

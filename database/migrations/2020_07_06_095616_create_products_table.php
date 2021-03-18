@@ -29,7 +29,7 @@ class CreateProductsTable extends Migration
             $table->boolean('best_sale');
             $table->string('avata');
             $table->integer('price');
-            $table->integer('sale');
+            $table->integer('sale')->nullable();
             $table->boolean('status');
             $table->timestamps();
         });

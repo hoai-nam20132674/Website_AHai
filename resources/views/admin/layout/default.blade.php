@@ -304,6 +304,7 @@
             
      });
      function seo_preview(){
+            var name = $('input[name="name"]').val();
             var title = $('input[name="title"]').val();
             var title2 = $('input[name="title"]').attr('value');
             var url = $('input[name="url"]').val();

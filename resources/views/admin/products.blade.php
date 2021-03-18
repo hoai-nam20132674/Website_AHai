@@ -81,6 +81,7 @@
 											<th  title="ID" width="20px" class=" column-key-id">ID</th>
 											<th  title="Hình ảnh" width="70px" class=" column-key-image">Hình ảnh</th>
 											<th  title="Tên" class="text-left column-key-name">Tên</th>
+											<th  title="Tên gian hàng" class="text-left column-key-name-shop">Tên gian hàng</th>
 											<th  title="Categories" width="300px" class="no-sort column-key-updated_at">Categories</th>
 											
 											<th  title="Ngày tạo" width="100px" class=" column-key-created_at">Ngày tạo</th>
@@ -108,9 +109,14 @@
 													</td>
 													<td class="column-key-id sorting_{{$i}}">{{$i}}</td>
 													<td class="  column-key-image">
-														<img src="{{asset('uploads/images/products/avatas/'.$product->avata)}}" width="50" alt="{{$product->name}}">
+														<img src="{{asset('uploads/images/products/avatars/'.$product->avata)}}" width="50" alt="{{$product->name}}">
 													</td>
 													<td class=" text-left column-key-name"><a href="">{{$product->name}}</a></td>
+													@php
+														$shop = App\User::where('id',$product->user_id)->get()->first();
+														
+													@endphp
+													<td class=" text-left column-key-name"><a href="">{{$shop->name}}</a></td>
 													@php
 														$pcids = App\PCID::where('product_id',$product->id)->get();
 														

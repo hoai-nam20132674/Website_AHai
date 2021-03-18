@@ -36,7 +36,7 @@
                                     <div class="form-group"  >
                 
                                         <label for="name" class="control-label required">T&ecirc;n</label>
-                                        <input class="form-control" placeholder="Nhập tên" data-counter="120" value="{{old('name')}}" name="name" type="text" required id="name">
+                                        <input class="form-control" onchange="seo_preview()" placeholder="Nhập tên" data-counter="120" value="{{old('name')}}" name="name" type="text" required id="name">
                                     </div>
                 
                                     
@@ -174,7 +174,7 @@
                             </div>
                             <div class="widget-body">
                                 <div class="ui-select-wrapper">
-                                    <select class="form-control ui-select ui-select" id="status" name="display">
+                                    <select class="form-control ui-select ui-select" id="status" name="status">
                                         <option value="1">Xuất bản</option>
                                         <option value="0">Bản nháp</option>
                                     </select>
@@ -186,21 +186,89 @@
                         </div>
                         <div class="widget meta-boxes">
                             <div class="widget-title">
-                                <h4><label for="status" class="control-label"> Sản phẩm nổi bật</label></h4>
+                                <h4><label for="hot" class="control-label"> Sản phẩm nổi bật</label></h4>
                             </div>
                             <div class="widget-body">
                                 <div class="form-group" >
 
-                                    <label for="is_featured" class="control-label">Nổi bật?</label>
+                                    <label for="hot" class="control-label">Nổi bật?</label>
 
                                     <div class="onoffswitch">
                                         <input type="hidden" name="hot" value="0">
-                                        <input type="checkbox" name="hot" class="onoffswitch-checkbox" id="is_featured" value="1"   class="form-control">
-                                        <label class="onoffswitch-label" for="is_featured">
+                                        <input type="checkbox" name="hot" class="onoffswitch-checkbox" id="hot" value="1"   class="form-control">
+                                        <label class="onoffswitch-label" for="hot">
                                             <span class="onoffswitch-inner"></span>
                                             <span class="onoffswitch-switch"></span>
                                         </label>
                                     </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="widget meta-boxes">
+                            <div class="widget-title">
+                                <h4><label for="best-sale" class="control-label">Best sale</label></h4>
+                            </div>
+                            <div class="widget-body">
+                                <div class="form-group" >
+
+                                    <label for="best-sale" class="control-label">Best sale?</label>
+
+                                    <div class="onoffswitch">
+                                        <input type="hidden" name="best_sale" value="0">
+                                        <input type="checkbox" name="best_sale" class="onoffswitch-checkbox" id="best-sale" value="1"   class="form-control">
+                                        <label class="onoffswitch-label" for="best-sale">
+                                            <span class="onoffswitch-inner"></span>
+                                            <span class="onoffswitch-switch"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="widget meta-boxes">
+                                    <div class="widget-title">
+                                        <h4><label for="price" class="control-label required" aria-required="true">Giá bán</label></h4>
+                                    </div>
+                                    
+                                        <div class="main-form" style="margin-bottom: 0px">
+                                            <div class="form-body">
+                                                <div class="form-group" style="margin-bottom: 0px" >
+                                                    <input class="form-control" required placeholder="Giá bán" value="{{old('price')}}" name="price" type="number" id="price">
+                                                </div>
+
+
+                                                <input type="hidden" name="model" value="">
+
+
+
+                                                <div class="clearfix"></div>
+                                            </div>
+                                        </div>
+                                    
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="widget meta-boxes">
+                                    <div class="widget-title">
+                                        <h4><label for="sale" class="control-label" aria-required="fale">Giá giảm</label></h4>
+                                    </div>
+                                    
+                                        <div class="main-form" style="margin-bottom: 0px">
+                                            <div class="form-body">
+                                                <div class="form-group" style="margin-bottom: 0px" >
+                                                    <input class="form-control" placeholder="Giá giảm" value="{{old('sale')}}" name="sale" type="number" id="sale">
+                                                </div>
+
+
+                                                <input type="hidden" name="model" value="">
+
+
+
+                                                <div class="clearfix"></div>
+                                            </div>
+                                        </div>
+                                    
                                 </div>
                             </div>
                         </div>
@@ -257,13 +325,12 @@
                                 <div class="main-form" style="margin-bottom: 0px">
                                     <div class="form-body">
                                         <div class="form-group" style="margin-bottom: 0px" >
-                                            <input list="user_id" required class="form-control" placeholder="Nhập tên gian hàng" value="{{old('user_id')}}" name="user_id" type="text" id="href">
+                                            
+                                            <input list="user_id" required class="form-control" value="" placeholder="Nhập tên gian hàng" onchange="importDataValue();" value="" name="user_id" type="text" id="href">
                                             <datalist id="user_id">
-                                                <option value="Edge">Edge</option>
-                                                <option value="Firefox">Firefox</option>
-                                                <option value="Chrome">Chrome</option>
-                                                <option value="Opera">Opera</option>
-                                                <option value="Safari">Safari</option>
+                                                @foreach($users as $user)
+                                                    <option data-value="{{$user->phone}}" value="{{$user->name}}">SĐT: {{$user->phone}}</option>
+                                                @endforeach
                                             </datalist>
                                         </div>
 
@@ -337,6 +404,19 @@
 			more_image.append('<div class="col-md-2"><div class="file-upload"><div class="file-upload-content file-upload-content'+i+'" style="position: relative;"><img width="100%" class="file-upload-image file-upload-image'+i+'" src="{{asset("uploads/images/icon-image.gif")}}" alt="your image" /><div class="image-title-wrap image-title-wrap'+i+'" style="position: absolute;top: 0px; right: 0px;"><button type="button" onclick="removeUploadTest('+i+')" class="remove-image">Ảnh chi tiết</button></div><input style="z-index: 100; position: absolute; top: 0px; left: 0px;" class="file-upload-input file-upload-input'+i+'" type="file" name="images[]" onchange="readURLTest(this,'+i+');" accept="image/*" /></div></div></div>');
 			i++;
 		};
+        function importDataValue(){
+            // var value = $("#user_id option[value=" + $('#input[name="user_id"]').val() + "]").attr('data-value');
+            var input_value = $('input[name="user_id"]').val();
+            var e = $('#user_id').children('option[value="'+input_value+'"]').attr('data-value');
+            e = input_value+'-'+e;
+            if(e=='-undefined'){
+                $('input[name="user_id"]').val('');
+            }
+            else{
+                $('input[name="user_id"]').val(e);
+            }
+            console.log(e.length);
+        }
 		
 	</script>
 @endsection
