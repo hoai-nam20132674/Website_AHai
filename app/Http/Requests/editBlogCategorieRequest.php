@@ -25,7 +25,7 @@ class editBlogCategorieRequest extends FormRequest
     {
         return [
             
-            'url' => 'unique:service_cates,url|unique:services,url|unique:blogs,url|unique:product_cates,url|unique:products,url|unique:blog_cates,url,'.$this->id,
+            'url' => 'unique:blogs,url|unique:product_cates,url|unique:products,url|unique:blog_cates,url,'.$this->id,
 
             
             

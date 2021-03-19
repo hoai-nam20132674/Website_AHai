@@ -25,7 +25,7 @@ class addBlogCategorieRequest extends FormRequest
     {
         return [
             
-            'url' => 'unique:service_cates,url|unique:blogs,url|unique:services,url|unique:blog_cates,url|unique:product_cates,url|unique:products,url'
+            'url' => 'unique:blogs,url|unique:blog_cates,url|unique:product_cates,url|unique:products,url'
             
             
         ];

@@ -21,6 +21,9 @@ class ProductCate extends Model
     	// $request->file('avata')->move('public/uploads/images/products/categories/',$file_name);
     	$request->file('avata')->move('uploads/images/products/categories/',$file_name);
     	$this->save();
+        $url = $request->url.'-pc'.$this->id;
+        $this->url = $url;
+        $this->save();
 
     }
     public function edit($request,$id){
@@ -29,7 +32,8 @@ class ProductCate extends Model
     	$cate->title = $request->title;
     	$cate->seo_keyword = $request->seo_keyword;
     	$cate->seo_description = $request->seo_description;
-    	$cate->url = $request->url;
+        $url = $request->url.'-pc'.$cate->id;
+    	$cate->url = $url;
     	$cate->parent_id = $request->parent_id;
     	$cate->display = $request->display;
     	if($request->hasFile('avata')){ 

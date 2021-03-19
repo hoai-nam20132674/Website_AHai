@@ -39,6 +39,9 @@ class Product extends Model
     	// $request->file('avata')->move('public/uploads/images/products/avatars/',$file_name);
     	$request->file('avata')->move('uploads/images/products/avatars/',$file_name);
     	$this->save();
+        $url = $request->url.'-pi'.$this->id;
+        $this->url = $url;
+        $this->save();
 
     	$avata = new ProductImage;
     	$avata->url = $file_name;
@@ -87,7 +90,8 @@ class Product extends Model
         $product->user_id = $user->id;
         $product->seo_keyword = $request->seo_keyword;
         $product->seo_description = $request->seo_description;
-        $product->url = $request->url;
+        $url = $request->url.'-pi'.$product->id;
+        $product->url = $url;
         $product->content = $request->content;
         $product->status = $request->status;
         $product->hot = $request->hot;

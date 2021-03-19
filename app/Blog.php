@@ -21,9 +21,12 @@ class Blog extends Model
     	$this->display = $request->display;
     	$file_name = $request->file('avata')->getClientOriginalName();
 		$this->avata = $file_name;
-    	$request->file('avata')->move('public/uploads/images/blogs/',$file_name);
+    	$request->file('avata')->move('uploads/images/blogs/',$file_name);
     	// $request->file('avata')->move('public/uploads/images/blogs/categories/',$file_name);
     	$this->save();
+        $url = $request->url.'-bi'.$this->id;
+        $this->url = $url;
+        $this->save();
     	$categories = $request->categories;
     	$count = count($categories);
     	for($j=0;$j<$count;$j++){
@@ -40,14 +43,15 @@ class Blog extends Model
         $blog->title = $request->title;
         $blog->seo_keyword = $request->seo_keyword;
         $blog->seo_description = $request->seo_description;
-        $blog->url = $request->url;
+        $url = $request->url.'-bi'.$blog->id;
+        $blog->url = $url;
         $blog->content = $request->content;
         $blog->user_id = Auth::user()->id;
         $blog->display = $request->display;
         if($request->hasFile('avata')){ 
             $file_name = $request->file('avata')->getClientOriginalName();
             $blog->avata = $file_name;
-            $request->file('avata')->move('public/uploads/images/blogs/',$file_name);
+            $request->file('avata')->move('uploads/images/blogs/',$file_name);
             // $request->file('avata')->move('public/uploads/images/blogs/categories/',$file_name);
         }
         $blog->save();

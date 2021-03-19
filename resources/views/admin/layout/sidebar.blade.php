@@ -16,7 +16,7 @@
                         </a>
                     </li> -->
                     <li class="nav-item" id="cms-plugins-blog">
-                        <a href="" class="nav-link nav-toggle">
+                        <a href="#" class="nav-link nav-toggle">
                             <i class="fa fa-file-contract"></i>
                             <span class="title">Tin tức</span>
                             <span class="arrow "></span>
@@ -61,7 +61,7 @@
                     </li> -->
                     
                     <li class="nav-item " id="cms-plugins-ecommerce">
-                        <a href="" class="nav-link nav-toggle">
+                        <a href="#" class="nav-link nav-toggle">
                             <i class="fa fa-cube"></i>
                             <span class="title">Sản phẩm</span>
                             <span class="arrow "></span>
@@ -129,7 +129,7 @@
                     
                 
                     <li class="nav-item " id="cms-core-platform-administration">
-                        <a href="" class="nav-link nav-toggle">
+                        <a href="#" class="nav-link nav-toggle">
                             <i class="fa fa-user-shield"></i>
                             <span class="title">Quản trị hệ thống </span>
                             <span class="arrow "></span>

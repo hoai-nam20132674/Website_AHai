@@ -83,7 +83,7 @@ body-home-page 	    " ng-cloak>
                 </ul>
             </li>
             <li >
-                <a href="">
+                <a href="{{URL::route('merchantIndex')}}">
 
                     <i class="fas fa-store-alt"></i>
                     <span>Gian hàng của tôi</span>

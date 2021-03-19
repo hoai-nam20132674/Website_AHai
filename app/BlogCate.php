@@ -20,9 +20,12 @@ class BlogCate extends Model
     	$this->display = $request->display;
     	$file_name = $request->file('avata')->getClientOriginalName();
 		$this->avata = $file_name;
-    	$request->file('avata')->move('public/uploads/images/blogs/categories/',$file_name);
+    	$request->file('avata')->move('uploads/images/blogs/categories/',$file_name);
     	// $request->file('avata')->move('uploads/images/blogs/categories/',$file_name);
     	$this->save();
+        $url = $request->url.'-bc'.$this->id;
+        $this->url = $url;
+        $this->save();
 
     }
     public function edit($request,$id){
@@ -31,13 +34,14 @@ class BlogCate extends Model
     	$cate->title = $request->title;
     	$cate->seo_keyword = $request->seo_keyword;
     	$cate->seo_description = $request->seo_description;
-    	$cate->url = $request->url;
+        $url = $request->url.'-bc'.$cate->id;
+    	$cate->url = $url;
     	$cate->parent_id = $request->parent_id;
     	$cate->display = $request->display;
     	if($request->hasFile('avata')){ 
             $file_name = $request->file('avata')->getClientOriginalName();
             $cate->avata = $file_name;
-            $request->file('avata')->move('public/uploads/images/blogs/categories/',$file_name);
+            $request->file('avata')->move('uploads/images/blogs/categories/',$file_name);
     		// $request->file('avata')->move('uploads/images/blogs/categories/',$file_name);
         }  	
     	$cate->save();
