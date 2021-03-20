@@ -42,6 +42,10 @@
     <link href="css/gio-hang.css?v=1612447411" rel="stylesheet">
     <link href="css/ban-do-dac-san.css?v=1612447411" rel="stylesheet">
     <link href="css/lich-su-don-hang.css?v=1610977888" rel="stylesheet">
+    <!-- // -->
+   	<script type="text/javascript" src="{{asset('auth/ckeditor/ckeditor.js')}}"></script>
+    <script type="text/javascript" src="{{asset('auth/ckfinder/ckfinder.js')}}"></script>
+    <!-- // -->
     <style type="text/css">
 		.f-items_show-fullname .f-items_name{
 			overflow: hidden;
@@ -96,6 +100,53 @@
 		-ms-transform: all .3s ease-in-out;
 		transform: all .3s ease-in-out;
 	}
+	.file-upload-input {
+		opacity: 0;
+		position: absolute;
+	    margin: 0;
+	    padding: 0;
+	    width: 100%;
+	    height: 100%;
+	    outline: none;
+	    opacity: 0;
+	    cursor: pointer;
+	    z-index: 100;
+	    top: 0px;
+	    left: 0px;
+	}
+	.file-upload-content {
+		position: relative;
+	}
+	.meta-boxes .widget-title {
+	    cursor: move;
+	    overflow: hidden;
+	    height: 35px;
+	    border-bottom: 1px solid #eee;
+	    padding: 0 5px;
+	    background: none;
+	}
+	.meta-boxes .widget-title>h4 {
+	    line-height: 35px;
+	    height: 35px;
+	}
+	.widget {
+	    background: #fff;
+	    clear: both;
+	    margin-bottom: 20px;
+	}
+	.btn:not(.btn-sm):not(.btn-lg) {
+	    line-height: 1.44;
+	}
+	.widget-title>h4 {
+	    float: left;
+	    font-size: 14px;
+	    font-weight: 700;
+	    line-height: 45px;
+	    height: 45px;
+	    overflow: hidden;
+	    margin: 0;
+	}
+
 </style>
 
 
@@ -204,6 +255,20 @@
 								</script> </div>
 							</div>
 							<div class="col-md-9 col-sm-12">
+								@if( Session::has('flash_message'))
+								    <div style="display: none;" class="note note-{{ Session::get('flash_level')}}">
+								        <p class="flash_message">{{ Session::get('flash_message')}}</p>
+								    </div>
+								@endif
+								@if( count($errors) > 0)
+								                
+								    @foreach($errors->all() as $error)
+								        <div style="display: none;" class="note note-danger">
+								            <p class="error">{{$error}}</p>
+								        </div>
+								    @endforeach
+								        
+								@endif
 								<div class="b__seller--right b__seller--ls product-affiliate" ng-controller="create-o2o-campaign" ng-cloak>
 									<!-- <div class="b__seller--box" style="padding: 10px">
 										<div class="form-row">
@@ -237,7 +302,7 @@
 										</div>
 										<div class="filter_form" style="display: none">
 											<div id="main" style="padding-left: 0px;">
-									            <form method="POST" action="{{URL::route('postAddProduct')}}" enctype="multipart/form-data" accept-charset="UTF-8" id="form_1aa3f76ebce588e61c3b18ff42edfa1a">
+									            <form method="POST" action="{{URL::route('merchantPostAddProduct')}}" enctype="multipart/form-data" accept-charset="UTF-8" id="form_1aa3f76ebce588e61c3b18ff42edfa1a">
 									            <input type="hidden" name="_token" value="{{ csrf_token()}}">
 									    
 									                <div class="row">
@@ -246,8 +311,8 @@
 									                                <div class="form-body">
 									                                    <div class="form-group"  >
 									                
-									                                        <label for="name" class="control-label required">T&ecirc;n</label>
-									                                        <input class="form-control" onchange="seo_preview()" placeholder="Nhập tên" data-counter="120" value="{{old('name')}}" name="name" type="text" required id="name">
+									                                        <label for="name" class="control-label required">Tên sản phẩm</label>
+									                                        <input class="form-control" onchange="seo_preview()" placeholder="Nhập tên sản phẩm" data-counter="120" value="{{old('name')}}" name="name" type="text" required id="name">
 									                                    </div>
 									                
 									                                    
@@ -297,7 +362,7 @@
 									            			                <span>Ảnh chi tiết</span>
 									            			            </h4>
 									            			            <button style="float: right;" type="button" onclick="more_image()" value="plus" class="btn btn-info">
-									            			                <i class="fa fa-plus"></i> Thêm ảnh
+									            			                <i class="fa fa-plus"></i> Thêm ảnh chi tiết
 									            			            </button>
 									            			        </div>
 									            			        <div class="widget-body">
@@ -306,7 +371,7 @@
 									            			        		<div class="images-wrapper">
 									            			        			<div class="row" id="more_image">
 									            			        				
-									            			        				<div class="col-md-2">
+									            			        				<div class="col-md-3 col-xs-3" style="width:33%">
 									                                                    <div class="file-upload">   
 									                                                        <div class="file-upload-content file-upload-content1" style="position: relative;">
 									                                                            <img width="100%" class="file-upload-image file-upload-image1" src="{{asset('uploads/images/icon-image.gif')}}" alt="your image" />
@@ -329,7 +394,7 @@
 									            			    </div>
 									                        
 									                        
-									                        <div id="advanced-sortables" class="meta-box-sortables">
+									                        <div id="advanced-sortables" class="meta-box-sortables" style="display: none;">
 									                            <div id="seo_wrap" class="widget meta-boxes">
 									                                <div class="widget-title">
 									                                    <h4><span>Tối ưu hoá bộ máy tìm kiếm (SEO)</span></h4>
@@ -339,44 +404,7 @@
 									                        </div>
 									                    </div>
 									                    <div class="col-md-3 right-sidebar">
-									                        <div class="widget meta-boxes form-actions form-actions-default action-horizontal">
-									                            <div class="widget-title">
-									                                <h4>
-									                                    <span>Xuất bản</span>
-									                                </h4>
-									                            </div>
-									                            <div class="widget-body">
-									                                <div class="btn-set">
-									                                    <button type="submit" name="submit" value="save" class="btn btn-info">
-									                                        <i class="fa fa-save"></i> Lưu
-									                                    </button>
-									                                    &nbsp;
-									                                    <button type="submit" name="submit" value="apply" class="btn btn-success">
-									                                        <i class="fa fa-check-circle"></i> Lưu &amp; chỉnh sửa
-									                                    </button>
-									                                </div>
-									                            </div>
-									                        </div>
-									                        <div id="waypoint"></div>
-									                        <div class="form-actions form-actions-fixed-top hidden">
-									                            <ol class="breadcrumb">
-
-									                                <li class="breadcrumb-item"><a href="{{URL::route('home')}}">Bảng điều khiển</a></li>
-									                                <li class="breadcrumb-item"><a href="{{URL::route('products')}}">sản phẩm</a></li>
-									                                <li class="breadcrumb-item active">Thêm sản phẩm mới</li>
-									                            </ol>
-
-
-									                            <div class="btn-set">
-									                                <button type="submit" name="submit" value="save" class="btn btn-info">
-									                                    <i class="fa fa-save"></i> Lưu
-									                                </button>
-									                                &nbsp;
-									                                <button type="submit" name="submit" value="apply" class="btn btn-success">
-									                                    <i class="fa fa-check-circle"></i> Lưu &amp; chỉnh sửa
-									                                </button>
-									                            </div>
-									                        </div>
+									                        
 
 									                
 									                        <div class="widget meta-boxes">
@@ -389,13 +417,11 @@
 									                                        <option value="1">Xuất bản</option>
 									                                        <option value="0">Bản nháp</option>
 									                                    </select>
-									                                    <svg class="svg-next-icon svg-next-icon-size-16">
-									                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#select-chevron"></use>
-									                                    </svg>
+									                                    
 									                                </div>
 									                            </div>
 									                        </div>
-									                        <div class="widget meta-boxes">
+									                        <div class="widget meta-boxes" style="display: none;">
 									                            <div class="widget-title">
 									                                <h4><label for="hot" class="control-label"> Sản phẩm nổi bật</label></h4>
 									                            </div>
@@ -415,7 +441,7 @@
 									                                </div>
 									                            </div>
 									                        </div>
-									                        <div class="widget meta-boxes">
+									                        <div class="widget meta-boxes" style="display: none;">
 									                            <div class="widget-title">
 									                                <h4><label for="best-sale" class="control-label">Best sale</label></h4>
 									                            </div>
@@ -575,6 +601,19 @@
 									                                
 									                    </div>
 									                </div>
+									                <div class="row">
+									                	<div class="col-md-12">
+									                		<div class="widget-body" >
+								                                <div class="btn-set">
+								                                    <button type="submit" name="submit" value="save" class="btn btn-info" style="width: 100%">
+								                                        <i class="fa fa-save"></i> Đăng sản phẩm
+								                                    </button>
+								                                    &nbsp;
+								                                   
+								                                </div>
+								                            </div>
+									                	</div>
+									                </div>
 
 									            </form>
 									            <script type="text/javascript">
@@ -625,7 +664,7 @@
 												            var url = $('input[name="url"]').val();
 												            var seo_description = $('textarea[name="seo_description"]').val();
 												            if(title2 ==''){
-												                url = convertToSlug(title);
+												                url = convertToSlug(name);
 												                $('input[name="url"]').val(url);
 												            }
 												            else{
@@ -659,20 +698,21 @@
 												</div>
 												<div class="b__seller--gr">
 													<ul>
+														@foreach($products as $item)
 														<li>
 															<div class="card">
-																<a href="/bo-pijama-lua-cao-cap-mau-ca-rot-p3106.html?o2o=535175">
+																<a href="{{$item->url}}">
 																	<div class="b__img--card">
-																		<img class="card-img-top" src="https://image.voso.vn/users/vosoimage/images/b83aeaa86158250eb682f877b2c45f16?t%5B0%5D=maxSize%3Awidth%3D255&t%5B1%5D=compress%3Alevel%3D100&accessToken=3287fe3834190762bb67b4ac81e2d6785c3cb750f2f897f71537578bf558d2fd" />
+																		<img class="card-img-top" src="{{asset('uploads/images/products/avatars/'.$item->avata)}}" />
 																	</div>
 																</a>
 																<div class="card-body">
 																	<div class="product_name" style="overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 2;-webkit-box-orient: vertical;min-height: 42px;">
-																		<a href="/bo-pijama-lua-cao-cap-mau-ca-rot-p3106.html?o2o=535175">BỘ PIJAMA LỤA CAO CẤP - MÀU CÀ RỐT</a>
+																		<a href="/bo-pijama-lua-cao-cap-mau-ca-rot-p3106.html?o2o=535175">{{$item->name}}</a>
 																	</div>
 																	<div class="b__text" style="display: block;">
-																		<h5 style="width: 50%; float: left;" class="card-title">250,000<sup>đ</sup></h5>
-																		<span style="width: 50%; float: right;" class="c-product-item__discount">Đã bán: 3</span>
+																		<h5 style="width: 50%; float: left;" class="card-title">{{$item->sale}}<sup>đ</sup></h5>
+																		<span style="width: 50%; float: right;" class="c-product-item__discount">{{$item->price}} đ</span>
 																	</div>
 																	<div class="b__seller--button" style="display: flex">
 																		<button style="width: 50%; margin-right: 2px" ng-click="shareFacebook('http://voso.vn/bo-pijama-lua-cao-cap-mau-ca-rot-p3106.html?o2o=535175')" class="btn btn-share btn-outline-primary">Chỉnh sửa</button>
@@ -683,222 +723,7 @@
 																</div>
 															</div>
 														</li>
-														<li>
-															<div class="card">
-																<a href="/bo-pijama-lua-cao-cap-mau-ca-rot-p3106.html?o2o=535175">
-																	<div class="b__img--card">
-																		<img class="card-img-top" src="https://image.voso.vn/users/vosoimage/images/b83aeaa86158250eb682f877b2c45f16?t%5B0%5D=maxSize%3Awidth%3D255&t%5B1%5D=compress%3Alevel%3D100&accessToken=3287fe3834190762bb67b4ac81e2d6785c3cb750f2f897f71537578bf558d2fd" />
-																	</div>
-																</a>
-																<div class="card-body">
-																	<div class="product_name" style="overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 2;-webkit-box-orient: vertical;min-height: 42px;">
-																		<a href="/bo-pijama-lua-cao-cap-mau-ca-rot-p3106.html?o2o=535175">BỘ PIJAMA LỤA CAO CẤP - MÀU CÀ RỐT</a>
-																	</div>
-																	<div class="b__text" style="display: block;">
-																		<h5 style="width: 50%; float: left;" class="card-title">250,000<sup>đ</sup></h5>
-																		<span style="width: 50%; float: right;" class="c-product-item__discount">Đã bán: 3</span>
-																	</div>
-																	<div class="b__seller--button" style="display: flex">
-																		<button style="width: 50%; margin-right: 2px" ng-click="shareFacebook('http://voso.vn/bo-pijama-lua-cao-cap-mau-ca-rot-p3106.html?o2o=535175')" class="btn btn-share btn-outline-primary">Chỉnh sửa</button>
-																		<button ng-click="removeProducts(3106, true)" class="btn btn-outline-danger btn-cancel" style="width: 50%">Xóa bỏ</button>
-																	</div>
-																	
-																	
-																</div>
-															</div>
-														</li>
-														<li>
-															<div class="card">
-																<a href="/bo-pijama-lua-cao-cap-mau-ca-rot-p3106.html?o2o=535175">
-																	<div class="b__img--card">
-																		<img class="card-img-top" src="https://image.voso.vn/users/vosoimage/images/b83aeaa86158250eb682f877b2c45f16?t%5B0%5D=maxSize%3Awidth%3D255&t%5B1%5D=compress%3Alevel%3D100&accessToken=3287fe3834190762bb67b4ac81e2d6785c3cb750f2f897f71537578bf558d2fd" />
-																	</div>
-																</a>
-																<div class="card-body">
-																	<div class="product_name" style="overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 2;-webkit-box-orient: vertical;min-height: 42px;">
-																		<a href="/bo-pijama-lua-cao-cap-mau-ca-rot-p3106.html?o2o=535175">BỘ PIJAMA LỤA CAO CẤP - MÀU CÀ RỐT</a>
-																	</div>
-																	<div class="b__text" style="display: block;">
-																		<h5 style="width: 50%; float: left;" class="card-title">250,000<sup>đ</sup></h5>
-																		<span style="width: 50%; float: right;" class="c-product-item__discount">Đã bán: 3</span>
-																	</div>
-																	<div class="b__seller--button" style="display: flex">
-																		<button style="width: 50%; margin-right: 2px" ng-click="shareFacebook('http://voso.vn/bo-pijama-lua-cao-cap-mau-ca-rot-p3106.html?o2o=535175')" class="btn btn-share btn-outline-primary">Chỉnh sửa</button>
-																		<button ng-click="removeProducts(3106, true)" class="btn btn-outline-danger btn-cancel" style="width: 50%">Xóa bỏ</button>
-																	</div>
-																	
-																	
-																</div>
-															</div>
-														</li>
-														<li>
-															<div class="card">
-																<a href="/bo-pijama-lua-cao-cap-mau-ca-rot-p3106.html?o2o=535175">
-																	<div class="b__img--card">
-																		<img class="card-img-top" src="https://image.voso.vn/users/vosoimage/images/b83aeaa86158250eb682f877b2c45f16?t%5B0%5D=maxSize%3Awidth%3D255&t%5B1%5D=compress%3Alevel%3D100&accessToken=3287fe3834190762bb67b4ac81e2d6785c3cb750f2f897f71537578bf558d2fd" />
-																	</div>
-																</a>
-																<div class="card-body">
-																	<div class="product_name" style="overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 2;-webkit-box-orient: vertical;min-height: 42px;">
-																		<a href="/bo-pijama-lua-cao-cap-mau-ca-rot-p3106.html?o2o=535175">BỘ PIJAMA LỤA CAO CẤP - MÀU CÀ RỐT</a>
-																	</div>
-																	<div class="b__text" style="display: block;">
-																		<h5 style="width: 50%; float: left;" class="card-title">250,000<sup>đ</sup></h5>
-																		<span style="width: 50%; float: right;" class="c-product-item__discount">Đã bán: 3</span>
-																	</div>
-																	<div class="b__seller--button" style="display: flex">
-																		<button style="width: 50%; margin-right: 2px" ng-click="shareFacebook('http://voso.vn/bo-pijama-lua-cao-cap-mau-ca-rot-p3106.html?o2o=535175')" class="btn btn-share btn-outline-primary">Chỉnh sửa</button>
-																		<button ng-click="removeProducts(3106, true)" class="btn btn-outline-danger btn-cancel" style="width: 50%">Xóa bỏ</button>
-																	</div>
-																	
-																	
-																</div>
-															</div>
-														</li>
-														<li>
-															<div class="card">
-																<a href="/bo-pijama-lua-cao-cap-mau-ca-rot-p3106.html?o2o=535175">
-																	<div class="b__img--card">
-																		<img class="card-img-top" src="https://image.voso.vn/users/vosoimage/images/b83aeaa86158250eb682f877b2c45f16?t%5B0%5D=maxSize%3Awidth%3D255&t%5B1%5D=compress%3Alevel%3D100&accessToken=3287fe3834190762bb67b4ac81e2d6785c3cb750f2f897f71537578bf558d2fd" />
-																	</div>
-																</a>
-																<div class="card-body">
-																	<div class="product_name" style="overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 2;-webkit-box-orient: vertical;min-height: 42px;">
-																		<a href="/bo-pijama-lua-cao-cap-mau-ca-rot-p3106.html?o2o=535175">BỘ PIJAMA LỤA CAO CẤP - MÀU CÀ RỐT</a>
-																	</div>
-																	<div class="b__text" style="display: block;">
-																		<h5 style="width: 50%; float: left;" class="card-title">250,000<sup>đ</sup></h5>
-																		<span style="width: 50%; float: right;" class="c-product-item__discount">Đã bán: 3</span>
-																	</div>
-																	<div class="b__seller--button" style="display: flex">
-																		<button style="width: 50%; margin-right: 2px" ng-click="shareFacebook('http://voso.vn/bo-pijama-lua-cao-cap-mau-ca-rot-p3106.html?o2o=535175')" class="btn btn-share btn-outline-primary">Chỉnh sửa</button>
-																		<button ng-click="removeProducts(3106, true)" class="btn btn-outline-danger btn-cancel" style="width: 50%">Xóa bỏ</button>
-																	</div>
-																	
-																	
-																</div>
-															</div>
-														</li>
-														<li>
-															<div class="card">
-																<a href="/bo-pijama-lua-cao-cap-mau-ca-rot-p3106.html?o2o=535175">
-																	<div class="b__img--card">
-																		<img class="card-img-top" src="https://image.voso.vn/users/vosoimage/images/b83aeaa86158250eb682f877b2c45f16?t%5B0%5D=maxSize%3Awidth%3D255&t%5B1%5D=compress%3Alevel%3D100&accessToken=3287fe3834190762bb67b4ac81e2d6785c3cb750f2f897f71537578bf558d2fd" />
-																	</div>
-																</a>
-																<div class="card-body">
-																	<div class="product_name" style="overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 2;-webkit-box-orient: vertical;min-height: 42px;">
-																		<a href="/bo-pijama-lua-cao-cap-mau-ca-rot-p3106.html?o2o=535175">BỘ PIJAMA LỤA CAO CẤP - MÀU CÀ RỐT</a>
-																	</div>
-																	<div class="b__text" style="display: block;">
-																		<h5 style="width: 50%; float: left;" class="card-title">250,000<sup>đ</sup></h5>
-																		<span style="width: 50%; float: right;" class="c-product-item__discount">Đã bán: 3</span>
-																	</div>
-																	<div class="b__seller--button" style="display: flex">
-																		<button style="width: 50%; margin-right: 2px" ng-click="shareFacebook('http://voso.vn/bo-pijama-lua-cao-cap-mau-ca-rot-p3106.html?o2o=535175')" class="btn btn-share btn-outline-primary">Chỉnh sửa</button>
-																		<button ng-click="removeProducts(3106, true)" class="btn btn-outline-danger btn-cancel" style="width: 50%">Xóa bỏ</button>
-																	</div>
-																	
-																	
-																</div>
-															</div>
-														</li>
-														<li>
-															<div class="card">
-																<a href="/bo-pijama-lua-cao-cap-mau-ca-rot-p3106.html?o2o=535175">
-																	<div class="b__img--card">
-																		<img class="card-img-top" src="https://image.voso.vn/users/vosoimage/images/b83aeaa86158250eb682f877b2c45f16?t%5B0%5D=maxSize%3Awidth%3D255&t%5B1%5D=compress%3Alevel%3D100&accessToken=3287fe3834190762bb67b4ac81e2d6785c3cb750f2f897f71537578bf558d2fd" />
-																	</div>
-																</a>
-																<div class="card-body">
-																	<div class="product_name" style="overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 2;-webkit-box-orient: vertical;min-height: 42px;">
-																		<a href="/bo-pijama-lua-cao-cap-mau-ca-rot-p3106.html?o2o=535175">BỘ PIJAMA LỤA CAO CẤP - MÀU CÀ RỐT</a>
-																	</div>
-																	<div class="b__text" style="display: block;">
-																		<h5 style="width: 50%; float: left;" class="card-title">250,000<sup>đ</sup></h5>
-																		<span style="width: 50%; float: right;" class="c-product-item__discount">Đã bán: 3</span>
-																	</div>
-																	<div class="b__seller--button" style="display: flex">
-																		<button style="width: 50%; margin-right: 2px" ng-click="shareFacebook('http://voso.vn/bo-pijama-lua-cao-cap-mau-ca-rot-p3106.html?o2o=535175')" class="btn btn-share btn-outline-primary">Chỉnh sửa</button>
-																		<button ng-click="removeProducts(3106, true)" class="btn btn-outline-danger btn-cancel" style="width: 50%">Xóa bỏ</button>
-																	</div>
-																	
-																	
-																</div>
-															</div>
-														</li>
-														<li>
-															<div class="card">
-																<a href="/bo-pijama-lua-cao-cap-mau-ca-rot-p3106.html?o2o=535175">
-																	<div class="b__img--card">
-																		<img class="card-img-top" src="https://image.voso.vn/users/vosoimage/images/b83aeaa86158250eb682f877b2c45f16?t%5B0%5D=maxSize%3Awidth%3D255&t%5B1%5D=compress%3Alevel%3D100&accessToken=3287fe3834190762bb67b4ac81e2d6785c3cb750f2f897f71537578bf558d2fd" />
-																	</div>
-																</a>
-																<div class="card-body">
-																	<div class="product_name" style="overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 2;-webkit-box-orient: vertical;min-height: 42px;">
-																		<a href="/bo-pijama-lua-cao-cap-mau-ca-rot-p3106.html?o2o=535175">BỘ PIJAMA LỤA CAO CẤP - MÀU CÀ RỐT</a>
-																	</div>
-																	<div class="b__text" style="display: block;">
-																		<h5 style="width: 50%; float: left;" class="card-title">250,000<sup>đ</sup></h5>
-																		<span style="width: 50%; float: right;" class="c-product-item__discount">Đã bán: 3</span>
-																	</div>
-																	<div class="b__seller--button" style="display: flex">
-																		<button style="width: 50%; margin-right: 2px" ng-click="shareFacebook('http://voso.vn/bo-pijama-lua-cao-cap-mau-ca-rot-p3106.html?o2o=535175')" class="btn btn-share btn-outline-primary">Chỉnh sửa</button>
-																		<button ng-click="removeProducts(3106, true)" class="btn btn-outline-danger btn-cancel" style="width: 50%">Xóa bỏ</button>
-																	</div>
-																	
-																	
-																</div>
-															</div>
-														</li>
-														<li>
-															<div class="card">
-																<a href="/bo-pijama-lua-cao-cap-mau-ca-rot-p3106.html?o2o=535175">
-																	<div class="b__img--card">
-																		<img class="card-img-top" src="https://image.voso.vn/users/vosoimage/images/b83aeaa86158250eb682f877b2c45f16?t%5B0%5D=maxSize%3Awidth%3D255&t%5B1%5D=compress%3Alevel%3D100&accessToken=3287fe3834190762bb67b4ac81e2d6785c3cb750f2f897f71537578bf558d2fd" />
-																	</div>
-																</a>
-																<div class="card-body">
-																	<div class="product_name" style="overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 2;-webkit-box-orient: vertical;min-height: 42px;">
-																		<a href="/bo-pijama-lua-cao-cap-mau-ca-rot-p3106.html?o2o=535175">BỘ PIJAMA LỤA CAO CẤP - MÀU CÀ RỐT</a>
-																	</div>
-																	<div class="b__text" style="display: block;">
-																		<h5 style="width: 50%; float: left;" class="card-title">250,000<sup>đ</sup></h5>
-																		<span style="width: 50%; float: right;" class="c-product-item__discount">Đã bán: 3</span>
-																	</div>
-																	<div class="b__seller--button" style="display: flex">
-																		<button style="width: 50%; margin-right: 2px" ng-click="shareFacebook('http://voso.vn/bo-pijama-lua-cao-cap-mau-ca-rot-p3106.html?o2o=535175')" class="btn btn-share btn-outline-primary">Chỉnh sửa</button>
-																		<button ng-click="removeProducts(3106, true)" class="btn btn-outline-danger btn-cancel" style="width: 50%">Xóa bỏ</button>
-																	</div>
-																	
-																	
-																</div>
-															</div>
-														</li>
-														<li>
-															<div class="card">
-																<a href="/bo-pijama-lua-cao-cap-mau-ca-rot-p3106.html?o2o=535175">
-																	<div class="b__img--card">
-																		<img class="card-img-top" src="https://image.voso.vn/users/vosoimage/images/b83aeaa86158250eb682f877b2c45f16?t%5B0%5D=maxSize%3Awidth%3D255&t%5B1%5D=compress%3Alevel%3D100&accessToken=3287fe3834190762bb67b4ac81e2d6785c3cb750f2f897f71537578bf558d2fd" />
-																	</div>
-																</a>
-																<div class="card-body">
-																	<div class="product_name" style="overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 2;-webkit-box-orient: vertical;min-height: 42px;">
-																		<a href="/bo-pijama-lua-cao-cap-mau-ca-rot-p3106.html?o2o=535175">BỘ PIJAMA LỤA CAO CẤP - MÀU CÀ RỐT</a>
-																	</div>
-																	<div class="b__text" style="display: block;">
-																		<h5 style="width: 50%; float: left;" class="card-title">250,000<sup>đ</sup></h5>
-																		<span style="width: 50%; float: right;" class="c-product-item__discount">Đã bán: 3</span>
-																	</div>
-																	<div class="b__seller--button" style="display: flex">
-																		<button style="width: 50%; margin-right: 2px" ng-click="shareFacebook('http://voso.vn/bo-pijama-lua-cao-cap-mau-ca-rot-p3106.html?o2o=535175')" class="btn btn-share btn-outline-primary">Chỉnh sửa</button>
-																		<button ng-click="removeProducts(3106, true)" class="btn btn-outline-danger btn-cancel" style="width: 50%">Xóa bỏ</button>
-																	</div>
-																	
-																	
-																</div>
-															</div>
-														</li>
+														@endforeach
 													</ul>
 												</div>
 											</div>
@@ -1152,4 +977,48 @@
     		});
     	})
     </script>
+    <!-- // -->
+    
+    
+    <script src="{{asset('js/admin/upload-image.js')}}"></script>
+    <script type="text/javascript">
+			
+		function more_image(){
+			var i = parseInt($("input[type=file]").length);
+			i=i+1;
+			var more_image = $("#more_image");
+			more_image.append('<div class="col-md-3 col-xs-3" style="width:33%" ><div class="file-upload"><div class="file-upload-content file-upload-content'+i+'" style="position: relative;"><img width="100%" class="file-upload-image file-upload-image'+i+'" src="{{asset("uploads/images/icon-image.gif")}}" alt="your image" /><div class="image-title-wrap image-title-wrap'+i+'" style="position: absolute;top: 0px; right: 0px;"><button type="button" onclick="removeUploadTest('+i+')" class="remove-image">Ảnh chi tiết</button></div><input style="z-index: 100; position: absolute; top: 0px; left: 0px;" class="file-upload-input file-upload-input'+i+'" type="file" name="images[]" onchange="readURLTest(this,'+i+');" accept="image/*" /></div></div></div>');
+			i++;
+		};
+        function importDataValue(){
+            // var value = $("#user_id option[value=" + $('#input[name="user_id"]').val() + "]").attr('data-value');
+            var input_value = $('input[name="user_id"]').val();
+            var e = $('#user_id').children('option[value="'+input_value+'"]').attr('data-value');
+            e = input_value+'-'+e;
+            if(e=='-undefined'){
+                $('input[name="user_id"]').val('');
+            }
+            else{
+                $('input[name="user_id"]').val(e);
+            }
+            console.log(e.length);
+        }
+		
+	</script>
+
+    <!-- // -->
+    @if( Session::has('flash_message'))
+        <script>
+            var message = $(".flash_message").text();
+            toastr.success(message);
+        </script>
+    @endif
+    @if( count($errors) > 0)
+        <script>
+            $(".error").each(function(){
+                toastr.warning($(this).text());
+            });
+        </script>
+    @endif
+    <!-- Ckeditor config -->
 @endsection

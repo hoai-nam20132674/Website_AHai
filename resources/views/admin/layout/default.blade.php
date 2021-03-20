@@ -310,7 +310,7 @@
             var url = $('input[name="url"]').val();
             var seo_description = $('textarea[name="seo_description"]').val();
             if(title2 ==''){
-                url = convertToSlug(title);
+                url = convertToSlug(name);
                 $('input[name="url"]').val(url);
             }
             else{

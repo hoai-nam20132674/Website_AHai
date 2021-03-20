@@ -111,7 +111,11 @@ Route::get('admin/slider/delete/{id}', 'HomeController@deleteSlider')->name('del
 // end sliders
 
 Route::get('admin/test', 'HomeController@test')->name('test');
+
+//Merchant route
 Route::get('/merchant-creator', 'MerchantController@index')->name('merchantIndex');
+Route::post('merchant/product/add', 'MerchantController@postAddProduct')->name('merchantPostAddProduct');
+// end Merchant route
 
 Route::post('/addContact', 'Controller@addContact')->name('addContact');
 Route::get('/lien-he', 'Controller@contact')->name('contact');

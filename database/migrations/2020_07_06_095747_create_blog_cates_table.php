@@ -17,11 +17,11 @@ class CreateBlogCatesTable extends Migration
             $table->id();
             $table->bigInteger('parent_id')->nullable();
             $table->string('name');
-            $table->string('title');
+            $table->string('title')->nullable();
             $table->longText('seo_description');
             $table->string('seo_keyword');
             $table->string('url');
-            $table->string('avata');
+            $table->string('avata')->nullable();
             $table->boolean('display');
             $table->timestamps();
         });

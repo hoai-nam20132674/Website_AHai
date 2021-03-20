@@ -18,13 +18,13 @@ class CreateBlogsTable extends Migration
             $table->string('name');
             $table->bigInteger('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->string('title');
+            $table->string('title')->nullable();
             $table->longText('content');
             $table->longText('seo_description');
             $table->string('seo_keyword');
             $table->string('url');
             $table->boolean('display');
-            $table->string('avata');
+            $table->string('avata')->nullable();
             $table->timestamps();
         });
     }

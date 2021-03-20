@@ -25,7 +25,7 @@
         <hr>
         <div class="form-group">
             <label for="seo_title" class="control-label">Tiêu đề trang</label>
-            <input class="form-control" onchange="seo_preview()" id="seo_title" value="{{old('title')}}" placeholder="Tiêu đề trang" data-counter="120" name="title" type="text" required >
+            <input class="form-control" onchange="seo_preview()" id="seo_title" value="{{old('title')}}" placeholder="Tiêu đề trang" data-counter="120" name="title" type="text" >
         </div>
         <div class="form-group ">
             <div id="edit-slug-box"  class="" >

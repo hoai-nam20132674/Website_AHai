@@ -49,10 +49,10 @@
                                         <script type="text/javascript">
                                           var editor = CKEDITOR.replace('short_description',{
                                            language:'vi',
-                                           filebrowserImageBrowseUrl : '../../auth/ckfinder/ckfinder.html?type=Images',
-                                           filebrowserFlashBrowseUrl : '../../auth/ckfinder/ckfinder.html?type=Flash',
-                                           filebrowserImageUploadUrl : '../../auth/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
-                                           filebrowserFlashUploadUrl : '../../auth/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash',
+                                           filebrowserImageBrowseUrl : '/auth/ckfinder/ckfinder.html?type=Images',
+                                           filebrowserFlashBrowseUrl : '/auth/ckfinder/ckfinder.html?type=Flash',
+                                           filebrowserImageUploadUrl : '/auth/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
+                                           filebrowserFlashUploadUrl : '/auth/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash',
                                            });
                                          </script>﻿
                                     </div>
@@ -64,10 +64,10 @@
                                         <script type="text/javascript">
                                           var editor = CKEDITOR.replace('content',{
                                            language:'vi',
-                                           filebrowserImageBrowseUrl : '../../auth/ckfinder/ckfinder.html?type=Images',
-                                           filebrowserFlashBrowseUrl : '../../auth/ckfinder/ckfinder.html?type=Flash',
-                                           filebrowserImageUploadUrl : '../../auth/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
-                                           filebrowserFlashUploadUrl : '../../auth/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash',
+                                           filebrowserImageBrowseUrl : '/auth/ckfinder/ckfinder.html?type=Images',
+                                           filebrowserFlashBrowseUrl : '/auth/ckfinder/ckfinder.html?type=Flash',
+                                           filebrowserImageUploadUrl : '/auth/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
+                                           filebrowserFlashUploadUrl : '/auth/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash',
                                            });
                                          </script>﻿
                                     </div>

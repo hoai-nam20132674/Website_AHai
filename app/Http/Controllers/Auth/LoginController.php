@@ -58,7 +58,7 @@ class LoginController extends Controller
                 return redirect()->route('home');
             }
             else{
-                return redirect()->route('index')->with(['flash_level'=>'success','flash_message'=>'Tạo tài và đăng nhập thành công']);
+                return redirect()->route('index')->with(['flash_level'=>'success','flash_message'=>'Đăng nhập thành công']);
             }
             
         }

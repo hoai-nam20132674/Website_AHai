@@ -18,7 +18,7 @@ class CreateProductsTable extends Migration
             $table->bigInteger('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('name');
-            $table->string('title');
+            $table->string('title')->nullable();
             $table->longText('content')->nullable();
             $table->longText('short_description')->nullable();
             $table->longText('seo_description')->nullable();
@@ -27,7 +27,7 @@ class CreateProductsTable extends Migration
             $table->boolean('display');
             $table->boolean('hot');
             $table->boolean('best_sale');
-            $table->string('avata');
+            $table->string('avata')->nullable();
             $table->integer('price');
             $table->integer('sale')->nullable();
             $table->boolean('status');
