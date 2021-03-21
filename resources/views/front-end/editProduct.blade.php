@@ -173,7 +173,8 @@
 		<nav class="b__breadcrumb--seller" aria-label="breadcrumb">
 			<ol class="breadcrumb">
 				<li class="breadcrumb-item"><a href="/">Trang chủ</a></li>
-				<li class="breadcrumb-item active" aria-current="page">Gian hàng của tôi</li>
+				<li class="breadcrumb-item"><a href="{{URL::route('merchantIndex')}}">Gian hàng của tôi</a></li>
+				<li class="breadcrumb-item active" aria-current="page">Sửa sản phẩm</li>
 			</ol>
 		</nav>
 		<div class="b__seller--info">
@@ -287,318 +288,413 @@
 									<div class="b__seller--box">
 										<div class="b__title title_filter">
 											<div class="form-row" style="padding-bottom: 10px">
-												<div class="col-md-6 col-sm-12">
-													<h3>Gian hàng của tôi</h3>
-												</div>
-												<div class="col-md-6 col-sm-12 text-right">
-													<div class="button_filter">
-														<button class="btn btn-outline-primary" id="button">
-															Thêm sản phẩm
-															<i class="fa fa-plus"></i>
+												
+												<div class="col-md-12">
+													<div class="button_filter" >
+														<button class="btn btn-outline-primary" id="button" style="width: 100%">
+															Sửa sản phẩm
+															<i class="fa fa-edit"></i>
 														</button>
 													</div>
 												</div>
 											</div>
 										</div>
-										<div class="filter_form" style="display: none">
-											<div id="main" style="padding-left: 0px;">
-									            <form method="POST" action="{{URL::route('merchantPostAddProduct')}}" enctype="multipart/form-data" accept-charset="UTF-8" id="form_1aa3f76ebce588e61c3b18ff42edfa1a">
-									            <input type="hidden" name="_token" value="{{ csrf_token()}}">
-									    
-									                <div class="row">
-									                    <div class="col-md-9">
-									                            <div class="main-form">
-									                                <div class="form-body">
-									                                    <div class="form-group"  >
-									                
-									                                        <label for="name" class="control-label required">Tên sản phẩm</label>
-									                                        <input class="form-control" onchange="seo_preview()" placeholder="Nhập tên sản phẩm" data-counter="120" value="{{old('name')}}" name="name" type="text" required id="name">
-									                                    </div>
-									                
-									                                    
-									                                    <input type="hidden" name="model" value="">
+										
+										
+										<div class="edit-product" id="edit-pi-{{$product->id}}">
+											<div id="main" style="padding-left: 0px">
+												<form method="POST" action="{{URL::route('merchantPostEditProduct',$product->id)}}" enctype="multipart/form-data" accept-charset="UTF-8" id="form_1aa3f76ebce588e61c3b18ff42edfa1a">
+													<input type="hidden" name="_token" value="{{ csrf_token()}}">
 
-									                                    <div class="form-group"  >
-									                
-									                                        <label for="content" class="control-label">Mô tả ngắn</label>
-									                                        <textarea class="form-control" rows="4" placeholder="Nội dung" data-counter="4000" name="short_description" cols="50" id="short_description">{{old('short_description')}}</textarea>
-									                                        <script type="text/javascript">
-									                                          var editor = CKEDITOR.replace('short_description',{
-									                                           language:'vi',
-									                                           filebrowserImageBrowseUrl : '../../auth/ckfinder/ckfinder.html?type=Images',
-									                                           filebrowserFlashBrowseUrl : '../../auth/ckfinder/ckfinder.html?type=Flash',
-									                                           filebrowserImageUploadUrl : '../../auth/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
-									                                           filebrowserFlashUploadUrl : '../../auth/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash',
-									                                           });
-									                                         </script>﻿
-									                                    </div>
-									                
-									                                    <div class="form-group"  >
-									                
-									                                        <label for="content" class="control-label">Giới thiệu</label>
-									                                        <textarea class="form-control" rows="4" placeholder="Nội dung" data-counter="4000" name="content" cols="50" id="content">{{old('content')}}</textarea>
-									                                        <script type="text/javascript">
-									                                          var editor = CKEDITOR.replace('content',{
-									                                           language:'vi',
-									                                           filebrowserImageBrowseUrl : '../../auth/ckfinder/ckfinder.html?type=Images',
-									                                           filebrowserFlashBrowseUrl : '../../auth/ckfinder/ckfinder.html?type=Flash',
-									                                           filebrowserImageUploadUrl : '../../auth/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
-									                                           filebrowserFlashUploadUrl : '../../auth/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash',
-									                                           });
-									                                         </script>﻿
-									                                    </div>
-									                
-									                                    
-									                
-									                                    
-									                
-									                                    <div class="clearfix"></div>
-									                                </div>
-									                            </div>
+													<div class="row">
+														<div class="col-md-9">
+															<div class="main-form">
+																<div class="form-body">
+																	<div class="form-group"  >
 
-									                            <div class="widget meta-boxes">
-									            			        <div class="widget-title">
-									            			            <h4>
-									            			                <span>Ảnh chi tiết</span>
-									            			            </h4>
-									            			            <button style="float: right;" type="button" onclick="more_image()" value="plus" class="btn btn-info">
-									            			                <i class="fa fa-plus"></i> Thêm ảnh chi tiết
-									            			            </button>
-									            			        </div>
-									            			        <div class="widget-body">
-									            			            <div class="product-images-wrapper">
-									            			    
-									            			        		<div class="images-wrapper">
-									            			        			<div class="row" id="more_image">
-									            			        				
-									            			        				<div class="col-md-3 col-xs-3" style="width:33%">
-									                                                    <div class="file-upload">   
-									                                                        <div class="file-upload-content file-upload-content1" style="position: relative;">
-									                                                            <img width="100%" class="file-upload-image file-upload-image1" src="{{asset('uploads/images/icon-image.gif')}}" alt="your image" />
-									                                                            <div class="image-title-wrap image-title-wrap1" style="position: absolute;top: 0px; right: 0px;">
-									                                                                <button type="button" onclick="removeUploadTest(1)" class="remove-image">Ảnh chi tiết</button>
-									                                                            </div>
-									                                                            <input style="z-index: 100; position: absolute; top: 0px; left: 0px;" class="file-upload-input file-upload-input1" type='file' name="images[]" onchange="readURLTest(this,1);" accept="image/*" />
-									                                                        </div>
-									                                                    </div>
+																		<label for="name" class="control-label required">Tên sản phẩm</label>
+																		<input class="form-control" placeholder="Nhập tên" data-counter="120" name="name" type="text" value="{{$product->name}}" required id="name">
+																	</div>
+
+
+																	<input type="hidden" name="model" value="">
+
+																	<div class="form-group"  >
+
+																		<label for="content" class="control-label">Mô tả ngắn</label>
+																		<textarea class="form-control" rows="4" placeholder="Nội dung" data-counter="4000" name="short_description" cols="50" id="short_description">{{$product->short_description}}</textarea>
+																		<script type="text/javascript">
+																			var editor = CKEDITOR.replace('short_description',{
+																				language:'vi',
+																				filebrowserImageBrowseUrl : '/auth/ckfinder/ckfinder.html?type=Images',
+																				filebrowserFlashBrowseUrl : '/auth/ckfinder/ckfinder.html?type=Flash',
+																				filebrowserImageUploadUrl : '/auth/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
+																				filebrowserFlashUploadUrl : '/auth/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash',
+																			});
+																		</script>﻿
+																	</div>
+
+																	<div class="form-group"  >
+
+																		<label for="content" class="control-label">Giới thiệu</label>
+																		<textarea class="form-control" rows="4" placeholder="Nội dung" data-counter="400" name="content" cols="50" id="content">{{$product->content}}</textarea>
+																		<script type="text/javascript">
+																			var editor = CKEDITOR.replace('content',{
+																				language:'vi',
+																				filebrowserImageBrowseUrl : '/auth/ckfinder/ckfinder.html?type=Images',
+																				filebrowserFlashBrowseUrl : '/auth/ckfinder/ckfinder.html?type=Flash',
+																				filebrowserImageUploadUrl : '/auth/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
+																				filebrowserFlashUploadUrl : '/auth/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash',
+																			});
+																		</script>﻿
+																	</div>
+
+
+
+
+
+																	<div class="clearfix"></div>
+																</div>
+															</div>
+
+															<div class="widget meta-boxes">
+																<div class="widget-title">
+																	<h4>
+																		<span>Ảnh chi tiết</span>
+																	</h4>
+																	<button style="float: right;" type="button" onclick="more_image()" value="plus" class="btn btn-info">
+																		<i class="fa fa-plus"></i> Thêm ảnh
+																	</button>
+																</div>
+																<div class="widget-body">
+																	<div class="product-images-wrapper">
+
+																		<div class="images-wrapper">
+																			<div class="row" id="more_image">
+																				@php
+																				$images = App\ProductImage::where('product_id',$product->id)->where('role','=','0')->get();
+																				@endphp
+																				@if(count($images) == 0)
+																				<div class="col-md-3 col-xs-3" style="width: 33%;">
+																					<div class="file-upload">   
+																						<div class="file-upload-content file-upload-content1" style="position: relative;">
+																							<img width="100%" class="file-upload-image file-upload-image1" src="{{asset('uploads/images/icon-image.gif')}}" alt="your image" />
+																							<div class="image-title-wrap image-title-wrap1" style="position: absolute;top: 0px; right: 0px;">
+																								<button type="button" onclick="removeUploadTest(1)" class="remove-image">Ảnh chi tiết</button>
+																							</div>
+																							<input style="z-index: 100; position: absolute; top: 0px; left: 0px;" class="file-upload-input file-upload-input1" type='file' name="images[]" onchange="readURLTest(this,1);" accept="image/*" />
+																						</div>
+																					</div>
+																				</div>
+																				@else
+																				@foreach($images as $image)
+																				<div class="col-md-3 col-xs-3" style="width: 33%;">
+																					<div class="file-upload" style="position: relative;">   
+																						<div class="file-upload-content file-upload-content{{$image->id+20}}" style="position: relative;">
+																							<img width="100%" class="file-upload-image file-upload-image{{$image->id+20}}" src="{{asset('uploads/images/products/details/'.$image->url)}}" alt="your image" />
+																							<div class="image-title-wrap image-title-wrap{{$image->id+20}}" style="position: absolute;top: 0px; right: 0px;">
+
+																							</div>
+																							<input style="z-index: 100; position: absolute; top: 0px; left: 0px;" class="file-upload-input file-upload-input{{$image->id+20}}" type='file' name="{{$image->id}}" onchange="readURLTest(this,{{$image->id+20}});" accept="image/*" />
+																						</div>
+									                                                    <!-- <div class="delete-image" id="177" onclick="return confirmDelete('Bạn có chắc muốn xóa ảnh này không')" style="position: absolute; top: 0px; right: 0px; z-index: 10000;">
+									                                                        <a title="XÓA ẢNH"><i class="fa fa-window-close"></i></a>
+									                                                    </div> -->
+									                                                    <a title="Xóa ảnh" class="btn btn-icon btn-sm btn-danger deleteDialog delete delete-image" data-toggle="tooltip" data-section="{{URL::route('deleteProductImage',$image->id)}}" role="button" data-original-title="Xóa bản ghi" style="position: absolute; top: 0px; right: 0px; z-index: 10000;">
+									                                                    	<i class="fa fa-trash"></i>
+									                                                    </a>
 									                                                </div>
-									            			        				
-									            			        			</div>
+									                                                
+									                                            </div>
+									                                            
+									                                            @endforeach
+									                                            <div class="col-md-3 col-xs-3" style="width: 33%;">
+																					<div class="file-upload">   
+																						<div class="file-upload-content file-upload-content1" style="position: relative;">
+																							<img width="100%" class="file-upload-image file-upload-image1" src="{{asset('uploads/images/icon-image.gif')}}" alt="your image" />
+																							<div class="image-title-wrap image-title-wrap1" style="position: absolute;top: 0px; right: 0px;">
+																								<button type="button" onclick="removeUploadTest(1)" class="remove-image">Ảnh chi tiết</button>
+																							</div>
+																							<input style="z-index: 100; position: absolute; top: 0px; left: 0px;" class="file-upload-input file-upload-input1" type='file' name="images[]" onchange="readURLTest(this,1);" accept="image/*" />
+																						</div>
+																					</div>
+																				</div>
+									                                            @endif
 
-									            			        
-									            			        
-									            			    			</div>
-									            						</div>
+									                                        </div>
 
-									            			        </div>
-									            			    </div>
-									                        
-									                        
-									                        <div id="advanced-sortables" class="meta-box-sortables" style="display: none;">
-									                            <div id="seo_wrap" class="widget meta-boxes">
-									                                <div class="widget-title">
-									                                    <h4><span>Tối ưu hoá bộ máy tìm kiếm (SEO)</span></h4>
+
+
+									                                    </div>
 									                                </div>
-									                                @include('admin.layout.seo-preview')
+
 									                            </div>
+									                        </div>
+
+									                        
+
+									                        <div id="advanced-sortables" class="meta-box-sortables" style="display: none;">
+									                        	<div id="seo_wrap" class="widget meta-boxes">
+									                        		<div class="widget-title">
+									                        			<h4><span>Tối ưu hoá bộ máy tìm kiếm (SEO)</span></h4>
+									                        		</div>
+									                        		@php
+									                        		$it = $product;
+									                        		@endphp
+									                        		@include('admin.layout.seo-preview-edit')
+									                        	</div>
 									                        </div>
 									                    </div>
 									                    <div class="col-md-3 right-sidebar">
-									                        
+									                    	<div class="widget meta-boxes">
+									                    		<div class="widget-title">
+									                    			<h4><label for="status" class="control-label required">Trạng thái</label></h4>
+									                    		</div>
+									                    		<div class="widget-body">
+									                    			<div class="ui-select-wrapper">
+									                    				<select class="form-control ui-select ui-select" id="status" name="status">
+									                    					@if($product->status == 1)
+									                    					<option value="1">Xuất bản</option>
+									                    					<option value="0">Bản nháp</option>
+									                    					@else
+									                    					<option value="0">Bản nháp</option>
+									                    					<option value="1">Xuất bản</option>
 
-									                
-									                        <div class="widget meta-boxes">
-									                            <div class="widget-title">
-									                                <h4><label for="status" class="control-label required">Trạng thái</label></h4>
-									                            </div>
-									                            <div class="widget-body">
-									                                <div class="ui-select-wrapper">
-									                                    <select class="form-control ui-select ui-select" id="status" name="status">
-									                                        <option value="1">Xuất bản</option>
-									                                        <option value="0">Bản nháp</option>
-									                                    </select>
-									                                    
-									                                </div>
-									                            </div>
-									                        </div>
-									                        <div class="widget meta-boxes" style="display: none;">
-									                            <div class="widget-title">
-									                                <h4><label for="hot" class="control-label"> Sản phẩm nổi bật</label></h4>
-									                            </div>
-									                            <div class="widget-body">
-									                                <div class="form-group" >
+									                    					@endif
+									                    				</select>
+									                    				
+									                    			</div>
+									                    		</div>
+									                    	</div>
+									                    	<div class="widget meta-boxes" style="display: none;">
+									                    		<div class="widget-title">
+									                    			<h4><label for="hot" class="control-label"> Sản phẩm nổi bật</label></h4>
+									                    		</div>
+									                    		<div class="widget-body">
+									                    			<div class="form-group" >
 
-									                                    <label for="hot" class="control-label">Nổi bật?</label>
+									                    				<label for="hot" class="control-label">Nổi bật?</label>
 
-									                                    <div class="onoffswitch">
-									                                        <input type="hidden" name="hot" value="0">
-									                                        <input type="checkbox" name="hot" class="onoffswitch-checkbox" id="hot" value="1"   class="form-control">
-									                                        <label class="onoffswitch-label" for="hot">
-									                                            <span class="onoffswitch-inner"></span>
-									                                            <span class="onoffswitch-switch"></span>
-									                                        </label>
-									                                    </div>
-									                                </div>
-									                            </div>
-									                        </div>
-									                        <div class="widget meta-boxes" style="display: none;">
-									                            <div class="widget-title">
-									                                <h4><label for="best-sale" class="control-label">Best sale</label></h4>
-									                            </div>
-									                            <div class="widget-body">
-									                                <div class="form-group" >
+									                    				<div class="onoffswitch">
+									                    					@if($product->hot ==0)
+									                    					<input type="hidden" name="hot" value="0">
+									                    					<input type="checkbox" name="hot" class="onoffswitch-checkbox" id="hot" value="1" class="form-control">
+									                    					<label class="onoffswitch-label" for="hot">
+									                    						<span class="onoffswitch-inner"></span>
+									                    						<span class="onoffswitch-switch"></span>
+									                    					</label>
+									                    					@else
+									                    					<input type="hidden" name="hot" value="0">
+									                    					<input type="checkbox" name="hot" class="onoffswitch-checkbox" id="hot" value="1" checked class="form-control">
+									                    					<label class="onoffswitch-label" for="hot">
+									                    						<span class="onoffswitch-inner"></span>
+									                    						<span class="onoffswitch-switch"></span>
+									                    					</label>
+									                    					@endif
+									                    				</div>
+									                    			</div>
+									                    		</div>
+									                    	</div>
+									                    	<div class="widget meta-boxes" style="display: none;">
+									                    		<div class="widget-title">
+									                    			<h4><label for="best-sale" class="control-label">Best sale</label></h4>
+									                    		</div>
+									                    		<div class="widget-body">
+									                    			<div class="form-group" >
 
-									                                    <label for="best-sale" class="control-label">Best sale?</label>
+									                    				<label for="best-sale" class="control-label">Best sale?</label>
 
-									                                    <div class="onoffswitch">
-									                                        <input type="hidden" name="best_sale" value="0">
-									                                        <input type="checkbox" name="best_sale" class="onoffswitch-checkbox" id="best-sale" value="1"   class="form-control">
-									                                        <label class="onoffswitch-label" for="best-sale">
-									                                            <span class="onoffswitch-inner"></span>
-									                                            <span class="onoffswitch-switch"></span>
-									                                        </label>
-									                                    </div>
-									                                </div>
-									                            </div>
-									                        </div>
-									                        <div class="row">
-									                            <div class="col-md-6">
-									                                <div class="widget meta-boxes">
-									                                    <div class="widget-title">
-									                                        <h4><label for="price" class="control-label required" aria-required="true">Giá bán</label></h4>
-									                                    </div>
-									                                    
-									                                        <div class="main-form" style="margin-bottom: 0px">
-									                                            <div class="form-body">
-									                                                <div class="form-group" style="margin-bottom: 0px" >
-									                                                    <input class="form-control" required placeholder="Giá bán" value="{{old('price')}}" name="price" type="number" id="price">
-									                                                </div>
+									                    				<div class="onoffswitch">
+									                    					@if($product->best_sale ==0)
+									                    					<input type="hidden" name="best_sale" value="0">
+									                    					<input type="checkbox" name="best_sale" class="onoffswitch-checkbox" id="best-sale" value="1"   class="form-control">
+									                    					<label class="onoffswitch-label" for="best-sale">
+									                    						<span class="onoffswitch-inner"></span>
+									                    						<span class="onoffswitch-switch"></span>
+									                    					</label>
+									                    					@else
+									                    					<input type="hidden" name="best_sale" value="0">
+									                    					<input type="checkbox" name="best_sale" class="onoffswitch-checkbox" id="best-sale" value="1" checked class="form-control">
+									                    					<label class="onoffswitch-label" for="best-sale">
+									                    						<span class="onoffswitch-inner"></span>
+									                    						<span class="onoffswitch-switch"></span>
+									                    					</label>
+									                    					@endif
+									                    				</div>
+									                    			</div>
+									                    		</div>
+									                    	</div>
+									                    	<div class="row">
+									                    		<div class="col-md-6">
+									                    			<div class="widget meta-boxes">
+									                    				<div class="widget-title">
+									                    					<h4><label for="price" class="control-label required" aria-required="true">Giá bán</label></h4>
+									                    				</div>
 
-
-									                                                <input type="hidden" name="model" value="">
-
-
-
-									                                                <div class="clearfix"></div>
-									                                            </div>
-									                                        </div>
-									                                    
-									                                </div>
-									                            </div>
-									                            <div class="col-md-6">
-									                                <div class="widget meta-boxes">
-									                                    <div class="widget-title">
-									                                        <h4><label for="sale" class="control-label" aria-required="fale">Giá giảm</label></h4>
-									                                    </div>
-									                                    
-									                                        <div class="main-form" style="margin-bottom: 0px">
-									                                            <div class="form-body">
-									                                                <div class="form-group" style="margin-bottom: 0px" >
-									                                                    <input class="form-control" placeholder="Giá giảm" value="{{old('sale')}}" name="sale" type="number" id="sale">
-									                                                </div>
+									                    				<div class="main-form" style="margin-bottom: 0px">
+									                    					<div class="form-body">
+									                    						<div class="form-group" style="margin-bottom: 0px" >
+									                    							<input class="form-control" required placeholder="Giá bán" value="{{$product->price}}" name="price" type="number" id="price">
+									                    						</div>
 
 
-									                                                <input type="hidden" name="model" value="">
+									                    						<input type="hidden" name="model" value="">
 
 
 
-									                                                <div class="clearfix"></div>
-									                                            </div>
-									                                        </div>
-									                                    
-									                                </div>
-									                            </div>
-									                        </div>
+									                    						<div class="clearfix"></div>
+									                    					</div>
+									                    				</div>
 
-									                        <div class="widget meta-boxes">
-									                            <div class="widget-title">
-									                                <h4><label for="categories[]" class="control-label required" aria-required="true">Danh mục</label></h4>
-									                            </div>
-									                            <div class="widget-body">
-									                                <div class="form-group form-group-no-margin ">
-									                                	<div class="multi-choices-widget list-item-checkbox mCustomScrollbar _mCS_1 mCS-autoHide mCS_no_scrollbar" style="position: relative; overflow: visible; padding: 0px;">
-									                                		<div id="mCSB_1" class="mCustomScrollBox mCS-minimal-dark mCSB_vertical_horizontal mCSB_outside" tabindex="0" style="max-height: 320px;">
-									                                			<div id="mCSB_1_container" class="mCSB_container mCS_y_hidden mCS_no_scrollbar_y mCS_x_hidden mCS_no_scrollbar_x" style="position: relative; top: 0px; left: 0px; width: 343.5px;" dir="ltr">
-									    						                    <ul>
-									    						                    	@foreach($categories as $cate)
-									    							                        <li value="{{$cate->id}}">
-									    									                    <label>
-									    													        <input type="checkbox" value="{{$cate->id}}" name="categories[]">
-									    													        {{$cate->name}}
-									    													    </label>
+									                    			</div>
+									                    		</div>
+									                    		<div class="col-md-6">
+									                    			<div class="widget meta-boxes">
+									                    				<div class="widget-title">
+									                    					<h4><label for="sale" class="control-label" aria-required="fale">Giá giảm</label></h4>
+									                    				</div>
 
-									    							                        </li>
-									    						                        @endforeach
-									    						                       
-									    						                    </ul>
-									    						                </div>
-									    						            </div>
-									    						            <div id="mCSB_1_scrollbar_vertical" class="mCSB_scrollTools mCSB_1_scrollbar mCS-minimal-dark mCSB_scrollTools_vertical" style="display: none;">
-									    						            	<div class="mCSB_draggerContainer">
-									    						            		<div id="mCSB_1_dragger_vertical" class="mCSB_dragger" style="position: absolute; min-height: 50px; height: 0px; top: 0px;" oncontextmenu="return false;">
-									    						            			<div class="mCSB_dragger_bar" style="line-height: 50px;"></div>
-									    						            			<div class="mCSB_draggerRail"></div>
-									    						            		</div>
-									    						            		<div id="mCSB_1_scrollbar_horizontal" class="mCSB_scrollTools mCSB_1_scrollbar mCS-minimal-dark mCSB_scrollTools_horizontal" style="display: none;">
-									    						            			<div class="mCSB_draggerContainer">
-									    						            				<div id="mCSB_1_dragger_horizontal" class="mCSB_dragger" style="position: absolute; min-width: 50px; width: 0px; left: 0px;" oncontextmenu="return false;">
-									    						            					<div class="mCSB_dragger_bar"></div>
-									    						            					<div class="mCSB_draggerRail"></div>
-									    						            				</div>
-									    						            			</div>
-									    						            		</div>
-									    						            	</div>
-									    						            </div>
-									    						        </div>
-									    						    </div>
-
-									                            </div>
-									                        </div>
-									                        <div class="widget meta-boxes" style="display: none;">
-									                            <div class="widget-title">
-									                                <h4><label for="" class="control-label" aria-required="true">Gian hàng đăng sản phẩm</label></h4>
-									                            </div>
-									                            <div class="widget-body">
-									                                <div class="main-form" style="margin-bottom: 0px">
-									                                    <div class="form-body">
-									                                        <div class="form-group" style="margin-bottom: 0px" >
-									                                            
-									                                            <input list="user_id" required class="form-control" value="user_id-{{Auth::user()->phone}}" placeholder="Nhập tên gian hàng" onchange="importDataValue();" name="user_id" type="text" id="href">
-									                                            
-									                                        </div>
+									                    				<div class="main-form" style="margin-bottom: 0px">
+									                    					<div class="form-body">
+									                    						<div class="form-group" style="margin-bottom: 0px" >
+									                    							<input class="form-control" placeholder="Giá giảm" value="{{$product->sale}}" name="sale" type="number" id="sale">
+									                    						</div>
 
 
-									                                        <input type="hidden" name="model" value="">
+									                    						<input type="hidden" name="model" value="">
 
 
 
-									                                        <div class="clearfix"></div>
-									                                    </div>
-									                                </div>
-									                            </div>
-									                        </div>
+									                    						<div class="clearfix"></div>
+									                    					</div>
+									                    				</div>
+
+									                    			</div>
+									                    		</div>
+									                    	</div>
+
+									                    	<div class="widget meta-boxes">
+									                    		<div class="widget-title">
+									                    			<h4><label for="categories[]" class="control-label required" aria-required="true">Danh mục</label></h4>
+									                    		</div>
+									                    		<div class="widget-body">
+									                    			<div class="form-group form-group-no-margin ">
+									                    				<div class="multi-choices-widget list-item-checkbox mCustomScrollbar _mCS_1 mCS-autoHide mCS_no_scrollbar" style="position: relative; overflow: visible; padding: 0px;">
+									                    					<div id="mCSB_1" class="mCustomScrollBox mCS-minimal-dark mCSB_vertical_horizontal mCSB_outside" tabindex="0" style="max-height: 320px;">
+									                    						<div id="mCSB_1_container" class="mCSB_container mCS_y_hidden mCS_no_scrollbar_y mCS_x_hidden mCS_no_scrollbar_x" style="position: relative; top: 0px; left: 0px; width: 343.5px;" dir="ltr">
+									                    							<ul>
+									                    								@php
+									                    								$pcids = App\PCID::where('product_id',$product->id)->get();
+
+									                    								@endphp
+									                    								@foreach($categories as $cate)
+									                    								@php
+									                    								$j=0;
+									                    								@endphp
+									                    								@foreach($pcids as $pcid)
+									                    								@if($cate->id == $pcid->cate_id)
+									                    								@php
+									                    								$j=1;
+									                    								@endphp
+									                    								@break
+									                    								@else
+									                    								@endif
+
+									                    								@endforeach
+
+									                    								@if($j==1)
+									                    								<li value="{{$cate->id}}">
+									                    									<label>
+									                    										<input type="checkbox" checked value="{{$cate->id}}" name="categories[]">
+									                    										{{$cate->name}}
+									                    									</label>
+									                    								</li>
+									                    								@else
+									                    								<li value="{{$cate->id}}">
+									                    									<label>
+									                    										<input type="checkbox" value="{{$cate->id}}" name="categories[]">
+									                    										{{$cate->name}}
+									                    									</label>
+									                    								</li>
+									                    								@endif
+									                    								@endforeach
+
+									                    							</ul>
+									                    						</div>
+									                    					</div>
+									                    					<div id="mCSB_1_scrollbar_vertical" class="mCSB_scrollTools mCSB_1_scrollbar mCS-minimal-dark mCSB_scrollTools_vertical" style="display: none;">
+									                    						<div class="mCSB_draggerContainer">
+									                    							<div id="mCSB_1_dragger_vertical" class="mCSB_dragger" style="position: absolute; min-height: 50px; height: 0px; top: 0px;" oncontextmenu="return false;">
+									                    								<div class="mCSB_dragger_bar" style="line-height: 50px;"></div>
+									                    								<div class="mCSB_draggerRail"></div>
+									                    							</div>
+									                    							<div id="mCSB_1_scrollbar_horizontal" class="mCSB_scrollTools mCSB_1_scrollbar mCS-minimal-dark mCSB_scrollTools_horizontal" style="display: none;">
+									                    								<div class="mCSB_draggerContainer">
+									                    									<div id="mCSB_1_dragger_horizontal" class="mCSB_dragger" style="position: absolute; min-width: 50px; width: 0px; left: 0px;" oncontextmenu="return false;">
+									                    										<div class="mCSB_dragger_bar"></div>
+									                    										<div class="mCSB_draggerRail"></div>
+									                    									</div>
+									                    								</div>
+									                    							</div>
+									                    						</div>
+									                    					</div>
+									                    				</div>
+									                    			</div>
+
+									                    		</div>
+									                    	</div>
+									                    	<div class="widget meta-boxes" style="display: none;">
+									                    		<div class="widget-title">
+									                    			<h4><label for="" class="control-label" aria-required="true">Gian hàng đăng sản phẩm</label></h4>
+									                    		</div>
+									                    		<div class="widget-body">
+									                    			<div class="main-form" style="margin-bottom: 0px">
+									                    				<div class="form-body">
+									                    					<div class="form-group" style="margin-bottom: 0px" >
+									                    						@php
+									                    						$shop = App\User::where('id',$product->user_id)->get()->first();
+
+									                    						@endphp
+									                    						<input list="user_id" required class="form-control" value="user_id-{{Auth::user()->phone}}" placeholder="Nhập tên gian hàng" onchange="importDataValue();" name="user_id" type="text" id="href">
+									                    						
+									                    					</div>
 
 
-									                        <div class="widget meta-boxes">
-									                            <div class="widget-title">
-									                                <h4><label for="image" class="control-label">Ảnh đại diện</label></h4>
-									                            </div>
-									                            <div class="widget-body">
-									                                <div class="image-box" style="border: 1px solid #e2e2e2;">
-									                                    <div class="file-upload">   
-									                                        <div class="file-upload-content file-upload-content100" style="position: relative;">
-									                                            <img width="100%" class="file-upload-image file-upload-image100" src="{{asset('uploads/images/icon-image.gif')}}" alt="your image" />
-									                                            <div class="image-title-wrap image-title-wrap100" style="position: absolute;top: 0px; right: 0px;">
-									                                                <button type="button" onclick="removeUploadTest(100)" class="remove-image">Ảnh đại diện</button>
-									                                            </div>
-									                                            <input required style="z-index: 100; position: absolute; top: 0px; left: 0px;" class="file-upload-input file-upload-input100" type='file' required name="avata" onchange="readURLTest(this,100);" accept="image/*" />
-									                                        </div>
-									                                    </div>
-									        
-									                                </div>
-									                            </div>
-									                        </div>
-									                                
+									                    					<input type="hidden" name="model" value="">
+
+
+
+									                    					<div class="clearfix"></div>
+									                    				</div>
+									                    			</div>
+									                    		</div>
+									                    	</div>
+
+
+									                    	<div class="widget meta-boxes">
+									                    		<div class="widget-title">
+									                    			<h4><label for="image" class="control-label">Ảnh đại diện</label></h4>
+									                    		</div>
+									                    		<div class="widget-body">
+									                    			<div class="image-box" style="border: 1px solid #e2e2e2;">
+									                    				<div class="file-upload">   
+									                    					<div class="file-upload-content file-upload-content0" style="position: relative;">
+									                    						<img width="100%" class="file-upload-image file-upload-image0" src="{{asset('uploads/images/products/avatars/'.$product->avata)}}" alt="your image" />
+									                    						<div class="image-title-wrap image-title-wrap0" style="position: absolute;top: 0px; right: 0px;">
+									                    							<button type="button" onclick="removeUploadTest(0)" class="remove-image">Ảnh đại diện</button>
+									                    						</div>
+									                    						<input style="z-index: 100; position: absolute; top: 0px; left: 0px;" class="file-upload-input file-upload-input0" type='file' name="avata" onchange="readURLTest(this,0);" accept="image/*" />
+									                    					</div>
+									                    				</div>
+
+									                    			</div>
+
+
+
+
+									                    		</div>
+									                    	</div>
+
 									                    </div>
 									                </div>
 									                <div class="row">
@@ -606,7 +702,7 @@
 									                		<div class="widget-body" >
 								                                <div class="btn-set">
 								                                    <button type="submit" name="submit" value="save" class="btn btn-info" style="width: 100%">
-								                                        <i class="fa fa-save"></i> Đăng sản phẩm
+								                                        <i class="fa fa-save"></i> Cập nhật sản phẩm
 								                                    </button>
 								                                    &nbsp;
 								                                   
@@ -681,55 +777,13 @@
 												     }
 												    
 												</script>
-									        
+
 									        </div>
 										</div>
 										
 
-
 									</div>
-											<div class="b__seller--box">
-												<div class="b__title">
-													<div class="form-row">
-														<div class="col-md-9 col-sm-12" style="line-height: 28px;font-weight: 500">
-															<h3>Danh sách sản phẩm</h3>
-														</div>
-														<div class="col-md-3 col-sm-12 text-right">
-															<button class="btn btn-register btn-outline-danger" ng-click="deteleProduct()">Xóa tất cả khỏi gian hàng</button>
-														</div>
-													</div>
-												</div>
-												<div class="b__seller--gr">
-													<ul>
-														@foreach($products as $item)
-														<li>
-															<div class="card">
-																<a href="{{$item->url}}">
-																	<div class="b__img--card">
-																		<img class="card-img-top" src="{{asset('uploads/images/products/avatars/'.$item->avata)}}" />
-																	</div>
-																</a>
-																<div class="card-body">
-																	<div class="product_name" style="overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 2;-webkit-box-orient: vertical;min-height: 42px;">
-																		<a href="/bo-pijama-lua-cao-cap-mau-ca-rot-p3106.html?o2o=535175">{{$item->name}}</a>
-																	</div>
-																	<div class="b__text" style="display: block;">
-																		<h5 style="width: 50%; float: left;" class="card-title">{{$item->sale}}<sup>đ</sup></h5>
-																		<span style="width: 50%; float: right;" class="c-product-item__discount">{{$item->price}} đ</span>
-																	</div>
-																	<div class="b__seller--button" style="display: flex">
-																		<button style="width: 50%; margin-right: 2px" class="btn btn-share btn-outline-primary"><a href="{{URL::route('merchantEditProduct',$item->id)}}">Chỉnh sửa</a></button>
-																		<button ng-click="removeProducts(3106, true)" class="btn btn-outline-danger btn-cancel" style="width: 50%">Xóa bỏ</button>
-																	</div>
-																	
-																	
-																</div>
-															</div>
-														</li>
-														@endforeach
-													</ul>
-												</div>
-											</div>
+											
 										</div>
 									</div>
 								</div>

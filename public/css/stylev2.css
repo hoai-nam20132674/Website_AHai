@@ -1961,7 +1961,7 @@ select:not([multiple])::-ms-expand {
 }
 
 .accordion-2 .accordion-mobile {
-    color: #0056b3
+    color: #ee2624;
 }
 
 .accordion-2 .panel,
@@ -2154,7 +2154,7 @@ select:not([multiple])::-ms-expand {
         -webkit-box-align: center;
         -ms-flex-align: center;
         align-items: center;
-        background: #237df3;
+        background: #ee2624;
         color: #fff
     }
 }
@@ -2922,7 +2922,7 @@ button.close span {
     width: 100px;
     height: 34px;
     border-radius: 4px;
-    background-color: #0871ce;
+    background-color: #ee2624;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -4396,7 +4396,7 @@ button:focus {
 
 @media(max-width:575px) {
     .header-mobile-show .b__box_h3 {
-        display: none
+        /*display: none*/
     }
     .url-all {
         padding-right: 0 !important

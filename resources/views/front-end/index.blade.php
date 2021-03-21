@@ -190,7 +190,7 @@
 		            border-bottom: 0;
 		        }
 		        .section-category-list {
-		            display: none;
+		            /*display: none;*/
 		        }
 		    }
 		</style>
@@ -231,22 +231,13 @@
             <div class="b__banner--pc_info stretch">
                 <div class="b__sldier--left b__slider--ls">
                     <div id="imgSlide" class="owl-carousel">
-                        
+                        @foreach($sliders as $slider)
                         <div class="b__img">
-                            <a class="banner-img progressive replace" data-href="https://media3.scdn.vn/img4/2021/01_15/GyPhS3LugjsSHkgT1tjb.png">
-                                <img class="preview" src="https://media3.scdn.vn/img4/2021/01_15/GyPhS3LugjsSHkgT1tjb.png" />
+                            <a class="banner-img progressive replace" data-href="{{asset('uploads/images/sliders/'.$slider->url)}}">
+                                <img class="preview" src="{{asset('uploads/images/sliders/'.$slider->url)}}" />
                             </a>
                         </div>
-                        <div class="b__img">
-                            <a class="banner-img progressive replace" data-href="https://media3.scdn.vn/img4/2021/03_01/gWx8HOQuCnC2sPkxeLHk.png">
-                                <img class="preview" src="https://media3.scdn.vn/img4/2021/03_01/gWx8HOQuCnC2sPkxeLHk.png" />
-                            </a>
-                        </div>
-                        <div class="b__img">
-                            <a class="banner-img progressive replace" data-href="https://media3.scdn.vn/img4/2021/03_01/uFa7gNSFnX7Ix40bBKRH.png">
-                                <img class="preview" src="https://media3.scdn.vn/img4/2021/03_01/uFa7gNSFnX7Ix40bBKRH.png" />
-                            </a>
-                        </div>
+                        @endforeach
                         
                     </div>
                 </div>
@@ -264,7 +255,8 @@
                 </div>
             </div>
         </div>
-    </div> <style>
+    </div>
+    <style>
         .section-category-list .b__box--title {
             padding: 10px ;
             background-color: #ffffff;
@@ -510,7 +502,7 @@
         </div>
     </div>
 </div>
-<div class="b__icon--gr" style="padding: 5px 0; margin-bottom: 10px">
+<div class="b__icon--gr" style="padding: 5px 0; margin-bottom: 10px; display: none;">
     <div class="container contaiver-v2">
         <div class="title" style="text-align: left !important;padding-left: 10px;">
 

@@ -24,14 +24,16 @@ use App\PCID;
 use App\SCID;
 use App\Contact;
 use App\Card;
+use App\Slider;
 
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
     public function index(){
-        
-        return view('front-end.index');
+
+        $sliders = Slider::where('display',1)->get();
+        return view('front-end.index',compact('sliders'));
     }
     public function postAddUserMerchant(addUserRequest $request){
         $item = new User;

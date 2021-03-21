@@ -103,104 +103,69 @@
     <i class="fas fa-long-arrow-alt-up"></i>
 </div>
 <div class="c-alias__expand c-alias__expand-menu acount-member">
-    <ul class="b__top--right b__top--ls ml-auto">
-        <li class="login_none bdr_none" ng-if="user == null" ng-click="signin()">
-            <a href="#" class="avatar">
-                <img style="width: auto; height: auto" src="https://voso.vn/static/v2/images/avatar_default.png" />
-                <div class="avatar__content">
-                    <label>Đăng nhập</label>
-                    <div style="font-size: 10px">Nhận nhiều ưu đãi hơn</div>
-                </div>
-                <i style="position: absolute;right: 20px; top: 24px" class="fas fa-chevron-right"></i>
-            </a>
-        </li>
-        <li class="login_succses" style="display: block;" ng-if="user != null">
-            <div class="bg_info_customer">
-                <div class="b__change--avatar">
-                    <a href="#">
-                        <img src="https://voso.vn/static/v2/images/icon-user.png" />
-                    </a>
-                </div>
-                <div class="user-info">
-                    <div class="c-admin__text">Nguyễn Hoài Nam</div>
-                    <div class="c-admin__text">namnguyen20132674@gmail.com</div>
-                </div>
-            </div>
-        </li>
-    </ul>
-    <div ng-if="user != null">
-        <div class="accordion-2">
-            <button class="accordion-mobile"><img style="width: 20px;border-radius: 50%;margin-right: 10px;" src="https://voso.vn/static/v2/images/user-login/Quan-ly-dai-ly-ban-hang.png" alt="">Hoa hồng</button>
-            <div class="panel">
-                <ul>
-                    <li class="">
-                        <a href="https://voso.vn/gian-hang-cua-toi.html">Gian hàng của tôi</a>
-                    </li>
-                    <li class="">
-                        <a href="https://voso.vn/tao-chien-dich-ban-hang-lien-ket.html">Danh sách sản phẩm </a>
-                    </li>
-                    <li class="">
-                        <a href="https://voso.vn/danh-sach-don-hang-ban-hang-lien-ket.html">Đơn hàng đã bán được </a>
-                    </li>
-                    <li class="">
-                        <a href="https://voso.vn/chinh-sua-thong-tin-ban-hang-lien-ket.html">Chỉnh sửa thông tin </a>
-                    </li>
-                    <li class="">
-                        <a href="https://voso.vn/user/list-introduce">Đại lý đã giới thiệu thành công</a>
-                    </li>
-                </ul>
-            </div>
-            <button class="accordion-mobile"><img style="width: 20px;border-radius: 50%;margin-right: 10px;" src="https://voso.vn/static/v2/images/user-login/Quan_ly_ca nhan.png" alt="">Tài khoản</button>
-            <div class="panel">
-                <ul>
-                    <li class="">
-                        <a href="https://voso.vn/khach-hang.html">Thông tin cá nhân </a>
-                    </li>
-                    <li class="">
-                        <a href="https://voso.vn/doi-mat-khau.html">Thay đổi mật khẩu </a>
-                    </li>
-                    <li class="">
-                        <a href="https://voso.vn/user/wishlist">Sản phẩm yêu thích</a>
-                    </li>
-
-
-
-                    <li class="">
-                        <a href="https://voso.vn/user/feedback">Góp ý của bạn</a>
-                    </li>
-                </ul>
-            </div>
-            <button class="accordion-mobile"><img style="width: 20px;border-radius: 50%;margin-right: 10px;" src="https://voso.vn/static/v2/images/user-login/Vi-VoSo.png" alt="">Ví Điện Tử</button>
-            <div class="panel">
-                <ul>
-                    <li class="">
-                        <a href="https://voso.vn/wallet/credit">Nạp tiền </a>
-                    </li>
-                    <li class="">
-                        <a href="https://voso.vn/wallet/withdrawal">Rút tiền</a>
-                    </li>
-                    <li class="">
-                        <a href="https://voso.vn/wallet/history">Lịch sử giao dịch</a>
-                    </li>
-                </ul>
-            </div>
-            <button class="accordion-mobile"><img style="width: 20px;border-radius: 50%;margin-right: 10px;" src="https://voso.vn/static/v2/images/user-login/Quan-ly-mua-hang.png" alt="">Quản lý mua hàng</button>
-            <div class="panel">
-                <ul>
-                    <li class="">
-                        <a href="https://voso.vn/lich-su-mua-hang.html">
-                            <span></span>Lịch sử đơn hàng
+    @if(Auth::user())
+        <ul class="b__top--right b__top--ls ml-auto">
+            
+            <li class="login_succses" style="display: block;">
+                <div class="bg_info_customer">
+                    <div class="b__change--avatar">
+                        <a href="#">
+                            <img src="https://voso.vn/static/v2/images/avatar_default.png" />
                         </a>
-                    </li>
-                    <li class="">
-                        <a href="https://voso.vn/user/order-card">
-                            <span></span>Lịch sử thẻ
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            <button class="accordion-mobile">
-                <i style="margin-right: 10px;color: #fff;background: #0971ce;padding: 4px;border-radius: 50%;" class="far fa-bell"></i>Thông báo</button>
+                    </div>
+                    <div class="user-info">
+                        <div class="c-admin__text">{{Auth::user()->name}}</div>
+                        <div class="c-admin__text">{{Auth::user()->email}}</div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <div>
+            <div class="accordion-2">
+                <button class="accordion-mobile"><img style="width: 20px;border-radius: 50%;margin-right: 10px;" src="https://st2.depositphotos.com/5266903/8119/v/950/depositphotos_81198408-stock-illustration-store-flat-red-color-rounded.jpg" alt="">Gian hàng</button>
+                <div class="panel">
+                    <ul>
+                        <li class="">
+                            <a href="https://voso.vn/gian-hang-cua-toi.html">Gian hàng của tôi</a>
+                        </li>
+                        <li class="">
+                            <a href="https://voso.vn/tao-chien-dich-ban-hang-lien-ket.html">Danh sách sản phẩm </a>
+                        </li>
+                        <li class="">
+                            <a href="https://voso.vn/danh-sach-don-hang-ban-hang-lien-ket.html">Đơn hàng đã bán được </a>
+                        </li>
+                        <li class="">
+                            <a href="https://voso.vn/chinh-sua-thong-tin-ban-hang-lien-ket.html">Chỉnh sửa thông tin </a>
+                        </li>
+                        <li class="">
+                            <a href="https://voso.vn/user/list-introduce">Đại lý đã giới thiệu thành công</a>
+                        </li>
+                    </ul>
+                </div>
+                <button class="accordion-mobile"><img style="width: 20px;border-radius: 50%;margin-right: 10px;" src="https://images.assetsdelivery.com/compings_v2/koblizeek/koblizeek1901/koblizeek190100017.jpg" alt="">Tài khoản</button>
+                <div class="panel">
+                    <ul>
+                        <li class="">
+                            <a href="https://voso.vn/khach-hang.html">Thông tin cá nhân </a>
+                        </li>
+                        <li class="">
+                            <a href="https://voso.vn/doi-mat-khau.html">Thay đổi mật khẩu </a>
+                        </li>
+                        <li class="">
+                            <a href="https://voso.vn/user/wishlist">Sản phẩm yêu thích</a>
+                        </li>
+
+
+
+                        <li class="">
+                            <a href="https://voso.vn/user/feedback">Góp ý của bạn</a>
+                        </li>
+                    </ul>
+                </div>
+                
+                
+                <button class="accordion-mobile">
+                <i style="margin-right: 10px;color: #fff;background: #ee2624;padding: 4px;border-radius: 50%;" class="far fa-bell"></i>Thông báo</button>
                 <div class="panel">
                     <ul>
                         <li class="">
@@ -236,13 +201,31 @@
                         }
                     });
                 }
-            </script> <div class="customer_logout">
-                <i class="fas fa-sign-out-alt"></i>
-                <span ng-if="user != null" class="pl-3">
-                    <a href="https://voso.vn/auth/signout">Đăng xuất</a>
+            </script> 
+            <div class="customer_logout">
+                <i class="fas fa-sign-out-alt" style="color: #ee2624;"></i>
+                <span class="pl-3">
+                    <a href="{{URL::route('logout')}}">Đăng xuất</a>
                 </span>
             </div>
         </div>
+    @else
+    
+        <ul class="b__top--right b__top--ls ml-auto">
+            <li class="login_none bdr_none" ng-if="user == null" ng-click="signin()">
+                <a href="#" class="avatar">
+                    <img style="width: auto; height: auto" src="https://voso.vn/static/v2/images/avatar_default.png" />
+                    <div class="avatar__content">
+                        <label>Đăng nhập</label>
+                        <div style="font-size: 10px">Nhận nhiều ưu đãi hơn</div>
+                    </div>
+                    <i style="position: absolute;right: 20px; top: 24px" class="fas fa-chevron-right"></i>
+                </a>
+            </li>
+            
+        </ul>
+
+    @endif
     </div>
     <div class="tabbar">
         <nav class="h2-tabbar" id="lzd-h2-tabbar">

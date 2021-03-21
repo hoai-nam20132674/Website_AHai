@@ -34,7 +34,7 @@ label {
 }
 
 .bg_info_customer {
-    background: #0056b3;
+    background: #ee2624;
     color: #fff;
     text-align: center;
     line-height: 1.5;
@@ -58,7 +58,7 @@ label {
 }
 
 .customer_logout a {
-    color: #0056b3
+    color: #ee2624;
 }
 
 .bg_info_customer .user-info {
@@ -2004,7 +2004,7 @@ span.promotion {
     }
     .back-page button {
         width: 100%;
-        background: #0871ce;
+        background: #ee2624;
         margin: 0 !important;
         left: 0 !important;
         padding: 8px !important

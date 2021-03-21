@@ -114,6 +114,8 @@ Route::get('admin/test', 'HomeController@test')->name('test');
 
 //Merchant route
 Route::get('/merchant-creator', 'MerchantController@index')->name('merchantIndex');
+Route::get('/merchant/product/edit/{id}', 'MerchantController@editProduct')->name('merchantEditProduct');
+Route::post('merchant/product/edit/{id}', 'MerchantController@postEditProduct')->name('merchantPostEditProduct');
 Route::post('merchant/product/add', 'MerchantController@postAddProduct')->name('merchantPostAddProduct');
 // end Merchant route
 
