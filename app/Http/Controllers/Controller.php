@@ -37,7 +37,8 @@ class Controller extends BaseController
         $best_sale = Product::where('display',1)->where('best_sale',1)->orderBy('updated_at','DESC')->get();
         $product_new = Product::where('display',1)->orderBy('id','DESC')->get();
         $product_hot = Product::where('display',1)->where('hot',1)->orderBy('updated_at','DESC')->get();
-        return view('front-end.index',compact('sliders','categories','menus','best_sale','product_new','product_hot'));
+        $products = Product::where('display',1)->orderBy('id','DESC')->get();
+        return view('front-end.index',compact('sliders','categories','menus','best_sale','product_new','product_hot','products'));
 
 
 
@@ -57,50 +58,40 @@ class Controller extends BaseController
     }
 
     public function page($url){
-    	$blog_cate = BlogCate::where('url',$url)->get();
-    	$service_cate = ServiceCate::where('url',$url)->get();
-    	$product_cate = ProductCate::where('url',$url)->get();
-    	$blog = Blog::where('url',$url)->get();
-    	$service = Service::where('url',$url)->get();
-    	$product = Product::where('url',$url)->get();
-    	$system = System::where('id',1)->get()->first();
 
-    	if(!$blog_cate->isEmpty()){
+        $strrpos = strrpos($url,"-");
+        $url = substr($url,$strrpos+1);
+        $key = substr($url,0,2);
+        $id = substr($url,2);
+        
+        $categories = ProductCate::where('display',1)->whereNull('parent_id')->get();
+        $menus = Menu::whereNull('parent_id')->orderBy('stt','ASC')->get();
+
+    	if($key=='bc'){
     		$blog_cate = $blog_cate->first();
     		$bcids = BCID::where('cate_id',$blog_cate->id)->get();
     		$bids = $this->arrayColumn($bcids,$col='blog_id');
     		$blogs = Blog::whereIn('id',$bids)->get();
     		return view('front-end.blogs',['system'=>$system,'blog_cate'=>$blog_cate,'blogs'=>$blogs]);
     	}
-        else if(!$service_cate->isEmpty()){
-            $service_cate = $service_cate->first();
-            $scids = SCID::where('cate_id',$service_cate->id)->get();
-            $sids = $this->arrayColumn($scids,$col='service_id');
-            $services = Service::whereIn('id',$sids)->get();
-            return view('front-end.services',['system'=>$system,'service_cate'=>$service_cate,'services'=>$services]);
-        }
-        else if(!$product_cate->isEmpty()){
-            $product_cate = $product_cate->first();
+        
+        else if($key=='pc'){
+            $product_cate = ProductCate::where('id',$id)->get()->first();
             $pcids = PCID::where('cate_id',$product_cate->id)->get();
             $pids = $this->arrayColumn($pcids,$col='product_id');
             $products = Product::whereIn('id',$pids)->get();
-            return view('front-end.products',['system'=>$system,'product_cate'=>$product_cate,'products'=>$products]);
+            return view('front-end.products',compact('categories','menus','products','product_cate'));
         }
-        else if(!$blog->isEmpty()){
-            $blog = $blog->first();
-            $blogs = Blog::where('id','!=',$blog->id)->take(6)->get();
-            return view('front-end.blog',['system'=>$system,'blogs'=>$blogs,'blog'=>$blog]);
-        }
-        else if(!$service->isEmpty()){
-            $service = $service->first();
-            $services = Service::where('id','!=',$service->id)->take(6)->get();
-            return view('front-end.service',['system'=>$system,'services'=>$services,'service'=>$service]);
-        }
-        else if(!$product->isEmpty()){
-            $product = $product->first();
-            $products = Product::where('id','!=',$product->id)->take(6)->get();
+        // else if($key=='bi'){
+        //     $blog = Blog::where('id',$id)->get()->first();
+        //     $blogs = Blog::where('id','!=',$blog->id)->take(6)->get();
+        //     return view('front-end.blog',['system'=>$system,'blogs'=>$blogs,'blog'=>$blog]);
+        // }
+        
+        else if($key=='pi'){
+            $product = Product::where('id',$id)->get()->first();
             $images = ProductImage::where('product_id',$product->id)->where('role',0)->get();
-            return view('front-end.product',['system'=>$system,'products'=>$products,'product'=>$product,'images'=>$images]);
+            return view('front-end.product',compact('categories','menus','product','images'));
         }
         else {
             return view('front-end.error',['system'=>$system]);

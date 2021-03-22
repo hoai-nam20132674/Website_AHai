@@ -23,7 +23,7 @@
 	    <meta property="og:image" content="" />
 	    <meta property="og:locale" content="vi_VN" />
 	    <link rel="canonical" href="" /> 
-	    <title>Giày Sneaker Nam Thể Thao - P101533 </title>
+	    <title>{{$product->title}}</title>
 
 	    <link href="css/bootstrap.css?v=1568371445" rel="stylesheet">
 	    <link href="css/font-awesome.min.css?v=1566957476" rel="stylesheet">
@@ -208,13 +208,8 @@
                 <nav class="b__breadcrumb" aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="/">Trang chủ</a></li>
-                        <li class="breadcrumb-item">
-                            <a href="/thoi-trang-nam-c94">Thời trang Nam</a>
-                        </li>
-                        <li class="breadcrumb-item">
-                            <a href="/giay-nam-c96">Giày Nam</a>
-                        </li>
-                        <li class="breadcrumb-item active" aria-current="page">Giày Sneaker Nam Thể Thao</li>
+                        
+                        <li class="breadcrumb-item active" aria-current="page">{{$product->name}}</li>
                     </ol>
                 </nav>
                 <div class="product-detail-content">
@@ -225,7 +220,7 @@
                                     <div class="b-table">
                                         <div class="b-table__row">
                                             <div class="b-table__cell">
-                                                <img id="myCloudZoom" class="cloudzoom" src="https://image.voso.vn/users/vosoimage/images/47ab29ffff6fb2024a887ee17f656adc?t%5B0%5D=compress%3Alevel%3D100&accessToken=95e63af9fee4f9ca62ec259bf971154cdeb1875a5981d3a044eb19385bfdde37" data-cloudzoom="zoomSizeMode: 'image',zoomPosition:'inside',zoomOffsetX:0, zoomImage: 'https://image.voso.vn/users/vosoimage/images/47ab29ffff6fb2024a887ee17f656adc?t%5B0%5D=compress%3Alevel%3D100&aaccessToken=95e63af9fee4f9ca62ec259bf971154cdeb1875a5981d3a044eb19385bfdde37'" alt="Giày Sneaker Nam Thể Thao" />
+                                                <img id="myCloudZoom" class="cloudzoom" src="{{asset('uploads/images/products/avatars/'.$product->avata)}}" data-cloudzoom="zoomSizeMode: 'image',zoomPosition:'inside',zoomOffsetX:0, zoomImage: '{{asset('uploads/images/products/avatars/'.$product->avata)}}'" alt="{{$product->name}}" />
                                             </div>
                                         </div>
                                     </div>
@@ -237,31 +232,18 @@
                                         <span>Hết hàng</span>
                                     </div>
                                     <div id="product-thumb-id" class="owl-carousel">
-                                        <div class="c-thumb-item is-active">
-                                            <a class="cloudzoom-gallery" rel="gallery-detail" href="https://image.voso.vn/users/vosoimage/images/47ab29ffff6fb2024a887ee17f656adc?t%5B0%5D=compress%3Alevel%3D100&accessToken=95e63af9fee4f9ca62ec259bf971154cdeb1875a5981d3a044eb19385bfdde37" data-cloudzoom="useZoom:'.cloudzoom', image:'https://image.voso.vn/users/vosoimage/images/47ab29ffff6fb2024a887ee17f656adc?t%5B0%5D=compress%3Alevel%3D100&accessToken=95e63af9fee4f9ca62ec259bf971154cdeb1875a5981d3a044eb19385bfdde37'">
-                                                <img src="https://image.voso.vn/users/vosoimage/images/47ab29ffff6fb2024a887ee17f656adc?t%5B0%5D=compress%3Alevel%3D100&accessToken=95e63af9fee4f9ca62ec259bf971154cdeb1875a5981d3a044eb19385bfdde37" alt="Giày Sneaker Nam Thể Thao" />
+                                    	<div class="c-thumb-item is-active">
+                                            <a class="cloudzoom-gallery" rel="gallery-detail" href="{{asset('uploads/images/products/avatars/'.$product->avata)}}" data-cloudzoom="useZoom:'.cloudzoom', image:'{{asset('uploads/images/products/avatars/'.$product->avata)}}'">
+                                                <img src="{{asset('uploads/images/products/details/'.$product->avata)}}" alt="{{$product->name}}" />
                                             </a>
                                         </div>
+                                    	@foreach($images as $image)
                                         <div class="c-thumb-item">
-                                            <a class="cloudzoom-gallery gallery-group" rel="gallery-detail" href="https://image.voso.vn/users/vosoimage/images/a68c07ae63b520d43ca71e0860e3a7a5?t%5B0%5D=compress%3Alevel%3D100&accessToken=1896f974c3aff0b58a921d41f05e4ce164d2527f9bb97a0d9e3d05ec9513fe13" data-cloudzoom="useZoom:'.cloudzoom', image:'https://image.voso.vn/users/vosoimage/images/a68c07ae63b520d43ca71e0860e3a7a5?t%5B0%5D=compress%3Alevel%3D100&accessToken=1896f974c3aff0b58a921d41f05e4ce164d2527f9bb97a0d9e3d05ec9513fe13'">
-                                                <img src="https://image.voso.vn/users/vosoimage/images/a68c07ae63b520d43ca71e0860e3a7a5?t%5B0%5D=compress%3Alevel%3D100&accessToken=1896f974c3aff0b58a921d41f05e4ce164d2527f9bb97a0d9e3d05ec9513fe13" alt="Giày Sneaker Nam Thể Thao" />
+                                            <a class="cloudzoom-gallery" rel="gallery-detail" href="{{asset('uploads/images/products/details/'.$image->url)}}" data-cloudzoom="useZoom:'.cloudzoom', image:'{{asset('uploads/images/products/details/'.$image->url)}}'">
+                                                <img src="{{asset('uploads/images/products/details/'.$image->url)}}" alt="{{$product->name}}" />
                                             </a>
                                         </div>
-                                        <div class="c-thumb-item">
-                                            <a class="cloudzoom-gallery gallery-group" rel="gallery-detail" href="https://image.voso.vn/users/vosoimage/images/3bf490b851efe55b05a0b5f558d6d9a8?t%5B0%5D=compress%3Alevel%3D100&accessToken=f13a5568da82e22e6ec717769ccfda902190036d013aed0a067dcbbdc54c0f8d" data-cloudzoom="useZoom:'.cloudzoom', image:'https://image.voso.vn/users/vosoimage/images/3bf490b851efe55b05a0b5f558d6d9a8?t%5B0%5D=compress%3Alevel%3D100&accessToken=f13a5568da82e22e6ec717769ccfda902190036d013aed0a067dcbbdc54c0f8d'">
-                                                <img src="https://image.voso.vn/users/vosoimage/images/3bf490b851efe55b05a0b5f558d6d9a8?t%5B0%5D=compress%3Alevel%3D100&accessToken=f13a5568da82e22e6ec717769ccfda902190036d013aed0a067dcbbdc54c0f8d" alt="Giày Sneaker Nam Thể Thao" />
-                                            </a>
-                                        </div>
-                                        <div class="c-thumb-item">
-                                            <a class="cloudzoom-gallery gallery-group" rel="gallery-detail" href="https://image.voso.vn/users/vosoimage/images/2accad2151e364d4c430a9876c0b8f7e?t%5B0%5D=compress%3Alevel%3D100&accessToken=6cc6624832159007c493b0fdfc36ddd74d3e767c1296e3471b5d9e5e173f529c" data-cloudzoom="useZoom:'.cloudzoom', image:'https://image.voso.vn/users/vosoimage/images/2accad2151e364d4c430a9876c0b8f7e?t%5B0%5D=compress%3Alevel%3D100&accessToken=6cc6624832159007c493b0fdfc36ddd74d3e767c1296e3471b5d9e5e173f529c'">
-                                                <img src="https://image.voso.vn/users/vosoimage/images/2accad2151e364d4c430a9876c0b8f7e?t%5B0%5D=compress%3Alevel%3D100&accessToken=6cc6624832159007c493b0fdfc36ddd74d3e767c1296e3471b5d9e5e173f529c" alt="Giày Sneaker Nam Thể Thao" />
-                                            </a>
-                                        </div>
-                                        <div class="c-thumb-item">
-                                            <a class="cloudzoom-gallery gallery-group" rel="gallery-detail" href="https://image.voso.vn/users/vosoimage/images/c099ae95f8839b9f97c53e83c9b358f8?t%5B0%5D=compress%3Alevel%3D100&accessToken=6bd1d39251aff27eba60539ab68db45e1010712bcec9468e39802747a1ab30c9" data-cloudzoom="useZoom:'.cloudzoom', image:'https://image.voso.vn/users/vosoimage/images/c099ae95f8839b9f97c53e83c9b358f8?t%5B0%5D=compress%3Alevel%3D100&accessToken=6bd1d39251aff27eba60539ab68db45e1010712bcec9468e39802747a1ab30c9'">
-                                                <img src="https://image.voso.vn/users/vosoimage/images/c099ae95f8839b9f97c53e83c9b358f8?t%5B0%5D=compress%3Alevel%3D100&accessToken=6bd1d39251aff27eba60539ab68db45e1010712bcec9468e39802747a1ab30c9" alt="Giày Sneaker Nam Thể Thao" />
-                                            </a>
-                                        </div>
+                                        @endforeach
                                     </div>
                                     <span class="position-slider-mobile">
                                         <span id="positon-slider">1</span>/<span>5</span>
@@ -313,7 +295,7 @@
                                 <div class="c-product-head">
                                     <div class="c-product__row">
                                         <h1 class="c-product-head__title">
-                                            <span>Giày Sneaker Nam Thể Thao</span>
+                                            <span>{{$product->name}}</span>
                                             <br>
                                         </h1>
                                     </div>
@@ -371,31 +353,32 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        
+                                        <div class="box-program-info">
+                                        	<div class="b__price ng-scope">
+                                        		<div class="c-product-main__text">
+                                        			@if($product->sale=='')
+                                        			<span class="c-product-main__oldprice ng-binding">{{$product->price}}<sup>đ</sup></span>
+                                        			@else
+                                        			<span class="c-product-main__oldprice ng-binding">{{$product->sale}}<sup>đ</sup></span>
+                                        			<span class="c-product-main__price ng-scope"><span class="ng-binding">{{$product->price}}</span><sup>đ</sup></span>
+                                        			@php
+									                    $percent = $product->sale/$product->price;
+									                    $percent = floor($percent*100);
+									                @endphp
+                                        			<span class="c-tag-sale ng-binding ng-scope">Giảm {{$percent}}%</span>
+                                        			@endif
+                                        		</div>
 
-                                        <div class="c-product__ls" ng-show="product.limitShippingArea">
-                                            <i style="font-style: italic;">Mặt hàng này chỉ có thể giao tới một số khu vực nhất định. Vui lòng kiểm tra trước khi đặt hàng.</i>
+                                        	</div>
                                         </div>
+
+                                        
                                         
                                         
                                     </div>
                                 </div>
                                 <div class="product_p">
-                                    <div class="p-left">
-
-                                        <p><i class="fas fa-check-square"></i>Giao hàng nhanh 24/7</p>
-                                    </div>
-                                    <div class="p-right">
-                                        <p><i class="fas fa-check-square"></i>Trả hàng 2-3 ngày</p>
-
-                                        
-                                    </div>
-                                    <div class="p-left">
-                                        <p><i class="fas fa-check-square"></i>Miễn phí vận chuyển</p>
-                                    </div>
-                                    <div class="p-right">
-                                    </div>
-                                    <img src="https://media3.scdn.vn/img4/2021/03_01/gWx8HOQuCnC2sPkxeLHk.png" width="100%">
+                                    {!!$product->short_description!!}
                                 </div>
 
                                 
