@@ -1724,7 +1724,7 @@ select:not([multiple])::-ms-expand {
         background-color: #fff
     }
     .b-header .b__header--bottom .b__header--menu .b__menu--right ul li a {
-        color: #0a64b4 !important
+        color: #ee2624 !important
     }
     .b-header .b__header--bottom .b__header--menu .b__menu--inner {
         display: -webkit-box;
@@ -1823,7 +1823,7 @@ select:not([multiple])::-ms-expand {
     .b-header .b__header--bottom .b__header--menu .b__menu--inner .b__alias .b__alias--btn {
         border-radius: 8px;
         background-color: #fff;
-        color: #0a64b4 !important;
+        color: #ee2624 !important;
         padding: 0 15px 0 0 !important;
         min-width: 252px;
         cursor: pointer;
@@ -2671,7 +2671,7 @@ body {
 }
 
 .product-item-price .product-price {
-    background-image: url(../images/icon/label-giam-gia.png);
+    background-image: url(../images/label-discount.png);
     display: block;
     width: 50px;
     height: 40px;
@@ -2682,9 +2682,10 @@ body {
     top: 0;
     right: 0;
     background-repeat: no-repeat;
-    line-height: 33px;
-    font-size: 12px;
-    color: red
+    line-height: 39px;
+    font-size: 10px;
+    color: #fff;
+    font-weight: 800;
 }
 
 .tag-mall {

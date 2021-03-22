@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\ProductCate;
 use App\Product;
+use App\Menu;
 use App\Http\Requests\addProductRequest;
 use App\Http\Requests\editProductRequest;
 use Illuminate\Support\Facades\Auth;
@@ -31,7 +32,8 @@ class MerchantController extends Controller
     public function index(){
     	$categories = ProductCate::select()->get();
         $products = Product::where('user_id',Auth::user()->id)->get();
-    	return view('front-end.shop',compact('categories','products'));
+        $menus = Menu::whereNull('parent_id')->orderBy('stt','ASC')->get();
+    	return view('front-end.shop',compact('categories','products','menus'));
     }
     public function postAddProduct(addProductRequest $request){
         $item = new Product;
@@ -41,8 +43,9 @@ class MerchantController extends Controller
     public function editProduct($id){
         $categories = ProductCate::select()->get();
         $product = Product::where('id',$id)->get()->first();
+        $menus = Menu::whereNull('parent_id')->orderBy('stt','ASC')->get();
         if($product->user_id == Auth::user()->id){
-            return view('front-end.editProduct',compact('categories','product'));
+            return view('front-end.editProduct',compact('categories','product','menus'));
         }
         else{
             return redirect()->route('index')->with(['flash_level'=>'danger','flash_message'=>'Yêu cầu không được xử lý']);

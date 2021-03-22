@@ -49,6 +49,7 @@
 	        .b__price .ml-auto {
 	            line-height: 1.8em;
 	        }
+
 	        @media (min-width: 992px){
 	            .f-items .f-items__ls {
 	                display: flex;
@@ -338,166 +339,64 @@
             </div>
             <div class="grid-list-wrapper">
                 <div id="slideListCategory" class="owl-carousel">
-                    <div class="m-items">
-                        <a href="https://voso.vn/san-dac-san-c137">
-                            <div class="list-category">
-                                <div class="category-thumbnail progressive replace" data-href="https://image.voso.vn/users/vosoimage/images/fc85c31734052bd9140f541064710740?t%5B0%5D=compress%3Alevel%3D100&accessToken=c8e8f1f3ae5a7836091e9418f98aeb95cf6e778f78a27748ae08bdca862ba333">
-                                    <img class="preview" src="https://hangnhatgiare.vn/wp-content/themes/hoatuoi/images/loader.gif" />
+                    @php
+                        $count = count($categories);
+                        $a = floor($count/2);
+                    @endphp
+                    @if($count!=1)
+                        @for($i=0;$i<$a;$i++)
+                        <div class="m-items">
+                            <a href="{{$categories[$i*2]->url}}">
+                                <div class="list-category">
+                                    <div class="category-thumbnail progressive replace" data-href="{{asset('uploads/images/products/categories/'.$categories[$i*2]->avata)}}">
+                                        <img class="preview" src="https://hangnhatgiare.vn/wp-content/themes/hoatuoi/images/loader.gif" />
+                                    </div>
+                                    <div class="category-name">{{$categories[$i*2]->name}}</div>
                                 </div>
-                                <div class="category-name">
-                                Sàn đặc sản </div>
-                            </div>
-                        </a>
-                        <a href="https://voso.vn/bach-hoa-c84">
-                            <div class="list-category">
-                                <div class="category-thumbnail progressive replace" data-href="https://image.voso.vn/users/vosoimage/images/33e8a70ab47dd54767126854cb3ae7a1?t%5B0%5D=compress%3Alevel%3D100&accessToken=4e7d57de88cb5973bd0ba0381b8785ccb6521d590570c66b0ce14cb42563236e">
-                                    <img class="preview" src="https://hangnhatgiare.vn/wp-content/themes/hoatuoi/images/loader.gif" />
-                                    <div class="category-name">
-                                    Bách hóa </div>
+                            </a>
+                            
+                            <a href="{{$categories[$i*2+1]->url}}">
+                                <div class="list-category">
+                                    <div class="category-thumbnail progressive replace" data-href="{{asset('uploads/images/products/categories/'.$categories[$i*2+1]->avata)}}">
+                                        <img class="preview" src="https://hangnhatgiare.vn/wp-content/themes/hoatuoi/images/loader.gif" />
+                                        <div class="category-name">
+                                        {{$categories[$i*2+1]->name}}</div>
+                                    </div>
                                 </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="m-items">
-                        <a href="https://voso.vn/thiet-bi-dien-tu-c27">
-                            <div class="list-category">
-                                <div class="category-thumbnail progressive replace" data-href="https://image.voso.vn/users/vosoimage/images/932508c911bc651459590e2e83af9b02?t%5B0%5D=compress%3Alevel%3D100&accessToken=0901cb7c5d2fba14ece544f1fdf11ae9354ea50fc7d22175f6409c64dda69ebf">
-                                    <img class="preview" src="https://hangnhatgiare.vn/wp-content/themes/hoatuoi/images/loader.gif" />
-                                </div>
-                                <div class="category-name">
-                                Thiết bị điện tử </div>
-                            </div>
-                        </a>
-                        <a href="https://voso.vn/me-be-c74">
-                            <div class="list-category">
-                                <div class="category-thumbnail progressive replace" data-href="https://image.voso.vn/users/vosoimage/images/0f45ef739107cfa63de9a2dd02dc5527?t%5B0%5D=compress%3Alevel%3D100&accessToken=673ed82cbb3011f69ba4f993837c23c3808f8fb72f9707e752ba0bf17bb8284e">
-                                    <img class="preview" src="https://hangnhatgiare.vn/wp-content/themes/hoatuoi/images/loader.gif" />
-                                    <div class="category-name">
-                                    Mẹ & Bé </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="m-items">
-                        <a href="https://voso.vn/suc-khoe-lam-dep-c63">
-                            <div class="list-category">
-                                <div class="category-thumbnail progressive replace" data-href="https://image.voso.vn/users/vosoimage/images/110ca606f0903891346e592b072a09c4?t%5B0%5D=compress%3Alevel%3D100&accessToken=67894e36bc5aa0ef055a422a4a2fee800e65bcd04c161cbbaa17c0710c5bcbcf">
-                                    <img class="preview" src="https://hangnhatgiare.vn/wp-content/themes/hoatuoi/images/loader.gif" />
-                                </div>
-                                <div class="category-name">
-                                Sức khỏe - Làm đẹp  </div>
-                            </div>
-                        </a>
-                        <a href="https://voso.vn/dien-gia-dung-c53">
-                            <div class="list-category">
-                                <div class="category-thumbnail progressive replace" data-href="https://image.voso.vn/users/vosoimage/images/2a6ef4b499e9057bc1489d426b720548?t%5B0%5D=compress%3Alevel%3D100&accessToken=50027de918f3fc72acdb075d34ed0b75f723cc5d33c811f061a38c02840d6443">
-                                    <img class="preview" src="https://hangnhatgiare.vn/wp-content/themes/hoatuoi/images/loader.gif" />
-                                    <div class="category-name">
-                                    Điện gia dụng </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="m-items">
-                        <a href="https://voso.vn/phu-kien-thiet-bi-so-c41">
-                            <div class="list-category">
-                                <div class="category-thumbnail progressive replace" data-href="https://image.voso.vn/users/vosoimage/images/78ba3f91eeb1229c5d811182a9c164d7?t%5B0%5D=compress%3Alevel%3D100&accessToken=a6b323ab30a0ab6d807c07a88cf1edc93b0f62017b4a53a6e2b9c34f265ad4bc">
-                                    <img class="preview" src="https://hangnhatgiare.vn/wp-content/themes/hoatuoi/images/loader.gif" />
-                                </div>
-                                <div class="category-name">
-                                Phụ kiện thiết bị số </div>
-                            </div>
-                        </a>
-                        <a href="https://voso.vn/thoi-trang-nam-c94">
-                            <div class="list-category">
-                                <div class="category-thumbnail progressive replace" data-href="https://image.voso.vn/users/vosoimage/images/dde4ce41ee3a5224caced97ccca24902?t%5B0%5D=compress%3Alevel%3D100&accessToken=b5d5b06e793451a3d8f0cb2b972c1ffa9670c87f83d77158e0c2c177ebd0a177">
-                                    <img class="preview" src="https://hangnhatgiare.vn/wp-content/themes/hoatuoi/images/loader.gif" />
-                                    <div class="category-name">
-                                    Thời trang Nam </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="m-items">
-                        <a href="https://voso.vn/thoi-trang-nu-c104">
-                            <div class="list-category">
-                                <div class="category-thumbnail progressive replace" data-href="https://image.voso.vn/users/vosoimage/images/3d3743289b5725a8873860dc222d1471?t%5B0%5D=compress%3Alevel%3D100&accessToken=b38f78e72ee399fd6ec246d90b164c887d281ffb19dce4a8505f176885965d67">
-                                    <img class="preview" src="https://hangnhatgiare.vn/wp-content/themes/hoatuoi/images/loader.gif" />
-                                </div>
-                                <div class="category-name">
-                                Thời trang Nữ </div>
-                            </div>
-                        </a>
-                        <a href="https://voso.vn/the-thao-du-lich-c114">
-                            <div class="list-category">
-                                <div class="category-thumbnail progressive replace" data-href="https://image.voso.vn/users/vosoimage/images/f97f18483dc50aebe32ce3c86aff83d4?t%5B0%5D=compress%3Alevel%3D100&accessToken=e6701774ab63d2f3f841bac9db04dbb687fc1e8b9b939a76666a93c7f8f4c907">
-                                   <img class="preview" src="https://hangnhatgiare.vn/wp-content/themes/hoatuoi/images/loader.gif" />
-                                   <div class="category-name">
-                                   Thể thao - Du lịch </div>
-                               </div>
-                           </div>
-                       </a>
-                   </div>
-                   <div class="m-items">
-                    <a href="https://voso.vn/oto-xe-may-c122">
-                        <div class="list-category">
-                            <div class="category-thumbnail progressive replace" data-href="https://image.voso.vn/users/vosoimage/images/fcec0091b0dbdb4fab64e68f58d3006f?t%5B0%5D=compress%3Alevel%3D100&accessToken=57dfea498cfc8dcf2ca7aac45cc8b1bed780f5aba80b26686d86ce912e88d1f2">
-                                <img class="preview" src="https://hangnhatgiare.vn/wp-content/themes/hoatuoi/images/loader.gif" />
-                            </div>
-                            <div class="category-name">
-                            Ôtô - Xe máy </div>
+                            </a>
                         </div>
-                    </a>
-                    <a href="https://voso.vn/hang-nhap-khau-c130">
-                        <div class="list-category">
-                            <div class="category-thumbnail progressive replace" data-href="https://image.voso.vn/users/vosoimage/images/8db6f2b0bd59b452112513f88f4bec90?t%5B0%5D=compress%3Alevel%3D100&accessToken=5edce3ade469e38240e7e04091d215824e0a619102534ce75057a6f3099216cc">
-                                <img class="preview" src="https://hangnhatgiare.vn/wp-content/themes/hoatuoi/images/loader.gif" />
-                                <div class="category-name">
-                                Hàng nhập khẩu </div>
+                        @endfor
+                        @if($count%2==1)
+                            <div class="m-items">
+                                <a href="{{$categories[$count-1]->url}}">
+                                    <div class="list-category">
+                                        <div class="category-thumbnail progressive replace" data-href="{{asset('uploads/images/products/categories/'.$categories[$count-1]->avata)}}">
+                                            <img class="preview" src="https://hangnhatgiare.vn/wp-content/themes/hoatuoi/images/loader.gif" />
+                                        </div>
+                                        <div class="category-name">{{$categories[$count-1]->name}}</div>
+                                    </div>
+                                </a>
+                                
+                                
                             </div>
+                        @endif
+                    
+                    @else
+                        <div class="m-items">
+                            <a href="{{$categories[$count-1]->url}}">
+                                <div class="list-category">
+                                    <div class="category-thumbnail progressive replace" data-href="{{asset('uploads/images/products/categories/'.$categories[$count-1]->avata)}}">
+                                        <img class="preview" src="https://hangnhatgiare.vn/wp-content/themes/hoatuoi/images/loader.gif" />
+                                    </div>
+                                    <div class="category-name">{{$categories[$count-1]->name}}</div>
+                                </div>
+                            </a>
+                            
+                            
                         </div>
-                    </a>
-                </div>
-                <div class="m-items">
-                    <a href="https://voso.vn/thu-cong-my-nghe-c143">
-                        <div class="list-category">
-                            <div class="category-thumbnail progressive replace" data-href="https://image.voso.vn/users/vosoimage/images/ee8cac19e26a23ab6eafffaac14bedfc?t%5B0%5D=compress%3Alevel%3D100&accessToken=cbec9ee146f6a33f5d3124ad1c0d050e9f76bb79ad214beba6f6a79f36135a57">
-                                <img class="preview" src="https://hangnhatgiare.vn/wp-content/themes/hoatuoi/images/loader.gif" />
-                            </div>
-                            <div class="category-name">
-                            Thủ công mỹ nghệ </div>
-                        </div>
-                    </a>
-                    <a href="https://voso.vn/co-khi-xay-dung-c153">
-                        <div class="list-category">
-                            <div class="category-thumbnail progressive replace" data-href="https://image.voso.vn/users/vosoimage/images/6aedb1ea27cd5aef06aa18cb4565135b?t%5B0%5D=compress%3Alevel%3D100&accessToken=0acc65a9205e5de72d5ce7b8d0e5f24239a57cf68b8a34fbff17f294225e3532">
-                                <img class="preview" src="https://hangnhatgiare.vn/wp-content/themes/hoatuoi/images/loader.gif" />
-                                <div class="category-name">
-                                Cơ khí - Xây dựng </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="m-items">
-                    <a href="https://voso.vn/voucher-dich-vu-c167">
-                        <div class="list-category">
-                            <div class="category-thumbnail progressive replace" data-href="https://image.voso.vn/users/vosoimage/images/0843ea11773508c2cfd78a0b24e9f4e1?t%5B0%5D=compress%3Alevel%3D100&accessToken=0b1ec5e80cd50455a6cdd888b4c4b923cf68f480d6787099accab03998d0d780">
-                                <img class="preview" src="https://hangnhatgiare.vn/wp-content/themes/hoatuoi/images/loader.gif" />
-                            </div>
-                            <div class="category-name">
-                            Voucher - Dịch vụ </div>
-                        </div>
-                    </a>
-                    <a href="https://voso.vn/vat-lieu-xay-dung-c199">
-                        <div class="list-category">
-                            <div class="category-thumbnail progressive replace" data-href="https://image.voso.vn/users/vosoimage/images/abc7e458e643eefe725ae7ec833ba932?t%5B0%5D=compress%3Alevel%3D100&accessToken=081507d8cfbb5663ba8f715a510f3fb582aa8ee733a326b6ff6cf80fd6122e8a">
-                                <img class="preview" src="https://hangnhatgiare.vn/wp-content/themes/hoatuoi/images/loader.gif" />
-                                <div class="category-name">
-                                Vật liệu xây dựng </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
+                    @endif
+                    
+                    
             </div>
         </div>
     </div>
@@ -621,7 +520,7 @@
                         <h3 class="b__box_h3">Săn sale giờ vàng</h3>
                     </div>
                     <div class="url-all">
-                        <a href="https://voso.vn/dac-san-hai-duonghdg-s1120" class="ml-auto">Xem tất cả <i class="fas fa-angle-double-right"></i></a>
+                        <a href="#" class="ml-auto">Xem tất cả <i class="fas fa-angle-double-right"></i></a>
                     </div>
                 </div>
                 <div class="b__vosoMall--content stretch">
@@ -638,337 +537,64 @@
                         </div>
 
                         <div id="slideVosomall" class="owl-carousel">
-                            <div class="l-items">
+                            @php
+                                $count = count($best_sale);
+                                $b = floor($count/2);
+                            @endphp
+                            @if($count == 0)
+                            @elseif($count!=1)
+                                @for($i=0;$i<$b;$i++)
+                                    <div class="l-items">
 
-                                <div class="f-items">
-                                    <div class="f-product-item__thumb">
-                                        <a href="https://voso.vn/combo-10-qua-trung-ga-ocop-cam-dong-p737219.html">
-                                            <div class="f-product-item__thumb-img progressive replace" data-href="https://image.voso.vn/users/vosoimage/images/f9e0ea299240eb721fb41ab5868b10a8?t%5B0%5D=maxSize%3Awidth%3D320%2Cheight%3D320&t%5B1%5D=compress%3Alevel%3D100&accessToken=cf59ebeb5b6ef088af4d63b83b3c7fb11c4bb68478ae9965a0168ac32ed751cd">
-                                                <img class="preview" src="https://hangnhatgiare.vn/wp-content/themes/hoatuoi/images/loader.gif" alt="image">
-                                            </div>
-                                            <div class='product-item-price product-item-price-mall'>
-                                                <span class="product-price">-9%</span>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="f-items_description f-items_show-name">
-                                        <div class="f-items_name">
-                                            <div class="tag-mall">
-                                                
-                                            </div>
-                                            <a href="https://voso.vn/combo-10-qua-trung-ga-ocop-cam-dong-p737219.html">
-                                            COMBO 10 QUẢ TRỨNG GÀ OCOP CẨM ĐÔNG </a>
+                                        <div class="f-items">
+                                            @php
+                                                $item=$best_sale[$i*2];
+                                            @endphp
+                                            @include('front-end.layout.product-item')
                                         </div>
-                                        <div class="f-items__ls main-rating b-sold-rating">
-                                            <span class="jstars" data-value="5"></span>
-                                            <label class="ml-auto">9067 đã bán</label>
-                                        </div>
-                                        <div class="b-price">
-                                            <div class="b__price">
-                                                <strong>22,000<sup>₫</sup></strong>
-                                            </div>
-                                            <div class="listed-price">
-                                                24,000<sup>₫</sup>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
 
-                                <div class="f-items f-hidden">
-                                    <div class="f-product-item__thumb">
-                                        <a href="https://voso.vn/combo-10-cu-su-hao-vietgap-hai-duong-p737229.html">
-                                            <div class="f-product-item__thumb-img progressive replace" data-href="https://image.voso.vn/users/vosoimage/images/1badb56e0335d5bf9b20d079c971acbe?t%5B0%5D=maxSize%3Awidth%3D320%2Cheight%3D320&t%5B1%5D=compress%3Alevel%3D100&accessToken=0724c8583ba2a97e916f2c458477dbbca856866aed9e52c8a1bdfa8968e52c13">
-                                                <img class="preview thumbnail-product" src="https://hangnhatgiare.vn/wp-content/themes/hoatuoi/images/loader.gif" alt="image">
-                                            </div>
-                                            <div class='product-item-price product-item-price-mall'>
-                                                <span class="product-price">-10%</span>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="f-items_description f-items_show-name">
-                                        <div class="f-items_name">
-                                            <div class="tag-mall">
-                                                
-                                            </div>
-                                            <a href="https://voso.vn/combo-10-cu-su-hao-vietgap-hai-duong-p737229.html">
-                                            COMBO 10 CỦ SU HÀO VIETGAP HẢI DƯƠNG </a>
-                                        </div>
-                                        <div class="f-items__ls main-rating b-sold-rating">
-                                            <span class="jstars" data-value="0"></span>
-                                            <label class="ml-auto">2118 đã bán</label>
-                                        </div>
-                                        <div class="b-price">
-                                            <div class="b__price">
-                                                <strong>20,000<sup>₫</sup></strong>
-                                            </div>
-                                            <div class="listed-price">
-                                                22,000<sup>₫</sup>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="l-items">
-
-                                <div class="f-items">
-                                    <div class="f-product-item__thumb">
-                                        <a href="https://voso.vn/combo-3-cai-bap-cai-vietgap-hai-duong-p737222.html">
-                                            <div class="f-product-item__thumb-img progressive replace" data-href="https://image.voso.vn/users/vosoimage/images/2741119e5ded142c588b7e31c4d4f8a3?t%5B0%5D=maxSize%3Awidth%3D320%2Cheight%3D320&t%5B1%5D=compress%3Alevel%3D100&accessToken=0380562724995685173ecb7e4b339f4b07c306b40897cb4612bd50b4e7367f05">
-                                                <img class="preview" src="https://hangnhatgiare.vn/wp-content/themes/hoatuoi/images/loader.gif" alt="image">
-                                            </div>
-                                            <div class='product-item-price product-item-price-mall'>
-                                                <span class="product-price">-10%</span>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="f-items_description f-items_show-name">
-                                        <div class="f-items_name">
-                                            <div class="tag-mall">
-                                                
-                                            </div>
-                                            <a href="https://voso.vn/combo-3-cai-bap-cai-vietgap-hai-duong-p737222.html">
-                                            COMBO 3 CÁI BẮP CẢI VIETGAP HẢI DƯƠNG </a>
-                                        </div>
-                                        <div class="f-items__ls main-rating b-sold-rating">
-                                            <span class="jstars" data-value="0"></span>
-                                            <label class="ml-auto">1778 đã bán</label>
-                                        </div>
-                                        <div class="b-price">
-                                            <div class="b__price">
-                                                <strong>20,000<sup>₫</sup></strong>
-                                            </div>
-                                            <div class="listed-price">
-                                                22,000<sup>₫</sup>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="f-items f-hidden">
-                                    <div class="f-product-item__thumb">
-                                        <a href="https://voso.vn/combo-5kg-oi-nam-vu-tieu-chuan-ocop-thanh-ha-p737230.html">
-                                            <div class="f-product-item__thumb-img progressive replace" data-href="https://image.voso.vn/users/vosoimage/images/5a35aca91a705e07bb4e94886fa85ab8?t%5B0%5D=maxSize%3Awidth%3D320%2Cheight%3D320&t%5B1%5D=compress%3Alevel%3D100&accessToken=504c4a7145c4b689954f2be62bdbb9f5fc7804160f09fec1a6c35829844686fe">
-                                                <img class="preview thumbnail-product" src="https://hangnhatgiare.vn/wp-content/themes/hoatuoi/images/loader.gif" alt="image">
-                                            </div>
-                                            <div class='product-item-price product-item-price-mall'>
-                                                <span class="product-price">-19%</span>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="f-items_description f-items_show-name">
-                                        <div class="f-items_name">
-                                            <div class="tag-mall">
-                                                
-                                            </div>
-                                            <a href="https://voso.vn/combo-5kg-oi-nam-vu-tieu-chuan-ocop-thanh-ha-p737230.html">
-                                            Combo 5kg Ổi Nam Vũ Tiêu Chuẩn OCOP Thanh Hà </a>
-                                        </div>
-                                        <div class="f-items__ls main-rating b-sold-rating">
-                                           <span class="jstars" data-value="0"></span>
-                                           <label class="ml-auto">1255 đã bán</label>
-                                       </div>
-                                       <div class="b-price">
-                                        <div class="b__price">
-                                            <strong>56,000<sup>₫</sup></strong>
-                                        </div>
-                                        <div class="listed-price">
-                                            69,000<sup>₫</sup>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="l-items">
-
-                            <div class="f-items">
-                                <div class="f-product-item__thumb">
-                                    <a href="https://voso.vn/toi-den-vietkiga-loai-dac-biet-500g-p719584.html">
-                                        <div class="f-product-item__thumb-img progressive replace" data-href="https://image.voso.vn/users/vosoimage/images/174165d4c6394f33a1e5d34f0efb0507?t%5B0%5D=maxSize%3Awidth%3D320%2Cheight%3D320&t%5B1%5D=compress%3Alevel%3D100&accessToken=154eb61ff7c7fd45307b4be7047c0d9d8e08132c3483f2e8f620cfba15f201ac">
-                                            <span class="icon-ocop"></span>
-                                            <img class="preview" src="https://hangnhatgiare.vn/wp-content/themes/hoatuoi/images/loader.gif" alt="image">
-                                        </div>
-                                        <span class="jstars jstars__ocop" data-value="4"></span>
-                                    </a>
-                                </div>
-                                <div class="f-items_description f-items_show-name">
-                                    <div class="f-items_name">
-                                        <div class="tag-mall">
+                                        <div class="f-items f-hidden">
+                                            @php
+                                                $item=$best_sale[$i*2+1];
+                                            @endphp
+                                            @include('front-end.layout.product-item')
                                             
                                         </div>
-                                        <a href="https://voso.vn/toi-den-vietkiga-loai-dac-biet-500g-p719584.html">
-                                        TỎI ĐEN VIETKIGA LOẠI ĐẶC BIỆT 500g </a>
                                     </div>
-                                    <div class="f-items__ls main-rating b-sold-rating">
-                                        <span class="jstars" data-value="0"></span>
-                                    </div>
-                                    <div class="b-price">
-                                        <div class="b__price">
-                                            <strong>600,000<sup>₫</sup></strong>
+                                @endfor
+                                @if($count%2==1)
+                                    <div class="l-items">
+
+                                        <div class="f-items">
+                                            @php
+                                                $item=$best_sale[$count-1];
+                                            @endphp
+                                            @include('front-end.layout.product-item')
+                                            
                                         </div>
-                                        <div class="listed-price">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
 
-                            <div class="f-items f-hidden">
-                                <div class="f-product-item__thumb">
-                                    <a href="https://voso.vn/banh-dau-xanh-nguyen-huong-dac-san-hai-duong-p13158.html">
-                                        <div class="f-product-item__thumb-img progressive replace" data-href="https://image.voso.vn/users/vosoimage/images/074a2d914af405a9a7c4e2d4f748d659?t%5B0%5D=maxSize%3Awidth%3D320%2Cheight%3D320&t%5B1%5D=compress%3Alevel%3D100&accessToken=b5f14568d4785ff1d899880061b3e88130da2f6672cd3fdb927c0b758d71406c">
-                                            <img class="preview thumbnail-product" src="https://hangnhatgiare.vn/wp-content/themes/hoatuoi/images/loader.gif" alt="image">
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="f-items_description f-items_show-name">
-                                   <div class="f-items_name">
-                                    <div class="tag-mall">
                                         
                                     </div>
-                                    <a href="https://voso.vn/banh-dau-xanh-nguyen-huong-dac-san-hai-duong-p13158.html">
-                                    BÁNH ĐẬU XANH NGUYÊN HƯƠNG - ĐẶC SẢN HẢI DƯƠNG </a>
-                                </div>
-                                <div class="f-items__ls main-rating b-sold-rating">
-                                    <span class="jstars" data-value="5"></span>
-                                    <label class="ml-auto">100 đã bán</label>
-                                </div>
-                                <div class="b-price">
-                                    <div class="b__price">
-                                        <strong>250,000<sup>₫</sup></strong>
-                                    </div>
-                                    <div class="listed-price">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="l-items">
+                                @endif
 
-                        <div class="f-items">
-                            <div class="f-product-item__thumb">
-                                <a href="https://voso.vn/thung-20-goi-banh-da-ca-ro-an-lien-khanh-tho-p716172.html">
-                                    <div class="f-product-item__thumb-img progressive replace" data-href="https://image.voso.vn/users/vosoimage/images/6ef4a124d254aabd458682f4cfd8a769?t%5B0%5D=maxSize%3Awidth%3D320%2Cheight%3D320&t%5B1%5D=compress%3Alevel%3D100&accessToken=6ce654d020c61c9c170d045b5b24821992d061fdb4aad62a025f21c0b074303b">
-                                        <span class="icon-ocop"></span>
-                                        <img class="preview" src="https://hangnhatgiare.vn/wp-content/themes/hoatuoi/images/loader.gif" alt="image">
-                                    </div>
-                                    <span class="jstars jstars__ocop" data-value="4"></span>
-                                </a>
-                            </div>
-                            <div class="f-items_description f-items_show-name">
-                                <div class="f-items_name">
-                                    <div class="tag-mall">
+                            @else
+                                <div class="l-items">
+
+                                    <div class="f-items">
+                                        @php
+                                            $item=$best_sale[$count-1];
+                                        @endphp
+                                        @include('front-end.layout.product-item')
                                         
                                     </div>
-                                    <a href="https://voso.vn/thung-20-goi-banh-da-ca-ro-an-lien-khanh-tho-p716172.html">
-                                    Thùng 20 gói Bánh đa cá rô ăn liền Khánh Thọ </a>
-                                </div>
-                                <div class="f-items__ls main-rating b-sold-rating">
-                                    <span class="jstars" data-value="0"></span>
-                                    <label class="ml-auto">2 đã bán</label>
-                                </div>
-                                <div class="b-price">
-                                    <div class="b__price">
-                                        <strong>270,000<sup>₫</sup></strong>
-                                    </div>
-                                    <div class="listed-price">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
 
-                        <div class="f-items f-hidden">
-                            <div class="f-product-item__thumb">
-                                <a href="https://voso.vn/banh-dau-xanh-nguyen-huong-dac-san-mien-bac-320g-p704819.html">
-                                    <div class="f-product-item__thumb-img progressive replace" data-href="https://image.voso.vn/users/vosoimage/images/436d6dd8059c1136245bf4da51f4ed6f?t%5B0%5D=maxSize%3Awidth%3D320%2Cheight%3D320&t%5B1%5D=compress%3Alevel%3D100&accessToken=fe8c55b6beeb7ba56ba2d6adb150ac69d8a308f7a92c685608e6a8a8fd70b4f4">
-                                        <img class="preview thumbnail-product" src="https://hangnhatgiare.vn/wp-content/themes/hoatuoi/images/loader.gif" alt="image">
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="f-items_description f-items_show-name">
-                                <div class="f-items_name">
-                                    <div class="tag-mall">
-                                        
-                                    </div>
-                                    <a href="https://voso.vn/banh-dau-xanh-nguyen-huong-dac-san-mien-bac-320g-p704819.html">
-                                    Bánh Đậu Xanh Nguyên Hương - ĐẶC SẢN MIỀN BẮC 320g </a>
+                                    
                                 </div>
-                                <div class="f-items__ls main-rating b-sold-rating">
-                                    <span class="jstars" data-value="5"></span>
-                                    <label class="ml-auto">273 đã bán</label>
-                                </div>
-                                <div class="b-price">
-                                    <div class="b__price">
-                                        <strong>55,000<sup>₫</sup></strong>
-                                    </div>
-                                    <div class="listed-price">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="l-items">
-
-                        <div class="f-items">
-                            <div class="f-product-item__thumb">
-                                <a href="https://voso.vn/combo-10-hop-banh-dau-xanh-rong-vang-viet-huong-125g-p718684.html">
-                                    <div class="f-product-item__thumb-img progressive replace" data-href="https://image.voso.vn/users/vosoimage/images/33666c400a05ae982e39a79199e5a10d?t%5B0%5D=maxSize%3Awidth%3D320%2Cheight%3D320&t%5B1%5D=compress%3Alevel%3D100&accessToken=b8841af8b9ada8dc599a0450d26f2c49fcda550d78e47d10dcb46179827747f6">
-                                        <span class="icon-ocop"></span>
-                                        <img class="preview" src="https://hangnhatgiare.vn/wp-content/themes/hoatuoi/images/loader.gif" alt="image">
-                                    </div>
-                                    <span class="jstars jstars__ocop" data-value="4"></span>
-                                </a>
-                            </div>
-                            <div class="f-items_description f-items_show-name">
-                                <div class="f-items_name">
-                                    <div class="tag-mall">
-                                        
-                                    </div>
-                                    <a href="https://voso.vn/combo-10-hop-banh-dau-xanh-rong-vang-viet-huong-125g-p718684.html">
-                                    Combo 10 Hộp Bánh Đậu Xanh Rồng Vàng Việt Hương 125g </a>
-                                </div>
-                                <div class="f-items__ls main-rating b-sold-rating">
-                                    <span class="jstars" data-value="0"></span>
-                                    <label class="ml-auto">1 đã bán</label>
-                                </div>
-                                <div class="b-price">
-                                    <div class="b__price">
-                                        <strong>290,000<sup>₫</sup></strong>
-                                    </div>
-                                    <div class="listed-price">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="f-items f-hidden">
-                            <div class="f-product-item__thumb">
-                                <a href="https://voso.vn/banh-gai-ninh-giang-dac-san-hai-duong-combo-30-chiec-p6663.html">
-                                    <div class="f-product-item__thumb-img progressive replace" data-href="https://image.voso.vn/users/vosoimage/images/dee4164b68ff98d7632b945b15cb7550?t%5B0%5D=maxSize%3Awidth%3D320%2Cheight%3D320&t%5B1%5D=compress%3Alevel%3D100&accessToken=494feaa7187383a5696d39111f4ba109b7e22c7d030fde473847203cad35c2b6">
-                                        <img class="preview thumbnail-product" src="https://hangnhatgiare.vn/wp-content/themes/hoatuoi/images/loader.gif" alt="image">
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="f-items_description f-items_show-name">
-                                <div class="f-items_name">
-                                    <div class="tag-mall">
-                                        
-                                    </div>
-                                    <a href="https://voso.vn/banh-gai-ninh-giang-dac-san-hai-duong-combo-30-chiec-p6663.html">
-                                    BÁNH GAI NINH GIANG - ĐẶC SẢN HẢI DƯƠNG - combo 30 chiếc </a>
-                                </div>
-                                <div class="f-items__ls main-rating b-sold-rating">
-                                    <span class="jstars" data-value="5"></span>
-                                    <label class="ml-auto">166 đã bán</label>
-                                </div>
-                                <div class="b-price">
-                                    <div class="b__price">
-                                        <strong>200,000<sup>₫</sup></strong>
-                                    </div>
-                                    <div class="listed-price">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                            @endif
+                            
+                        
+                    
+                    
                 </div>
             </div>
         </div>
@@ -1001,482 +627,60 @@
                     </div>
 
                     <div id="slideVosomall" class="owl-carousel">
-                        <div class="l-items">
+                        @php
+                            $count = count($product_new);
+                            $b = floor($count/2);
+                        @endphp
+                        @if($count == 0)
+                        @elseif($count!=1)
+                            @for($i=0;$i<$b;$i++)
+                                <div class="l-items">
 
-                            <div class="f-items">
-                                <div class="f-product-item__thumb">
-                                    <a href="https://voso.vn/hpl817r03-bo-hop-nhua-ll-qua-tang-3pcs-hpl8171-hpl8062-p736526.html">
-                                        <div class="f-product-item__thumb-img progressive replace" data-href="https://image.voso.vn/users/vosoimage/images/85b031c7e4ba0e29640619d03b2ccb08?t%5B0%5D=maxSize%3Awidth%3D320%2Cheight%3D320&t%5B1%5D=compress%3Alevel%3D100&accessToken=e359b934e61fc2645d0bfaf093b31dd2b4e103a386fc3529b74dd43795e8b20d">
-                                            <img class="preview" src="https://hangnhatgiare.vn/wp-content/themes/hoatuoi/images/loader.gif" alt="image">
-                                        </div>
-                                        <div class='product-item-price product-item-price-mall'>
-                                            <span class="product-price">-10%</span>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="f-items_description f-items_show-name">
-                                    <div class="f-items_name">
-                                        <div class="tag-mall">
-                                            
-                                        </div>
-                                        <a href="https://voso.vn/hpl817r03-bo-hop-nhua-ll-qua-tang-3pcs-hpl8171-hpl8062-p736526.html">
-                                        HPL817R03 - BỘ HỘP NHỰA L&amp;L QUÀ TẶNG 3PCS (HPL817(1), HPL806(2)) </a>
+                                    <div class="f-items">
+                                        @php
+                                            $item=$product_new[$i*2];
+                                        @endphp
+                                        @include('front-end.layout.product-item')
                                     </div>
-                                    <div class="f-items__ls main-rating b-sold-rating">
-                                        <span class="jstars" data-value="0"></span>
-                                    </div>
-                                    <div class="b-price">
-                                        <div class="b__price">
-                                            <strong>181,000<sup>₫</sup></strong>
-                                        </div>
-                                        <div class="listed-price">
-                                            199,000<sup>₫</sup>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
 
-                            <div class="f-items f-hidden">
-                                <div class="f-product-item__thumb">
-                                    <a href="https://voso.vn/hpl817sc04-bo-hop-bao-quan-hpl8171-hpl816c1-hpl8072-p736528.html">
-                                        <div class="f-product-item__thumb-img progressive replace" data-href="https://image.voso.vn/users/vosoimage/images/dbadecb659172821be85ec65310180f5?t%5B0%5D=maxSize%3Awidth%3D320%2Cheight%3D320&t%5B1%5D=compress%3Alevel%3D100&accessToken=04a361e6b3294684d3d51fa62e59a3a43af0ce8e57abd7f2a2c4b9b908bc9881">
-                                            <img class="preview thumbnail-product" src="https://hangnhatgiare.vn/wp-content/themes/hoatuoi/images/loader.gif" alt="image">
-                                        </div>
-                                        <div class='product-item-price product-item-price-mall'>
-                                            <span class="product-price">-9%</span>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="f-items_description f-items_show-name">
-                                    <div class="f-items_name">
-                                        <div class="tag-mall">
-                                            
-                                        </div>
-                                        <a href="https://voso.vn/hpl817sc04-bo-hop-bao-quan-hpl8171-hpl816c1-hpl8072-p736528.html">
-                                        HPL817SC04 - BỘ HỘP BẢO QUẢN (HPL817(1), HPL816C(1), HPL807(2)) </a>
-                                    </div>
-                                    <div class="f-items__ls main-rating b-sold-rating">
-                                        <span class="jstars" data-value="0"></span>
-                                    </div>
-                                    <div class="b-price">
-                                        <div class="b__price">
-                                            <strong>293,000<sup>₫</sup></strong>
-                                        </div>
-                                        <div class="listed-price">
-                                            319,000<sup>₫</sup>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="l-items">
-
-                            <div class="f-items">
-                                <div class="f-product-item__thumb">
-                                    <a href="https://voso.vn/hpl770-bo-hop-com-3tier-lunch-box-520ml3-136126180mm-p736525.html">
-                                        <div class="f-product-item__thumb-img progressive replace" data-href="https://image.voso.vn/users/vosoimage/images/59baa37f8127acc481b090f62209440e?t%5B0%5D=maxSize%3Awidth%3D320%2Cheight%3D320&t%5B1%5D=compress%3Alevel%3D100&accessToken=fb39b03cf4a6dace87ba949775b9de91bb48b68ae7b5f1d5e4525d795670062b">
-                                            <img class="preview" src="https://hangnhatgiare.vn/wp-content/themes/hoatuoi/images/loader.gif" alt="image">
-                                        </div>
-                                        <div class='product-item-price product-item-price-mall'>
-                                            <span class="product-price">-14%</span>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="f-items_description f-items_show-name">
-                                    <div class="f-items_name">
-                                        <div class="tag-mall">
-                                            
-                                        </div>
-                                        <a href="https://voso.vn/hpl770-bo-hop-com-3tier-lunch-box-520ml3-136126180mm-p736525.html">
-                                        HPL770 - BỘ HỘP CƠM 3-TIER LUNCH BOX 520ML*3, 136*126*180MM </a>
-                                    </div>
-                                    <div class="f-items__ls main-rating b-sold-rating">
-                                        <span class="jstars" data-value="0"></span>
-                                    </div>
-                                    <div class="b-price">
-                                        <div class="b__price">
-                                            <strong>215,000<sup>₫</sup></strong>
-                                        </div>
-                                        <div class="listed-price">
-                                            249,000<sup>₫</sup>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="f-items f-hidden">
-                                <div class="f-product-item__thumb">
-                                    <a href="https://voso.vn/08atdl-khan-tam-nen-du-lich-kho-146x71mm-p736530.html">
-                                        <div class="f-product-item__thumb-img progressive replace" data-href="https://image.voso.vn/users/vosoimage/images/e879d7dc5cd4c2a7622a1c68b0d34878?t%5B0%5D=maxSize%3Awidth%3D320%2Cheight%3D320&t%5B1%5D=compress%3Alevel%3D100&accessToken=1ea55fa761915bc015dedac12c2e31d1895519b5a4789556762d47c096884361">
-                                            <img class="preview thumbnail-product" src="https://hangnhatgiare.vn/wp-content/themes/hoatuoi/images/loader.gif" alt="image">
-                                        </div>
-                                        <div class='product-item-price product-item-price-mall'>
-                                            <span class="product-price">-15%</span>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="f-items_description f-items_show-name">
-                                    <div class="f-items_name">
-                                        <div class="tag-mall">
-                                            
-                                        </div>
-                                        <a href="https://voso.vn/08atdl-khan-tam-nen-du-lich-kho-146x71mm-p736530.html">
-                                        08ATDL - KHĂN TẮM NÉN DU LỊCH (KHỔ 146X71MM) </a>
-                                    </div>
-                                    <div class="f-items__ls main-rating b-sold-rating">
-                                        <span class="jstars" data-value="0"></span>
-                                    </div>
-                                    <div class="b-price">
-                                        <div class="b__price">
-                                            <strong>85,000<sup>₫</sup></strong>
-                                        </div>
-                                        <div class="listed-price">
-                                            99,000<sup>₫</sup>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="l-items">
-
-                            <div class="f-items">
-                                <div class="f-product-item__thumb">
-                                    <a href="https://voso.vn/011a20k-tui-khan-nen-dang-vien-keo-20-vientui-p736539.html">
-                                        <div class="f-product-item__thumb-img progressive replace" data-href="https://image.voso.vn/users/vosoimage/images/e8a3acedd0788faf78835992d43fe7ba?t%5B0%5D=maxSize%3Awidth%3D320%2Cheight%3D320&t%5B1%5D=compress%3Alevel%3D100&accessToken=e47072c05b8f4d34e70a3b29b609eb5b43cd5f9b5b30553e3e14ea3973cbbd00">
-                                            <img class="preview" src="https://hangnhatgiare.vn/wp-content/themes/hoatuoi/images/loader.gif" alt="image">
-                                        </div>
-                                        <div class='product-item-price product-item-price-mall'>
-                                            <span class="product-price">-21%</span>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="f-items_description f-items_show-name">
-                                    <div class="f-items_name">
-                                        <div class="tag-mall">
-                                            
-                                        </div>
-                                        <a href="https://voso.vn/011a20k-tui-khan-nen-dang-vien-keo-20-vientui-p736539.html">
-                                        011A20K - TÚI KHĂN NÉN DẠNG VIÊN KẸO - 20 VIÊN/TÚI </a>
-                                    </div>
-                                    <div class="f-items__ls main-rating b-sold-rating">
-                                        <span class="jstars" data-value="0"></span>
-                                    </div>
-                                    <div class="b-price">
-                                        <div class="b__price">
-                                            <strong>55,000<sup>₫</sup></strong>
-                                        </div>
-                                        <div class="listed-price">
-                                            69,000<sup>₫</sup>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="f-items f-hidden">
-                                <div class="f-product-item__thumb">
-                                    <a href="https://voso.vn/011b30k-mat-na-nen-dang-vien-keo-30-vientui-p736531.html">
-                                        <div class="f-product-item__thumb-img progressive replace" data-href="https://image.voso.vn/users/vosoimage/images/401309008cffdaec477090b21bf99399?t%5B0%5D=maxSize%3Awidth%3D320%2Cheight%3D320&t%5B1%5D=compress%3Alevel%3D100&accessToken=71d2d69494c1db779996a75439c72bbee13eca97e0488d7220a3f8c63d4ca8a3">
-                                            <img class="preview thumbnail-product" src="https://hangnhatgiare.vn/wp-content/themes/hoatuoi/images/loader.gif" alt="image">
-                                        </div>
-                                        <div class='product-item-price product-item-price-mall'>
-                                            <span class="product-price">-20%</span>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="f-items_description f-items_show-name">
-                                    <div class="f-items_name">
-                                        <div class="tag-mall">
-                                            
-                                        </div>
-                                        <a href="https://voso.vn/011b30k-mat-na-nen-dang-vien-keo-30-vientui-p736531.html">
-                                        011B30K - MẶT NẠ NÉN DẠNG VIÊN KẸO - 30 VIÊN/TÚI </a>
-                                    </div>
-                                    <div class="f-items__ls main-rating b-sold-rating">
-                                        <span class="jstars" data-value="0"></span>
-                                    </div>
-                                    <div class="b-price">
-                                        <div class="b__price">
-                                            <strong>80,000<sup>₫</sup></strong>
-                                        </div>
-                                        <div class="listed-price">
-                                            99,000<sup>₫</sup>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="l-items">
-
-                            <div class="f-items">
-                                <div class="f-product-item__thumb">
-                                    <a href="https://voso.vn/o8dtube-ong-khan-nen-8-vienong-kho-22x24cm-p736585.html">
-                                        <div class="f-product-item__thumb-img progressive replace" data-href="https://image.voso.vn/users/vosoimage/images/a81a2ca5ce5e52a1ee95173e58dcb5e2?t%5B0%5D=maxSize%3Awidth%3D320%2Cheight%3D320&t%5B1%5D=compress%3Alevel%3D100&accessToken=6597e1c2744ff1986bffe1294b91ba07a41ea2de76a47d69208938952808437d">
-                                            <img class="preview" src="https://hangnhatgiare.vn/wp-content/themes/hoatuoi/images/loader.gif" alt="image">
-                                        </div>
-                                        <div class='product-item-price product-item-price-mall'>
-                                            <span class="product-price">-38%</span>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="f-items_description f-items_show-name">
-                                    <div class="f-items_name">
-                                        <div class="tag-mall">
-                                            
-                                        </div>
-                                        <a href="https://voso.vn/o8dtube-ong-khan-nen-8-vienong-kho-22x24cm-p736585.html">
-                                        O8DTUBE - ỐNG KHĂN NÉN 8 VIÊN/ỐNG (KHỔ 22X24CM) </a>
-                                    </div>
-                                    <div class="f-items__ls main-rating b-sold-rating">
-                                        <span class="jstars" data-value="0"></span>
-                                    </div>
-                                    <div class="b-price">
-                                        <div class="b__price">
-                                            <strong>37,000<sup>₫</sup></strong>
-                                        </div>
-                                        <div class="listed-price">
-                                            59,000<sup>₫</sup>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="f-items f-hidden">
-                                <div class="f-product-item__thumb">
-                                    <a href="https://voso.vn/09a100k-hop-khan-nen-dang-keo-100-vien-kho-22x24cm-p736584.html">
-                                        <div class="f-product-item__thumb-img progressive replace" data-href="https://image.voso.vn/users/vosoimage/images/335761c292851dc192e0d65b3c54a6b6?t%5B0%5D=maxSize%3Awidth%3D320%2Cheight%3D320&t%5B1%5D=compress%3Alevel%3D100&accessToken=ae115c224625d427b055d73e5e9e5d0bb1c70be5125c869635d0205dc27433b3">
-                                            <img class="preview thumbnail-product" src="https://hangnhatgiare.vn/wp-content/themes/hoatuoi/images/loader.gif" alt="image">
-                                        </div>
-                                        <div class='product-item-price product-item-price-mall'>
-                                            <span class="product-price">-16%</span>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="f-items_description f-items_show-name">
-                                    <div class="f-items_name">
-                                        <div class="tag-mall">
-                                            
-                                        </div>
-                                        <a href="https://voso.vn/09a100k-hop-khan-nen-dang-keo-100-vien-kho-22x24cm-p736584.html">
-                                        09A100K - HỘP KHĂN NÉN DẠNG KẸO 100 VIÊN (KHỔ 22X24CM) </a>
-                                    </div>
-                                    <div class="f-items__ls main-rating b-sold-rating">
-                                        <span class="jstars" data-value="0"></span>
-                                    </div>
-                                    <div class="b-price">
-                                        <div class="b__price">
-                                            <strong>210,000<sup>₫</sup></strong>
-                                        </div>
-                                        <div class="listed-price">
-                                           249,000<sup>₫</sup>
-                                       </div>
-                                   </div>
-                               </div>
-                           </div>
-                       </div>
-                       <div class="l-items">
-
-                        <div class="f-items">
-                            <div class="f-product-item__thumb">
-                                <a href="https://voso.vn/dai-nich-bung-quan-nong-eo-thon-cao-cap-nich-bung-sau-sinh-tan-mo-slimming-onesize-p669239.html">
-                                    <div class="f-product-item__thumb-img progressive replace" data-href="https://image.voso.vn/users/vosoimage/images/a80ec8b312fb5745aeeeefbb856c57da?t%5B0%5D=maxSize%3Awidth%3D320%2Cheight%3D320&t%5B1%5D=compress%3Alevel%3D100&accessToken=ce4c9a7eca6e3a012b6509715e638d5853877c0acf29fa1f541f0ae3deb48450">
-                                        <img class="preview" src="https://hangnhatgiare.vn/wp-content/themes/hoatuoi/images/loader.gif" alt="image">
-                                    </div>
-                                    <div class='product-item-price product-item-price-mall'>
-                                        <span class="product-price">-38%</span>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="f-items_description f-items_show-name">
-                                <div class="f-items_name">
-                                    <div class="tag-mall">
+                                    <div class="f-items f-hidden">
+                                        @php
+                                            $item=$product_new[$i*2+1];
+                                        @endphp
+                                        @include('front-end.layout.product-item')
                                         
                                     </div>
-                                    <a href="https://voso.vn/dai-nich-bung-quan-nong-eo-thon-cao-cap-nich-bung-sau-sinh-tan-mo-slimming-onesize-p669239.html">
-                                    Đai nịch bụng quấn nóng eo thon cao cấp - Nịch bụng sau sinh tan mỡ Slimming (Onesize) </a>
                                 </div>
-                                <div class="f-items__ls main-rating b-sold-rating">
-                                    <span class="jstars" data-value="5"></span>
-                                </div>
-                                <div class="b-price">
-                                    <div class="b__price">
-                                        <strong>59,000<sup>₫</sup></strong>
-                                    </div>
-                                    <div class="listed-price">
-                                        95,000<sup>₫</sup>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                            @endfor
+                            @if($count%2==1)
+                                <div class="l-items">
 
-                        <div class="f-items f-hidden">
-                            <div class="f-product-item__thumb">
-                                <a href="https://voso.vn/xit-khoang-voi-collagen-nagano-100ml-p491722.html">
-                                    <div class="f-product-item__thumb-img progressive replace" data-href="https://image.voso.vn/users/vosoimage/images/82561f94fb51d0985bc6e30e48665335?t%5B0%5D=maxSize%3Awidth%3D320%2Cheight%3D320&t%5B1%5D=compress%3Alevel%3D100&accessToken=32bdde2fb7b7d5ef449fae03d62097600efdd084436b2abbe8425a6a207cc25a">
-                                        <img class="preview thumbnail-product" src="https://hangnhatgiare.vn/wp-content/themes/hoatuoi/images/loader.gif" alt="image">
-                                    </div>
-                                    <div class='product-item-price product-item-price-mall'>
-                                        <span class="product-price">-17%</span>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="f-items_description f-items_show-name">
-                                <div class="f-items_name">
-                                    <div class="tag-mall">
+                                    <div class="f-items">
+                                        @php
+                                            $item=$product_new[$count-1];
+                                        @endphp
+                                        @include('front-end.layout.product-item')
                                         
                                     </div>
-                                    <a href="https://voso.vn/xit-khoang-voi-collagen-nagano-100ml-p491722.html">
-                                    XỊT KHOÁNG VỚI COLLAGEN NAGANO - 100ml </a>
-                                </div>
-                                <div class="f-items__ls main-rating b-sold-rating">
-                                    <span class="jstars" data-value="5"></span>
-                                </div>
-                                <div class="b-price">
-                                    <div class="b__price">
-                                        <strong>425,000<sup>₫</sup></strong>
-                                    </div>
-                                    <div class="listed-price">
-                                        510,000<sup>₫</sup>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="l-items">
 
-                        <div class="f-items">
-                            <div class="f-product-item__thumb">
-                                <a href="https://voso.vn/noi-inox-3-day-sunhouse-sh22120-p304348.html">
-                                    <div class="f-product-item__thumb-img progressive replace" data-href="https://image.voso.vn/users/vosoimage/images/753cc0b7e0d0ef440b26f5a11f1ee155?t%5B0%5D=maxSize%3Awidth%3D320%2Cheight%3D320&t%5B1%5D=compress%3Alevel%3D100&accessToken=1353f49af2d6c1989fcb97da861671a3684bc7aeff597d57ca0cfbcf0d9f4eae">
-                                        <img class="preview" src="https://hangnhatgiare.vn/wp-content/themes/hoatuoi/images/loader.gif" alt="image">
-                                    </div>
-                                    <div class='product-item-price product-item-price-mall'>
-                                        <span class="product-price">-13%</span>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="f-items_description f-items_show-name">
-                                <div class="f-items_name">
-                                    <div class="tag-mall">
-                                        
-                                    </div>
-                                    <a href="https://voso.vn/noi-inox-3-day-sunhouse-sh22120-p304348.html">
-                                    Nồi inox 3 đáy SUNHOUSE SH22120 </a>
+                                    
                                 </div>
-                                <div class="f-items__ls main-rating b-sold-rating">
-                                    <span class="jstars" data-value="5"></span>
-                                    <label class="ml-auto">3 đã bán</label>
-                                </div>
-                                <div class="b-price">
-                                    <div class="b__price">
-                                        <strong>175,000<sup>₫</sup></strong>
-                                    </div>
-                                    <div class="listed-price">
-                                        199,000<sup>₫</sup>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                            @endif
 
-                        <div class="f-items f-hidden">
-                            <div class="f-product-item__thumb">
-                                <a href="https://voso.vn/ggomi-korea-do-dung-nha-bep-mk503-set-muoi-va-thia-xao-cute-p612119.html">
-                                    <div class="f-product-item__thumb-img progressive replace" data-href="https://image.voso.vn/users/vosoimage/images/3d2af26f3862afd8a176cf96567c491c?t%5B0%5D=maxSize%3Awidth%3D320%2Cheight%3D320&t%5B1%5D=compress%3Alevel%3D100&accessToken=2ce7c6970e9185e36c005cdd094f16e9dc4f4ed9783d7528714b82a0048ba1ae">
-                                        <img class="preview thumbnail-product" src="https://hangnhatgiare.vn/wp-content/themes/hoatuoi/images/loader.gif" alt="image">
-                                        <span class="freeship"></span>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="f-items_description f-items_show-name">
-                                <div class="f-items_name">
-                                    <div class="tag-mall">
-                                        
-                                    </div>
-                                    <a href="https://voso.vn/ggomi-korea-do-dung-nha-bep-mk503-set-muoi-va-thia-xao-cute-p612119.html">
-                                    [GGOMi KOREA] Đồ dùng nhà bếp - MK503 Set Muôi, Vá, Thìa xào cute </a>
-                                </div>
-                                <div class="f-items__ls main-rating b-sold-rating">
-                                    <span class="jstars" data-value="5"></span>
-                                    <label class="ml-auto">2 đã bán</label>
-                                </div>
-                                <div class="b-price">
-                                    <div class="b__price">
-                                        <strong>300,000<sup>₫</sup></strong>
-                                    </div>
-                                    <div class="listed-price">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="l-items">
+                        @else
+                            <div class="l-items">
 
-                        <div class="f-items">
-                            <div class="f-product-item__thumb">
-                                <a href="https://voso.vn/bo-qua-tang-khuyen-mai-p613631.html">
-                                    <div class="f-product-item__thumb-img progressive replace" data-href="https://image.voso.vn/users/vosoimage/images/79830fff492730320dab4197abe00364?t%5B0%5D=maxSize%3Awidth%3D320%2Cheight%3D320&t%5B1%5D=compress%3Alevel%3D100&accessToken=e3cb94f2077f76f765993e025ee9dc87b7f06522a724b9a4cdd18646f0f57f47">
-                                        <img class="preview" src="https://hangnhatgiare.vn/wp-content/themes/hoatuoi/images/loader.gif" alt="image">
-                                        <span class="freeship"></span>
-                                    </div>
-                                    <div class='product-item-price product-item-price-mall'>
-                                        <span class="product-price">-10%</span>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="f-items_description f-items_show-name">
-                                <div class="f-items_name">
-                                    <div class="tag-mall">
-                                        
-                                    </div>
-                                    <a href="https://voso.vn/bo-qua-tang-khuyen-mai-p613631.html">
-                                    Bộ quà tặng - khuyến mại </a>
+                                <div class="f-items">
+                                    @php
+                                        $item=$product_new[$count-1];
+                                    @endphp
+                                    @include('front-end.layout.product-item')
+                                    
                                 </div>
-                                <div class="f-items__ls main-rating b-sold-rating">
-                                    <span class="jstars" data-value="5"></span>
-                                </div>
-                                <div class="b-price">
-                                    <div class="b__price">
-                                        <strong>270,000<sup>₫</sup></strong>
-                                    </div>
-                                    <div class="listed-price">
-                                        300,000<sup>₫</sup>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
 
-                        <div class="f-items f-hidden">
-                            <div class="f-product-item__thumb">
-                                <a href="https://voso.vn/mt-103-hang-khuyen-mai-qua-tang-p613641.html">
-                                    <div class="f-product-item__thumb-img progressive replace" data-href="https://image.voso.vn/users/vosoimage/images/8a360f671149b0c66a438a776b26ce9b?t%5B0%5D=maxSize%3Awidth%3D320%2Cheight%3D320&t%5B1%5D=compress%3Alevel%3D100&accessToken=f551b4005f34490fe93a79bdc503e6d9504968f7857361fe1520426d08d8c615">
-                                        <img class="preview thumbnail-product" src="https://hangnhatgiare.vn/wp-content/themes/hoatuoi/images/loader.gif" alt="image">
-                                    </div>
-                                    <div class='product-item-price product-item-price-mall'>
-                                        <span class="product-price">-10%</span>
-                                    </div>
-                                </a>
+                                
                             </div>
-                            <div class="f-items_description f-items_show-name">
-                                <div class="f-items_name">
-                                    <div class="tag-mall">
-                                        
-                                    </div>
-                                    <a href="https://voso.vn/mt-103-hang-khuyen-mai-qua-tang-p613641.html">
-                                    MT 103 - Hàng khuyến mại - quà tặng </a>
-                                </div>
-                                <div class="f-items__ls main-rating b-sold-rating">
-                                    <span class="jstars" data-value="5"></span>
-                                </div>
-                                <div class="b-price">
-                                    <div class="b__price">
-                                        <strong>58,000<sup>₫</sup></strong>
-                                    </div>
-                                    <div class="listed-price">
-                                        64,000<sup>₫</sup>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                        @endif
                 </div>
             </div>
         </div>
@@ -1514,1126 +718,61 @@
                     </div>
 
                     <div id="slideVosomall" class="owl-carousel">
-                        <div class="l-items">
+                        @php
+                            $count = count($product_hot);
+                            $b = floor($count/2);
+                        @endphp
+                        @if($count == 0)
+                        @elseif($count!=1)
+                            @for($i=0;$i<$b;$i++)
+                                <div class="l-items">
 
-                            <div class="f-items">
-                                <div class="f-product-item__thumb">
-                                    <a href="https://voso.vn/thit-trau-hun-khoi-gac-bep-hoa-xuan-1-kg-p719622.html">
-                                        <div class="f-product-item__thumb-img progressive replace" data-href="https://image.voso.vn/users/vosoimage/images/b6932ceb68489f4af88944efbf9bb2cb?t%5B0%5D=maxSize%3Awidth%3D320%2Cheight%3D320&t%5B1%5D=compress%3Alevel%3D100&accessToken=5c83a31dcb1402ec36501b25c361356cef21746cd4b0eb4da3d344d23bfdd5e5">
-                                            <img class="preview" src="https://hangnhatgiare.vn/wp-content/themes/hoatuoi/images/loader.gif" alt="image">
-                                        </div>
-                                        <div class='product-item-price product-item-price-mall'>
-                                            <span class="product-price">-10%</span>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="f-items_description f-items_show-name">
-                                    <div class="f-items_name">
-                                        <div class="tag-mall">
-                                            
-                                        </div>
-                                        <a href="https://voso.vn/thit-trau-hun-khoi-gac-bep-hoa-xuan-1-kg-p719622.html">
-                                        Thịt Trâu hun khói (gác bếp) Hoa Xuân - 1 kg </a>
+                                    <div class="f-items">
+                                        @php
+                                            $item=$product_hot[$i*2];
+                                        @endphp
+                                        @include('front-end.layout.product-item')
                                     </div>
-                                    <div class="f-items__ls main-rating b-sold-rating">
-                                        <span class="jstars" data-value="0"></span>
-                                        <label class="ml-auto">4 đã bán</label>
-                                    </div>
-                                    <div class="b-price">
-                                        <div class="b__price">
-                                            <strong>900,000<sup>₫</sup></strong>
-                                        </div>
-                                        <div class="listed-price">
-                                           1,000,000<sup>₫</sup>
-                                       </div>
-                                   </div>
-                               </div>
-                           </div>
 
-                           <div class="f-items f-hidden">
-                            <div class="f-product-item__thumb">
-                                <a href="https://voso.vn/combo-5kg-cam-cao-phong-dac-san-hoa-binh-loai-1-p12708.html">
-                                    <div class="f-product-item__thumb-img progressive replace" data-href="https://image.voso.vn/users/vosoimage/images/471db93866709b312565ef8665b777f4?t%5B0%5D=maxSize%3Awidth%3D320%2Cheight%3D320&t%5B1%5D=compress%3Alevel%3D100&accessToken=cbafd8e0c748589adb03e182a5df517e9169e5c6d2d5f853d59b37c9234ec98c">
-                                        <span class="icon-ocop"></span>
-                                        <img class="preview thumbnail-product" src="https://hangnhatgiare.vn/wp-content/themes/hoatuoi/images/loader.gif" alt="image">
-                                    </div>
-                                    <span class="jstars jstars__ocop" data-value="3"></span>
-                                    <div class='product-item-price product-item-price-mall'>
-                                        <span class="product-price">-36%</span>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="f-items_description f-items_show-name">
-                                <div class="f-items_name">
-                                    <div class="tag-mall">
+                                    <div class="f-items f-hidden">
+                                        @php
+                                            $item=$product_hot[$i*2+1];
+                                        @endphp
+                                        @include('front-end.layout.product-item')
                                         
                                     </div>
-                                    <a href="https://voso.vn/combo-5kg-cam-cao-phong-dac-san-hoa-binh-loai-1-p12708.html">
-                                    COMBO 5KG CAM CAO PHONG ĐẶC SẢN HOÀ BÌNH ( LOẠI 1) </a>
                                 </div>
-                                <div class="f-items__ls main-rating b-sold-rating">
-                                    <span class="jstars" data-value="5"></span>
-                                    <label class="ml-auto">30 đã bán</label>
-                                </div>
-                                <div class="b-price">
-                                    <div class="b__price">
-                                        <strong>160,000<sup>₫</sup></strong>
+                            @endfor
+                            @if($count%2==1)
+                                <div class="l-items">
+
+                                    <div class="f-items">
+                                        @php
+                                            $item=$product_hot[$count-1];
+                                        @endphp
+                                        @include('front-end.layout.product-item')
+                                        
                                     </div>
-                                    <div class="listed-price">
-                                        250,000<sup>₫</sup>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="l-items">
 
-                        <div class="f-items">
-                            <div class="f-product-item__thumb">
-                                <a href="https://voso.vn/5kg-buoi-da-xanh-ben-tre-loai-1-p408199.html">
-                                    <div class="f-product-item__thumb-img progressive replace" data-href="https://image.voso.vn/users/vosoimage/images/9984d4568efb8f3580e7cc98380c4e60?t%5B0%5D=maxSize%3Awidth%3D320%2Cheight%3D320&t%5B1%5D=compress%3Alevel%3D100&accessToken=5b17cbae37ef8e400eb58c21c8db9117256f60325e2da930b3c9139a89722325">
-                                        <img class="preview" src="https://hangnhatgiare.vn/wp-content/themes/hoatuoi/images/loader.gif" alt="image">
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="f-items_description f-items_show-name">
-                                <div class="f-items_name">
-                                   <div class="tag-mall">
                                     
                                 </div>
-                                <a href="https://voso.vn/5kg-buoi-da-xanh-ben-tre-loai-1-p408199.html">
-                                5KG BƯỞI DA XANH BẾN TRE LOẠI 1 </a>
-                            </div>
-                            <div class="f-items__ls main-rating b-sold-rating">
-                                <span class="jstars" data-value="5"></span>
-                                <label class="ml-auto">9 đã bán</label>
-                            </div>
-                            <div class="b-price">
-                                <div class="b__price">
-                                    <strong>199,000<sup>₫</sup></strong>
-                                </div>
-                                <div class="listed-price">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                            @endif
 
-                    <div class="f-items f-hidden">
-                        <div class="f-product-item__thumb">
-                            <a href="https://voso.vn/phu-tho-che-xanh-bat-tien-long-coc-200g-p726148.html">
-                                <div class="f-product-item__thumb-img progressive replace" data-href="https://image.voso.vn/users/vosoimage/images/c5cc95a522171c5b3abe37ffd2981b5a?t%5B0%5D=maxSize%3Awidth%3D320%2Cheight%3D320&t%5B1%5D=compress%3Alevel%3D100&accessToken=0cf90ac4ae4ffc347e407c5863f9a8b7b6acfa866d6dc19d6f599fca6dd4578a">
-                                    <span class="icon-ocop"></span>
-                                    <img class="preview thumbnail-product" src="https://hangnhatgiare.vn/wp-content/themes/hoatuoi/images/loader.gif" alt="image">
-                                </div>
-                                <span class="jstars jstars__ocop" data-value="4"></span>
-                                <div class='product-item-price product-item-price-mall'>
-                                    <span class="product-price">-37%</span>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="f-items_description f-items_show-name">
-                            <div class="f-items_name">
-                                <div class="tag-mall">
+                        @else
+                            <div class="l-items">
+
+                                <div class="f-items">
+                                    @php
+                                        $item=$product_hot[$count-1];
+                                    @endphp
+                                    @include('front-end.layout.product-item')
                                     
                                 </div>
-                                <a href="https://voso.vn/phu-tho-che-xanh-bat-tien-long-coc-200g-p726148.html">
-                                [Phú Thọ] Chè Xanh Bát Tiên Long Cốc 200g </a>
-                            </div>
-                            <div class="f-items__ls main-rating b-sold-rating">
-                                <span class="jstars" data-value="0"></span>
-                            </div>
-                            <div class="b-price">
-                                <div class="b__price">
-                                    <strong>120,000<sup>₫</sup></strong>
-                                </div>
-                                <div class="listed-price">
-                                    190,000<sup>₫</sup>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="l-items">
 
-                    <div class="f-items">
-                        <div class="f-product-item__thumb">
-                            <a href="https://voso.vn/rau-cau-chi-vang-p732278.html">
-                                <div class="f-product-item__thumb-img progressive replace" data-href="https://image.voso.vn/users/vosoimage/images/d973a0ef2e9df5d67e92bfb0c77cdc89?t%5B0%5D=maxSize%3Awidth%3D320%2Cheight%3D320&t%5B1%5D=compress%3Alevel%3D100&accessToken=db1edb0cbefcfabb2c65cf89b30c31746492204f474e18a4229258ed391b60d0">
-                                    <span class="icon-ocop"></span>
-                                    <img class="preview" src="https://hangnhatgiare.vn/wp-content/themes/hoatuoi/images/loader.gif" alt="image">
-                                </div>
-                                <span class="jstars jstars__ocop" data-value="3"></span>
-                                <div class='product-item-price product-item-price-mall'>
-                                    <span class="product-price">-8%</span>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="f-items_description f-items_show-name">
-                            <div class="f-items_name">
-                                <div class="tag-mall">
-                                    
-                                </div>
-                                <a href="https://voso.vn/rau-cau-chi-vang-p732278.html">
-                                Rau câu chỉ vàng </a>
+                                
                             </div>
-                            <div class="f-items__ls main-rating b-sold-rating">
-                                <span class="jstars" data-value="0"></span>
-                            </div>
-                            <div class="b-price">
-                                <div class="b__price">
-                                    <strong>60,000<sup>₫</sup></strong>
-                                </div>
-                                <div class="listed-price">
-                                    65,000<sup>₫</sup>
-                                </div>
-                            </div>
-                        </div>
+                        @endif
                     </div>
-
-                    <div class="f-items f-hidden">
-                        <div class="f-product-item__thumb">
-                            <a href="https://voso.vn/banh-xoai-ngoc-phung-hop-75g-p728452.html">
-                                <div class="f-product-item__thumb-img progressive replace" data-href="https://image.voso.vn/users/vosoimage/images/fb63b4d1050012fb73042c84e39fd627?t%5B0%5D=maxSize%3Awidth%3D320%2Cheight%3D320&t%5B1%5D=compress%3Alevel%3D100&accessToken=fd84958436f7d79b7abdd4a164ee0701f81806cdbbb300f3ba903a1ab20f5b42">
-                                    <img class="preview thumbnail-product" src="https://hangnhatgiare.vn/wp-content/themes/hoatuoi/images/loader.gif" alt="image">
-                                </div>
-                                <div class='product-item-price product-item-price-mall'>
-                                    <span class="product-price">-14%</span>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="f-items_description f-items_show-name">
-                            <div class="f-items_name">
-                                <div class="tag-mall">
-                                    
-                                </div>
-                                <a href="https://voso.vn/banh-xoai-ngoc-phung-hop-75g-p728452.html">
-                                Bánh Xoài Ngọc Phụng (Hộp 75g)  </a>
-                            </div>
-                            <div class="f-items__ls main-rating b-sold-rating">
-                                <span class="jstars" data-value="0"></span>
-                                <label class="ml-auto">2 đã bán</label>
-                            </div>
-                            <div class="b-price">
-                                <div class="b__price">
-                                    <strong>50,000<sup>₫</sup></strong>
-                                </div>
-                                <div class="listed-price">
-                                    58,000<sup>₫</sup>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="l-items">
-
-                    <div class="f-items">
-                        <div class="f-product-item__thumb">
-                            <a href="https://voso.vn/gao-st25-gao-vuong-nam-2019-tui-5kg-p521014.html">
-                                <div class="f-product-item__thumb-img progressive replace" data-href="https://image.voso.vn/users/vosoimage/images/7c280b396d641913e64f425a7e3131a6?t%5B0%5D=maxSize%3Awidth%3D320%2Cheight%3D320&t%5B1%5D=compress%3Alevel%3D100&accessToken=d17a403c53337ef7da805c6357e6bda3632ad330982994826289eb8f2f15650a">
-                                    <img class="preview" src="https://hangnhatgiare.vn/wp-content/themes/hoatuoi/images/loader.gif" alt="image">
-                                </div>
-                                <div class='product-item-price product-item-price-mall'>
-                                    <span class="product-price">-10%</span>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="f-items_description f-items_show-name">
-                            <div class="f-items_name">
-                                <div class="tag-mall">
-                                    
-                                </div>
-                                <a href="https://voso.vn/gao-st25-gao-vuong-nam-2019-tui-5kg-p521014.html">
-                                GẠO ST25 - GẠO &quot;VƯƠNG&quot; NĂM 2019 (TÚI 5KG) </a>
-                            </div>
-                            <div class="f-items__ls main-rating b-sold-rating">
-                                <span class="jstars" data-value="5"></span>
-                                <label class="ml-auto">488 đã bán</label>
-                            </div>
-                            <div class="b-price">
-                                <div class="b__price">
-                                    <strong>180,000<sup>₫</sup></strong>
-                                </div>
-                                <div class="listed-price">
-                                    200,000<sup>₫</sup>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="f-items f-hidden">
-                        <div class="f-product-item__thumb">
-                            <a href="https://voso.vn/dac-san-tay-nguyen-kho-qua-rung-kon-tum-p727045.html">
-                                <div class="f-product-item__thumb-img progressive replace" data-href="https://image.voso.vn/users/vosoimage/images/ec6bb0faa6c523030759864964b181fa?t%5B0%5D=maxSize%3Awidth%3D320%2Cheight%3D320&t%5B1%5D=compress%3Alevel%3D100&accessToken=5057cd2554ca7bc91a5015834f403f276ea532283dfcfdc5871ed51feaf01455">
-                                    <span class="icon-ocop"></span>
-                                    <img class="preview thumbnail-product" src="https://hangnhatgiare.vn/wp-content/themes/hoatuoi/images/loader.gif" alt="image">
-                                </div>
-                                <span class="jstars jstars__ocop" data-value="3"></span>
-                                <div class='product-item-price product-item-price-mall'>
-                                    <span class="product-price">-9%</span>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="f-items_description f-items_show-name">
-                            <div class="f-items_name">
-                                <div class="tag-mall">
-                                    
-                                </div>
-                                <a href="https://voso.vn/dac-san-tay-nguyen-kho-qua-rung-kon-tum-p727045.html">
-                                ĐẶC SẢN TÂY NGUYÊN - KHỔ QUA RỪNG KON TUM </a>
-                            </div>
-                            <div class="f-items__ls main-rating b-sold-rating">
-                                <span class="jstars" data-value="0"></span>
-                            </div>
-                            <div class="b-price">
-                                <div class="b__price">
-                                    <strong>228,000<sup>₫</sup></strong>
-                                </div>
-                                <div class="listed-price">
-                                    250,000<sup>₫</sup>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="l-items">
-
-                    <div class="f-items">
-                        <div class="f-product-item__thumb">
-                            <a href="https://voso.vn/keo-sua-dua-nguyen-chat-yen-hoang-tui-1kg-dac-san-ben-tre-p545335.html">
-                                <div class="f-product-item__thumb-img progressive replace" data-href="https://image.voso.vn/users/vosoimage/images/390c699d1972b8f3bebd33ee60ce76f0?t%5B0%5D=maxSize%3Awidth%3D320%2Cheight%3D320&t%5B1%5D=compress%3Alevel%3D100&accessToken=ec6f4a5abeb622079067bc5b6d653c7cc1faa1361668934917bd56c66bff3777">
-                                    <span class="icon-ocop"></span>
-                                    <img class="preview" src="https://hangnhatgiare.vn/wp-content/themes/hoatuoi/images/loader.gif" alt="image">
-                                </div>
-                                <span class="jstars jstars__ocop" data-value="4"></span>
-                                <div class='product-item-price product-item-price-mall'>
-                                    <span class="product-price">-9%</span>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="f-items_description f-items_show-name">
-                            <div class="f-items_name">
-                                <div class="tag-mall">
-                                    
-                                </div>
-                                <a href="https://voso.vn/keo-sua-dua-nguyen-chat-yen-hoang-tui-1kg-dac-san-ben-tre-p545335.html">
-                                Kẹo Sữa Dừa Nguyên Chất Yến Hoàng (Túi 1kg) - Đặc sản Bến Tre </a>
-                            </div>
-                            <div class="f-items__ls main-rating b-sold-rating">
-                                <span class="jstars" data-value="5"></span>
-                                <label class="ml-auto">14 đã bán</label>
-                            </div>
-                            <div class="b-price">
-                                <div class="b__price">
-                                    <strong>155,000<sup>₫</sup></strong>
-                                </div>
-                                <div class="listed-price">
-                                    170,000<sup>₫</sup>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="f-items f-hidden">
-                        <div class="f-product-item__thumb">
-                            <a href="https://voso.vn/tra-sam-day-ngoc-linh-dato-25-tui-dac-san-kon-tum-p718371.html">
-                                <div class="f-product-item__thumb-img progressive replace" data-href="https://image.voso.vn/users/vosoimage/images/4d80751efd6fb92afdd7b1fb39d68a07?t%5B0%5D=maxSize%3Awidth%3D320%2Cheight%3D320&t%5B1%5D=compress%3Alevel%3D100&accessToken=92ee1d1474b30e9ad8cfcb789f270719c5b6ed3b4fc710ae0cff59d96aaa79c8">
-                                    <span class="icon-ocop"></span>
-                                    <img class="preview thumbnail-product" src="https://hangnhatgiare.vn/wp-content/themes/hoatuoi/images/loader.gif" alt="image">
-                                </div>
-                                <span class="jstars jstars__ocop" data-value="3"></span>
-                            </a>
-                        </div>
-                        <div class="f-items_description f-items_show-name">
-                            <div class="f-items_name">
-                                <div class="tag-mall">
-                                    
-                                </div>
-                                <a href="https://voso.vn/tra-sam-day-ngoc-linh-dato-25-tui-dac-san-kon-tum-p718371.html">
-                                TRÀ SÂM DÂY NGỌC LINH DATO ( 25 TÚI )_ ĐẶC SẢN KON TUM </a>
-                            </div>
-                            <div class="f-items__ls main-rating b-sold-rating">
-                                <span class="jstars" data-value="0"></span>
-                            </div>
-                            <div class="b-price">
-                                <div class="b__price">
-                                    <strong>75,000<sup>₫</sup></strong>
-                                </div>
-                                <div class="listed-price">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="l-items">
-
-                    <div class="f-items">
-                        <div class="f-product-item__thumb">
-                            <a href="https://voso.vn/bat-dua-ep-son-mai-p22948.html">
-                                <div class="f-product-item__thumb-img progressive replace" data-href="https://image.voso.vn/users/vosoimage/images/39de3314e1da80c26fdbf9ec489ac184?t%5B0%5D=maxSize%3Awidth%3D320%2Cheight%3D320&t%5B1%5D=compress%3Alevel%3D100&accessToken=fa5d5d2b1a912f2355a9bac0eff0b8edf4253b21f5cebda50c94ebf5596de086">
-                                    <span class="icon-ocop"></span>
-                                    <img class="preview" src="https://hangnhatgiare.vn/wp-content/themes/hoatuoi/images/loader.gif" alt="image">
-                                </div>
-                                <span class="jstars jstars__ocop" data-value="4"></span>
-                                <div class='product-item-price product-item-price-mall'>
-                                    <span class="product-price">-6%</span>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="f-items_description f-items_show-name">
-                            <div class="f-items_name">
-                                <div class="tag-mall">
-                                    
-                                </div>
-                                <a href="https://voso.vn/bat-dua-ep-son-mai-p22948.html">
-                                Bát dừa ép sơn mài </a>
-                            </div>
-                            <div class="f-items__ls main-rating b-sold-rating">
-                                <span class="jstars" data-value="5"></span>
-                                <label class="ml-auto">1 đã bán</label>
-                            </div>
-                            <div class="b-price">
-                                <div class="b__price">
-                                    <strong>80,000<sup>₫</sup></strong>
-                                </div>
-                                <div class="listed-price">
-                                    85,000<sup>₫</sup>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="f-items f-hidden">
-                        <div class="f-product-item__thumb">
-                            <a href="https://voso.vn/banh-pia-mon-trung-muoitan-hue-vien-p615327.html">
-                                <div class="f-product-item__thumb-img progressive replace" data-href="https://image.voso.vn/users/vosoimage/images/78863444f6c0498d19ec2fba4b1faa8e?t%5B0%5D=maxSize%3Awidth%3D320%2Cheight%3D320&t%5B1%5D=compress%3Alevel%3D100&accessToken=a686ac003bd58734489dbbd40f0248cb0a6179d66f408c501623c3fee5e5e849">
-                                    <img class="preview thumbnail-product" src="https://hangnhatgiare.vn/wp-content/themes/hoatuoi/images/loader.gif" alt="image">
-                                </div>
-                                <div class='product-item-price product-item-price-mall'>
-                                    <span class="product-price">-12%</span>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="f-items_description f-items_show-name">
-                            <div class="f-items_name">
-                                <div class="tag-mall">
-                                    
-                                </div>
-                                <a href="https://voso.vn/banh-pia-mon-trung-muoitan-hue-vien-p615327.html">
-                                Bánh Pía Môn Trứng Muối_Tân Huê Viên </a>
-                            </div>
-                            <div class="f-items__ls main-rating b-sold-rating">
-                                <span class="jstars" data-value="5"></span>
-                                <label class="ml-auto">190 đã bán</label>
-                            </div>
-                            <div class="b-price">
-                                <div class="b__price">
-                                    <strong>75,000<sup>₫</sup></strong>
-                                </div>
-                                <div class="listed-price">
-                                    85,000<sup>₫</sup>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="l-items">
-
-                    <div class="f-items">
-                        <div class="f-product-item__thumb">
-                            <a href="https://voso.vn/dong-trung-ha-thao-kho-thien-an-p720714.html">
-                                <div class="f-product-item__thumb-img progressive replace" data-href="https://image.voso.vn/users/vosoimage/images/bee692f331eab566a19514fd694f6ee5?t%5B0%5D=maxSize%3Awidth%3D320%2Cheight%3D320&t%5B1%5D=compress%3Alevel%3D100&accessToken=f69477c338fdd6ea3e32c52f0846c835e169b586b77a3e481cd8a3cf2845fa61">
-                                    <span class="icon-ocop"></span>
-                                    <img class="preview" src="https://hangnhatgiare.vn/wp-content/themes/hoatuoi/images/loader.gif" alt="image">
-                                </div>
-                                <span class="jstars jstars__ocop" data-value="4"></span>
-                                <div class='product-item-price product-item-price-mall'>
-                                    <span class="product-price">-12%</span>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="f-items_description f-items_show-name">
-                            <div class="f-items_name">
-                                <div class="tag-mall">
-                                    
-                                </div>
-                                <a href="https://voso.vn/dong-trung-ha-thao-kho-thien-an-p720714.html">
-                                Đông trùng hạ thảo khô Thiên Ân </a>
-                            </div>
-                            <div class="f-items__ls main-rating b-sold-rating">
-                                <span class="jstars" data-value="0"></span>
-                            </div>
-                            <div class="b-price">
-                                <div class="b__price">
-                                    <strong>399,000<sup>₫</sup></strong>
-                                </div>
-                                <div class="listed-price">
-                                    450,000<sup>₫</sup>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="f-items f-hidden">
-                        <div class="f-product-item__thumb">
-                            <a href="https://voso.vn/tra-ca-gai-leo-ho-tro-chuc-nang-gan-hop-125g-duoc-lieu-phu-luong-p717024.html">
-                                <div class="f-product-item__thumb-img progressive replace" data-href="https://image.voso.vn/users/vosoimage/images/e50fbe66f4b9fab63e7d7bfec5488672?t%5B0%5D=maxSize%3Awidth%3D320%2Cheight%3D320&t%5B1%5D=compress%3Alevel%3D100&accessToken=05cc2c0a9eec740a60ca3cd6d3cd781f1d5c1ce7775bf01a32311bec75b56f8b">
-                                    <img class="preview thumbnail-product" src="https://hangnhatgiare.vn/wp-content/themes/hoatuoi/images/loader.gif" alt="image">
-                                </div>
-                                <div class='product-item-price product-item-price-mall'>
-                                    <span class="product-price">-30%</span>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="f-items_description f-items_show-name">
-                            <div class="f-items_name">
-                                <div class="tag-mall">
-                                    
-                                </div>
-                                <a href="https://voso.vn/tra-ca-gai-leo-ho-tro-chuc-nang-gan-hop-125g-duoc-lieu-phu-luong-p717024.html">
-                                Trà Cà Gai Leo Hỗ Trợ Chức Năng Gan - Hộp 125g - Dược liệu Phú Lương </a>
-                            </div>
-                            <div class="f-items__ls main-rating b-sold-rating">
-                                <span class="jstars" data-value="0"></span>
-                                <label class="ml-auto">1 đã bán</label>
-                            </div>
-                            <div class="b-price">
-                                <div class="b__price">
-                                    <strong>87,500<sup>₫</sup></strong>
-                                </div>
-                                <div class="listed-price">
-                                    125,000<sup>₫</sup>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="l-items">
-
-                    <div class="f-items">
-                        <div class="f-product-item__thumb">
-                            <a href="https://voso.vn/vo-quyt-say-p733168.html">
-                                <div class="f-product-item__thumb-img progressive replace" data-href="https://image.voso.vn/users/vosoimage/images/173ad68840d1f90b0a19da9caaef8a1d?t%5B0%5D=maxSize%3Awidth%3D320%2Cheight%3D320&t%5B1%5D=compress%3Alevel%3D100&accessToken=31891abe372234204a0f3d570a5777c3940d2d1090a67d1ecc04b9852f0a5644">
-                                    <span class="icon-ocop"></span>
-                                    <img class="preview" src="https://hangnhatgiare.vn/wp-content/themes/hoatuoi/images/loader.gif" alt="image">
-                                </div>
-                                <span class="jstars jstars__ocop" data-value="3"></span>
-                                <div class='product-item-price product-item-price-mall'>
-                                    <span class="product-price">-13%</span>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="f-items_description f-items_show-name">
-                            <div class="f-items_name">
-                                <a href="https://voso.vn/vo-quyt-say-p733168.html">
-                                Vỏ Quýt sấy </a>
-                            </div>
-                            <div class="f-items__ls main-rating b-sold-rating">
-                                <span class="jstars" data-value="0"></span>
-                            </div>
-                            <div class="b-price">
-                                <div class="b__price">
-                                    <strong>35,000<sup>₫</sup></strong>
-                                </div>
-                                <div class="listed-price">
-                                    40,000<sup>₫</sup>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="f-items f-hidden">
-                        <div class="f-product-item__thumb">
-                            <a href="https://voso.vn/toi-den-olvis-50g-p731732.html">
-                                <div class="f-product-item__thumb-img progressive replace" data-href="https://image.voso.vn/users/vosoimage/images/cd702ccb42c6ebbde63cf511d2879d86?t%5B0%5D=maxSize%3Awidth%3D320%2Cheight%3D320&t%5B1%5D=compress%3Alevel%3D100&accessToken=26bdf25cb512903cccb7e3d9c95b627857aa489410034da8fbe5e46f91abe7b1">
-                                    <img class="preview thumbnail-product" src="https://hangnhatgiare.vn/wp-content/themes/hoatuoi/images/loader.gif" alt="image">
-                                </div>
-                                <div class='product-item-price product-item-price-mall'>
-                                    <span class="product-price">-16%</span>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="f-items_description f-items_show-name">
-                            <div class="f-items_name">
-                                <div class="tag-mall">
-                                    
-                                </div>
-                                <a href="https://voso.vn/toi-den-olvis-50g-p731732.html">
-                                Tỏi đen Olvis 50g </a>
-                            </div>
-                            <div class="f-items__ls main-rating b-sold-rating">
-                                <span class="jstars" data-value="0"></span>
-                            </div>
-                            <div class="b-price">
-                                <div class="b__price">
-                                    <strong>80,000<sup>₫</sup></strong>
-                                </div>
-                                <div class="listed-price">
-                                    95,000<sup>₫</sup>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="l-items">
-
-                    <div class="f-items">
-                        <div class="f-product-item__thumb">
-                            <a href="https://voso.vn/dac-san-kon-tum-tra-kho-qua-rung-dato-p727062.html">
-                                <div class="f-product-item__thumb-img progressive replace" data-href="https://image.voso.vn/users/vosoimage/images/de67a85779b9e7d1734c2a2cad239e1e?t%5B0%5D=maxSize%3Awidth%3D320%2Cheight%3D320&t%5B1%5D=compress%3Alevel%3D100&accessToken=0cd81aceb29ebaee65b93c26d37d2290ce77cef62d47e1c68b22abf6a1df7f62">
-                                    <span class="icon-ocop"></span>
-                                    <img class="preview" src="https://hangnhatgiare.vn/wp-content/themes/hoatuoi/images/loader.gif" alt="image">
-                                </div>
-                                <span class="jstars jstars__ocop" data-value="3"></span>
-                                <div class='product-item-price product-item-price-mall'>
-                                    <span class="product-price">-17%</span>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="f-items_description f-items_show-name">
-                            <div class="f-items_name">
-                                <div class="tag-mall">
-                                    
-                                </div>
-                                <a href="https://voso.vn/dac-san-kon-tum-tra-kho-qua-rung-dato-p727062.html">
-                                ĐẶC SẢN KON TUM - TRÀ KHỔ QUA RỪNG DATO </a>
-                            </div>
-                            <div class="f-items__ls main-rating b-sold-rating">
-                                <span class="jstars" data-value="0"></span>
-                            </div>
-                            <div class="b-price">
-                                <div class="b__price">
-                                    <strong>75,000<sup>₫</sup></strong>
-                                </div>
-                                <div class="listed-price">
-                                    90,000<sup>₫</sup>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="f-items f-hidden">
-                        <div class="f-product-item__thumb">
-                            <a href="https://voso.vn/nuoc-dong-trung-ha-thao-nice-hop-gom-6-lon-p723194.html">
-                                <div class="f-product-item__thumb-img progressive replace" data-href="https://image.voso.vn/users/vosoimage/images/eee90fe1500c1099b20750333a1bcc7f?t%5B0%5D=maxSize%3Awidth%3D320%2Cheight%3D320&t%5B1%5D=compress%3Alevel%3D100&accessToken=2b42fbe8281013ae557761dcc49406268551965bbe860e0c9cc542981e056eda">
-                                    <span class="icon-ocop"></span>
-                                    <img class="preview thumbnail-product" src="https://hangnhatgiare.vn/wp-content/themes/hoatuoi/images/loader.gif" alt="image">
-                                </div>
-                                <span class="jstars jstars__ocop" data-value="4"></span>
-                                <div class='product-item-price product-item-price-mall'>
-                                    <span class="product-price">-7%</span>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="f-items_description f-items_show-name">
-                            <div class="f-items_name">
-                                <div class="tag-mall">
-                                    
-                                </div>
-                                <a href="https://voso.vn/nuoc-dong-trung-ha-thao-nice-hop-gom-6-lon-p723194.html">
-                                Nước Đông Trùng Hạ Thảo Nice (hộp gồm 6 lon) </a>
-                            </div>
-                            <div class="f-items__ls main-rating b-sold-rating">
-                                <span class="jstars" data-value="0"></span>
-                            </div>
-                            <div class="b-price">
-                                <div class="b__price">
-                                    <strong>140,000<sup>₫</sup></strong>
-                                </div>
-                                <div class="listed-price">
-                                    150,000<sup>₫</sup>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="l-items">
-
-                    <div class="f-items">
-                        <div class="f-product-item__thumb">
-                            <a href="https://voso.vn/gio-me-xu-nghe-1kg-p721943.html">
-                                <div class="f-product-item__thumb-img progressive replace" data-href="https://image.voso.vn/users/vosoimage/images/b47c43f699950e2695a450c1b5e4d37d?t%5B0%5D=maxSize%3Awidth%3D320%2Cheight%3D320&t%5B1%5D=compress%3Alevel%3D100&accessToken=6979fe78928a0e517b068e14a1da820e56e997071f8ed47987ac4ea2ea534f54">
-                                    <img class="preview" src="https://hangnhatgiare.vn/wp-content/themes/hoatuoi/images/loader.gif" alt="image">
-                                </div>
-                                <div class='product-item-price product-item-price-mall'>
-                                    <span class="product-price">-21%</span>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="f-items_description f-items_show-name">
-                            <div class="f-items_name">
-                                <div class="tag-mall">
-                                    
-                                </div>
-                                <a href="https://voso.vn/gio-me-xu-nghe-1kg-p721943.html">
-                                Giò Me Xứ Nghệ_ 1KG </a>
-                            </div>
-                            <div class="f-items__ls main-rating b-sold-rating">
-                                <span class="jstars" data-value="0"></span>
-                                <label class="ml-auto">18 đã bán</label>
-                            </div>
-                            <div class="b-price">
-                                <div class="b__price">
-                                    <strong>199,000<sup>₫</sup></strong>
-                                </div>
-                                <div class="listed-price">
-                                    250,000<sup>₫</sup>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="f-items f-hidden">
-                        <div class="f-product-item__thumb">
-                            <a href="https://voso.vn/ca-mau-tom-kho-dat-dac-san-ca-mau-ntt-p618797.html">
-                                <div class="f-product-item__thumb-img progressive replace" data-href="https://image.voso.vn/users/vosoimage/images/29efc2b6eaba83310913a52a78688f1a?t%5B0%5D=maxSize%3Awidth%3D320%2Cheight%3D320&t%5B1%5D=compress%3Alevel%3D100&accessToken=10ca600150e78e8456a1efbcaded8ae1e72539744ff350392881da83f5619048">
-                                    <img class="preview thumbnail-product" src="https://hangnhatgiare.vn/wp-content/themes/hoatuoi/images/loader.gif" alt="image">
-                                </div>
-                                <div class='product-item-price product-item-price-mall'>
-                                    <span class="product-price">-12%</span>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="f-items_description f-items_show-name">
-                            <div class="f-items_name">
-                                <div class="tag-mall">
-                                    
-                                </div>
-                                <a href="https://voso.vn/ca-mau-tom-kho-dat-dac-san-ca-mau-ntt-p618797.html">
-                                CÀ MAU_ Tôm Khô đât_ Đặc sản Cà Mau (ntt) </a>
-                            </div>
-                            <div class="f-items__ls main-rating b-sold-rating">
-                                <span class="jstars" data-value="5"></span>
-                                <label class="ml-auto">279 đã bán</label>
-                            </div>
-                            <div class="b-price">
-                                <div class="b__price">
-                                    <strong>750,000<sup>₫</sup></strong>
-                                </div>
-                                <div class="listed-price">
-                                    850,000<sup>₫</sup>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="l-items">
-
-                    <div class="f-items">
-                        <div class="f-product-item__thumb">
-                            <a href="https://voso.vn/keo-sua-dua-nguyen-chat-yen-hoang-tui-1kg-p2331.html">
-                                <div class="f-product-item__thumb-img progressive replace" data-href="https://image.voso.vn/users/vosoimage/images/24b88dd323cf6673ccb4c5617b453ad5?t%5B0%5D=maxSize%3Awidth%3D320%2Cheight%3D320&t%5B1%5D=compress%3Alevel%3D100&accessToken=809e9303cd07c822ca3561f5acf95db996976c15cff3ef490d43910f2476d743">
-                                    <img class="preview" src="https://hangnhatgiare.vn/wp-content/themes/hoatuoi/images/loader.gif" alt="image">
-                                </div>
-                                <div class='product-item-price product-item-price-mall'>
-                                    <span class="product-price">-12%</span>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="f-items_description f-items_show-name">
-                            <div class="f-items_name">
-                                <div class="tag-mall">
-                                    
-                                </div>
-                                <a href="https://voso.vn/keo-sua-dua-nguyen-chat-yen-hoang-tui-1kg-p2331.html">
-                                KẸO SỮA DỪA NGUYÊN CHẤT YẾN HOÀNG (TÚI 1KG) </a>
-                            </div>
-                            <div class="f-items__ls main-rating b-sold-rating">
-                                <span class="jstars" data-value="5"></span>
-                                <label class="ml-auto">162 đã bán</label>
-                            </div>
-                            <div class="b-price">
-                                <div class="b__price">
-                                    <strong>150,000<sup>₫</sup></strong>
-                                </div>
-                                <div class="listed-price">
-                                    170,000<sup>₫</sup>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="f-items f-hidden">
-                        <div class="f-product-item__thumb">
-                            <a href="https://voso.vn/ca-mau-1kg-mam-ca-loc-thoi-binh-ngon-dung-chuan-ca-mau-p443185.html">
-                                <div class="f-product-item__thumb-img progressive replace" data-href="https://image.voso.vn/users/vosoimage/images/fa4f3f437ec87e50d623ad53a185e270?t%5B0%5D=maxSize%3Awidth%3D320%2Cheight%3D320&t%5B1%5D=compress%3Alevel%3D100&accessToken=876a37aee3518b56767d89217f4c5e2fd360a5eb996487de2365e8fbc0f13bba">
-                                    <img class="preview thumbnail-product" src="https://hangnhatgiare.vn/wp-content/themes/hoatuoi/images/loader.gif" alt="image">
-                                </div>
-                                <div class='product-item-price product-item-price-mall'>
-                                    <span class="product-price">-12%</span>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="f-items_description f-items_show-name">
-                            <div class="f-items_name">
-                                <div class="tag-mall">
-                                    
-                                </div>
-                                <a href="https://voso.vn/ca-mau-1kg-mam-ca-loc-thoi-binh-ngon-dung-chuan-ca-mau-p443185.html">
-                                CÀ MAU_ 1kg Mắm cá lóc Thới Bình- Ngon đúng chuẩn_ Cà Mau </a>
-                            </div>
-                            <div class="f-items__ls main-rating b-sold-rating">
-                                <span class="jstars" data-value="5"></span>
-                                <label class="ml-auto">223 đã bán</label>
-                            </div>
-                            <div class="b-price">
-                                <div class="b__price">
-                                    <strong>220,000<sup>₫</sup></strong>
-                                </div>
-                                <div class="listed-price">
-                                    250,000<sup>₫</sup>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="l-items">
-
-                    <div class="f-items">
-                        <div class="f-product-item__thumb">
-                            <a href="https://voso.vn/ca-mauca-kho-loc-xe-nuoi-p501091.html">
-                                <div class="f-product-item__thumb-img progressive replace" data-href="https://image.voso.vn/users/vosoimage/images/7daa63462199dff48c5603416999aa0d?t%5B0%5D=maxSize%3Awidth%3D320%2Cheight%3D320&t%5B1%5D=compress%3Alevel%3D100&accessToken=54190185fe195a3b2fde55a853c791bd4007acfce80071b90a88890553b345ee">
-                                    <img class="preview" src="https://hangnhatgiare.vn/wp-content/themes/hoatuoi/images/loader.gif" alt="image">
-                                </div>
-                                <div class='product-item-price product-item-price-mall'>
-                                    <span class="product-price">-15%</span>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="f-items_description f-items_show-name">
-                            <div class="f-items_name">
-                                <div class="tag-mall">
-                                    
-                                </div>
-                                <a href="https://voso.vn/ca-mauca-kho-loc-xe-nuoi-p501091.html">
-                                CÀ MAU_Cá khô lóc xẻ nuôi </a>
-                            </div>
-                            <div class="f-items__ls main-rating b-sold-rating">
-                                <span class="jstars" data-value="5"></span>
-                                <label class="ml-auto">218 đã bán</label>
-                            </div>
-                            <div class="b-price">
-                                <div class="b__price">
-                                    <strong>145,000<sup>₫</sup></strong>
-                                </div>
-                                <div class="listed-price">
-                                    170,000<sup>₫</sup>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="f-items f-hidden">
-                        <div class="f-product-item__thumb">
-                            <a href="https://voso.vn/ca-mau-200gr-cha-bong-tom-tom-dat-dac-san-ca-mau-p613077.html">
-                                <div class="f-product-item__thumb-img progressive replace" data-href="https://image.voso.vn/users/vosoimage/images/4e71d55645b404f23c1085d0e07ace91?t%5B0%5D=maxSize%3Awidth%3D320%2Cheight%3D320&t%5B1%5D=compress%3Alevel%3D100&accessToken=94d9e18cef5043528ada06e0b5ced12999e17f15d523de2091327f33d83ee04f">
-                                    <img class="preview thumbnail-product" src="https://hangnhatgiare.vn/wp-content/themes/hoatuoi/images/loader.gif" alt="image">
-                                </div>
-                                <div class='product-item-price product-item-price-mall'>
-                                    <span class="product-price">-13%</span>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="f-items_description f-items_show-name">
-                            <div class="f-items_name">
-                                <div class="tag-mall">
-                                    
-                                </div>
-                                <a href="https://voso.vn/ca-mau-200gr-cha-bong-tom-tom-dat-dac-san-ca-mau-p613077.html">
-                                CÀ MAU_ 200gr] Chà bông tôm ( tôm đất)_ Đặc sản Cà Mau </a>
-                            </div>
-                            <div class="f-items__ls main-rating b-sold-rating">
-                                <span class="jstars" data-value="5"></span>
-                                <label class="ml-auto">212 đã bán</label>
-                            </div>
-                            <div class="b-price">
-                                <div class="b__price">
-                                    <strong>280,000<sup>₫</sup></strong>
-                                </div>
-                                <div class="listed-price">
-                                    320,000<sup>₫</sup>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="l-items">
-
-                    <div class="f-items">
-                        <div class="f-product-item__thumb">
-                            <a href="https://voso.vn/banh-pia-dau-xanh-sau-rieng-trung-muoi-tan-hue-vien-p655993.html">
-                                <div class="f-product-item__thumb-img progressive replace" data-href="https://image.voso.vn/users/vosoimage/images/3b048d10e6df2aa89c308bf7d02e24c1?t%5B0%5D=maxSize%3Awidth%3D320%2Cheight%3D320&t%5B1%5D=compress%3Alevel%3D100&accessToken=2c3745d5e15a725c3f0601f81603f116fdc80acca33959a5e1fbb3fa669c839c">
-                                    <img class="preview" src="https://hangnhatgiare.vn/wp-content/themes/hoatuoi/images/loader.gif" alt="image">
-                                </div>
-                                <div class='product-item-price product-item-price-mall'>
-                                    <span class="product-price">-12%</span>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="f-items_description f-items_show-name">
-                            <div class="f-items_name">
-                                <div class="tag-mall">
-                                    
-                                </div>
-                                <a href="https://voso.vn/banh-pia-dau-xanh-sau-rieng-trung-muoi-tan-hue-vien-p655993.html">
-                                Bánh Pía Đậu Xanh Sầu Riêng Trứng Muối_ Tân Huê Viên </a>
-                            </div>
-                            <div class="f-items__ls main-rating b-sold-rating">
-                                <span class="jstars" data-value="5"></span>
-                                <label class="ml-auto">24 đã bán</label>
-                            </div>
-                            <div class="b-price">
-                                <div class="b__price">
-                                    <strong>75,000<sup>₫</sup></strong>
-                                </div>
-                                <div class="listed-price">
-                                    85,000<sup>₫</sup>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="f-items f-hidden">
-                        <div class="f-product-item__thumb">
-                            <a href="https://voso.vn/ca-mau-kho-ca-thoi-loi-dac-san-ca-mau-500g-p620095.html">
-                                <div class="f-product-item__thumb-img progressive replace" data-href="https://image.voso.vn/users/vosoimage/images/5fc6da95302b77b9c8377bb4031f9299?t%5B0%5D=maxSize%3Awidth%3D320%2Cheight%3D320&t%5B1%5D=compress%3Alevel%3D100&accessToken=b61245056069c28ff3e7acd9e8a84723e66ea774251eeb055c1cde98418c13a6">
-                                    <img class="preview thumbnail-product" src="https://hangnhatgiare.vn/wp-content/themes/hoatuoi/images/loader.gif" alt="image">
-                                </div>
-                                <div class='product-item-price product-item-price-mall'>
-                                    <span class="product-price">-12%</span>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="f-items_description f-items_show-name">
-                            <div class="f-items_name">
-                                <div class="tag-mall">
-                                    
-                                </div>
-                                <a href="https://voso.vn/ca-mau-kho-ca-thoi-loi-dac-san-ca-mau-500g-p620095.html">
-                                CÀ MAU_ Khô cá thòi lòi_ Đặc sản Cà Mau 500g </a>
-                            </div>
-                            <div class="f-items__ls main-rating b-sold-rating">
-                                <span class="jstars" data-value="5"></span>
-                                <label class="ml-auto">215 đã bán</label>
-                            </div>
-                            <div class="b-price">
-                                <div class="b__price">
-                                    <strong>220,000<sup>₫</sup></strong>
-                                </div>
-                                <div class="listed-price">
-                                    250,000<sup>₫</sup>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="l-items">
-
-                    <div class="f-items">
-                        <div class="f-product-item__thumb">
-                            <a href="https://voso.vn/combo-5kg-vu-sua-lo-ren-p724500.html">
-                                <div class="f-product-item__thumb-img progressive replace" data-href="https://image.voso.vn/users/vosoimage/images/af2a741b6ea122d88a67cb4658076a49?t%5B0%5D=maxSize%3Awidth%3D320%2Cheight%3D320&t%5B1%5D=compress%3Alevel%3D100&accessToken=d3a9e4c1f8d7da55f0356903423f8d886f1eadfd082308d821a180f2206a66ee">
-                                    <img class="preview" src="https://hangnhatgiare.vn/wp-content/themes/hoatuoi/images/loader.gif" alt="image">
-                                </div>
-                                <div class='product-item-price product-item-price-mall'>
-                                    <span class="product-price">-17%</span>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="f-items_description f-items_show-name">
-                            <div class="f-items_name">
-                                <div class="tag-mall">
-                                    
-                                </div>
-                                <a href="https://voso.vn/combo-5kg-vu-sua-lo-ren-p724500.html">
-                                COMBO 5KG VÚ SỮA LÒ RÈN </a>
-                            </div>
-                            <div class="f-items__ls main-rating b-sold-rating">
-                                <span class="jstars" data-value="0"></span>
-                                <label class="ml-auto">21 đã bán</label>
-                            </div>
-                            <div class="b-price">
-                                <div class="b__price">
-                                    <strong>250,000<sup>₫</sup></strong>
-                                </div>
-                                <div class="listed-price">
-                                    300,000<sup>₫</sup>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="f-items f-hidden">
-                        <div class="f-product-item__thumb">
-                            <a href="https://voso.vn/mat-ong-cuong-nga-p723191.html">
-                                <div class="f-product-item__thumb-img progressive replace" data-href="https://image.voso.vn/users/vosoimage/images/fceaf7310a86c04ca557bbb9d8e22bf7?t%5B0%5D=maxSize%3Awidth%3D320%2Cheight%3D320&t%5B1%5D=compress%3Alevel%3D100&accessToken=75477370970fdd229ab4721cdef6d8a999c322ff2611508a18b612a4c8cc78e5">
-                                    <span class="icon-ocop"></span>
-                                    <img class="preview thumbnail-product" src="https://hangnhatgiare.vn/wp-content/themes/hoatuoi/images/loader.gif" alt="image">
-                                </div>
-                                <span class="jstars jstars__ocop" data-value="3"></span>
-                                <div class='product-item-price product-item-price-mall'>
-                                    <span class="product-price">-15%</span>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="f-items_description f-items_show-name">
-                            <div class="f-items_name">
-                                <div class="tag-mall">
-                                    
-                                </div>
-                                <a href="https://voso.vn/mat-ong-cuong-nga-p723191.html">
-                                Mật ong Cường Nga </a>
-                            </div>
-                            <div class="f-items__ls main-rating b-sold-rating">
-                                <span class="jstars" data-value="0"></span>
-                                <label class="ml-auto">1 đã bán</label>
-                            </div>
-                            <div class="b-price">
-                                <div class="b__price">
-                                    <strong>85,000<sup>₫</sup></strong>
-                                </div>
-                                <div class="listed-price">
-                                    100,000<sup>₫</sup>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="l-items">
-
-                    <div class="f-items">
-                        <div class="f-product-item__thumb">
-                            <a href="https://voso.vn/tra-viet-thai-loc-tra-thuong-hang-p723183.html">
-                                <div class="f-product-item__thumb-img progressive replace" data-href="https://image.voso.vn/users/vosoimage/images/5d72b28d5d8c310ce9af18a09b3711ef?t%5B0%5D=maxSize%3Awidth%3D320%2Cheight%3D320&t%5B1%5D=compress%3Alevel%3D100&accessToken=4dc8b408978ae5699a6e1553a1fb5a99ba265e92181bf95cb650230171bcac3c">
-                                    <span class="icon-ocop"></span>
-                                    <img class="preview" src="https://hangnhatgiare.vn/wp-content/themes/hoatuoi/images/loader.gif" alt="image">
-                                </div>
-                                <span class="jstars jstars__ocop" data-value="4"></span>
-                            </a>
-                        </div>
-                        <div class="f-items_description f-items_show-name">
-                            <div class="f-items_name">
-                                <div class="tag-mall">
-                                    
-                                </div>
-                                <a href="https://voso.vn/tra-viet-thai-loc-tra-thuong-hang-p723183.html">
-                                Trà Việt Thái - Lộc trà thượng hạng </a>
-                            </div>
-                            <div class="f-items__ls main-rating b-sold-rating">
-                                <span class="jstars" data-value="0"></span>
-                            </div>
-                            <div class="b-price">
-                                <div class="b__price">
-                                    <strong>2,000,000<sup>₫</sup></strong>
-                                </div>
-                                <div class="listed-price">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="f-items f-hidden">
-                        <div class="f-product-item__thumb">
-                            <a href="https://voso.vn/ca-phe-hat-rang-moc-arabica-light-coffee-nguyen-chat-thom-lau-vi-chua-thanh-dang-nhe-1kg2-goi-p721454.html">
-                                <div class="f-product-item__thumb-img progressive replace" data-href="https://image.voso.vn/users/vosoimage/images/ba396d9309875c67c2be92248a85797b?t%5B0%5D=maxSize%3Awidth%3D320%2Cheight%3D320&t%5B1%5D=compress%3Alevel%3D100&accessToken=e60e98469831ef7e1cf981a7f612d548d9c39324c3458356e121e53e91514c7c">
-                                    <img class="preview thumbnail-product" src="https://hangnhatgiare.vn/wp-content/themes/hoatuoi/images/loader.gif" alt="image">
-                                </div>
-                                <div class='product-item-price product-item-price-mall'>
-                                    <span class="product-price">-30%</span>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="f-items_description f-items_show-name">
-                            <div class="f-items_name">
-                                <div class="tag-mall">
-                                    
-                                </div>
-                                <a href="https://voso.vn/ca-phe-hat-rang-moc-arabica-light-coffee-nguyen-chat-thom-lau-vi-chua-thanh-dang-nhe-1kg2-goi-p721454.html">
-                                Cà phê hạt rang mộc Arabica Light Coffee, nguyên chất, thơm lâu vị chua thanh, đắng nhẹ - 1kg/2 gói </a>
-                            </div>
-                            <div class="f-items__ls main-rating b-sold-rating">
-                                <span class="jstars" data-value="0"></span>
-                            </div>
-                            <div class="b-price">
-                                <div class="b__price">
-                                    <strong>282,000<sup>₫</sup></strong>
-                                </div>
-                                <div class="listed-price">
-                                    402,000<sup>₫</sup>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="l-items">
-
-                    <div class="f-items">
-                        <div class="f-product-item__thumb">
-                            <a href="https://voso.vn/dau-me-den-nguyen-chat-bao-tam-120-ml-p720694.html">
-                                <div class="f-product-item__thumb-img progressive replace" data-href="https://image.voso.vn/users/vosoimage/images/d63157b99e92998537616eb9e89ce4ed?t%5B0%5D=maxSize%3Awidth%3D320%2Cheight%3D320&t%5B1%5D=compress%3Alevel%3D100&accessToken=933422ce86106582bafc899cd704442f75d420a3a988ad0f4cc012f5e966ff69">
-                                    <img class="preview" src="https://hangnhatgiare.vn/wp-content/themes/hoatuoi/images/loader.gif" alt="image">
-                                </div>
-                                <div class='product-item-price product-item-price-mall'>
-                                    <span class="product-price">-10%</span>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="f-items_description f-items_show-name">
-                            <div class="f-items_name">
-                                <div class="tag-mall">
-                                    
-                                </div>
-                                <a href="https://voso.vn/dau-me-den-nguyen-chat-bao-tam-120-ml-p720694.html">
-                                Dầu Mè Đen Nguyên Chất Bảo Tâm 120 ml </a>
-                            </div>
-                            <div class="f-items__ls main-rating b-sold-rating">
-                                <span class="jstars" data-value="0"></span>
-                                <label class="ml-auto">2 đã bán</label>
-                            </div>
-                            <div class="b-price">
-                                <div class="b__price">
-                                    <strong>59,000<sup>₫</sup></strong>
-                                </div>
-                                <div class="listed-price">
-                                    65,000<sup>₫</sup>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="f-items f-hidden">
-                        <div class="f-product-item__thumb">
-                            <a href="https://voso.vn/dau-macca-thinh-phat-chai-20ml-p718408.html">
-                                <div class="f-product-item__thumb-img progressive replace" data-href="https://image.voso.vn/users/vosoimage/images/b10cec7651203529cc51bf6eae0fa5d1?t%5B0%5D=maxSize%3Awidth%3D320%2Cheight%3D320&t%5B1%5D=compress%3Alevel%3D100&accessToken=2132bf202217a71fabb97d34d580587f0adbdfd103144856d0c7c097e80d8975">
-                                    <img class="preview thumbnail-product" src="https://hangnhatgiare.vn/wp-content/themes/hoatuoi/images/loader.gif" alt="image">
-                                </div>
-                                <div class='product-item-price product-item-price-mall'>
-                                    <span class="product-price">-13%</span>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="f-items_description f-items_show-name">
-                            <div class="f-items_name">
-                                <div class="tag-mall">
-                                    
-                                </div>
-                                <a href="https://voso.vn/dau-macca-thinh-phat-chai-20ml-p718408.html">
-                                Dầu Macca Thịnh Phát Chai 20ml </a>
-                            </div>
-                            <div class="f-items__ls main-rating b-sold-rating">
-                                <span class="jstars" data-value="0"></span>
-                            </div>
-                            <div class="b-price">
-                                <div class="b__price">
-                                    <strong>70,000<sup>₫</sup></strong>
-                                </div>
-                                <div class="listed-price">
-                                    80,000<sup>₫</sup>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 </div>

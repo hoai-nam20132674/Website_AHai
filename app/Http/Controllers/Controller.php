@@ -31,9 +31,16 @@ class Controller extends BaseController
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
     public function index(){
-
+        $categories = ProductCate::where('display',1)->whereNull('parent_id')->get();
         $sliders = Slider::where('display',1)->get();
-        return view('front-end.index',compact('sliders'));
+        $menus = Menu::whereNull('parent_id')->orderBy('stt','ASC')->get();
+        $best_sale = Product::where('display',1)->where('best_sale',1)->orderBy('updated_at','DESC')->get();
+        $product_new = Product::where('display',1)->orderBy('id','DESC')->get();
+        $product_hot = Product::where('display',1)->where('hot',1)->orderBy('updated_at','DESC')->get();
+        return view('front-end.index',compact('sliders','categories','menus','best_sale','product_new','product_hot'));
+
+
+
     }
     public function postAddUserMerchant(addUserRequest $request){
         $item = new User;
