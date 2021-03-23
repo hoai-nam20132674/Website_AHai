@@ -30,7 +30,7 @@ class CreateProductsTable extends Migration
             $table->string('avata')->nullable();
             $table->integer('price');
             $table->integer('sale')->nullable();
-            $table->boolean('status');
+            $table->boolean('status')->nullable();
             $table->timestamps();
         });
     }

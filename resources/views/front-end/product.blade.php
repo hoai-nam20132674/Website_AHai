@@ -354,7 +354,7 @@
                                         			<span class="c-product-main__oldprice ng-binding">{{$product->sale}}<sup>đ</sup></span>
                                         			<span class="c-product-main__price ng-scope"><span class="ng-binding">{{$product->price}}</span><sup>đ</sup></span>
                                         			@php
-									                    $percent = $product->sale/$product->price;
+									                    $percent = ($product->price-$product->sale)/$product->price;
 									                    $percent = floor($percent*100);
 									                @endphp
                                         			<span class="c-tag-sale ng-binding ng-scope">Giảm {{$percent}}%</span>

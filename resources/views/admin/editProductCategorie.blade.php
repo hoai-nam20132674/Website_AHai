@@ -234,4 +234,10 @@
     <script src="{{asset('js/admin/slug.js')}}"></script>
     <script src="{{asset('js/admin/seo-helper.js')}}"></script>
     <script src="{{asset('js/admin/upload-image.js')}}"></script>
+    <script type="text/javascript">
+        var url = $('input[name="url"]').attr('value');
+        var a = url.lastIndexOf('-');
+        url = url.slice(0,a);
+        $('input[name="url"]').attr('value',url);
+    </script>
 @endsection

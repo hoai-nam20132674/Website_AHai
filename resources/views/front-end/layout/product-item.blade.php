@@ -6,7 +6,7 @@
         @if($item->sale != '')
             <div class='product-item-price product-item-price-mall'>
                 @php
-                    $percent = $item->sale/$item->price;
+                    $percent = ($item->price-$item->sale)/$item->price;
                     $percent = floor($percent*100);
                 @endphp
                 <span class="product-price">-{{$percent}}%</span>

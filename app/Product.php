@@ -29,7 +29,7 @@ class Product extends Model
     	$this->seo_description = $request->seo_description;
     	$this->url = $request->url;
     	$this->content = $request->content;
-    	$this->status = $request->status;
+    	$this->display = $request->display;
         $this->short_description = $request->short_description;
         $this->hot = $request->hot;
         $this->best_sale = $request->best_sale;
@@ -94,7 +94,7 @@ class Product extends Model
         $url = $request->url.'-pi'.$product->id;
         $product->url = $url;
         $product->content = $request->content;
-        $product->status = $request->status;
+        $product->display = $request->display;
         $product->hot = $request->hot;
         $product->short_description = $request->short_description;
         $product->best_sale = $request->best_sale;

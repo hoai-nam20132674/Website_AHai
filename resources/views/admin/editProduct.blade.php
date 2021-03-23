@@ -240,8 +240,8 @@
     </div>
     <div class="widget-body">
         <div class="ui-select-wrapper">
-            <select class="form-control ui-select ui-select" id="status" name="status">
-                @if($product->status == 1)
+            <select class="form-control ui-select ui-select" id="display" name="display">
+                @if($product->display == 1)
                 <option value="1">Xuất bản</option>
                 <option value="0">Bản nháp</option>
                 @else

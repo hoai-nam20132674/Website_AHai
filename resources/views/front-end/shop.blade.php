@@ -409,11 +409,11 @@
 									                
 									                        <div class="widget meta-boxes">
 									                            <div class="widget-title">
-									                                <h4><label for="status" class="control-label required">Trạng thái</label></h4>
+									                                <h4><label for="display" class="control-label required">Trạng thái</label></h4>
 									                            </div>
 									                            <div class="widget-body">
 									                                <div class="ui-select-wrapper">
-									                                    <select class="form-control ui-select ui-select" id="status" name="status">
+									                                    <select class="form-control ui-select ui-select" id="display" name="display">
 									                                        <option value="1">Xuất bản</option>
 									                                        <option value="0">Bản nháp</option>
 									                                    </select>
