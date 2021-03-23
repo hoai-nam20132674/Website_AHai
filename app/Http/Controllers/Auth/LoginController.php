@@ -53,14 +53,8 @@ class LoginController extends Controller
             'password'=>$request->password
         );
         if(Auth::attempt($login) || Auth::attempt($login2)){
-            if(Auth::user()->role ==1 || Auth::user()->role ==2){
             
-                return redirect()->route('home');
-            }
-            else{
-                return redirect()->route('index')->with(['flash_level'=>'success','flash_message'=>'Đăng nhập thành công']);
-            }
-            
+            return redirect($request->url);
         }
         else{
             return redirect()->back()->with(['flash_level'=>'danger','flash_message'=>'Tài khoản hoặc mật khẩu không chính xác']);

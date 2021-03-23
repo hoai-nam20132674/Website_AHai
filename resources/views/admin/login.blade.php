@@ -53,8 +53,9 @@
                         @endif
                         <form action="{{URL::route('postLogin')}}" method="POST">
                             {{ csrf_field() }}
-                            <input class="form-control" name="email" placeholder="E-mail Address" value="{{old('email')}}" required>
+                            <input class="form-control" onchange="locationUrl()" name="email" placeholder="E-mail Address" value="{{old('email')}}" required>
                             <input class="form-control" type="password" name="password" placeholder="Password" value="{{old('password')}}" required>
+                            <input type="text" name="url" style="display: none;">
                             <div class="form-button">
                                 <button id="submit" type="submit" class="ibtn">Đăng nhập</button> <a href="#">Forget password?</a>
                             </div>
@@ -71,6 +72,11 @@
 <script src="{{asset('js/admin/login/main.js')}}"></script>
 <script type="text/javascript">
     $("div.alert").delay(3000).slideUp();
+    function locationUrl(){
+        var url = location.href;
+        
+        $('input[name="url"]').val(url);
+    }
 </script>
 </body>
 </html>

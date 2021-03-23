@@ -693,7 +693,7 @@
                             {{ csrf_field() }}
                             <div class="form-group">
                                 <label>Tên đăng nhập</label>
-                                <input type="text" class="form-control form-height" name="email" placeholder="Số điện thoại/Email" ng-model="email">
+                                <input type="text" onchange="locationUrl()" class="form-control form-height" name="email" placeholder="Số điện thoại/Email" ng-model="email">
                                 <small class="form-text text-muted" ng-if="errors.email">
                                     <i class="fas fa-times-circle"></i>Lỗi Email
                                 </small>
@@ -712,6 +712,7 @@
                                     style="position: absolute;right: 10px;top: 13px;">
                                 </span>
                             </div>
+                            
                             <small class="form-text text-muted" ng-if="errors.password">
                                 <i class="fas fa-times-circle"></i>Lỗi pass
                             </small>
@@ -722,6 +723,11 @@
                         <div class="form-group">
                             <button type="submit" class="btn btn-register">Đăng Nhập</button>
                         </div>
+                        <div class="form-group" style="display:none;">
+                                <label>Url</label>
+                                <input name="url" test="1" type="text" class="form-control form-height" placeholder="Url">
+                                
+                            </div>
                     </form>
                     <!-- <div class="m-line">
                       <p>Hoặc</p>
@@ -818,7 +824,7 @@
                     <input type="hidden" name="_token" value="{{ csrf_token()}}">
                     <div class="form-group">
                         <label>Họ tên</label>
-                        <input type="text" name="name" class="form-control form-height" placeholder="họ và tên" ng-class="errors.name?'form-error':''" ng-model="user.name">
+                        <input type="text" name="name" onchange="locationUrl()" class="form-control form-height" placeholder="họ và tên" ng-class="errors.name?'form-error':''" ng-model="user.name">
                         <small class="form-text text-muted" ng-if="errors.name">
                             <i class="fas fa-times-circle"></i>Lỗi 1
                         </small>
@@ -851,11 +857,17 @@
                             <i class="fas fa-times-circle"></i>Lỗi pass
                         </small>
                     </div>
+                    
                     <div class="m-rules">
                         <p>Bằng việc đăng kí, bạn đã đồng ý với chúng tôi về <a href="https://tintuc.voso.vn/quy-che-hoat-dong/">Điều khoản dịch vụ</a> & <a href="https://tintuc.voso.vn/quy-che-hoat-dong/">chính sách bảo mật.</a></p>
                     </div>
                     <div class="form-group">
                         <button type="submit" class="btn btn-register">Đăng ký</button>
+                    </div>
+                    <div class="form-group" style="display:none;">
+                        <label>Url</label>
+                        <input name="url" test="1" type="text" class="form-control form-height" placeholder="Url">
+                        
                     </div>
                 </form>
                 <div class="clearfix"></div>

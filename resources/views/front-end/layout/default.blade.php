@@ -17,6 +17,12 @@ body-home-page " ng-controller="auth" ng-cloak>
 @yield('js')
 <script type="text/javascript">
     $("div.note").delay(3000).slideUp();
+
+    function locationUrl(){
+    	var url = location.href;
+    	
+    	$('input[name="url"]').val(url);
+    }
 </script>
 </body>
 </html>

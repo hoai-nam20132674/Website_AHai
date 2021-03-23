@@ -67,12 +67,15 @@ class Controller extends BaseController
         $categories = ProductCate::where('display',1)->whereNull('parent_id')->get();
         $menus = Menu::whereNull('parent_id')->orderBy('stt','ASC')->get();
 
-    	if($key=='bc'){
-    		$blog_cate = $blog_cate->first();
-    		$bcids = BCID::where('cate_id',$blog_cate->id)->get();
-    		$bids = $this->arrayColumn($bcids,$col='blog_id');
-    		$blogs = Blog::whereIn('id',$bids)->get();
-    		return view('front-end.blogs',['system'=>$system,'blog_cate'=>$blog_cate,'blogs'=>$blogs]);
+    	if($key=='pi'){
+            $product = Product::where('id',$id)->get()->first();
+            $cates = PCID::where('product_id',$id)->get();
+            $same_cate_id = $this->arrayColumn($cates,$col='cate_id');
+            $same_products_id = $this->arrayColumn(PCID::where('product_id','!=',$id)->whereIn('cate_id',$same_cate_id)->take(10)->get(),$col='product_id');
+            $same_products = Product::whereIn('id',$same_products_id)->where('display',1)->take(5)->get();
+            $images = ProductImage::where('product_id',$product->id)->where('role',0)->get();
+            return view('front-end.product',compact('categories','menus','product','images','same_products'));
+    		
     	}
         
         else if($key=='pc'){
@@ -88,10 +91,12 @@ class Controller extends BaseController
         //     return view('front-end.blog',['system'=>$system,'blogs'=>$blogs,'blog'=>$blog]);
         // }
         
-        else if($key=='pi'){
-            $product = Product::where('id',$id)->get()->first();
-            $images = ProductImage::where('product_id',$product->id)->where('role',0)->get();
-            return view('front-end.product',compact('categories','menus','product','images'));
+        else if($key=='bc'){
+            $blog_cate = $blog_cate->first();
+            $bcids = BCID::where('cate_id',$blog_cate->id)->get();
+            $bids = $this->arrayColumn($bcids,$col='blog_id');
+            $blogs = Blog::whereIn('id',$bids)->get();
+            return view('front-end.blogs',['system'=>$system,'blog_cate'=>$blog_cate,'blogs'=>$blogs]);
         }
         else {
             return view('front-end.error',['system'=>$system]);
