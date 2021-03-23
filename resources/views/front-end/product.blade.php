@@ -82,6 +82,12 @@
 	        [id|=textAngular-editableFix]{
 	            display: none !important;
 	        }
+	        
+	        @media (max-width: 575px){
+	        	.b-header{
+		        	display: none;
+		        }
+	        }
 	    </style>
 
 
@@ -150,22 +156,8 @@
     <div property="schema:mpn" content="925872"></div>
     <div property="schema:sku" content="0446310786"></div>
 </div>
-<script data-cfasync="false" src="https://voso.vn/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-    var url_string = window.location.href;
-    var url = new URL(url_string);
-    var affiliateId = url.searchParams.get("o2o");
-    var likeCount = '0';
-    var status = 'fa fa-heart-o';
-    var product = {"id":101533,"productCode":"P1101533","merchantProductId":"S66-\u0110en","categoryId":96,"merchantId":8590,"areaId":0,"provinceId":0,"districtId":0,"productPropertyId":0,"parentId":0,"name":"Gi\u00e0y Sneaker Nam \u0110en, Gi\u00e0y Sneaker Nam, Gi\u00e0y Sneaker Nam Th\u1ec3 Thao","image":"47ab29ffff6fb2024a887ee17f656adc","images":"[{\"name\":\"Gi\u00e0y Sneaker Nam \u0110en, Gi\u00e0y Sneaker Nam, Gi\u00e0y Sneaker Nam Th\u1ec3 Thao\",\"image\":\"a68c07ae63b520d43ca71e0860e3a7a5\",\"$$hashKey\":\"object:1607\"},{\"name\":\"Gi\u00e0y Sneaker Nam \u0110en, Gi\u00e0y Sneaker Nam, Gi\u00e0y Sneaker Nam Th\u1ec3 Thao\",\"image\":\"3bf490b851efe55b05a0b5f558d6d9a8\",\"$$hashKey\":\"object:1611\"},{\"name\":\"Gi\u00e0y Sneaker Nam \u0110en, Gi\u00e0y Sneaker Nam, Gi\u00e0y Sneaker Nam Th\u1ec3 Thao\",\"image\":\"2accad2151e364d4c430a9876c0b8f7e\",\"$$hashKey\":\"object:1615\"},{\"name\":\"Gi\u00e0y Sneaker Nam \u0110en, Gi\u00e0y Sneaker Nam, Gi\u00e0y Sneaker Nam Th\u1ec3 Thao\",\"image\":\"c099ae95f8839b9f97c53e83c9b358f8\",\"$$hashKey\":\"object:1619\"}]","description":"<p><br\/><\/p><p><br\/><\/p><!--StartFragment--><h1 style=\"color: rgb(0, 0, 0);background-color: ;\"><strong><b><em>Gi\u00e0y nam \u0111en Ch\u1ea5t - C\u1ef1c Ng\u1ea7u S66. M\u1ed9t tuy\u1ec7t ph\u1ea9m m\u1edbi th\u1eddi gian 2019 n\u0103m nay. Qu\u00fd kh\u00e1ch \u0111i l\u00ean \u0111\u00f4i ch\u00e2n th\u00ec cam k\u1ebft s\u1ebd th\u1ea5y tho\u1ea3i m\u00e1i, \u0111\u1eb9p v\u00e0 phong c\u00e1ch l\u00ean r\u1ea5t nhi\u1ec1u.<\/em><\/b><\/strong><\/h1><p style=\"color: rgb(0, 0, 0);background-color: ;\"><strong><b><em><br\/><\/em><\/b><\/strong><\/p><div style=\"text-align: center;\"><strong><b><em><img src=\"https:\/\/image.voso.vn\/users\/vosoimage\/images\/47ab29ffff6fb2024a887ee17f656adc?t%5B%5D=maxSize%3Awidth%3D800&amp;t%5B%5D=compress%3Alevel%3D100&amp;accessToken=f7421c6de2fd70e5bacb7552c54bc1da6175f529ce2343b64fa532f1027798b9\"\/><\/em><\/b><\/strong><\/div><p><strong><b><em><br\/><br\/><br\/><br\/><\/em><\/b><\/strong><div style=\"text-align: center;\"><img src=\"https:\/\/image.voso.vn\/users\/vosoimage\/images\/c099ae95f8839b9f97c53e83c9b358f8?t%5B%5D=maxSize%3Awidth%3D800&amp;t%5B%5D=compress%3Alevel%3D100&amp;accessToken=9175a8a6c02928d2d0c085dbcc8c411478195980d86be468162e4495e5617d05\"\/><\/div><\/p><p><strong><b><em><br\/><br\/><\/em><\/b><\/strong><\/p><p><\/p><p style=\"color: rgb(0, 0, 0);background-color: ;\"><\/p><div style=\"text-align: center;\"><img src=\"https:\/\/image.voso.vn\/users\/vosoimage\/images\/a68c07ae63b520d43ca71e0860e3a7a5?t%5B%5D=maxSize%3Awidth%3D800&amp;t%5B%5D=compress%3Alevel%3D100&amp;accessToken=1a7a4ea156d87151f42d5e0762fe48ad3985ff3889051344c0055c5bc74914e1\"\/><\/div><p><strong><b><em><br\/><\/em><\/b><\/strong><div style=\"text-align: center;\"><img src=\"https:\/\/image.voso.vn\/users\/vosoimage\/images\/e5ec2a71639212c3d9cb549adc98c4ca?t%5B%5D=maxSize%3Awidth%3D800&amp;t%5B%5D=compress%3Alevel%3D100&amp;accessToken=e63c5cc646683ea43fbafde4a8619773b64136ed49327e18161310383096b7dc\"\/><\/div><\/p><p><strong><b><em><br\/><br\/><\/em><\/b><\/strong><\/p><p><\/p><h2 style=\"color: rgb(0, 0, 0);background-color: ;\"><strong><b><em><br\/>Nh\u1eefng \u0111i\u1ec1u m\u00e0 \u0111\u00f4i Gi\u00e0y nam \u0111en S66 \u0111em l\u1ea1i cho qu\u00fd kh\u00e1ch<\/em><\/b><\/strong><\/h2><p style=\"color: rgb(0, 0, 0);background-color: ;\"><span>\u2714\ufe0f Bao \u0111\u1eb9p, bao ch\u1ea5t l\u01b0\u1ee3ng<\/span><\/p><p style=\"color: rgb(0, 0, 0);background-color: ;\"><span>\u2714\ufe0f Ph\u00f9 h\u1ee3p v\u1edbi m\u1ecdi trang ph\u1ee5c t\u1eeb c\u00f4ng s\u1edf, \u0111\u1ebfn du l\u1ecbch....<\/span><\/p><p style=\"color: rgb(0, 0, 0);background-color: ;\"><span>\u2714\ufe0f Cam k\u1ebft h\u00e0ng chu\u1ea9n \u0111\u1eb9p, ch\u1ea5t l\u01b0\u1ee3ng, v\u1ea3i c\u1ef1c ch\u1ea5t<\/span><\/p><p style=\"color: rgb(0, 0, 0);background-color: ;\"><span>\u2714\ufe0f G\u00f3t gi\u00e0y \u0111\u01b0\u1ee3c \u0111\u1ed9n th\u00eam 1 l\u1edbp b\u00f4ng tr\u00e1nh c\u1ecd s\u00e1t v\u00e0o g\u00f3t ch\u00e2n<\/span><\/p><p style=\"color: rgb(0, 0, 0);background-color: ;\"><span>\u2714\ufe0f \u0110\u1ebf gi\u00e0y l\u00e0m b\u1eb1ng cao su \u0111\u00e0n h\u1ed3i si\u00eau t\u1ed1t<\/span><\/p><p style=\"color: rgb(0, 0, 0);background-color: ;\"><span>\u2714\ufe0f \u0110\u1ebf gi\u00e0y \u0111\u01b0\u1ee3c ch\u1ebf t\u00e1c \u00eam \u00e1i<\/span><\/p><p style=\"color: rgb(0, 0, 0);background-color: ;\"><span>\u2714\ufe0f Gi\u00e0y \u0111i l\u00ean ch\u00e2n c\u1ea3m gi\u00e1c \u00eam, nh\u1eb9, kh\u00f4ng b\u1ecb b\u00f3 ch\u00e2n<\/span><\/p><p style=\"color: rgb(0, 0, 0);background-color: ;\"><span>\u2714\ufe0f N\u00f3i \u0111\u1ebfn gi\u00e0y Sneaker hay gi\u00e0y th\u1ec3 thao kh\u00f4ng th\u1ec3 kh\u00f4ng nh\u1eafc \u0111\u1ebfn \u0111\u00f4i gi\u00e0y S66 n\u00e0y \u0111\u01b0\u1ee3c<\/span><\/p><p style=\"color: rgb(0, 0, 0);background-color: ;\"><br\/><\/p><p style=\"color: rgb(0, 0, 0);background-color: ;\"><\/p><div style=\"text-align: center;\"><img src=\"https:\/\/image.voso.vn\/users\/vosoimage\/images\/174060c531bb5f61d9819cbfc9d7d484?t%5B%5D=maxSize%3Awidth%3D800&amp;t%5B%5D=compress%3Alevel%3D100&amp;accessToken=97efe5cbe228e0c987583ff673728be1b3df2a5b19e11343fed83037aec47ec3\"\/><\/div><p><br\/><\/p><p><br\/><\/p><p><\/p><p style=\"color: rgb(0, 0, 0);background-color: ;\"><\/p><div style=\"text-align: center;\"><img src=\"https:\/\/image.voso.vn\/users\/vosoimage\/images\/bc484ecc75c4466d300c374e3026a617?t%5B%5D=maxSize%3Awidth%3D800&amp;t%5B%5D=compress%3Alevel%3D100&amp;accessToken=6101ad693bdd669f8c7c7970cf7fc5f5607b8b7b5751a653d273707d10d14d91\"\/><\/div><p><br\/><\/p><p><br\/><\/p><p><\/p><p style=\"color: rgb(0, 0, 0);background-color: ;\"><\/p><div style=\"text-align: center;\"><img src=\"https:\/\/image.voso.vn\/users\/vosoimage\/images\/3bf490b851efe55b05a0b5f558d6d9a8?t%5B%5D=maxSize%3Awidth%3D800&amp;t%5B%5D=compress%3Alevel%3D100&amp;accessToken=8bcd744576373da16eda42efcd9ba4964f355f10651e1e273759765d42998371\"\/><\/div><p><br\/><\/p><p><br\/><\/p><p><\/p><p style=\"color: rgb(0, 0, 0);background-color: ;\"><span style=\"color: rgb(0, 0, 255);\"><strong><b>1. H\u01b0\u1edbng d\u1eabn ch\u1ecdn size gi\u00e0y<\/b><\/strong><\/span><\/p><p style=\"color: rgb(0, 0, 0);background-color: ;\"><span>Gi\u00e0y c\u00f3 \u0111\u1ea7y \u0111\u1ee7 m\u1ecdi size \u0111\u1ec3 b\u1ea1n c\u00f3 th\u1ec3 ch\u1ecdn cho m\u00ecnh ngay m\u1ed9t \u0111\u00f4i ph\u00f9 h\u1ee3p v\u1edbi \u0111\u00f4i b\u00e0n ch\u00e2n c\u1ee7a b\u1ea1n. L\u01b0u \u00fd b\u1ea1n n\u00ean ch\u1ecdn gi\u00e0y v\u1eeba v\u1edbi ch\u00e2n tr\u00e1nh t\u00ecnh tr\u1ea1ng ch\u1ecdn gi\u00e0y qu\u00e1 r\u1ed9ng hay qu\u00e1 ch\u1eadt t\u1ea1o c\u1ea3m gi\u00e1c kh\u00f4ng tho\u1ea3i m\u00e1i khi s\u1eed d\u1ee5ng. Gi\u00e0y Gicshop \u0111\u01b0\u1ee3c thi\u1ebft k\u1ebf chu\u1ea9n size qu\u1ed1c t\u1ebf, b\u1ea1n \u0111ang \u0111i size gi\u00e0y n\u00e0o th\u00ec ch\u1ecdn gi\u00e0y b\u00ean shop c\u0169ng l\u00e0 size \u0111\u00f3 nh\u00e9. D\u01b0\u1edbi \u0111\u00e2y l\u00e0 b\u1ea3ng size gi\u00e0y chu\u1ea9n b\u00ean m\u00ecnh nh\u00e9.<\/span><\/p><p style=\"color: rgb(0, 0, 0);background-color: ;\"><span><br\/><\/span><\/p><p style=\"text-align: center;color: rgb(0, 0, 0);background-color: ;\"><img src=\"https:\/\/image.voso.vn\/users\/vosoimage\/images\/04a0c15dd226bbbdfa40a65f89f8ebc9?t%5B%5D=maxSize%3Awidth%3D800&amp;t%5B%5D=compress%3Alevel%3D100&amp;accessToken=13ba3c33a5f1604fa01be0a5d494fbb460e9bf1edbbca46b370fb241b18c8790\" style=\"color: rgb(85, 85, 85);\"\/><span>\u00a0<\/span><\/p><p style=\"color: rgb(0, 0, 0);background-color: ;\"><span><br\/><\/span><\/p><p style=\"color: rgb(0, 0, 0);background-color: ;\"><span>\u0110o chi\u1ec1u d\u00e0i ch\u00e2n t\u1eeb m\u0169i ng\u00f3n ch\u00e2n d\u00e0i nh\u1ea5t \u0111\u1ebfn g\u00f3t ch\u00e2n l\u00e0 c\u00e1ch \u0111o \u0111\u00fang nh\u1ea5t. T\u01b0\u01a1ng \u1ee9ng chi\u1ec1u d\u00e0i b\u1ea1n \u0111o \u0111\u01b0\u1ee3c \u0111\u00f3 ch\u00ednh l\u00e0 Size gi\u00e0y t\u01b0\u01a1ng \u1ee9ng. N\u00ean ch\u1ecdn n\u00f3 r\u1ed9ng h\u01a1n 1 ch\u00fat \u0111\u1ec3 c\u00f3 th\u1ec3 \u0111i th\u00eam 1 \u0111\u00f4i t\u1ea5t m\u1ecfng cho tho\u1ea3i m\u00e1i ch\u00e2n nh\u1ea5t b\u1ea1n nh\u00e9.<\/span><\/p><p style=\"color: rgb(0, 0, 0);background-color: ;\"><span>\u00a0<\/span><\/p><p style=\"color: rgb(0, 0, 0);background-color: ;\"><span style=\"color: rgb(0, 0, 255);\"><strong><b>2. Ch\u00ednh s\u00e1ch b\u1ea3o h\u00e0nh:<\/b><\/strong><\/span><\/p><p style=\"color: rgb(0, 0, 0);background-color: ;\"><span>\u00a0 \u2b55\ufe0f \u0110\u01b0\u1ee3c \u0111\u1ed5i s\u1ea3n ph\u1ea9m trong v\u00f2ng 1 tu\u1ea7n (n\u1ebfu kh\u00f4ng v\u1eeba)<\/span><\/p><p style=\"color: rgb(0, 0, 0);background-color: ;\"><span>\u00a0 \u2b55\ufe0f Tr\u1ea3 s\u00e0n ph\u1ea9m n\u1ebfu nh\u1ea7m ho\u1eb7c b\u1ecb l\u1ed7i<\/span><\/p><p style=\"color: rgb(0, 0, 0);background-color: ;\"><span>\u00a0 \u2b55\ufe0f \u0110\u1ecba ch\u1ec9 b\u1ea3o h\u00e0nh s\u1ea3n ph\u1ea9m theo nh\u01b0 \u0111\u1ecba ch\u1ec9 in tr\u00ean h\u00f3a \u0111\u01a1n<\/span><\/p><p style=\"color: rgb(0, 0, 0);background-color: ;\"><span>\u00a0 \u2b55\ufe0f Th\u1eddi gian b\u1ea3o h\u00e0nh n\u1ed5 da bong \u0111\u1ebf 6 th\u00e1ng cho c\u00e1c s\u1ea3n ph\u1ea9m d\u01b0\u1edbi 300k, 1 n\u0103m v\u1edbi c\u00e1c s\u1ea3n ph\u1ea9m t\u1eeb 350k, 3 n\u0103m v\u1edbi c\u00e1c s\u1ea3n ph\u1ea9m t\u1eeb 400k<\/span><\/p><p style=\"color: rgb(0, 0, 0);background-color: ;\"><span>\u00a0<\/span><\/p><p style=\"color: rgb(0, 0, 0);background-color: ;text-align: center;\"><span>\u00a0<\/span><img src=\"https:\/\/image.voso.vn\/users\/vosoimage\/images\/1213d27c91eee1ba70f6e804231701de?t%5B%5D=maxSize%3Awidth%3D800&amp;t%5B%5D=compress%3Alevel%3D100&amp;accessToken=b4fc6e31a86323744b0803b73ee0736a9b05947c3eb9b81cbb4fe256cd23de7b\" style=\"color: rgb(85, 85, 85);\"\/><\/p><p style=\"color: rgb(0, 0, 0);background-color: ;\">\u00a0<\/p><p style=\"color: rgb(0, 0, 0);background-color: ;\">\u00a0<\/p><h2 style=\"color: rgb(0, 0, 0);background-color: ;\"><span style=\"color: rgb(0, 0, 255);\"><strong><b>3. H\u01b0\u01a1\u0301ng d\u00e2\u0303n s\u01b0\u0309 du\u0323ng:<\/b><\/strong><\/span><\/h2><p><span>\u00a0&#128313; S\u01b0\u0309 du\u0323ng sa\u0309n ph\u00e2\u0309m n\u01a1i kh\u00f4 ra\u0301o \u0111\u1ec3 gi\u01b0\u0303 s\u1ea3n ph\u1ea9m \u0111\u01b0\u01a1\u0323c \u0111\u00f4\u0323 b\u00ea\u0300n cao nh\u1ea5t<\/span><\/p><p><span>\u00a0&#128313; H\u1ea1n ch\u1ebf s\u01b0\u0309 du\u0323ng ho\u0301a ch\u00e2\u0301t m\u1ea1nh ho\u0103\u0323c v\u1eadt c\u01b0\u0301ng lau chu\u0300i sa\u0309n ph\u00e2\u0309m , n\u00ean s\u1eed d\u1ee5ng ch\u1ea5t t\u1ea9y r\u1eeda nh\u1eb9 v\u00e0 kh\u0103n m\u1ec1m \u0111\u1ec3 v\u1ec7 sinh s\u1ea3n ph\u1ea9m .<\/span><\/p><p><span>\u00a0&#128313; N\u00ean v\u1ec7 sinh th\u01b0\u1eddng xuy\u00ean \u0111\u1ebf s\u1ea3n ph\u1ea9m lu\u00f4n m\u1edbi \u0111\u1eb9p b\u1ec1n l\u00e2u<\/span><\/p><p><span>\u00a0&#128313; S\u1eed d\u1ee5ng\u00a0<span style=\"color: rgb(0, 0, 255);\"><em><strong><b>xi \u0111\u00e1nh gi\u00e0y<\/b><\/strong><\/em><\/span>\u00a0v\u1edbi gi\u00e0y da ho\u1eb7c\u00a0<span style=\"color: rgb(0, 0, 255);\"><em><strong><b>Chai l\u00e0m s\u1ea1ch gi\u00e0y<\/b><\/strong><\/em><\/span>\u00a0\u0111\u1ec3 gi\u00e0y c\u1ee7a b\u1ea1n \u0111\u01b0\u1ee3c b\u1ec1n \u0111\u1eb9p h\u01a1n<br\/><\/span><\/p><p style=\"color: rgb(0, 0, 0);background-color: ;\"><span>\u00a0<\/span><\/p><h2 style=\"color: rgb(0, 0, 0);background-color: ;\"><span><span style=\"color: rgb(255, 0, 0);\">Gicshop: \u0110i L\u00e0 Th\u00edch - Nh\u00edch L\u00e0 Ph\u00ea<\/span><\/span><\/h2><p style=\"color: rgb(0, 0, 0);background-color: ;\"><span>=&gt; Xem th\u00eam nh\u1eefng s\u1ea3n ph\u1ea9m:\u00a0Gi\u00e0y c\u00f4ng s\u1edf t\u0103ng chi\u1ec1u cao, hay nh\u1eefng s\u1ea3n ph\u1ea9m,\u00a0<span style=\"color: rgb(0, 0, 255);\"><strong><b>Gi\u00e0y Sneraker Nam Tr\u1eafng<\/b><\/strong><\/span>,\u00a0<strong><b><em>gi\u00e0y th\u1ec3 thao nam tr\u1eafng<\/em>\u00a0<\/b><\/strong>,\u00a0<span style=\"color: rgb(0, 0, 255);\"><em><strong><b>Gi\u00e0y T\u00e2y\u00a0Nam, Gi\u1ea7y Th\u1ec3 Thao<\/b><\/strong><\/em><\/span>\u00a0c\u1ef1c ch\u1ea5t<\/span><\/p><!--EndFragment--><p><br\/><\/p><p><br\/><\/p>","keywords":"giay sneaker nam den giay sneaker nam giay sneaker nam the thao","realWeight":699,"weight":750,"length":28,"width":18,"height":8,"shippingWeightMultiple":1,"approved":1,"approveStaffId":0,"approveStaffTime":0,"reject":0,"activated":1,"noactivateTime":0,"available":1,"createTime":1562235395,"createBy":null,"updateTime":1615290516,"upTime":0,"costPrice":0,"price":199000,"listPrice":350000,"unit":"26","commissionPercent":0,"commissionAmount":0,"viewCount":2544,"buyCount":243,"likeCount":0,"deliveryLimitation":null,"status_retouch":0,"status_content":0,"vat":0,"rate":0,"countryId":236,"brandId":4,"o2o":0,"percent":5,"ohio":1,"igreeAffiliate":1,"commissionForSystemType":2,"commissionForSystem":5,"likes":0,"percentFloor":0,"commissionType":2,"commissionValue":2.5,"allowAffiliate":1,"commissionForAffiliateType":2,"commissionForAffiliate":4,"partnerId":0,"addByApi":0,"scratchCardType":0,"scratchCardNameId":0,"commissionScratchCard":0,"landingPagePrice":0,"productIdVtsale":0,"idVtsale":0,"sold":6,"limitShippingProvinces":null,"limitShippingDistricts":null,"limitShippingWards":null,"limitShippingArea":0,"lastUpdateTime":0,"freeshipCommissionForSystem":0,"consumerProducts":null,"mallCommissionForSystem":0,"orderbyO2o":0,"isOCOP":0,"ratingOCOP":0,"userManual":"","expiryDate":0,"barcode":"","isBCT":0,"branchCode":null,"provinceIdOCOP":0,"erpProductId":0,"erpTax":0,"mapSpecialties":0,"mapLat":null,"mapLong":null,"mapParagraph":null,"mapIcon":null,"mapProvinceId":0,"mapDistrictId":0,"mapWardId":0,"mapAddress":null,"mapAvailable":null,"mapLocation":null,"isContainsBlacklistWords":0};
-    var variation = {"id":101533,"productCode":"P1101533","merchantProductId":"S66-\u0110en","categoryId":96,"merchantId":8590,"areaId":0,"provinceId":0,"districtId":0,"productPropertyId":0,"parentId":0,"name":"Gi\u00e0y Sneaker Nam \u0110en, Gi\u00e0y Sneaker Nam, Gi\u00e0y Sneaker Nam Th\u1ec3 Thao","image":"47ab29ffff6fb2024a887ee17f656adc","images":"[{\"name\":\"Gi\u00e0y Sneaker Nam \u0110en, Gi\u00e0y Sneaker Nam, Gi\u00e0y Sneaker Nam Th\u1ec3 Thao\",\"image\":\"a68c07ae63b520d43ca71e0860e3a7a5\",\"$$hashKey\":\"object:1607\"},{\"name\":\"Gi\u00e0y Sneaker Nam \u0110en, Gi\u00e0y Sneaker Nam, Gi\u00e0y Sneaker Nam Th\u1ec3 Thao\",\"image\":\"3bf490b851efe55b05a0b5f558d6d9a8\",\"$$hashKey\":\"object:1611\"},{\"name\":\"Gi\u00e0y Sneaker Nam \u0110en, Gi\u00e0y Sneaker Nam, Gi\u00e0y Sneaker Nam Th\u1ec3 Thao\",\"image\":\"2accad2151e364d4c430a9876c0b8f7e\",\"$$hashKey\":\"object:1615\"},{\"name\":\"Gi\u00e0y Sneaker Nam \u0110en, Gi\u00e0y Sneaker Nam, Gi\u00e0y Sneaker Nam Th\u1ec3 Thao\",\"image\":\"c099ae95f8839b9f97c53e83c9b358f8\",\"$$hashKey\":\"object:1619\"}]","description":"<p><br\/><\/p><p><br\/><\/p><!--StartFragment--><h1 style=\"color: rgb(0, 0, 0);background-color: ;\"><strong><b><em>Gi\u00e0y nam \u0111en Ch\u1ea5t - C\u1ef1c Ng\u1ea7u S66. M\u1ed9t tuy\u1ec7t ph\u1ea9m m\u1edbi th\u1eddi gian 2019 n\u0103m nay. Qu\u00fd kh\u00e1ch \u0111i l\u00ean \u0111\u00f4i ch\u00e2n th\u00ec cam k\u1ebft s\u1ebd th\u1ea5y tho\u1ea3i m\u00e1i, \u0111\u1eb9p v\u00e0 phong c\u00e1ch l\u00ean r\u1ea5t nhi\u1ec1u.<\/em><\/b><\/strong><\/h1><p style=\"color: rgb(0, 0, 0);background-color: ;\"><strong><b><em><br\/><\/em><\/b><\/strong><\/p><div style=\"text-align: center;\"><strong><b><em><img src=\"https:\/\/image.voso.vn\/users\/vosoimage\/images\/47ab29ffff6fb2024a887ee17f656adc?t%5B%5D=maxSize%3Awidth%3D800&amp;t%5B%5D=compress%3Alevel%3D100&amp;accessToken=f7421c6de2fd70e5bacb7552c54bc1da6175f529ce2343b64fa532f1027798b9\"\/><\/em><\/b><\/strong><\/div><p><strong><b><em><br\/><br\/><br\/><br\/><\/em><\/b><\/strong><div style=\"text-align: center;\"><img src=\"https:\/\/image.voso.vn\/users\/vosoimage\/images\/c099ae95f8839b9f97c53e83c9b358f8?t%5B%5D=maxSize%3Awidth%3D800&amp;t%5B%5D=compress%3Alevel%3D100&amp;accessToken=9175a8a6c02928d2d0c085dbcc8c411478195980d86be468162e4495e5617d05\"\/><\/div><\/p><p><strong><b><em><br\/><br\/><\/em><\/b><\/strong><\/p><p><\/p><p style=\"color: rgb(0, 0, 0);background-color: ;\"><\/p><div style=\"text-align: center;\"><img src=\"https:\/\/image.voso.vn\/users\/vosoimage\/images\/a68c07ae63b520d43ca71e0860e3a7a5?t%5B%5D=maxSize%3Awidth%3D800&amp;t%5B%5D=compress%3Alevel%3D100&amp;accessToken=1a7a4ea156d87151f42d5e0762fe48ad3985ff3889051344c0055c5bc74914e1\"\/><\/div><p><strong><b><em><br\/><\/em><\/b><\/strong><div style=\"text-align: center;\"><img src=\"https:\/\/image.voso.vn\/users\/vosoimage\/images\/e5ec2a71639212c3d9cb549adc98c4ca?t%5B%5D=maxSize%3Awidth%3D800&amp;t%5B%5D=compress%3Alevel%3D100&amp;accessToken=e63c5cc646683ea43fbafde4a8619773b64136ed49327e18161310383096b7dc\"\/><\/div><\/p><p><strong><b><em><br\/><br\/><\/em><\/b><\/strong><\/p><p><\/p><h2 style=\"color: rgb(0, 0, 0);background-color: ;\"><strong><b><em><br\/>Nh\u1eefng \u0111i\u1ec1u m\u00e0 \u0111\u00f4i Gi\u00e0y nam \u0111en S66 \u0111em l\u1ea1i cho qu\u00fd kh\u00e1ch<\/em><\/b><\/strong><\/h2><p style=\"color: rgb(0, 0, 0);background-color: ;\"><span>\u2714\ufe0f Bao \u0111\u1eb9p, bao ch\u1ea5t l\u01b0\u1ee3ng<\/span><\/p><p style=\"color: rgb(0, 0, 0);background-color: ;\"><span>\u2714\ufe0f Ph\u00f9 h\u1ee3p v\u1edbi m\u1ecdi trang ph\u1ee5c t\u1eeb c\u00f4ng s\u1edf, \u0111\u1ebfn du l\u1ecbch....<\/span><\/p><p style=\"color: rgb(0, 0, 0);background-color: ;\"><span>\u2714\ufe0f Cam k\u1ebft h\u00e0ng chu\u1ea9n \u0111\u1eb9p, ch\u1ea5t l\u01b0\u1ee3ng, v\u1ea3i c\u1ef1c ch\u1ea5t<\/span><\/p><p style=\"color: rgb(0, 0, 0);background-color: ;\"><span>\u2714\ufe0f G\u00f3t gi\u00e0y \u0111\u01b0\u1ee3c \u0111\u1ed9n th\u00eam 1 l\u1edbp b\u00f4ng tr\u00e1nh c\u1ecd s\u00e1t v\u00e0o g\u00f3t ch\u00e2n<\/span><\/p><p style=\"color: rgb(0, 0, 0);background-color: ;\"><span>\u2714\ufe0f \u0110\u1ebf gi\u00e0y l\u00e0m b\u1eb1ng cao su \u0111\u00e0n h\u1ed3i si\u00eau t\u1ed1t<\/span><\/p><p style=\"color: rgb(0, 0, 0);background-color: ;\"><span>\u2714\ufe0f \u0110\u1ebf gi\u00e0y \u0111\u01b0\u1ee3c ch\u1ebf t\u00e1c \u00eam \u00e1i<\/span><\/p><p style=\"color: rgb(0, 0, 0);background-color: ;\"><span>\u2714\ufe0f Gi\u00e0y \u0111i l\u00ean ch\u00e2n c\u1ea3m gi\u00e1c \u00eam, nh\u1eb9, kh\u00f4ng b\u1ecb b\u00f3 ch\u00e2n<\/span><\/p><p style=\"color: rgb(0, 0, 0);background-color: ;\"><span>\u2714\ufe0f N\u00f3i \u0111\u1ebfn gi\u00e0y Sneaker hay gi\u00e0y th\u1ec3 thao kh\u00f4ng th\u1ec3 kh\u00f4ng nh\u1eafc \u0111\u1ebfn \u0111\u00f4i gi\u00e0y S66 n\u00e0y \u0111\u01b0\u1ee3c<\/span><\/p><p style=\"color: rgb(0, 0, 0);background-color: ;\"><br\/><\/p><p style=\"color: rgb(0, 0, 0);background-color: ;\"><\/p><div style=\"text-align: center;\"><img src=\"https:\/\/image.voso.vn\/users\/vosoimage\/images\/174060c531bb5f61d9819cbfc9d7d484?t%5B%5D=maxSize%3Awidth%3D800&amp;t%5B%5D=compress%3Alevel%3D100&amp;accessToken=97efe5cbe228e0c987583ff673728be1b3df2a5b19e11343fed83037aec47ec3\"\/><\/div><p><br\/><\/p><p><br\/><\/p><p><\/p><p style=\"color: rgb(0, 0, 0);background-color: ;\"><\/p><div style=\"text-align: center;\"><img src=\"https:\/\/image.voso.vn\/users\/vosoimage\/images\/bc484ecc75c4466d300c374e3026a617?t%5B%5D=maxSize%3Awidth%3D800&amp;t%5B%5D=compress%3Alevel%3D100&amp;accessToken=6101ad693bdd669f8c7c7970cf7fc5f5607b8b7b5751a653d273707d10d14d91\"\/><\/div><p><br\/><\/p><p><br\/><\/p><p><\/p><p style=\"color: rgb(0, 0, 0);background-color: ;\"><\/p><div style=\"text-align: center;\"><img src=\"https:\/\/image.voso.vn\/users\/vosoimage\/images\/3bf490b851efe55b05a0b5f558d6d9a8?t%5B%5D=maxSize%3Awidth%3D800&amp;t%5B%5D=compress%3Alevel%3D100&amp;accessToken=8bcd744576373da16eda42efcd9ba4964f355f10651e1e273759765d42998371\"\/><\/div><p><br\/><\/p><p><br\/><\/p><p><\/p><p style=\"color: rgb(0, 0, 0);background-color: ;\"><span style=\"color: rgb(0, 0, 255);\"><strong><b>1. H\u01b0\u1edbng d\u1eabn ch\u1ecdn size gi\u00e0y<\/b><\/strong><\/span><\/p><p style=\"color: rgb(0, 0, 0);background-color: ;\"><span>Gi\u00e0y c\u00f3 \u0111\u1ea7y \u0111\u1ee7 m\u1ecdi size \u0111\u1ec3 b\u1ea1n c\u00f3 th\u1ec3 ch\u1ecdn cho m\u00ecnh ngay m\u1ed9t \u0111\u00f4i ph\u00f9 h\u1ee3p v\u1edbi \u0111\u00f4i b\u00e0n ch\u00e2n c\u1ee7a b\u1ea1n. L\u01b0u \u00fd b\u1ea1n n\u00ean ch\u1ecdn gi\u00e0y v\u1eeba v\u1edbi ch\u00e2n tr\u00e1nh t\u00ecnh tr\u1ea1ng ch\u1ecdn gi\u00e0y qu\u00e1 r\u1ed9ng hay qu\u00e1 ch\u1eadt t\u1ea1o c\u1ea3m gi\u00e1c kh\u00f4ng tho\u1ea3i m\u00e1i khi s\u1eed d\u1ee5ng. Gi\u00e0y Gicshop \u0111\u01b0\u1ee3c thi\u1ebft k\u1ebf chu\u1ea9n size qu\u1ed1c t\u1ebf, b\u1ea1n \u0111ang \u0111i size gi\u00e0y n\u00e0o th\u00ec ch\u1ecdn gi\u00e0y b\u00ean shop c\u0169ng l\u00e0 size \u0111\u00f3 nh\u00e9. D\u01b0\u1edbi \u0111\u00e2y l\u00e0 b\u1ea3ng size gi\u00e0y chu\u1ea9n b\u00ean m\u00ecnh nh\u00e9.<\/span><\/p><p style=\"color: rgb(0, 0, 0);background-color: ;\"><span><br\/><\/span><\/p><p style=\"text-align: center;color: rgb(0, 0, 0);background-color: ;\"><img src=\"https:\/\/image.voso.vn\/users\/vosoimage\/images\/04a0c15dd226bbbdfa40a65f89f8ebc9?t%5B%5D=maxSize%3Awidth%3D800&amp;t%5B%5D=compress%3Alevel%3D100&amp;accessToken=13ba3c33a5f1604fa01be0a5d494fbb460e9bf1edbbca46b370fb241b18c8790\" style=\"color: rgb(85, 85, 85);\"\/><span>\u00a0<\/span><\/p><p style=\"color: rgb(0, 0, 0);background-color: ;\"><span><br\/><\/span><\/p><p style=\"color: rgb(0, 0, 0);background-color: ;\"><span>\u0110o chi\u1ec1u d\u00e0i ch\u00e2n t\u1eeb m\u0169i ng\u00f3n ch\u00e2n d\u00e0i nh\u1ea5t \u0111\u1ebfn g\u00f3t ch\u00e2n l\u00e0 c\u00e1ch \u0111o \u0111\u00fang nh\u1ea5t. T\u01b0\u01a1ng \u1ee9ng chi\u1ec1u d\u00e0i b\u1ea1n \u0111o \u0111\u01b0\u1ee3c \u0111\u00f3 ch\u00ednh l\u00e0 Size gi\u00e0y t\u01b0\u01a1ng \u1ee9ng. N\u00ean ch\u1ecdn n\u00f3 r\u1ed9ng h\u01a1n 1 ch\u00fat \u0111\u1ec3 c\u00f3 th\u1ec3 \u0111i th\u00eam 1 \u0111\u00f4i t\u1ea5t m\u1ecfng cho tho\u1ea3i m\u00e1i ch\u00e2n nh\u1ea5t b\u1ea1n nh\u00e9.<\/span><\/p><p style=\"color: rgb(0, 0, 0);background-color: ;\"><span>\u00a0<\/span><\/p><p style=\"color: rgb(0, 0, 0);background-color: ;\"><span style=\"color: rgb(0, 0, 255);\"><strong><b>2. Ch\u00ednh s\u00e1ch b\u1ea3o h\u00e0nh:<\/b><\/strong><\/span><\/p><p style=\"color: rgb(0, 0, 0);background-color: ;\"><span>\u00a0 \u2b55\ufe0f \u0110\u01b0\u1ee3c \u0111\u1ed5i s\u1ea3n ph\u1ea9m trong v\u00f2ng 1 tu\u1ea7n (n\u1ebfu kh\u00f4ng v\u1eeba)<\/span><\/p><p style=\"color: rgb(0, 0, 0);background-color: ;\"><span>\u00a0 \u2b55\ufe0f Tr\u1ea3 s\u00e0n ph\u1ea9m n\u1ebfu nh\u1ea7m ho\u1eb7c b\u1ecb l\u1ed7i<\/span><\/p><p style=\"color: rgb(0, 0, 0);background-color: ;\"><span>\u00a0 \u2b55\ufe0f \u0110\u1ecba ch\u1ec9 b\u1ea3o h\u00e0nh s\u1ea3n ph\u1ea9m theo nh\u01b0 \u0111\u1ecba ch\u1ec9 in tr\u00ean h\u00f3a \u0111\u01a1n<\/span><\/p><p style=\"color: rgb(0, 0, 0);background-color: ;\"><span>\u00a0 \u2b55\ufe0f Th\u1eddi gian b\u1ea3o h\u00e0nh n\u1ed5 da bong \u0111\u1ebf 6 th\u00e1ng cho c\u00e1c s\u1ea3n ph\u1ea9m d\u01b0\u1edbi 300k, 1 n\u0103m v\u1edbi c\u00e1c s\u1ea3n ph\u1ea9m t\u1eeb 350k, 3 n\u0103m v\u1edbi c\u00e1c s\u1ea3n ph\u1ea9m t\u1eeb 400k<\/span><\/p><p style=\"color: rgb(0, 0, 0);background-color: ;\"><span>\u00a0<\/span><\/p><p style=\"color: rgb(0, 0, 0);background-color: ;text-align: center;\"><span>\u00a0<\/span><img src=\"https:\/\/image.voso.vn\/users\/vosoimage\/images\/1213d27c91eee1ba70f6e804231701de?t%5B%5D=maxSize%3Awidth%3D800&amp;t%5B%5D=compress%3Alevel%3D100&amp;accessToken=b4fc6e31a86323744b0803b73ee0736a9b05947c3eb9b81cbb4fe256cd23de7b\" style=\"color: rgb(85, 85, 85);\"\/><\/p><p style=\"color: rgb(0, 0, 0);background-color: ;\">\u00a0<\/p><p style=\"color: rgb(0, 0, 0);background-color: ;\">\u00a0<\/p><h2 style=\"color: rgb(0, 0, 0);background-color: ;\"><span style=\"color: rgb(0, 0, 255);\"><strong><b>3. H\u01b0\u01a1\u0301ng d\u00e2\u0303n s\u01b0\u0309 du\u0323ng:<\/b><\/strong><\/span><\/h2><p><span>\u00a0&#128313; S\u01b0\u0309 du\u0323ng sa\u0309n ph\u00e2\u0309m n\u01a1i kh\u00f4 ra\u0301o \u0111\u1ec3 gi\u01b0\u0303 s\u1ea3n ph\u1ea9m \u0111\u01b0\u01a1\u0323c \u0111\u00f4\u0323 b\u00ea\u0300n cao nh\u1ea5t<\/span><\/p><p><span>\u00a0&#128313; H\u1ea1n ch\u1ebf s\u01b0\u0309 du\u0323ng ho\u0301a ch\u00e2\u0301t m\u1ea1nh ho\u0103\u0323c v\u1eadt c\u01b0\u0301ng lau chu\u0300i sa\u0309n ph\u00e2\u0309m , n\u00ean s\u1eed d\u1ee5ng ch\u1ea5t t\u1ea9y r\u1eeda nh\u1eb9 v\u00e0 kh\u0103n m\u1ec1m \u0111\u1ec3 v\u1ec7 sinh s\u1ea3n ph\u1ea9m .<\/span><\/p><p><span>\u00a0&#128313; N\u00ean v\u1ec7 sinh th\u01b0\u1eddng xuy\u00ean \u0111\u1ebf s\u1ea3n ph\u1ea9m lu\u00f4n m\u1edbi \u0111\u1eb9p b\u1ec1n l\u00e2u<\/span><\/p><p><span>\u00a0&#128313; S\u1eed d\u1ee5ng\u00a0<span style=\"color: rgb(0, 0, 255);\"><em><strong><b>xi \u0111\u00e1nh gi\u00e0y<\/b><\/strong><\/em><\/span>\u00a0v\u1edbi gi\u00e0y da ho\u1eb7c\u00a0<span style=\"color: rgb(0, 0, 255);\"><em><strong><b>Chai l\u00e0m s\u1ea1ch gi\u00e0y<\/b><\/strong><\/em><\/span>\u00a0\u0111\u1ec3 gi\u00e0y c\u1ee7a b\u1ea1n \u0111\u01b0\u1ee3c b\u1ec1n \u0111\u1eb9p h\u01a1n<br\/><\/span><\/p><p style=\"color: rgb(0, 0, 0);background-color: ;\"><span>\u00a0<\/span><\/p><h2 style=\"color: rgb(0, 0, 0);background-color: ;\"><span><span style=\"color: rgb(255, 0, 0);\">Gicshop: \u0110i L\u00e0 Th\u00edch - Nh\u00edch L\u00e0 Ph\u00ea<\/span><\/span><\/h2><p style=\"color: rgb(0, 0, 0);background-color: ;\"><span>=&gt; Xem th\u00eam nh\u1eefng s\u1ea3n ph\u1ea9m:\u00a0Gi\u00e0y c\u00f4ng s\u1edf t\u0103ng chi\u1ec1u cao, hay nh\u1eefng s\u1ea3n ph\u1ea9m,\u00a0<span style=\"color: rgb(0, 0, 255);\"><strong><b>Gi\u00e0y Sneraker Nam Tr\u1eafng<\/b><\/strong><\/span>,\u00a0<strong><b><em>gi\u00e0y th\u1ec3 thao nam tr\u1eafng<\/em>\u00a0<\/b><\/strong>,\u00a0<span style=\"color: rgb(0, 0, 255);\"><em><strong><b>Gi\u00e0y T\u00e2y\u00a0Nam, Gi\u1ea7y Th\u1ec3 Thao<\/b><\/strong><\/em><\/span>\u00a0c\u1ef1c ch\u1ea5t<\/span><\/p><!--EndFragment--><p><br\/><\/p><p><br\/><\/p>","keywords":"giay sneaker nam den giay sneaker nam giay sneaker nam the thao","realWeight":699,"weight":750,"length":28,"width":18,"height":8,"shippingWeightMultiple":1,"approved":1,"approveStaffId":0,"approveStaffTime":0,"reject":0,"activated":1,"noactivateTime":0,"available":1,"createTime":1562235395,"createBy":null,"updateTime":1615290516,"upTime":0,"costPrice":0,"price":199000,"listPrice":350000,"unit":"26","commissionPercent":0,"commissionAmount":0,"viewCount":2544,"buyCount":243,"likeCount":0,"deliveryLimitation":null,"status_retouch":0,"status_content":0,"vat":0,"rate":0,"countryId":236,"brandId":4,"o2o":0,"percent":5,"ohio":1,"igreeAffiliate":1,"commissionForSystemType":2,"commissionForSystem":5,"likes":0,"percentFloor":0,"commissionType":2,"commissionValue":2.5,"allowAffiliate":1,"commissionForAffiliateType":2,"commissionForAffiliate":4,"partnerId":0,"addByApi":0,"scratchCardType":0,"scratchCardNameId":0,"commissionScratchCard":0,"landingPagePrice":0,"productIdVtsale":0,"idVtsale":0,"sold":6,"limitShippingProvinces":null,"limitShippingDistricts":null,"limitShippingWards":null,"limitShippingArea":0,"lastUpdateTime":0,"freeshipCommissionForSystem":0,"consumerProducts":null,"mallCommissionForSystem":0,"orderbyO2o":0,"isOCOP":0,"ratingOCOP":0,"userManual":"","expiryDate":0,"barcode":"","isBCT":0,"branchCode":null,"provinceIdOCOP":0,"erpProductId":0,"erpTax":0,"mapSpecialties":0,"mapLat":null,"mapLong":null,"mapParagraph":null,"mapIcon":null,"mapProvinceId":0,"mapDistrictId":0,"mapWardId":0,"mapAddress":null,"mapAvailable":null,"mapLocation":null,"isContainsBlacklistWords":0};
-    var variationDimention = [];
-    var selectedProperties = [];
-    var hasChild = false;
-    var merchantId = 8590;
-    var checkBuyTogetherFirst = 0;
-    var isFreeshipByCommissionForSystem = 0;
-    var initialViewSection = ''; // khi window.onload sẽ show section nào ??
-</script>
+<script data-cfasync="false" src="https://voso.vn/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+
 <div class="product-detail__header-top">
     <div class="top-referrer-detail" id="top-referrer-detail">
         <a class="top-referrer-detail-href" href="/">
@@ -195,11 +187,11 @@
 </div>
 <div class="b__detail--main-wapper" ng-controller="product" ng-init="init()">
     <div class="detail-group-btn-mobile">
-        <button class="btn-add-mobile" href="javascript:;" ng-class="product.limitShippingArea && !shippingAvailable?'disabled-click':''" ng-click="addcart('add-to-cart-mobile','icon-cart-mobile')">
-            <img src="images/tittle-mua-chung.png" alt="">
+        <button class="btn-add-mobile" href="javascript:;">
+            <img src="{{asset('images/tittle-mua-chung.png')}}" alt="">
             <p id="add-to-cart-mobile">Thêm vào giỏ</p>
         </button>
-        <button class="btn-buy-mobile" ng-click="buy()"><i class="fas fa-arrow-circle-right"></i>Mua ngay</button>
+        <button class="btn-buy-mobile"><i class="fas fa-arrow-circle-right"></i>Mua ngay</button>
         <!-- <button class="btn-stop-mobile" ng-if="available">Hết hàng</button> -->
     </div>
     <div class="b__detail--wapper">
@@ -303,7 +295,7 @@
                                         <h2 class="c-product-head__desc">
 
                                             <span class="pl-0"><span class="num-big">5</span><span class="num-small">/5</span></span>
-                                            <span class="jstars" ng-bind-html="rating(rateTotal.total)"></span>
+                                            <span class="jstars" data-value="4"></span>
 
                                             <span><label><strong>10</strong></label> Đánh giá</span>
                                             <span> Đã bán <label>6</label></span>
@@ -384,10 +376,10 @@
                                 
                                 <div class="c-button__gr group-btn-cart-desktop">
                                 	<a class="img_mess" href="javascript:;" ng-click="chat(8590)" style="border: 1px solid #c3000c; font-weight: 800; color: #c3000c"><img src="{{asset('images/chat-icon.png')}}" style="margin-right: 10px;"> Chat ngay</a>
-                                    <a ng-class="product.limitShippingArea && !shippingAvailable?'disabled-click':''" href="javascript:;" class="btn-cart" ng-click="addcart('add-to-cart','icon32-cart')" ng-if="!available">
+                                    <a href="javascript:;" class="btn-cart">
                                         <span id="add-to-cart">Thêm vào giỏ hàng</span>
                                     </a>
-                                    <a ng-class="product.limitShippingArea && !shippingAvailable?'disabled-click':''" href="javascript:;" class="btn btn-buy" ng-click="buy()" ng-if="!available"><img src="https://voso.vn/static/v2/images/icon-buy-now.png" />Mua ngay</a>
+                                    <a href="javascript:;" class="btn btn-buy"><img src="https://voso.vn/static/v2/images/icon-buy-now.png" />Mua ngay</a>
                                     <a href="javascript:;" class="btn btn-out-of-stock" ng-if="available">Hết hàng</a>
                                 </div>
                             </div>
@@ -401,16 +393,24 @@
                                                 <div class="b__shop--avatar">
                                                     <img src="https://image.voso.vn/users/vosoimage/images/58a5b6421eea9a2f5fe6af805de69952?t%5B0%5D=compress%3Alevel%3D100&accessToken=b4032b8e82fa13813374c4f91ed39e0fafadda5d17eeb567c87395b59261097a" />
                                                 </div>
+                                                @php
+                                                	$s = App\User::where('id',$product->user_id)->get()->first();
+                                                	$s_products = App\Product::where('user_id',$s->id)->get();
+                                                @endphp
                                                 <div class="b__shop--description">
-                                                    <span class="b__shop--name">Giầy Store</span>
+                                                    <span class="b__shop--name">{{$s->name_s}}</span>
 
                                                     <div class="b__shop--moreinfo d-flex">
-                                                        <p class="detail-merchant-provice-mobile"><img src="https://voso.vn/static/v2/images/icon-location.png" />Hà Nội</p>
-                                                        <p>Đang hoạt động</p>
+                                                        <p class="detail-merchant-provice-mobile"><img src="{{asset('images/icon-location.png')}}" />{{$s->address}}</p>
+                                                        @if($s->status)
+                                                        <p><img style="padding-right: 3px" src="{{asset('images/online-status-icon.png')}}" />Đang hoạt động</p>
+                                                        @else
+                                                        <p><img style="padding-right: 3px" src="{{asset('images/offline-status-icon.png')}}" />Ngừng hoạt động</p>
+                                                        @endif
                                                     </div>
                                                     <ul ng-controller="chatCtrl">
-                                                        <li><a class="img_mess" href="javascript:;" ng-click="chat(8590)"><img src="https://voso.vn/static/v2/images/message.png" /> Chat ngay</a></li>
-                                                        <li><a class="go_to_shop" href="/gic-store-s8590"><img src="https://voso.vn/static/v2/images/icon_go_to_shop.png" />Xem shop</a></li>
+                                                        <li><a class="img_mess" href="javascript:;"><img src="{{asset('images/message.png')}}" /> Chat ngay</a></li>
+                                                        <li><a class="go_to_shop" href="{{$s->name_s}}-si{{$s->id}}"><img src="{{asset('images/icon_go_to_shop.png')}}" />Xem shop</a></li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -418,47 +418,33 @@
                                         <div class="b__shop--ls b__shop--thongso ml-auto d-flex align-items-center">
                                             <div class="info-content mr-3">
                                                 <label>Sản phẩm</label> <br>
-                                                <span>18</span>
+                                                <span>{{count($s_products)}}</span>
                                             </div>
                                             <div class="info-content mr-3">
                                                 <label>Đánh giá</label> <br>
                                                 <span>10</label>
                                                 </div>
                                                 <div class="info-content mr-3">
+                                                	@php
+                                                		Carbon\Carbon::setLocale('vi');
+					                                	$time_in = \Carbon\Carbon::createFromTimestamp(strtotime($s->created_at))->toDayDateTimeString();
+				                                        
+				                                        $now = \Carbon\Carbon::now();
+                                                	@endphp
                                                     <label>Ngày tham gia</label> <br>
-                                                    <span>17/06/2019</span>
+                                                    <span>{{\Carbon\Carbon::createFromTimestamp(strtotime($s->created_at))->diffForHumans($now)}}</span>
                                                 </div>
 
                                             </div>
                                         </div>
                                     </div>
                                     <div class="b__product--detail">
-                                        <h3>Thông tin sản phẩm</h3>
-                                        <div class="b__product--detail_ls">
-                                            <div class="b__product-dt">
-                                                <label>Danh mục:</label>
-                                                <span>Giày Nam</span>
-                                            </div>
-                                            <div class="b__product-dt">
-                                                <label>Thương hiệu:</label>
-                                                <span>No Brand</span>
-                                            </div>
-                                            <div class="b__product-dt">
-                                                <label>Xuất xứ:</label>
-                                                <span>Viet Nam</span>
-                                            </div>
-                                            <div class="b__product-dt">
-                                                <label>Đơn vị tính:</label>
-                                                <span>Đôi</span>
-                                            </div>
-                                            <div class="b__product-dt">
-                                                <label>Trọng lượng:</label>
-                                                <span>0.699kg</span>
-                                            </div>
-                                        </div>
+                                        
                                         <div class="b__product--detail_ls">
                                             <h3>Mô tả sản phẩm </h3>
-                                            <div ta-bind="text" class="b__product--description" ng-model="product.description" ta-readonly="disabled"></div>
+                                            <div ta-bind="text" class="b__product--description">
+                                            	{!!$product->content!!}
+                                            </div>
                                         </div>
                                     </div>
 
@@ -484,7 +470,7 @@
                                                         <span class="num-big">5</span>
                                                         <span class="num-small">/5</span>
                                                     </div>
-                                                    <span class="jstars" ng-bind-html="rating(rateTotal.total)"></span>
+                                                    <span class="jstars" data-value="4"></span>
                                                 </div>
                                             </div>
                                             <div class="b__product--evaluate_right">
@@ -497,6 +483,48 @@
                                                     <li class="prd_filter" ng-click="getRate(1)">1 Sao (<span ng-bind="countRate.c1"></span>)</li>
                                                 </ul>
                                             </div>
+                                        </div>
+                                        <div class="b__product--comment">
+                                        	<div class="media ng-scope">
+                                        		<img class="mr-3" ng-src="https://image.voso.vn/users/vosoimage/images/1e54c71c82697602aa6c03551e42ee02?t%5B%5D=maxSize%3Awidth%3D256%2Cheight%3D256&amp;t%5B%5D=compress%3Alevel%3D100&amp;accessToken=23f638260a2227d5b090993f77c9334eaa02ddc051025c2e432f80797b6b3e99" alt="khách hàng" src="https://image.voso.vn/users/vosoimage/images/1e54c71c82697602aa6c03551e42ee02?t%5B%5D=maxSize%3Awidth%3D256%2Cheight%3D256&amp;t%5B%5D=compress%3Alevel%3D100&amp;accessToken=23f638260a2227d5b090993f77c9334eaa02ddc051025c2e432f80797b6b3e99">
+                                        		<div class="media-body">
+                                        			<h5 class="mt-0 ng-binding">Trần Bửu</h5>
+                                        			<div class="f-items__ls main-rating">
+                                        				<span class="jstars" data-value="5"></span>
+                                        			</div>
+                                        			<div class="rating-content ng-binding">Rất tốt, chúc shop làm ăn phát đạt</div>
+                                        			<div class="rating-group-texts">
+                                        				<!-- ngRepeat: (ktext,rtext) in rate.texts -->
+                                        			</div>
+                                        			<div class="rating-group-images">
+                                        				<!-- ngRepeat: (kimage,rimage) in rate.images -->
+                                        			</div>
+                                        			<div class="rating-time">
+                                        				<span class="ng-binding">09:54 11/03/2021</span>
+                                        			</div>
+                                        		</div>
+                                        	</div>
+                                        	<div class="media ng-scope" >
+                                        		<img class="mr-3" ng-src="https://image.voso.vn/users/vosoimage/images/d9bf60935204c8fe2798c3f83efb47d5?t%5B%5D=maxSize%3Awidth%3D256%2Cheight%3D256&amp;t%5B%5D=compress%3Alevel%3D100&amp;accessToken=ffe29617d7c98d074dcfb2b90d2c230ccf43e7da3561bb4b3b1ca8c33ca3b6e4" alt="khách hàng" src="https://image.voso.vn/users/vosoimage/images/d9bf60935204c8fe2798c3f83efb47d5?t%5B%5D=maxSize%3Awidth%3D256%2Cheight%3D256&amp;t%5B%5D=compress%3Alevel%3D100&amp;accessToken=ffe29617d7c98d074dcfb2b90d2c230ccf43e7da3561bb4b3b1ca8c33ca3b6e4">
+                                        		<div class="media-body">
+                                        			<h5 class="mt-0 ng-binding">Nguyễn Thị Hương Ly</h5>
+                                        			<div class="f-items__ls main-rating">
+                                        				<span class="jstars" data-value="4"></span>
+                                        			</div>
+                                        			<div class="rating-content ng-binding"></div>
+                                        			<div class="rating-group-texts">
+                                        				<!-- ngRepeat: (ktext,rtext) in rate.texts -->
+                                        			</div>
+                                        			<div class="rating-group-images">
+                                        				<!-- ngRepeat: (kimage,rimage) in rate.images -->
+                                        			</div>
+                                        			<div class="rating-time">
+                                        				<span class="ng-binding">09:45 11/03/2021</span>
+                                        			</div>
+                                        		</div>
+                                        	</div>
+
+                                        	<!-- ngIf: rates.length==0 -->
                                         </div>
 
                                         
@@ -686,13 +714,17 @@
                                             <img src="https://image.voso.vn/users/vosoimage/images/58a5b6421eea9a2f5fe6af805de69952?t%5B0%5D=compress%3Alevel%3D100&accessToken=b4032b8e82fa13813374c4f91ed39e0fafadda5d17eeb567c87395b59261097a" />
                                         </div>
                                         <div class="b__shop--description">
-                                            <span>Giầy Store</span>
+                                            <span>{{$s->name_s}}</span>
 
-                                            <p>Đang hoạt động</p>
-                                            <p class="detail-merchant-provice-mobile">Tỉnh thành: <b style="color: #333333;">Hà Nội</b></p>
+                                            @if($s->status)
+                                            <p><img style="padding-right: 3px" src="{{asset('images/online-status-icon.png')}}" />Đang hoạt động</p>
+                                            @else
+                                            <p><img style="padding-right: 3px" src="{{asset('images/offline-status-icon.png')}}" />Ngừng hoạt động</p>
+                                            @endif
+                                            <p class="detail-merchant-provice-mobile">Địa chỉ: <b style="color: #333333;">{{$s->address}}</b></p>
                                             <ul ng-controller="chatCtrl">
-                                                <li><a class="img_mess" href="javascript:;" ng-click="chat(8590)"><img src="https://voso.vn/static/v2/images/icon_mess.png" /> Chat ngay</a></li>
-                                                <li><a href="/gic-store-s8590">Ghé thăm shop</a></li>
+                                                <li><a class="img_mess" href="javascript:;" ><img src="{{asset('images/icon_mess.png')}}" /> Chat ngay</a></li>
+                                                <li><a href="{{$s->name_s}}-si{{$s->id}}"><img src="{{asset('images/icon_go_to_shop.png')}}" />Ghé thăm shop</a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -704,15 +736,15 @@
                                     </div>
                                     <div class="info-content">
                                         <label>Số Sản Phẩm:</label>
-                                        <span>18</span>
+                                        <span>{{count($s_products)}}</span>
                                     </div>
                                     <div class="info-content">
                                         <label>Ngày Tham Gia:</label>
-                                        <span>17/06/2019</span>
+                                        <span>{{\Carbon\Carbon::createFromTimestamp(strtotime($s->created_at))->diffForHumans($now)}}</span>
                                     </div>
                                     <div class="info-content">
-                                        <label>Tỉnh - Thành Phố:</label>
-                                        <span>Hà Nội</span>
+                                        <label>Địa chỉ:</label>
+                                        <span>{{$s->address}}</span>
                                     </div>
                                 </div>
                             </div>

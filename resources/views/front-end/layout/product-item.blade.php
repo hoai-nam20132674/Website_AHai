@@ -23,7 +23,7 @@
         <a href="{{$item->url}}">{{$item->name}}</a>
     </div>
     <div class="f-items__ls main-rating b-sold-rating">
-        <span class="jstars" data-value="5"></span>
+        <span class="jstars" data-value="4"></span>
         <label class="ml-auto">2118 đã bán</label>
     </div>
     <div class="b-price">

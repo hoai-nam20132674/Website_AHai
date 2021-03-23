@@ -30,6 +30,7 @@ class Product extends Model
     	$this->url = $request->url;
     	$this->content = $request->content;
     	$this->status = $request->status;
+        $this->short_description = $request->short_description;
         $this->hot = $request->hot;
         $this->best_sale = $request->best_sale;
         $this->price = $request->price;
@@ -95,6 +96,7 @@ class Product extends Model
         $product->content = $request->content;
         $product->status = $request->status;
         $product->hot = $request->hot;
+        $product->short_description = $request->short_description;
         $product->best_sale = $request->best_sale;
         $product->price = $request->price;
         $product->sale = $request->sale;
