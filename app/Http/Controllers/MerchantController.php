@@ -6,8 +6,11 @@ use Illuminate\Http\Request;
 use App\ProductCate;
 use App\Product;
 use App\Menu;
+use App\User;
 use App\Http\Requests\addProductRequest;
 use App\Http\Requests\editProductRequest;
+use App\Http\Requests\editPasswordRequest;
+use App\Http\Requests\editInfoRequest;
 use Illuminate\Support\Facades\Auth;
 
 class MerchantController extends Controller
@@ -34,6 +37,32 @@ class MerchantController extends Controller
         $products = Product::where('user_id',Auth::user()->id)->get();
         $menus = Menu::whereNull('parent_id')->orderBy('stt','ASC')->get();
     	return view('front-end.shop',compact('categories','products','menus'));
+    }
+    public function info(){
+        $categories = ProductCate::select()->get();
+        $menus = Menu::whereNull('parent_id')->orderBy('stt','ASC')->get();
+        return view('front-end.info',compact('categories','menus'));
+    }
+    public function editPassword(){
+        $categories = ProductCate::select()->get();
+        $menus = Menu::whereNull('parent_id')->orderBy('stt','ASC')->get();
+        return view('front-end.edit-password',compact('categories','menus'));
+    }
+    public function postEditPassword(editPasswordRequest $request){
+        $item = new User;
+        $check = $item->merchantEditPassword($request);
+        if($check){
+            return redirect()->route('merchantEditPassword')->with(['flash_level'=>'success','flash_message'=>'Thay đổi mật khẩu thành công']);
+        }
+        else{
+            return redirect()->route('merchantEditPassword')->with(['flash_level'=>'danger','flash_message'=>'Đổi mật khẩu không thành công. Mật khẩu không chính xác']);
+        }
+        
+    }
+    public function postEditInfo(editInfoRequest $request){
+        $item = new User;
+        $item -> merchantEditInfo($request);
+        return redirect()->route('merchantInfo')->with(['flash_level'=>'success','flash_message'=>'Cập nhật thông tin thành công']); 
     }
     public function postAddProduct(addProductRequest $request){
         $item = new Product;

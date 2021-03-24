@@ -77,7 +77,7 @@ body-home-page 	    " ng-cloak>
                     <div class="container-arrow">
                         <span class="arrow-up"></span>
                     </div>
-                    <li><a href="https://voso.vn/khach-hang.html">Hồ sơ của tôi</a></li>
+                    <li><a href="{{URL::route('merchantInfo')}}">Hồ sơ của tôi</a></li>
                     <li><a href="https://voso.vn/lich-su-mua-hang.html">Lịch sử đơn hàng</a></li>
                     <li><a href="{{URL::route('logout')}}">Đăng xuất</a></li>
                 </ul>

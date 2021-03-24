@@ -54,7 +54,7 @@ class LoginController extends Controller
         );
         if(Auth::attempt($login) || Auth::attempt($login2)){
             
-            return redirect($request->url);
+            return redirect($request->url)->with(['flash_level'=>'success','flash_message'=>'Đăng nhập thành công']);
         }
         else{
             return redirect()->back()->with(['flash_level'=>'danger','flash_message'=>'Tài khoản hoặc mật khẩu không chính xác']);

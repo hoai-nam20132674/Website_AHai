@@ -23,6 +23,9 @@ body-home-page " ng-controller="auth" ng-cloak>
     	
     	$('input[name="url"]').val(url);
     }
+    var url = location.href;
+    
+    $('a.sidebar[href="'+url+'"]').parent().addClass('active');
 </script>
 </body>
 </html>

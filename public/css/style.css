@@ -16,6 +16,9 @@ label {
 .red {
     color: red
 }
+.owl-nav{
+    display: none;
+}
 
 .margin-top-0 {
     margin-top: 0 !important

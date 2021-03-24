@@ -114,6 +114,10 @@ Route::get('admin/test', 'HomeController@test')->name('test');
 
 //Merchant route
 Route::get('/merchant-creator', 'MerchantController@index')->name('merchantIndex');
+Route::get('/merchant-creator/info', 'MerchantController@info')->name('merchantInfo');
+Route::post('/merchant-creator/info', 'MerchantController@postEditInfo')->name('merchantPostEditInfo');
+Route::get('/merchant-creator/change-password', 'MerchantController@editPassword')->name('merchantEditPassword');
+Route::post('/merchant-creator/change-password', 'MerchantController@postEditPassword')->name('merchantPostEditPassword');
 Route::get('/merchant/product/edit/{id}', 'MerchantController@editProduct')->name('merchantEditProduct');
 Route::post('merchant/product/edit/{id}', 'MerchantController@postEditProduct')->name('merchantPostEditProduct');
 Route::post('merchant/product/add', 'MerchantController@postAddProduct')->name('merchantPostAddProduct');

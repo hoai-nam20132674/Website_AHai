@@ -50,6 +50,19 @@ class User extends Authenticatable
         return true;
         
     }
+    public function merchantEditInfo($request){
+        $user = Auth::user();
+        $user->name = $request->name;
+        $user->name_s = $request->name_s;
+        $user->address = $request->address;
+        if($request->hasFile('avata')){
+            $file_name = $request->file('avata')->getClientOriginalName();
+            $user->avatar = $file_name;
+            // $request->file('avata')->move('public/uploads/images/products/avatars/',$file_name);
+            $request->file('avata')->move('uploads/images/users/avatars/',$file_name);
+        }
+        $user->save();
+    }
 
     public function add($request){
         if(Auth::user()->role == 1 || Auth::user()->role == 2){
@@ -82,10 +95,30 @@ class User extends Authenticatable
         }
     }
     public function editPassword($request,$id){
+        
         if(Auth::user()->id == $id){
             $user = $this::where('id',$id)->get()->first();
             $user->password = Hash::make($request->password);
             $user->save();
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+    public function merchantEditPassword($request){
+        $login =array(
+            'email'=> Auth::user()->email,
+            'password'=>$request->old_password
+        );
+        $login2 =array(
+            'phone'=>Auth::user()->phone,
+            'password'=>$request->old_password
+        );
+        if(Auth::attempt($login) || Auth::attempt($login2)){
+
+            Auth::user()->password= Hash::make($request->password);
+            Auth::user()->save();
             return true;
         }
         else{
