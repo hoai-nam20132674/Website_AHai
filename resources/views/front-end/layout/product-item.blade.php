@@ -29,13 +29,13 @@
     <div class="b-price">
         @if($item->sale != '')
             <div class="b__price">
-                <strong>{{$item->sale}}<sup>₫</sup></strong>
+                <strong>{!!number_format($item->sale)!!}<sup>₫</sup></strong>
             </div>
-            <div class="listed-price">{{$item->price}}<sup>₫</sup>
+            <div class="listed-price">{!!number_format($item->price)!!}<sup>₫</sup>
             </div>
         @else
             <div class="b__price">
-                <strong>{{$item->price}}<sup>₫</sup></strong>
+                <strong>{!!number_format($item->price)!!}<sup>₫</sup></strong>
             </div>
         @endif
     </div>

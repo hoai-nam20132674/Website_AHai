@@ -32,7 +32,7 @@ class Controller extends BaseController
 
     public function index(){
         $categories = ProductCate::where('display',1)->whereNull('parent_id')->get();
-        $sliders = Slider::where('display',1)->get();
+        $sliders = Slider::where('display',1)->orderBy('stt','ASC')->get();
         $menus = Menu::whereNull('parent_id')->orderBy('stt','ASC')->get();
         $best_sale = Product::where('display',1)->where('best_sale',1)->orderBy('updated_at','DESC')->get();
         $product_new = Product::where('display',1)->orderBy('id','DESC')->get();
@@ -57,7 +57,7 @@ class Controller extends BaseController
 
     }
 
-    public function page($url){
+    public function page($url, Request $request){
 
         $strrpos = strrpos($url,"-");
         $url = substr($url,$strrpos+1);
@@ -79,11 +79,12 @@ class Controller extends BaseController
     	}
         
         else if($key=='pc'){
-            $product_cate = ProductCate::where('id',$id)->get()->first();
-            $pcids = PCID::where('cate_id',$product_cate->id)->get();
+            $sliders = Slider::where('display',1)->orderBy('stt','ASC')->get();
+            $categorie = ProductCate::where('id',$id)->get()->first();
+            $pcids = PCID::where('cate_id',$id)->get();
             $pids = $this->arrayColumn($pcids,$col='product_id');
-            $products = Product::whereIn('id',$pids)->get();
-            return view('front-end.products',compact('categories','menus','products','product_cate'));
+            $products = Product::whereIn('id',$pids)->where('display',1)->paginate(30);
+            return view('front-end.products',compact('categories','menus','products','categorie','sliders','request'));
         }
         // else if($key=='bi'){
         //     $blog = Blog::where('id',$id)->get()->first();
@@ -98,16 +99,24 @@ class Controller extends BaseController
             $blogs = Blog::whereIn('id',$bids)->get();
             return view('front-end.blogs',['system'=>$system,'blog_cate'=>$blog_cate,'blogs'=>$blogs]);
         }
+        if($key=='si'){
+            $user = User::where('id',$id)->get()->first();
+            $products = Product::where('user_id',$id)->where('display',1)->get();
+            return view('front-end.gian-hang',compact('categories','menus','products','user'));
+            
+        }
         else {
             return view('front-end.error',['system'=>$system]);
         }
 
 
     }
-    public function cardSearch(Request $request){
-        $system = System::where('id',1)->get()->first();
-        $items = Card::where('code', 'like', '%' .$request->card.'%')->get();
-        return view('front-end.card-search',['system'=>$system,'items'=>$items]);
+    public function search(Request $request){
+        $sliders = Slider::where('display',1)->orderBy('stt','ASC')->get();
+        $categories = ProductCate::where('display',1)->whereNull('parent_id')->get();
+        $menus = Menu::whereNull('parent_id')->orderBy('stt','ASC')->get();
+        $products = Product::where('name', 'like', '%' .$request->keyword.'%')->paginate(30);
+        return view('front-end.product-search',compact('categories','menus','products','sliders','request'));
     }
 
     // ------------------------------------------

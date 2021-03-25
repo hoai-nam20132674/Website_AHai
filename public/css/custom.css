@@ -1136,7 +1136,7 @@ select:not([multiple])::-ms-expand {
 }
 
 .breadcrumb>li>a:hover {
-    color: #0971ce
+    color: #ee2624;
 }
 
 @media(min-width:768px) {

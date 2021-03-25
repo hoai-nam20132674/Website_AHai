@@ -1,5 +1,4 @@
-<div class="b-header 
-body-home-page 	    " ng-cloak>
+<div class="b-header @yield('body-name')" ng-cloak>
 <div class="b__header--top">
     <div class="container">
         <div class="b__top-info">
@@ -111,8 +110,10 @@ body-home-page 	    " ng-cloak>
                 </div>
                 <div class="b__search b__search-pc">
                     <div class="b__search--box">
-                        <input type="text" id="inputSearch" ng-change="type()" ng-model="keyword" maxlength="100" autocomplete="off" ng-value="" name="" class="form-control ng-touched" placeholder="Tìm sản phẩm, danh mục hay thương hiệu" ng-keypress="enterSearch($event)" autocomplete="new-password" />
-                        <button ng-click="search()" class="btn btn-search" type="submit">
+                        <form action="{{URL::route('search')}}" method="GET">
+                        
+                        <input type="text" id="inputSearch" maxlength="100" autocomplete="off" ng-value="" name="keyword" class="form-control ng-touched" placeholder="Tìm sản phẩm, danh mục hay thương hiệu" autocomplete="new-password" />
+                        <button class="btn btn-search" type="submit">
                             <svg class="voso-svg-icon" style="width: 14px; height: 14px" height="19" viewBox="0 0 19 19" width="19">
                                 <g fill-rule="evenodd" style="fill: #ffffff" stroke="none" stroke-width="1">
                                     <g transform="translate(-1016 -32)">
@@ -130,6 +131,7 @@ body-home-page 	    " ng-cloak>
                                 </g>
                             </svg>
                         </button>
+                        </form>
                     </div>
                     <div class="b__tag">
                         <ul>

@@ -2602,7 +2602,7 @@ select:not([multiple])::-ms-expand {
 
 @media(max-width:767px) {
     :not(.body-home-page).b-header {
-        background: #237df3 !important;
+        background: #ee2624 !important;
         min-height: 99px !important
     }
 }

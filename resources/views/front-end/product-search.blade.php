@@ -26,7 +26,7 @@
 	    <meta property="og:image" content="" />
 	    <meta property="og:locale" content="vi_VN" />
 	    <link rel="canonical" href="" /> 
-	    <title>{{$categorie->name}}</title>
+	    <title>Tìm kiếm từ khóa {{$request->keyword}}</title>
 
 	    <link href="css/bootstrap.css?v=1568371445" rel="stylesheet">
 	    <link href="css/font-awesome.min.css?v=1566957476" rel="stylesheet">
@@ -98,14 +98,14 @@
       <div class="navbar-generic__back">
         <button class="top-referrer-detail-href">
           <i class="fa fa-arrow-left"></i>
-          <span>{{$categorie->name}}</span>
+          <span>Tìm kiếm từ khóa {{$request->keyword}}</span>
         </button>
       </div>
       <div class="b__browser--info">
         <nav class="b__breadcrumb" aria-label="breadcrumb">
           <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="/">Trang chủ</a></li>
-            <li class="breadcrumb-item active" aria-current="page">{{$categorie->name}}</li>
+            <li class="breadcrumb-item active" aria-current="page">Tìm kiếm từ khóa {{$request->keyword}}</li>
           </ol>
         </nav>
         <div id="slideBrowser" class="owl-carousel b__banner--browser">
@@ -120,7 +120,7 @@
         <div class="b__browser--content">
           <div class="b__browser--content_right">
             <div class="b__dropdown text-right">
-              <label>Sắp xếp <span class="mobile-hidden">theo sản phẩm</span></label>
+              <label>Có {{count($products)}} kết quả tìm thấy với từ khóa <span style="color: #fff;background-color: #ee2624; padding: 2px 5px; border-radius: 5px;">{{$request->keyword}}</span></label>
               <div class="b__form--select">
                 <div class="voso--custom-select">
                   <select id="browse-order">

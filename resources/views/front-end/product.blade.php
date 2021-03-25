@@ -1,4 +1,7 @@
 @extends('front-end.layout.default')
+@section('body-name')
+   body-product-detail
+@endsection
 @section('head')
 	
 
@@ -390,13 +393,14 @@
                                     <div class="box-supplier d-flex">
                                         <div class="b__shop--ls">
                                             <div class="b__shop--ls_content">
-                                                <div class="b__shop--avatar">
-                                                    <img src="https://image.voso.vn/users/vosoimage/images/58a5b6421eea9a2f5fe6af805de69952?t%5B0%5D=compress%3Alevel%3D100&accessToken=b4032b8e82fa13813374c4f91ed39e0fafadda5d17eeb567c87395b59261097a" />
-                                                </div>
                                                 @php
-                                                	$s = App\User::where('id',$product->user_id)->get()->first();
-                                                	$s_products = App\Product::where('user_id',$s->id)->get();
+                                                    $s = App\User::where('id',$product->user_id)->get()->first();
+                                                    $s_products = App\Product::where('user_id',$s->id)->get();
                                                 @endphp
+                                                <div class="b__shop--avatar">
+                                                    <img src="{{asset('uploads/images/users/avatars/'.$s->avatar)}}" />
+                                                </div>
+                                                
                                                 <div class="b__shop--description">
                                                     <span class="b__shop--name">{{$s->name_s}}</span>
 
@@ -448,17 +452,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="b__product--detail b__product--dam-bao visible-xs">
-                                        <h3>Đảm bảo sản phẩm</h3>
-                                        <div class="b__product--dam-bao noi-dung">
-                                            <div class="dichvu">
-                                                <img src="images/Icon-box.png" alt="">Trả hàng 2-3 ngày
-                                            </div>
-                                            <div class="dichvu">
-                                                <img src="images/icon-ship.png" alt="">Giao hàng nhanh cùng Viettel Post
-                                            </div>
-                                        </div>
-                                    </div>
+                                    
 
 
                                     <div class="b__product--detail b__product--evaluate">
@@ -748,17 +742,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="box-module box-support">
-                                <span class="title-box">Hỗ trợ</span>
-                                <div class="box-body body-support">
-                                    <p><svg aria-hidden="true" focusable="false" data-prefix="fal" data-icon="phone-rotary" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg-inline--fa fa-phone-rotary fa-w-16 fa-2x">
-                                        <path fill="#0871ce" d="M256 240a80 80 0 1 0 80 80 80 80 0 0 0-80-80zm0 128a48 48 0 1 1 48-48 48.05 48.05 0 0 1-48 48zm114.43-175.75A64 64 0 0 0 314.86 160H197.14a64 64 0 0 0-55.57 32.25L36.21 376.62A32 32 0 0 0 32 392.5V448a32 32 0 0 0 32 32h384a32 32 0 0 0 32-32v-55.5a32 32 0 0 0-4.21-15.88zM448 448H64v-55.5l105.36-184.38A32.07 32.07 0 0 1 197.14 192h117.72a32.07 32.07 0 0 1 27.78 16.12L448 392.5zm52.27-329.8C431.72 63.21 344.81 32 256 32S80.28 63.21 11.73 118.2A32.17 32.17 0 0 0 0 143.29V208a16 16 0 0 0 16 16h70.11a16 16 0 0 0 14.31-8.85L128 152c39.9-17.28 83.23-24 128-24 44.77 0 88.08 6.72 128 24l27.58 63.15a16 16 0 0 0 14.31 8.85H496a16 16 0 0 0 16-16v-64.71a32.17 32.17 0 0 0-11.73-25.09zM480 192h-43.61l-23.07-52.81-5-11.55-11.57-5C355.33 104.71 309.3 96 256 96s-99.32 8.71-140.71 26.63l-11.57 5-5 11.55L75.61 192H31.94l-.18-48.84A359.7 359.7 0 0 1 256 64a357.89 357.89 0 0 1 224 79.29z" class=""></path>
-                                    </svg></i> <span>Hotline: 1900 989 888</span></p>
-                                    <p><svg aria-hidden="true" focusable="false" data-prefix="fal" data-icon="envelope" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg-inline--fa fa-envelope fa-w-16 fa-2x">
-                                        <path fill="#0871ce" d="M464 64H48C21.5 64 0 85.5 0 112v288c0 26.5 21.5 48 48 48h416c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48zM48 96h416c8.8 0 16 7.2 16 16v41.4c-21.9 18.5-53.2 44-150.6 121.3-16.9 13.4-50.2 45.7-73.4 45.3-23.2.4-56.6-31.9-73.4-45.3C85.2 197.4 53.9 171.9 32 153.4V112c0-8.8 7.2-16 16-16zm416 320H48c-8.8 0-16-7.2-16-16V195c22.8 18.7 58.8 47.6 130.7 104.7 20.5 16.4 56.7 52.5 93.3 52.3 36.4.3 72.3-35.5 93.3-52.3 71.9-57.1 107.9-86 130.7-104.7v205c0 8.8-7.2 16-16 16z" class=""></path>
-                                    </svg> <span>Hỗ trợ: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="3e56514a4c517e48514d51104850">[email&#160;protected]</a></span></p>
-                                </div>
-                            </div>
+                            
                         </div>
                         <div class="product-other">
                             <div class="b__product--other">

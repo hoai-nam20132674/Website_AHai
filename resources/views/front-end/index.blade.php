@@ -1,4 +1,7 @@
 @extends('front-end.layout.default')
+@section('body-name')
+    body-home-page
+@endsection
 @section('head')
 	
 

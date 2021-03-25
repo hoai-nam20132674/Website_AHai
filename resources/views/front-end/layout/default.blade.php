@@ -9,7 +9,7 @@
 @yield('head')
 </head>
 <body class="pushmenu-push 
-body-home-page " ng-controller="auth" ng-cloak>
+@yield('body-name') " ng-controller="auth" ng-cloak>
 @include('front-end.layout.header')
 
 @yield('content')

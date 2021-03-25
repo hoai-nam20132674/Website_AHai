@@ -126,6 +126,7 @@ Route::post('merchant/product/add', 'MerchantController@postAddProduct')->name('
 Route::post('/addContact', 'Controller@addContact')->name('addContact');
 Route::get('/lien-he', 'Controller@contact')->name('contact');
 Route::get('/tra-cuu', 'Controller@cardSearch')->name('cardSearch');
+Route::get('/tìm kiếm', 'Controller@search')->name('search');
 Route::get('/{url}', 'Controller@page')->name('page');
 Route::get('/', 'Controller@index')->name('index');
 Route::post('/user/add', 'Controller@postAddUserMerchant')->name('postAddUserMerchant');
