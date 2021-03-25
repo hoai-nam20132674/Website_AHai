@@ -171,7 +171,7 @@
                         <ul>
                             @foreach($categories as $cate)
                                 <li>
-                                    <a href="{{$cate->url}}"><img src="{{asset('uploads/images/products/categories/'.$cate->avata)}}" alt="icon" />{{$cate->name}}<i class="fas fa-chevron-right"></i>
+                                    <a href="/{{$cate->url}}"><img src="{{asset('uploads/images/products/categories/'.$cate->avata)}}" alt="icon" />{{$cate->name}}<i class="fas fa-chevron-right"></i>
                                         <i class="fas fa-chevron-up c-alias-mobile__expand-sub"></i>
                                     </a>
                                     @php
@@ -182,7 +182,7 @@
                                         <div class="c-alias-sub__content">
                                             <ul>
                                                 @foreach($cates_child as $cate_child)
-                                                <li><a href="{{$cate_child->url}}">{{$cate_child->name}}</a></li>
+                                                <li><a href="/{{$cate_child->url}}">{{$cate_child->name}}</a></li>
                                                 @endforeach
                                             </ul>
                                         </div>
