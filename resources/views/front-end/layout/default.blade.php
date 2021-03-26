@@ -27,5 +27,6 @@
     
     $('a.sidebar[href="'+url+'"]').parent().addClass('active');
 </script>
+
 </body>
 </html>

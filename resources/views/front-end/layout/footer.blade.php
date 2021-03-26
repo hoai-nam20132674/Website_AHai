@@ -279,6 +279,51 @@
             </div>
         </nav>
     </div>
+    <!-- Modal Login -->
+    <!-- <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header border-bottom-0">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-title text-center">
+                        <h4>Login</h4>
+                    </div>
+                    <div class="d-flex flex-column text-center">
+                        <form>
+                            <div class="form-group">
+                                <input type="email" class="form-control" id="email1"placeholder="Your email address...">
+                            </div>
+                            <div class="form-group">
+                                <input type="password" class="form-control" id="password1" placeholder="Your password...">
+                            </div>
+                            <button type="button" class="btn btn-info btn-block btn-round">Login</button>
+                        </form>
+
+                        <div class="text-center text-muted delimiter">or use a social network</div>
+                        <div class="d-flex justify-content-center social-buttons">
+                            <button type="button" class="btn btn-secondary btn-round" data-toggle="tooltip" data-placement="top" title="Twitter">
+                                <i class="fab fa-twitter"></i>
+                            </button>
+                            <button type="button" class="btn btn-secondary btn-round" data-toggle="tooltip" data-placement="top" title="Facebook">
+                                <i class="fab fa-facebook"></i>
+                            </button>
+                            <button type="button" class="btn btn-secondary btn-round" data-toggle="tooltip" data-placement="top" title="Linkedin">
+                                <i class="fab fa-linkedin"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer d-flex justify-content-center">
+                <div class="signup-section">Not a member yet? <a href="#a" class="text-info"> Sign Up</a>.</div>
+            </div>
+        </div>
+    </div> -->
+    <!-- end modal login -->
     <script type="text/ng-template" id="formAddressPcModal">
         <div class="modal-header">
             <button type="button" class="close close-mobile" ng-click="cancel()" aria-label="Close">
@@ -679,7 +724,7 @@
                     <div class="back-page">
                         <button type="button" class="close" ng-click="cancel()" aria-label="Close">
                             <span class="close-pc"><i class="fa fa-times-circle"></i></span>
-                            <span style="color: #0871ce; padding-top: 3px" class="close-mb"><i class="fas fa-chevron-left"></i></span>
+                            <span style="color: #fff; padding-top: 3px" class="close-mb"><i class="fas fa-chevron-left"></i></span>
                         </button>
                     </div>
                 </div>
@@ -810,7 +855,7 @@
                 <div class="back-page">
                     <button type="button" class="close" ng-click="cancel()" aria-label="Close">
                         <span class="close-pc"><i class="fa fa-times-circle"></i></span>
-                        <span style="color: #0871ce; padding-top: 3px" class="close-mb"><i class="fas fa-chevron-left"></i></span>
+                        <span style="color: #fff; padding-top: 3px" class="close-mb"><i class="fas fa-chevron-left"></i></span>
                     </button>
                 </div>
             </div>

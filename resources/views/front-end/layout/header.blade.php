@@ -77,7 +77,7 @@
                         <span class="arrow-up"></span>
                     </div>
                     <li><a href="{{URL::route('merchantInfo')}}">Hồ sơ của tôi</a></li>
-                    <li><a href="https://voso.vn/lich-su-mua-hang.html">Lịch sử đơn hàng</a></li>
+                    <li><a href="#">Lịch sử đơn hàng</a></li>
                     <li><a href="{{URL::route('logout')}}">Đăng xuất</a></li>
                 </ul>
             </li>
@@ -89,8 +89,8 @@
                 </a>
             </li>
             @else
-            <li class="login_none" ng-if="user == null" ng-click="signin()"><a href="#">Đăng Nhập</a></li>
-            <li class="login_none bdr_none" ng-if="user == null" ng-click="signup()"><a href="#">Đăng Ký</a></li>
+            <li class="login_none" ng-click="signin()"><a href="#">Đăng Nhập</a></li>
+            <li class="login_none bdr_none" ng-click="signup()"><a href="#">Đăng Ký</a></li>
             @endif
 
         </ul>

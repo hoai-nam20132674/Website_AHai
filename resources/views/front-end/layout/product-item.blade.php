@@ -1,9 +1,9 @@
 <div class="f-product-item__thumb">
-    <a href="{{$item->url}}">
+    <a href="/{{$item->url}}">
         <div class="f-product-item__thumb-img progressive replace" data-href="{{asset('uploads/images/products/avatars/'.$item->avata)}}">
             <img class="preview thumbnail-product" src="https://hangnhatgiare.vn/wp-content/themes/hoatuoi/images/loader.gif" alt="image">
         </div>
-        @if($item->sale != '')
+        @if($item->sale != '' && $item->sale != $item->price)
             <div class='product-item-price product-item-price-mall'>
                 @php
                     $percent = ($item->price-$item->sale)/$item->price;
@@ -20,7 +20,7 @@
         <div class="tag-mall">
             
         </div>
-        <a href="{{$item->url}}">{{$item->name}}</a>
+        <a href="/{{$item->url}}">{{$item->name}}</a>
     </div>
     <div class="f-items__ls main-rating b-sold-rating">
         <span class="jstars" data-value="4"></span>

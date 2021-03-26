@@ -72,18 +72,25 @@ class Controller extends BaseController
             $cates = PCID::where('product_id',$id)->get();
             $same_cate_id = $this->arrayColumn($cates,$col='cate_id');
             $same_products_id = $this->arrayColumn(PCID::where('product_id','!=',$id)->whereIn('cate_id',$same_cate_id)->take(10)->get(),$col='product_id');
-            $same_products = Product::whereIn('id',$same_products_id)->where('display',1)->take(5)->get();
+            $same_products = Product::whereIn('id',$same_products_id)->where('display',1)->orderBy('id','DESC')->take(5)->get();
+            $recommend_products = Product::whereIn('id',$same_products_id)->where('display',1)->orderBy('id','DESC')->skip(1)->take(10)->get();
             $images = ProductImage::where('product_id',$product->id)->where('role',0)->get();
-            return view('front-end.product',compact('categories','menus','product','images','same_products'));
+            return view('front-end.product',compact('categories','menus','product','images','same_products','recommend_products'));
     		
     	}
         
         else if($key=='pc'){
+
             $sliders = Slider::where('display',1)->orderBy('stt','ASC')->get();
             $categorie = ProductCate::where('id',$id)->get()->first();
             $pcids = PCID::where('cate_id',$id)->get();
             $pids = $this->arrayColumn($pcids,$col='product_id');
-            $products = Product::whereIn('id',$pids)->where('display',1)->paginate(30);
+            if($request->price ==''){
+                $products = Product::whereIn('id',$pids)->where('display',1)->orderBy('id','DESC')->paginate(30);
+            }
+            else{
+                $products = Product::whereIn('id',$pids)->where('display',1)->orderBy('price',$request->price)->paginate(30);
+            }
             return view('front-end.products',compact('categories','menus','products','categorie','sliders','request'));
         }
         // else if($key=='bi'){

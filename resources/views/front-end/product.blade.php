@@ -18,7 +18,7 @@
 	    <meta name="keywords" content="" />
 	    <meta name="description" content="" />
 	    <meta property="og:type" content="website" />
-	    <meta property="og:title" content="Giày Sneaker Nam Thể Thao - P101533 " />
+	    <meta property="og:title" content="{{$product->title}}" />
 	    <meta property="og:title" content="" />
 	    <meta property="og:description" content="" />
 	    <meta property="og:site_name" content="" />
@@ -51,7 +51,7 @@
 	    <link href="css/stars.css?v=1603338118" rel="stylesheet">
 	    <link href="css/product-detail.css?v=1612447411" rel="stylesheet">
 	    <link href="css/gio-hang.css?v=1612447411" rel="stylesheet">
-	    <link href="css/ban-do-dac-san.css?v=1612447411" rel="stylesheet">
+	    <!-- <link href="css/ban-do-dac-san.css?v=1612447411" rel="stylesheet"> -->
 	    <link href="css/lich-su-don-hang.css?v=1610977888" rel="stylesheet">
 	    <style>
 	        .f-items_show-fullname .f-items_name{
@@ -111,54 +111,7 @@
 @endsection
 
 @section('content')
-<div typeof="schema:Product">
-    <div rel="schema:review">
-        <div typeof="schema:Review">
-            <div rel="schema:reviewRating">
-                <div typeof="schema:Rating">
-                    <div property="schema:ratingValue" content="0"></div>
-                    <div property="schema:bestRating" content="5"></div>
-                </div>
-            </div>
-            <div rel="schema:author">
-                <div typeof="schema:Person">
-                    <div property="schema:name" content="Gic Store"></div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div rel="schema:image" resource="https://image.voso.vn/users/vosoimage/images/47ab29ffff6fb2024a887ee17f656adc?t%5B0%5D=compress%3Alevel%3D100&accessToken=95e63af9fee4f9ca62ec259bf971154cdeb1875a5981d3a044eb19385bfdde37"></div>
-    <div property="schema:name" content="Giày Nam"></div>
-    <div property="schema:description" content="Giày Sneaker Nam Thể Thao"></div>
-    <div rel="schema:brand">
-        <div typeof="schema:Thing">
-            <div property="schema:name" content="Gic Store"></div>
-        </div>
-    </div>
-    <div rel="schema:aggregateRating">
-        <div typeof="schema:AggregateRating">
-            <div property="schema:reviewCount" content="2544"></div>
-            <div property="schema:ratingValue" content="0"></div>
-        </div>
-    </div>
-    <div rel="schema:offers">
-        <div typeof="schema:Offer">
-            <div property="schema:priceCurrency" content="VND"></div>
-            <div property="schema:price" content="199000"></div>
-            <div property="schema:availability" content="instock"></div>
-            <div rel="schema:seller">
-                <div typeof="schema:Organization">
-                    <div property="schema:name" content="Giày Nam"></div>
-                </div>
-            </div>
-            <div property="schema:priceValidUntil" datatype="xsd:date" content="2020-12-05"></div>
-            <div rel="schema:url" resource="/giay-sneaker-nam-den-giay-sneaker-nam-giay-sneaker-nam-the-thao-p101533.html"></div>
-        </div>
-    </div>
-    <div rel="schema:image" resource="https://image.voso.vn/users/vosoimage/images/47ab29ffff6fb2024a887ee17f656adc?t%5B0%5D=compress%3Alevel%3D100&accessToken=95e63af9fee4f9ca62ec259bf971154cdeb1875a5981d3a044eb19385bfdde37"></div>
-    <div property="schema:mpn" content="925872"></div>
-    <div property="schema:sku" content="0446310786"></div>
-</div>
+
 <script data-cfasync="false" src="https://voso.vn/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
 
 <div class="product-detail__header-top">
@@ -167,18 +120,21 @@
             <i class="fa fa-chevron-left"></i>
         </a>
         <div class="top-product-name">
-            <span class="product-detail__product-name">
-            Giày Sneaker Nam Thể Thao </span>
+            <span class="product-detail__product-name">{{$product->name}}</span>
         </div>
         <div class="login_succses_mobile">
             <i class="fa fa-ellipsis-h"></i>
         </div>
         <ul class="login_succses_menu_mobile">
-            <li ng-if="user == null"><a href="/mobile-dang-nhap">Đăng nhập</a></li>
-            <li ng-if="user == null"><a href="/mobile-dang-ky">Đăng ký</a></li>
-            <li ng-if="user != null"><a href="/khach-hang.html">Hồ sơ của tôi</a></li>
-            <li ng-if="user != null"><a href="/lich-su-mua-hang.html">Lịch sử đơn hàng</a></li>
-            <li ng-if="user != null"><a href="/auth/signout">Đăng xuất</a></li>
+            @if(Auth::user())
+            
+            <li ><a href="{{URL::route('merchantInfo')}}">Hồ sơ của tôi</a></li>
+            <!-- <li ><a href="/lich-su-mua-hang.html">Lịch sử đơn hàng</a></li> -->
+            <li ><a href="{{URL::route('logout')}}">Đăng xuất</a></li>
+            @else
+                <li ng-click="signin()"><a href="">Đăng nhập</a></li>
+                <li ng-click="signup()"><a href="">Đăng ký</a></li>
+            @endif
         </ul>
         <div class="top-cart-mobile" id="icon-cart-mobile">
             <a href="/gio-hang">
@@ -229,7 +185,7 @@
                                     <div id="product-thumb-id" class="owl-carousel">
                                     	<div class="c-thumb-item is-active">
                                             <a class="cloudzoom-gallery" rel="gallery-detail" href="{{asset('uploads/images/products/avatars/'.$product->avata)}}" data-cloudzoom="useZoom:'.cloudzoom', image:'{{asset('uploads/images/products/avatars/'.$product->avata)}}'">
-                                                <img src="{{asset('uploads/images/products/details/'.$product->avata)}}" alt="{{$product->name}}" />
+                                                <img src="{{asset('uploads/images/products/avatars/'.$product->avata)}}" alt="{{$product->name}}" />
                                             </a>
                                         </div>
                                     	@foreach($images as $image)
@@ -530,171 +486,16 @@
                                         <div class="b__product--other b__product--relate">
                                             <h3>Sản phẩm tương tự</h3>
                                             <div>
+                                                @foreach($same_products as $item)
                                                 <div class="o-items">
                                                     <div class="f-items">
                                                         <div class="f-items__info">
-                                                            <div class="f-product-item__thumb">
-                                                                <a href="/giay-boot-nam-co-lung-de-khau-da-tron-mau-den-cuc-chat-m354den-p278434.html">
-                                                                    <div class="f-product-item__thumb-img" title="Giày Boot Nam Cổ Lửng Đế Khâu Da Trơn Màu Đen Cực Chất - M354-DEN">
-                                                                        <img src="https://image.voso.vn/users/vosoimage/images/b0e9e690a985fa57704808c532946919?t%5B0%5D=maxSize%3Awidth%3D301%2Cheight%3D212&t%5B1%5D=compress%3Alevel%3D100&accessToken=59eeb1ffd8d0a59991532c46c4209c06a6c73031eb461373ecc6944f3a043ae5" alt="">
-                                                                    </div>
-                                                                </a>
-                                                            </div>
-                                                            <div class="f-items_description f-items_show-name">
-                                                                <div class="f-items_name"><a href="/giay-boot-nam-co-lung-de-khau-da-tron-mau-den-cuc-chat-m354den-p278434.html">Giày Boot Nam Cổ Lửng Đế Khâu Da Trơn Màu Đen Cực Chất - M354-DEN</a></div>
-                                                                <div class="b__price">
-                                                                    <div class="price">
-                                                                        <strong>230,000<sup>₫</sup></strong>
-                                                                    </div>
-                                                                    <div class="listPrice">
-                                                                        <del>460,000<sup>₫</sup></del>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="f-items__ls main-rating">
-                                                                    <span class="jstars" data-value="0"></span>
-                                                                    <label class="ml-auto">0 đã bán</label>
-                                                                </div>
-                                                            </div>
+                                                            @include('front-end.layout.product-item')
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="o-items">
-                                                    <div class="f-items">
-                                                        <div class="f-items__info">
-                                                            <div class="f-product-item__thumb">
-                                                                <a href="/lot-giay-tang-chieu-cao-eva-nguyen-ban-v2-p276007.html">
-                                                                    <div class="f-product-item__thumb-img" title="Lót giày tăng chiều cao EVA nguyên bàn V.2">
-                                                                        <img src="https://image.voso.vn/users/vosoimage/images/d6b06856ea8a1c8ad2ae68f7268b6998?t%5B0%5D=maxSize%3Awidth%3D301%2Cheight%3D212&t%5B1%5D=compress%3Alevel%3D100&accessToken=35f20837cbdb78899c3036156c48d49a603d99361d1b447063999311bd345958" alt="">
-                                                                    </div>
-                                                                </a>
-                                                            </div>
-                                                            <div class="f-items_description f-items_show-name">
-                                                                <div class="f-items_name"><a href="/lot-giay-tang-chieu-cao-eva-nguyen-ban-v2-p276007.html">Lót giày tăng chiều cao EVA nguyên bàn V.2</a></div>
-                                                                <div class="b__price">
-                                                                    <div class="price">
-                                                                        <strong>130,000<sup>₫</sup></strong>
-                                                                    </div>
-                                                                    <div class="listPrice">
-                                                                        <del>162,500<sup>₫</sup></del>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="f-items__ls main-rating">
-                                                                    <span class="jstars" data-value="0"></span>
-                                                                    <label class="ml-auto">0 đã bán</label>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="o-items">
-                                                    <div class="f-items">
-                                                        <div class="f-items__info">
-                                                            <div class="f-product-item__thumb">
-                                                                <a href="/giay-the-thao-de-bang-nam-ma-gh0165-xanh-p498721.html">
-                                                                    <div class="f-product-item__thumb-img" title="giày thể thao đế bằng nam Mã: GH0165 - XANH">
-                                                                        <img src="https://image.voso.vn/users/vosoimage/images/b1739d0c18f5dc74228ca6e50133cb7e?t%5B0%5D=maxSize%3Awidth%3D301%2Cheight%3D212&t%5B1%5D=compress%3Alevel%3D100&accessToken=2e93e98be2e4bbdf73afc3c044dc9496aa784a2131cdc1dcd166f1cd3a074234" alt="">
-                                                                    </div>
-                                                                </a>
-                                                            </div>
-                                                            <div class="f-items_description f-items_show-name">
-                                                                <div class="f-items_name"><a href="/giay-the-thao-de-bang-nam-ma-gh0165-xanh-p498721.html">giày thể thao đế bằng nam Mã: GH0165 - XANH</a></div>
-                                                                <div class="b__price">
-                                                                    <div class="price">
-                                                                        <strong>248,000<sup>₫</sup></strong>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="f-items__ls main-rating">
-                                                                    <span class="jstars" data-value="0"></span>
-                                                                    <label class="ml-auto">0 đã bán</label>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="o-items">
-                                                    <div class="f-items">
-                                                        <div class="f-items__info">
-                                                            <div class="f-product-item__thumb">
-                                                                <a href="/giay-the-thao-da-bo-nam-z01-den-da-that-vnxk-bao-hanh-12-thang-p479329.html">
-                                                                    <div class="f-product-item__thumb-img" title="Giày Thể Thao Da Bò Nam Z01 Đen Da Thật VNXK - Bảo hành 12 tháng">
-                                                                        <img src="https://image.voso.vn/users/vosoimage/images/fa655bdcc844a03d826dde628e0e8041?t%5B0%5D=maxSize%3Awidth%3D301%2Cheight%3D212&t%5B1%5D=compress%3Alevel%3D100&accessToken=2f1c368128e5ff0e74899bd7333207b363e812da4edb32c819b1a4d2e279ddc4" alt="">
-                                                                    </div>
-                                                                </a>
-                                                            </div>
-                                                            <div class="f-items_description f-items_show-name">
-                                                                <div class="f-items_name"><a href="/giay-the-thao-da-bo-nam-z01-den-da-that-vnxk-bao-hanh-12-thang-p479329.html">Giày Thể Thao Da Bò Nam Z01 Đen Da Thật VNXK - Bảo hành 12 tháng</a></div>
-                                                                <div class="b__price">
-                                                                    <div class="price">
-                                                                        <strong>365,000<sup>₫</sup></strong>
-                                                                    </div>
-                                                                    <div class="listPrice">
-                                                                        <del>550,000<sup>₫</sup></del>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="f-items__ls main-rating">
-                                                                    <span class="jstars" data-value="0"></span>
-                                                                    <label class="ml-auto">0 đã bán</label>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="o-items">
-                                                    <div class="f-items">
-                                                        <div class="f-items__info">
-                                                            <div class="f-product-item__thumb">
-                                                                <a href="/giay-the-thao-nam-cao-cap-libra010-den-do-size-3944-p541351.html">
-                                                                    <div class="f-product-item__thumb-img" title="Giày thể thao nam cao cấp libra010 đen đỏ size 39-44">
-                                                                        <img src="https://image.voso.vn/users/vosoimage/images/bfafc9d491f3aee813a9f744b200df78?t%5B0%5D=maxSize%3Awidth%3D301%2Cheight%3D212&t%5B1%5D=compress%3Alevel%3D100&accessToken=d10c67e5fd3fada6788bfb5c2843724c5db00e7745b014836bc2597d92726100" alt="">
-                                                                    </div>
-                                                                </a>
-                                                            </div>
-                                                            <div class="f-items_description f-items_show-name">
-                                                                <div class="f-items_name"><a href="/giay-the-thao-nam-cao-cap-libra010-den-do-size-3944-p541351.html">Giày thể thao nam cao cấp libra010 đen đỏ size 39-44</a></div>
-                                                                <div class="b__price">
-                                                                    <div class="price">
-                                                                        <strong>250,000<sup>₫</sup></strong>
-                                                                    </div>
-                                                                    <div class="listPrice">
-                                                                        <del>390,000<sup>₫</sup></del>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="f-items__ls main-rating">
-                                                                    <span class="jstars" data-value="0"></span>
-                                                                    <label class="ml-auto">0 đã bán</label>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="o-items">
-                                                    <div class="f-items">
-                                                        <div class="f-items__info">
-                                                            <div class="f-product-item__thumb">
-                                                               <a href="/giay-luoi-nam-dep-bang-khuyet-da-bong-rat-sang-trong-m367bong-p279019.html">
-                                                                <div class="f-product-item__thumb-img" title="Giày Lười Nam Đẹp Băng Khuyết Da Bóng Rất Sang Trọng - M367-BONG">
-                                                                    <img src="https://image.voso.vn/users/vosoimage/images/8d4e84e527a762686c7c98c715157244?t%5B0%5D=maxSize%3Awidth%3D301%2Cheight%3D212&t%5B1%5D=compress%3Alevel%3D100&accessToken=9467912cbf4389ccc0f7df41615c7cb3e3ec2fccd356321785ae4c21499b1ac4" alt="">
-                                                                </div>
-                                                            </a>
-                                                        </div>
-                                                        <div class="f-items_description f-items_show-name">
-                                                            <div class="f-items_name"><a href="/giay-luoi-nam-dep-bang-khuyet-da-bong-rat-sang-trong-m367bong-p279019.html">Giày Lười Nam Đẹp Băng Khuyết Da Bóng Rất Sang Trọng - M367-BONG</a></div>
-                                                            <div class="b__price">
-                                                                <div class="price">
-                                                                    <strong>175,000<sup>₫</sup></strong>
-                                                                </div>
-                                                                <div class="listPrice">
-                                                                    <del>350,000<sup>₫</sup></del>
-                                                                </div>
-                                                            </div>
-                                                            <div class="f-items__ls main-rating">
-                                                                <span class="jstars" data-value="0"></span>
-                                                                <label class="ml-auto">0 đã bán</label>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                                @endforeach
+                                                
                                         </div>
                                     </div>
                                 </div>
@@ -744,570 +545,25 @@
                             </div>
                             
                         </div>
-                        <div class="product-other">
-                            <div class="b__product--other">
-                                <h3>Sản phẩm khác <a href="/gic-store-s8590" class="link_mb">Xem tất cả <i class="fas fa-angle-double-right"></i></a></h3>
-                                <div id="otherSlide" class="owl-carousel">
-                                    <div class="o-items">
-                                        <div class="f-items">
-                                            <div class="f-items__info">
-                                                <div class="f-product-item__thumb">
-                                                    <a href="/giay-da-luoi-nam-cao-cap-gs126-p317113.html">
-                                                        <div class="f-product-item__thumb-img" title="GIÀY DA LƯỜI NAM CAO CẤP GS126">
-                                                            <img src="https://image.voso.vn/users/vosoimage/images/38c70d4aca66703ce64db4ea1165dea3?t%5B0%5D=maxSize%3Awidth%3D301%2Cheight%3D212&t%5B1%5D=compress%3Alevel%3D100&accessToken=cf224d36279a06713711a81147e74d3e3f337e2bf31e28f786b33bbc6cd62a85" alt="">
-                                                        </div>
-                                                    </a>
-                                                </div>
-                                                <div class="f-items_description f-items_show-name">
-                                                    <div class="f-items_name"><a href="/giay-da-luoi-nam-cao-cap-gs126-p317113.html">GIÀY DA LƯỜI NAM CAO CẤP GS126</a></div>
-                                                    <div class="b__price">
-                                                        <div class="price">
-                                                            <strong>1,060,000<sup>₫</sup></strong>
-                                                        </div>
-                                                        <div class="listPrice">
-                                                            <del class="listPrice">1,250,000<sup>₫</sup></del>
-                                                        </div>
-                                                    </div>
-                                                    <div class="f-items__ls main-rating">
-                                                        <span class="jstars" data-value="0"></span>
-                                                        <label class="ml-auto">0 đã bán</label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="o-items">
-                                        <div class="f-items">
-                                           <div class="f-items__info">
-                                            <div class="f-product-item__thumb">
-                                                <a href="/giay-the-thao-da-mo-thoi-trang-phong-cach-han-quoc-p320182.html">
-                                                    <div class="f-product-item__thumb-img" title="GIÀY THỂ THAO DA MỜ THỜI TRANG PHONG CÁCH HÀN QUỐC">
-                                                        <img src="https://image.voso.vn/users/vosoimage/images/ea4f30ff0ca6dd847d91de55e573e552?t%5B0%5D=maxSize%3Awidth%3D301%2Cheight%3D212&t%5B1%5D=compress%3Alevel%3D100&accessToken=46075c26f95c8818e6b3ac05c072536f536515a8b73193adb0ebe27b3afa3045" alt="">
-                                                    </div>
-                                                </a>
-                                            </div>
-                                            <div class="f-items_description f-items_show-name">
-                                                <div class="f-items_name"><a href="/giay-the-thao-da-mo-thoi-trang-phong-cach-han-quoc-p320182.html">GIÀY THỂ THAO DA MỜ THỜI TRANG PHONG CÁCH HÀN QUỐC</a></div>
-                                                <div class="b__price">
-                                                    <div class="price">
-                                                        <strong>560,000<sup>₫</sup></strong>
-                                                    </div>
-                                                </div>
-                                                <div class="f-items__ls main-rating">
-                                                    <span class="jstars" data-value="0"></span>
-                                                    <label class="ml-auto">0 đã bán</label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="o-items">
-                                    <div class="f-items">
-                                        <div class="f-items__info">
-                                            <div class="f-product-item__thumb">
-                                                <a href="/chinh-hang-ttd-fullbox-bh-vo-kh-ghi-ro-size-o-phan-ghi-chu-giay-sneaker-danh-cho-nam-xam-thoai-mai-v189-size-4044-cam-ket-chinh-hang-cam-ket-hinh-that-p676141.html">
-                                                    <div class="f-product-item__thumb-img" title="[CHÍNH HÃNG TTD + FULLBOX + BH + VỚ + KH GHI RÕ SIZE Ở PHẦN GHI CHÚ] Giày Sneaker Dành Cho Nam XÁM - Thoải Mái - V18-9 SIZE 40-44 - CAM KẾT CHÍNH HÃNG - CAM KẾT HÌNH THẬT">
-                                                        <img src="https://image.voso.vn/users/vosoimage/images/e5a02fca93eb579f339d8c51031f90bc?t%5B0%5D=maxSize%3Awidth%3D301%2Cheight%3D212&t%5B1%5D=compress%3Alevel%3D100&accessToken=17cc88955dba0318339fb7326673402dfc7ad9c1af3b2948ec5bae24e2f2808a" alt="">
-                                                    </div>
-                                                </a>
-                                            </div>
-                                            <div class="f-items_description f-items_show-name">
-                                               <div class="f-items_name"><a href="/chinh-hang-ttd-fullbox-bh-vo-kh-ghi-ro-size-o-phan-ghi-chu-giay-sneaker-danh-cho-nam-xam-thoai-mai-v189-size-4044-cam-ket-chinh-hang-cam-ket-hinh-that-p676141.html">[CHÍNH HÃNG TTD + FULLBOX + BH + VỚ + KH GHI RÕ SIZE Ở PHẦN GHI CHÚ] Giày Sneaker Dành Cho Nam XÁM - Thoải Mái - V18-9 SIZE 40-44 - CAM KẾT CHÍNH HÃNG - CAM KẾT HÌNH THẬT</a></div>
-                                               <div class="b__price">
-                                                <div class="price">
-                                                    <strong>460,000<sup>₫</sup></strong>
-                                                </div>
-                                                <div class="listPrice">
-                                                    <del class="listPrice">470,000<sup>₫</sup></del>
-                                                </div>
-                                            </div>
-                                            <div class="f-items__ls main-rating">
-                                                <span class="jstars" data-value="0"></span>
-                                                <label class="ml-auto">0 đã bán</label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="o-items">
-                                <div class="f-items">
-                                    <div class="f-items__info">
-                                        <div class="f-product-item__thumb">
-                                            <a href="/fullbox-kh-ghi-ro-size-o-phan-ghi-chu-giay-the-thao-sneaker-ttd-v1811-size-4044-ttdshoes-hang-chinh-hang-p669903.html">
-                                                <div class="f-product-item__thumb-img" title="[FULLBOX + KH GHI RÕ SIZE Ở PHẦN GHI CHÚ + GIÀY THỂ THAO SNEAKER TTD V1811 SIZE 40-44, TTDShoes - Hàng Chính Hãng">
-                                                    <img src="https://image.voso.vn/users/vosoimage/images/bf59d5c4f968e081d79c7584e946cdae?t%5B0%5D=maxSize%3Awidth%3D301%2Cheight%3D212&t%5B1%5D=compress%3Alevel%3D100&accessToken=550881271442a2922d72cad8860246e12a739523ac4fc19a2e82141543bbc281" alt="">
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="f-items_description f-items_show-name">
-                                            <div class="f-items_name"><a href="/fullbox-kh-ghi-ro-size-o-phan-ghi-chu-giay-the-thao-sneaker-ttd-v1811-size-4044-ttdshoes-hang-chinh-hang-p669903.html">[FULLBOX + KH GHI RÕ SIZE Ở PHẦN GHI CHÚ + GIÀY THỂ THAO SNEAKER TTD V1811 SIZE 40-44, TTDShoes - Hàng Chính Hãng</a></div>
-                                            <div class="b__price">
-                                                <div class="price">
-                                                    <strong>390,000<sup>₫</sup></strong>
-                                                </div>
-                                                <div class="listPrice">
-                                                    <del class="listPrice">400,000<sup>₫</sup></del>
-                                                </div>
-                                            </div>
-                                            <div class="f-items__ls main-rating">
-                                                <span class="jstars" data-value="0"></span>
-                                                <label class="ml-auto">0 đã bán</label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="o-items">
-                                <div class="f-items">
-                                    <div class="f-items__info">
-                                        <div class="f-product-item__thumb">
-                                            <a href="/giay-luoi-nam-da-bo-g51-p390184.html">
-                                                <div class="f-product-item__thumb-img" title="Giày Lười Nam Da Bò - G51">
-                                                    <img src="https://image.voso.vn/users/vosoimage/images/a675241d8f2100cc27fafe8dc46ecd23?t%5B0%5D=maxSize%3Awidth%3D301%2Cheight%3D212&t%5B1%5D=compress%3Alevel%3D100&accessToken=1f0ec56345f70e9bbc55770fc2fdfa7b5863d2f2d842d94ace81754468388696" alt="">
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="f-items_description f-items_show-name">
-                                            <div class="f-items_name"><a href="/giay-luoi-nam-da-bo-g51-p390184.html">Giày Lười Nam Da Bò - G51</a></div>
-                                            <div class="b__price">
-                                                <div class="price">
-                                                    <strong>699,000<sup>₫</sup></strong>
-                                                </div>
-                                                <div class="listPrice">
-                                                    <del class="listPrice">1,000,000<sup>₫</sup></del>
-                                                </div>
-                                            </div>
-                                            <div class="f-items__ls main-rating">
-                                                <span class="jstars" data-value="0"></span>
-                                                <label class="ml-auto">0 đã bán</label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="o-items">
-                                <div class="f-items">
-                                    <div class="f-items__info">
-                                        <div class="f-product-item__thumb">
-                                            <a href="/giay-the-thao-giay-cau-long-thuong-hieu-chinh-hang-victor-922ac-chinh-hang-p201379.html">
-                                                <div class="f-product-item__thumb-img" title="Giày thể thao- Giày cầu lông thương hiệu, chính hãng VICTOR 922AC chính hãng">
-                                                    <img src="https://image.voso.vn/users/vosoimage/images/f176c21c05c53c3d12346b7a76f65b6e?t%5B0%5D=maxSize%3Awidth%3D301%2Cheight%3D212&t%5B1%5D=compress%3Alevel%3D100&accessToken=3a68b894505a9318fe6b6be53c375007e095c8e9cd12b59810e55fc55e1a255f" alt="">
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="f-items_description f-items_show-name">
-                                            <div class="f-items_name"><a href="/giay-the-thao-giay-cau-long-thuong-hieu-chinh-hang-victor-922ac-chinh-hang-p201379.html">Giày thể thao- Giày cầu lông thương hiệu, chính hãng VICTOR 922AC chính hãng</a></div>
-                                            <div class="b__price">
-                                                <div class="price">
-                                                    <strong>1,799,000<sup>₫</sup></strong>
-                                                </div>
-                                                <div class="listPrice">
-                                                    <del class="listPrice">2,570,000<sup>₫</sup></del>
-                                                </div>
-                                            </div>
-                                            <div class="f-items__ls main-rating">
-                                                <span class="jstars" data-value="0"></span>
-                                                <label class="ml-auto">0 đã bán</label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="o-items">
-                                <div class="f-items">
-                                    <div class="f-items__info">
-                                        <div class="f-product-item__thumb">
-                                            <a href="/dep-da-nam-quai-hau-d28-den-bao-hanh-6-thang-p490354.html">
-                                                <div class="f-product-item__thumb-img" title="Dép Da Nam Quai Hậu D28 Đen - Bảo Hành 6 Tháng">
-                                                    <img src="https://image.voso.vn/users/vosoimage/images/608f8ac4bcb53bd9ae58300ccdeb4235?t%5B0%5D=maxSize%3Awidth%3D301%2Cheight%3D212&t%5B1%5D=compress%3Alevel%3D100&accessToken=410372b6507800681b550ab9c4484128070c4a0fcfd2c9530a03549b5f646dbc" alt="">
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="f-items_description f-items_show-name">
-                                            <div class="f-items_name"><a href="/dep-da-nam-quai-hau-d28-den-bao-hanh-6-thang-p490354.html">Dép Da Nam Quai Hậu D28 Đen - Bảo Hành 6 Tháng</a></div>
-                                            <div class="b__price">
-                                                <div class="price">
-                                                    <strong>225,000<sup>₫</sup></strong>
-                                                </div>
-                                                <div class="listPrice">
-                                                    <del class="listPrice">395,000<sup>₫</sup></del>
-                                                </div>
-                                            </div>
-                                            <div class="f-items__ls main-rating">
-                                                <span class="jstars" data-value="0"></span>
-                                                <label class="ml-auto">0 đã bán</label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="o-items">
-                                <div class="f-items">
-                                    <div class="f-items__info">
-                                        <div class="f-product-item__thumb">
-                                            <a href="/giay-luoi-giay-moi-nam-duc-lo-da-that-oml05d-p29926.html">
-                                                <div class="f-product-item__thumb-img" title="Giày lười, giày mọi Nam Đục Lỗ Da Thật OML05D">
-                                                    <img src="https://image.voso.vn/users/vosoimage/images/8e5925bb69795f7a4156b5c0fc187122?t%5B0%5D=maxSize%3Awidth%3D301%2Cheight%3D212&t%5B1%5D=compress%3Alevel%3D100&accessToken=11f1b70545e3fbaa86ce296c66b8ee0ace033890e21c19ff0bdfe2813cd5e154" alt="">
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="f-items_description f-items_show-name">
-                                            <div class="f-items_name"><a href="/giay-luoi-giay-moi-nam-duc-lo-da-that-oml05d-p29926.html">Giày lười, giày mọi Nam Đục Lỗ Da Thật OML05D</a></div>
-                                            <div class="b__price">
-                                                <div class="price">
-                                                   <strong>550,000<sup>₫</sup></strong>
-                                               </div>
-                                               <div class="listPrice">
-                                                <del class="listPrice">850,000<sup>₫</sup></del>
-                                            </div>
-                                        </div>
-                                        <div class="f-items__ls main-rating">
-                                            <span class="jstars" data-value="0"></span>
-                                            <label class="ml-auto">0 đã bán</label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="o-items">
-                            <div class="f-items">
-                                <div class="f-items__info">
-                                    <div class="f-product-item__thumb">
-                                        <a href="/giay-tay-nam-da-bo-that-chinh-hang-gcs6-p39442.html">
-                                            <div class="f-product-item__thumb-img" title="Giày tây nam da bò thật chính hãng GCS6">
-                                                <img src="https://image.voso.vn/users/vosoimage/images/74a0166ae3c16338acbca93bdd7378fa?t%5B0%5D=maxSize%3Awidth%3D301%2Cheight%3D212&t%5B1%5D=compress%3Alevel%3D100&accessToken=bfc8ac414e93271da264506cd9a7b82603fabe4257ec6df31850ead1f9d57b8d" alt="">
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="f-items_description f-items_show-name">
-                                        <div class="f-items_name"><a href="/giay-tay-nam-da-bo-that-chinh-hang-gcs6-p39442.html">Giày tây nam da bò thật chính hãng GCS6</a></div>
-                                        <div class="b__price">
-                                            <div class="price">
-                                                <strong>375,000<sup>₫</sup></strong>
-                                            </div>
-                                            <div class="listPrice">
-                                                <del class="listPrice">700,000<sup>₫</sup></del>
-                                            </div>
-                                        </div>
-                                        <div class="f-items__ls main-rating">
-                                            <span class="jstars" data-value="0"></span>
-                                            <label class="ml-auto">0 đã bán</label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="o-items">
-                            <div class="f-items">
-                                <div class="f-items__info">
-                                    <div class="f-product-item__thumb">
-                                        <a href="/giay-luoi-nam-tang-cao-giay-nam-tang-chieu-cao-6cm-p707300.html">
-                                            <div class="f-product-item__thumb-img" title="Giày lười nam tăng cao - giày nam tặng chiều cao 6cm">
-                                                <img src="https://image.voso.vn/users/vosoimage/images/acae708d4710e8ef4593dd3e561da949?t%5B0%5D=maxSize%3Awidth%3D301%2Cheight%3D212&t%5B1%5D=compress%3Alevel%3D100&accessToken=4703b210962df781adbd35d2743dfa390917319318c6f6d9dd659de04e371df5" alt="">
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="f-items_description f-items_show-name">
-                                        <div class="f-items_name"><a href="/giay-luoi-nam-tang-cao-giay-nam-tang-chieu-cao-6cm-p707300.html">Giày lười nam tăng cao - giày nam tặng chiều cao 6cm</a></div>
-                                        <div class="b__price">
-                                            <div class="price">
-                                                <strong>590,000<sup>₫</sup></strong>
-                                            </div>
-                                            <div class="listPrice">
-                                                <del class="listPrice">850,000<sup>₫</sup></del>
-                                            </div>
-                                        </div>
-                                        <div class="f-items__ls main-rating">
-                                            <span class="jstars" data-value="0"></span>
-                                            <label class="ml-auto">0 đã bán</label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                        
             <div class="b__product--other b__product--favourite">
                 <h3>Có thể bạn cũng thích</h3>
                 <div id="favouriteSlide" class="owl-carousel">
-                    <div class="o-items">
-                        <div class="f-items">
-                            <div class="f-items__info">
-                               <div class="f-product-item__thumb">
-                                <a href="/tinh-dau-hoa-ngoc-lan-p737732.html">
-                                    <div class="f-product-item__thumb-img" title="TINH DẦU HOA NGỌC LAN">
-                                        <img src="https://image.voso.vn/users/vosoimage/images/dd8f55ff24fb4f3d4980970d0d5d3472?t%5B0%5D=maxSize%3Awidth%3D301%2Cheight%3D212&t%5B1%5D=compress%3Alevel%3D100&accessToken=dea910737bcfa507ce2a63c807ab0360034efcaa5007b6d10b92b24d78f8f442" alt="">
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="f-items_description f-items_show-name">
-                                <div class="f-items_name"><a href="/tinh-dau-hoa-ngoc-lan-p737732.html">TINH DẦU HOA NGỌC LAN</a></div>
-                                <div class="b__price">
-                                    <div class="price">
-                                        <strong>135,000<sup>₫</sup></strong>
-                                    </div>
-                                    <div class="listPrice">
-                                        <del>150,000<sup>₫</sup></del>
-                                    </div>
-                                </div>
-                                <div class="f-items__ls main-rating">
-                                    <span class="jstars" data-value="0"></span>
-                                    <label class="ml-auto">0 đã bán</label>
+                    @foreach($recommend_products as $item)
+                        <div class="o-items">
+                            <div class="f-items">
+                                <div class="f-items__info">
+                                   @include('front-end.layout.product-item')
+                            
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div class="o-items">
-                    <div class="f-items">
-                        <div class="f-items__info">
-                            <div class="f-product-item__thumb">
-                                <a href="/tinh-dau-hoa-buoi-p737731.html">
-                                    <div class="f-product-item__thumb-img" title="TINH DẦU HOA BƯỞI">
-                                        <img src="https://image.voso.vn/users/vosoimage/images/c5ef2765a3a971b3f0a7ec146fb4ce1d?t%5B0%5D=maxSize%3Awidth%3D301%2Cheight%3D212&t%5B1%5D=compress%3Alevel%3D100&accessToken=b55f64260fa2ee9e805492732283c6f94a4cd8c03fb33061fea6c6824dc6471a" alt="">
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="f-items_description f-items_show-name">
-                                <div class="f-items_name"><a href="/tinh-dau-hoa-buoi-p737731.html">TINH DẦU HOA BƯỞI</a></div>
-                                <div class="b__price">
-                                    <div class="price">
-                                        <strong>155,000<sup>₫</sup></strong>
-                                    </div>
-                                </div>
-                                <div class="f-items__ls main-rating">
-                                    <span class="jstars" data-value="0"></span>
-                                    <label class="ml-auto">0 đã bán</label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="o-items">
-                    <div class="f-items">
-                        <div class="f-items__info">
-                            <div class="f-product-item__thumb">
-                                <a href="/tinh-dau-tram-50ml-p737728.html">
-                                    <div class="f-product-item__thumb-img" title="TINH DẦU TRÀM 50ML">
-                                        <img src="https://image.voso.vn/users/vosoimage/images/3d356242751591ee6f64efe11d51a67c?t%5B0%5D=maxSize%3Awidth%3D301%2Cheight%3D212&t%5B1%5D=compress%3Alevel%3D100&accessToken=3f984c94c63ecda0bdc8baf7c3f0010b9f41f0624190e355222bedc82a5853fe" alt="">
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="f-items_description f-items_show-name">
-                                <div class="f-items_name"><a href="/tinh-dau-tram-50ml-p737728.html">TINH DẦU TRÀM 50ML</a></div>
-                                <div class="b__price">
-                                    <div class="price">
-                                        <strong>135,000<sup>₫</sup></strong>
-                                    </div>
-                                    <div class="listPrice">
-                                        <del>150,000<sup>₫</sup></del>
-                                    </div>
-                                </div>
-                                <div class="f-items__ls main-rating">
-                                    <span class="jstars" data-value="0"></span>
-                                    <label class="ml-auto">0 đã bán</label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="o-items">
-                    <div class="f-items">
-                        <div class="f-items__info">
-                            <div class="f-product-item__thumb">
-                                <a href="/tinh-dau-gu-huong-50ml-p737725.html">
-                                    <div class="f-product-item__thumb-img" title="TINH DẦU GÙ HƯƠNG 50ML">
-                                        <img src="https://image.voso.vn/users/vosoimage/images/cb45a1b095dac18255cc614d5a353bde?t%5B0%5D=maxSize%3Awidth%3D301%2Cheight%3D212&t%5B1%5D=compress%3Alevel%3D100&accessToken=57754a0cb61f5da6f5dc257bc87b1db6f790f8276d089fbb84e10243ebc40caa" alt="">
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="f-items_description f-items_show-name">
-                                <div class="f-items_name"><a href="/tinh-dau-gu-huong-50ml-p737725.html">TINH DẦU GÙ HƯƠNG 50ML</a></div>
-                                <div class="b__price">
-                                    <div class="price">
-                                        <strong>155,000<sup>₫</sup></strong>
-                                    </div>
-                                    <div class="listPrice">
-                                        <del>170,000<sup>₫</sup></del>
-                                    </div>
-                                </div>
-                                <div class="f-items__ls main-rating">
-                                    <span class="jstars" data-value="0"></span>
-                                    <label class="ml-auto">0 đã bán</label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="o-items">
-                    <div class="f-items">
-                        <div class="f-items__info">
-                            <div class="f-product-item__thumb">
-                                <a href="/giay-cao-co-da-bo-cho-nam-phong-cach-han-quoc-nang-dong-ca-tinh-thoi-trang-p737721.html">
-                                    <div class="f-product-item__thumb-img" title="Giày cao cổ da bò cho nam phong cách Hàn Quốc , năng động cá tính thời trang">
-                                        <img src="https://image.voso.vn/users/vosoimage/images/1d7cdf60c2220d2a233747b82424021e?t%5B0%5D=maxSize%3Awidth%3D301%2Cheight%3D212&t%5B1%5D=compress%3Alevel%3D100&accessToken=7d5a065e2f4c03ca87f74a2f0790d266a10988e5c83dd10c24667ee969137443" alt="">
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="f-items_description f-items_show-name">
-                                <div class="f-items_name"><a href="/giay-cao-co-da-bo-cho-nam-phong-cach-han-quoc-nang-dong-ca-tinh-thoi-trang-p737721.html">Giày cao cổ da bò cho nam phong cách Hàn Quốc , năng động cá tính thời trang</a></div>
-                                <div class="b__price">
-                                    <div class="price">
-                                        <strong>1,099,000<sup>₫</sup></strong>
-                                    </div>
-                                    <div class="listPrice">
-                                        <del>1,599,000<sup>₫</sup></del>
-                                    </div>
-                                </div>
-                                <div class="f-items__ls main-rating">
-                                    <span class="jstars" data-value="0"></span>
-                                    <label class="ml-auto">0 đã bán</label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="o-items">
-                    <div class="f-items">
-                        <div class="f-items__info">
-                            <div class="f-product-item__thumb">
-                                <a href="/giay-cao-co-da-bo-cho-nam-phong-cach-han-quoc-nang-dong-ca-tinh-thoi-trang-p737722.html">
-                                    <div class="f-product-item__thumb-img" title="Giày cao cổ da bò cho nam phong cách Hàn Quốc , năng động cá tính thời trang">
-                                        <img src="https://image.voso.vn/users/vosoimage/images/1d7cdf60c2220d2a233747b82424021e?t%5B0%5D=maxSize%3Awidth%3D301%2Cheight%3D212&t%5B1%5D=compress%3Alevel%3D100&accessToken=7d5a065e2f4c03ca87f74a2f0790d266a10988e5c83dd10c24667ee969137443" alt="">
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="f-items_description f-items_show-name">
-                                <div class="f-items_name"><a href="/giay-cao-co-da-bo-cho-nam-phong-cach-han-quoc-nang-dong-ca-tinh-thoi-trang-p737722.html">Giày cao cổ da bò cho nam phong cách Hàn Quốc , năng động cá tính thời trang</a></div>
-                                <div class="b__price">
-                                    <div class="price">
-                                        <strong>1,099,000<sup>₫</sup></strong>
-                                    </div>
-                                    <div class="listPrice">
-                                        <del>1,599,000<sup>₫</sup></del>
-                                    </div>
-                                </div>
-                                <div class="f-items__ls main-rating">
-                                    <span class="jstars" data-value="0"></span>
-                                    <label class="ml-auto">0 đã bán</label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="o-items">
-                    <div class="f-items">
-                        <div class="f-items__info">
-                            <div class="f-product-item__thumb">
-                                <a href="/giay-cao-co-da-bo-cho-nam-phong-cach-han-quoc-nang-dong-ca-tinh-thoi-trang-p737724.html">
-                                    <div class="f-product-item__thumb-img" title="Giày cao cổ da bò cho nam phong cách Hàn Quốc , năng động cá tính thời trang">
-                                        <img src="https://image.voso.vn/users/vosoimage/images/1d7cdf60c2220d2a233747b82424021e?t%5B0%5D=maxSize%3Awidth%3D301%2Cheight%3D212&t%5B1%5D=compress%3Alevel%3D100&accessToken=7d5a065e2f4c03ca87f74a2f0790d266a10988e5c83dd10c24667ee969137443" alt="">
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="f-items_description f-items_show-name">
-                                <div class="f-items_name"><a href="/giay-cao-co-da-bo-cho-nam-phong-cach-han-quoc-nang-dong-ca-tinh-thoi-trang-p737724.html">Giày cao cổ da bò cho nam phong cách Hàn Quốc , năng động cá tính thời trang</a></div>
-                                <div class="b__price">
-                                    <div class="price">
-                                        <strong>1,099,000<sup>₫</sup></strong>
-                                    </div>
-                                    <div class="listPrice">
-                                        <del>1,599,000<sup>₫</sup></del>
-                                    </div>
-                                </div>
-                                <div class="f-items__ls main-rating">
-                                    <span class="jstars" data-value="0"></span>
-                                    <label class="ml-auto">0 đã bán</label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="o-items">
-                    <div class="f-items">
-                        <div class="f-items__info">
-                           <div class="f-product-item__thumb">
-                            <a href="/giay-cao-co-da-bo-cho-nam-phong-cach-han-quoc-nang-dong-ca-tinh-thoi-trang-p737726.html">
-                                <div class="f-product-item__thumb-img" title="Giày cao cổ da bò cho nam phong cách Hàn Quốc , năng động cá tính thời trang">
-                                    <img src="https://image.voso.vn/users/vosoimage/images/1d7cdf60c2220d2a233747b82424021e?t%5B0%5D=maxSize%3Awidth%3D301%2Cheight%3D212&t%5B1%5D=compress%3Alevel%3D100&accessToken=7d5a065e2f4c03ca87f74a2f0790d266a10988e5c83dd10c24667ee969137443" alt="">
-                                </div>
-                            </a>
-                        </div>
-                        <div class="f-items_description f-items_show-name">
-                            <div class="f-items_name"><a href="/giay-cao-co-da-bo-cho-nam-phong-cach-han-quoc-nang-dong-ca-tinh-thoi-trang-p737726.html">Giày cao cổ da bò cho nam phong cách Hàn Quốc , năng động cá tính thời trang</a></div>
-                            <div class="b__price">
-                                <div class="price">
-                                    <strong>1,099,000<sup>₫</sup></strong>
-                                </div>
-                                <div class="listPrice">
-                                    <del>1,599,000<sup>₫</sup></del>
-                                </div>
-                            </div>
-                            <div class="f-items__ls main-rating">
-                                <span class="jstars" data-value="0"></span>
-                                <label class="ml-auto">0 đã bán</label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="o-items">
-                <div class="f-items">
-                    <div class="f-items__info">
-                        <div class="f-product-item__thumb">
-                            <a href="/giay-cao-co-da-bo-cho-nam-phong-cach-han-quoc-nang-dong-ca-tinh-thoi-trang-p737727.html">
-                                <div class="f-product-item__thumb-img" title="Giày cao cổ da bò cho nam phong cách Hàn Quốc , năng động cá tính thời trang">
-                                    <img src="https://image.voso.vn/users/vosoimage/images/1d7cdf60c2220d2a233747b82424021e?t%5B0%5D=maxSize%3Awidth%3D301%2Cheight%3D212&t%5B1%5D=compress%3Alevel%3D100&accessToken=7d5a065e2f4c03ca87f74a2f0790d266a10988e5c83dd10c24667ee969137443" alt="">
-                                </div>
-                            </a>
-                        </div>
-                        <div class="f-items_description f-items_show-name">
-                            <div class="f-items_name"><a href="/giay-cao-co-da-bo-cho-nam-phong-cach-han-quoc-nang-dong-ca-tinh-thoi-trang-p737727.html">Giày cao cổ da bò cho nam phong cách Hàn Quốc , năng động cá tính thời trang</a></div>
-                            <div class="b__price">
-                                <div class="price">
-                                    <strong>1,099,000<sup>₫</sup></strong>
-                                </div>
-                                <div class="listPrice">
-                                    <del>1,599,000<sup>₫</sup></del>
-                                </div>
-                            </div>
-                            <div class="f-items__ls main-rating">
-                                <span class="jstars" data-value="0"></span>
-                                <label class="ml-auto">0 đã bán</label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="o-items">
-                <div class="f-items">
-                    <div class="f-items__info">
-                        <div class="f-product-item__thumb">
-                            <a href="/tui-khan-nen-dang-vien-keo-20-vientui-p737716.html">
-                                <div class="f-product-item__thumb-img" title="Túi khăn nén dạng viên kẹo - 20 viên/túi">
-                                    <img src="https://image.voso.vn/users/vosoimage/images/fcfb1bfedef9105bf8b268997b3c3b33?t%5B0%5D=maxSize%3Awidth%3D301%2Cheight%3D212&t%5B1%5D=compress%3Alevel%3D100&accessToken=8574cb0c54447640d1783bf835d62432784dc10c14f964a1b7332725e1e69d8d" alt="">
-                                </div>
-                            </a>
-                        </div>
-                        <div class="f-items_description f-items_show-name">
-                            <div class="f-items_name"><a href="/tui-khan-nen-dang-vien-keo-20-vientui-p737716.html">Túi khăn nén dạng viên kẹo - 20 viên/túi</a></div>
-                            <div class="b__price">
-                                <div class="price">
-                                    <strong>55,000<sup>₫</sup></strong>
-                                </div>
-                            </div>
-                            <div class="f-items__ls main-rating">
-                                <span class="jstars" data-value="0"></span>
-                                <label class="ml-auto">0 đã bán</label>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
+                
+            
                 </div>
             </div>
         </div>
-    </div>
-</div>
 </div>
 <div class="product-related-pc">
     <div class="b__product--other b__product--relate">
@@ -1316,7 +572,9 @@
         	@foreach($same_products as $item)
             <div class="o-items">
                 <div class="f-items">
-                    @include('front-end.layout.product-item')
+                    <div class="f-items__info">
+                        @include('front-end.layout.product-item')
+                    </div>
                 </div>
             </div>
             @endforeach

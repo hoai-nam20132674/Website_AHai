@@ -1472,7 +1472,7 @@ select:not([multiple])::-ms-expand {
         border: none;
         background: 0 0;
         font-size: 20px;
-        color: #0871ce
+        color: #ee2624;
     }
     .navbar-generic__back {
         display: block;
@@ -5331,7 +5331,7 @@ div#onesignal-bell-container {
 }
 
 .product_related .f-items .f-product-item__thumb a {
-    position: static !important
+    
 }
 
 .product_related .f-items .f-items_description {
