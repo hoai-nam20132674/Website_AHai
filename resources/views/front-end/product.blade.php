@@ -202,45 +202,8 @@
                                     <div class="ocop_info_mb">
                                     </div>
                                 </div>
-                                <div ng-if="hasBuyTogether()" class="buy-together">
-                                    <div class="b__together--countdown together-detail-mobile">
-                                        <div class="b__flash--countdown_top">
-                                            <h3><img src="https://voso.vn/static/v2/upload/win.png" /><span>Mua chung</span></h3>
-                                        </div>
-                                        <div class="ml-auto b__flash--countdown_right">
-                                            <div class="b__flash--time">
-                                                <img src="https://voso.vn/static/v2/upload/icon_clock.png" /><span class="text__countdown--right">Kết thúc trong </span>
-                                            </div>
-                                            <div class="b__flash--countdown">Thời gian</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div ng-if="hasFlashSale()" class="flashsale-detail-mobile">
-                                    <div class="dong-tren-flashsale" style="height: 100%;">
-
-                                        <div class="b__flash--countdown_top">
-                                            <h3><img src="images/flashsale-icon.png" /> Flash sale</h3>
-                                        </div>
-                                        <div class="ml-auto b__flash--countdown_right">
-                                            <div class="b__flash--time">
-                                                <span class="text__countdown--right">Kết thúc sau </span>
-                                            </div>
-                                            <div class="b__flash--countdown">Thời gian</div>
-                                        </div>
-                                    </div>
-                                    <div class="dong-duoi-flashsale">
-                                        <div class="b__price b__price-mb">
-                                            <div class="c-product-main__text">
-                                                <span class="c-product-main__price"><strike>100.000<sup>đ</sup></span></strike>
-                                            </div>
-                                            <div class="c-product-main__text">
-                                                <span class="c-product-main__oldprice"> 100.000<sup>đ</sup></span>
-                                                <span ng-if="calculateSalePercent()" class="c-tag-sale-in-name-mobile">10%</span>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
+                                
+                                
                             </div>
                             <div class="c-product-right c-product-ls">
                                 <div class="c-product-head">
@@ -260,65 +223,37 @@
                                             <span> Đã bán <label>6</label></span>
 
                                         </h2>
-                                        <div ng-if="!hasFlashSale() && !hasBuyTogether()" class="b__price-mobile">
+                                        <div class="b__price-mobile">
                                             <div class="c-product-main__text">
-                                                <span class="c-product-main__oldprice">100.000<sup>đ</sup></span>
-                                            </div>
-                                            <div class="c-product-main__text">
-                                                <span class="c-product-main__price" ng-if="variation.listPrice > variation.price">100.000<sup>đ</sup></span>
-                                            </div>
+                                                    @if($product->sale=='')
+                                                    <span class="c-product-main__oldprice ng-binding">{!!number_format($product->price)!!}<sup>đ</sup></span>
+                                                    @else
+                                                    <span class="c-product-main__oldprice ng-binding">{!!number_format($product->sale)!!}<sup>đ</sup></span>
+                                                    <span class="c-product-main__price ng-scope"><span class="ng-binding">{!!number_format($product->price)!!}</span><sup>đ</sup></span>
+                                                    @php
+                                                        $percent = ($product->price-$product->sale)/$product->price;
+                                                        $percent = floor($percent*100);
+                                                    @endphp
+                                                    <span class="c-tag-sale ng-binding ng-scope">Giảm {{$percent}}%</span>
+                                                    @endif
+                                                </div>
                                         </div>
-                                        <div ng-if="hasBuyTogether()" class="buy-together">
-                                            <div class="b__flashsale--countdown flashsale-detail-desktop buy-togetther-detail-desktop">
-                                                <div class="b__flash--countdown_top">
-                                                    <h3><img src="https://voso.vn/static/v2/upload/win.png" /><span>Mua chung</span></h3>
-                                                </div>
-                                                <div class="ml-auto b__flash--countdown_right">
-                                                    <div class="b__flash--time">
-                                                        <img src="https://voso.vn/static/v2/upload/icon_clock.png" /><span class="text__countdown--right">Kết thúc trong </span>
-                                                    </div>
-                                                    <div class="b__flash--countdown">Thời gian</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div ng-if="hasFlashSale()" class="flashsale">
-                                            <div class="box-program-info">
-                                                <div class="b__price">
-                                                    <div class="c-product-main__text">
-                                                        <span class="c-product-main__oldprice">100.000<sup>đ</sup></span>
-                                                        <span class="c-product-main__price" ng-if="getOriginalPrice() > getSalePrice()"> <span>100.000</span><sup>đ</sup></span>
-                                                        <span ng-if="calculateSalePercent()" class="c-tag-sale">Giảm 10%</span>
-                                                    </div>
-
-                                                </div>
-                                            </div>
-                                            <div class="b__flashsale--countdown flashsale-detail-desktop">
-                                                <div class="b__flash--countdown_top">
-                                                    <h3><img src="images/flashsale-icon.png" /> Flash sale</h3>
-                                                </div>
-                                                <div class="ml-auto b__flash--countdown_right">
-                                                    <div class="b__flash--time">
-                                                        <span class="text__countdown--right">Kết thúc sau </span>
-                                                    </div>
-                                                    <div class="b__flash--countdown">thời gian</div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        
                                         <div class="box-program-info">
                                         	<div class="b__price ng-scope">
                                         		<div class="c-product-main__text">
-                                        			@if($product->sale=='')
-                                        			<span class="c-product-main__oldprice ng-binding">{{$product->price}}<sup>đ</sup></span>
-                                        			@else
-                                        			<span class="c-product-main__oldprice ng-binding">{{$product->sale}}<sup>đ</sup></span>
-                                        			<span class="c-product-main__price ng-scope"><span class="ng-binding">{{$product->price}}</span><sup>đ</sup></span>
-                                        			@php
-									                    $percent = ($product->price-$product->sale)/$product->price;
-									                    $percent = floor($percent*100);
-									                @endphp
-                                        			<span class="c-tag-sale ng-binding ng-scope">Giảm {{$percent}}%</span>
-                                        			@endif
-                                        		</div>
+                                                    @if($product->sale=='')
+                                                    <span class="c-product-main__oldprice ng-binding">{!!number_format($product->price)!!}<sup>đ</sup></span>
+                                                    @else
+                                                    <span class="c-product-main__oldprice ng-binding">{!!number_format($product->sale)!!}<sup>đ</sup></span>
+                                                    <span class="c-product-main__price ng-scope"><span class="ng-binding">{!!number_format($product->price)!!}</span><sup>đ</sup></span>
+                                                    @php
+                                                        $percent = ($product->price-$product->sale)/$product->price;
+                                                        $percent = floor($percent*100);
+                                                    @endphp
+                                                    <span class="c-tag-sale ng-binding ng-scope">Giảm {{$percent}}%</span>
+                                                    @endif
+                                                </div>
 
                                         	</div>
                                         </div>
@@ -338,7 +273,7 @@
                                     <a href="javascript:;" class="btn-cart">
                                         <span id="add-to-cart">Thêm vào giỏ hàng</span>
                                     </a>
-                                    <a href="javascript:;" class="btn btn-buy"><img src="https://voso.vn/static/v2/images/icon-buy-now.png" />Mua ngay</a>
+                                    <a href="javascript:;" class="btn btn-buy"><img src="{{asset('images/icon-buy-now.png')}}" />Mua ngay</a>
                                     <a href="javascript:;" class="btn btn-out-of-stock" ng-if="available">Hết hàng</a>
                                 </div>
                             </div>
@@ -436,7 +371,7 @@
                                         </div>
                                         <div class="b__product--comment">
                                         	<div class="media ng-scope">
-                                        		<img class="mr-3" ng-src="https://image.voso.vn/users/vosoimage/images/1e54c71c82697602aa6c03551e42ee02?t%5B%5D=maxSize%3Awidth%3D256%2Cheight%3D256&amp;t%5B%5D=compress%3Alevel%3D100&amp;accessToken=23f638260a2227d5b090993f77c9334eaa02ddc051025c2e432f80797b6b3e99" alt="khách hàng" src="https://image.voso.vn/users/vosoimage/images/1e54c71c82697602aa6c03551e42ee02?t%5B%5D=maxSize%3Awidth%3D256%2Cheight%3D256&amp;t%5B%5D=compress%3Alevel%3D100&amp;accessToken=23f638260a2227d5b090993f77c9334eaa02ddc051025c2e432f80797b6b3e99">
+                                        		<img class="mr-3" ng-src="{{asset('images/avatar_default.png')}}" alt="khách hàng" src="{{asset('images/avatar_default.png')}}">
                                         		<div class="media-body">
                                         			<h5 class="mt-0 ng-binding">Trần Bửu</h5>
                                         			<div class="f-items__ls main-rating">
@@ -455,7 +390,7 @@
                                         		</div>
                                         	</div>
                                         	<div class="media ng-scope" >
-                                        		<img class="mr-3" ng-src="https://image.voso.vn/users/vosoimage/images/d9bf60935204c8fe2798c3f83efb47d5?t%5B%5D=maxSize%3Awidth%3D256%2Cheight%3D256&amp;t%5B%5D=compress%3Alevel%3D100&amp;accessToken=ffe29617d7c98d074dcfb2b90d2c230ccf43e7da3561bb4b3b1ca8c33ca3b6e4" alt="khách hàng" src="https://image.voso.vn/users/vosoimage/images/d9bf60935204c8fe2798c3f83efb47d5?t%5B%5D=maxSize%3Awidth%3D256%2Cheight%3D256&amp;t%5B%5D=compress%3Alevel%3D100&amp;accessToken=ffe29617d7c98d074dcfb2b90d2c230ccf43e7da3561bb4b3b1ca8c33ca3b6e4">
+                                        		<img class="mr-3" ng-src="{{asset('images/avatar_default.png')}}" alt="khách hàng" src="{{asset('images/avatar_default.png')}}">
                                         		<div class="media-body">
                                         			<h5 class="mt-0 ng-binding">Nguyễn Thị Hương Ly</h5>
                                         			<div class="f-items__ls main-rating">

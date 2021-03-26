@@ -110,7 +110,7 @@
                 <div class="bg_info_customer">
                     <div class="b__change--avatar">
                         <a href="#">
-                            <img src="https://voso.vn/static/v2/images/avatar_default.png" />
+                            <img src="{{asset('images/avatar_default.png')}}" />
                         </a>
                     </div>
                     <div class="user-info">
@@ -212,9 +212,9 @@
     @else
     
         <ul class="b__top--right b__top--ls ml-auto">
-            <li class="login_none bdr_none" ng-if="user == null" ng-click="signin()">
+            <li class="login_none bdr_none" ng-click="signin()">
                 <a href="#" class="avatar">
-                    <img style="width: auto; height: auto" src="https://voso.vn/static/v2/images/avatar_default.png" />
+                    <img style="width: auto; height: auto" src="{{asset('images/avatar_default.png')}}" />
                     <div class="avatar__content">
                         <label>Đăng nhập</label>
                         <div style="font-size: 10px">Nhận nhiều ưu đãi hơn</div>
@@ -232,98 +232,60 @@
             <div class="item">
                 <span class="svg-icon">
                     <div class="ic-Home svg-icon">
-                        <a href="https://voso.vn/">
-                            <img style="width: 16px" src="https://voso.vn/static/v2/images/home.png" />
+                        <a href="/">
+                            <img style="width: 16px" src="{{asset('images/home.png')}}" />
                             <p class="carts">Trang chủ</p>
                         </a>
                     </div>
                 </span>
             </div>
-            <div class="item">
+            <div class="item categories" >
                 <span class="svg-icon">
-                    <span>
-                        <a href="https://voso.vn/danh-muc-san-pham.html">
+                    <span >
+                        <a href="#" >
                             <i class="fas fa-th"></i>
                             <p class="carts">Danh mục</p>
                         </a>
+                        
                     </span>
                 </span>
             </div>
             <div class="item">
                 <span class="b__cart svg-icon" id="icon32-cart">
-                    <a href="https://voso.vn/gian-hang-cua-toi.html" class="icon-cart-mb">
-                        <img style="width: 16px; height: auto" src="https://voso.vn/static/v2/images/Bonus-off.png" />
+                    <a href="#" class="icon-cart-mb">
+                        <img style="width: 16px; height: auto" src="{{asset('images/Bonus-off.png')}}" />
                         <p class="carts">Hoa hồng</p>
                     </a>
                 </span>
             </div>
             <div class="item">
                 <span class="b__cart svg-icon" id="icon32-cart">
-                    <a href="https://voso.vn/notification/all" class="icon-cart-mb">
-                        <img style="width: 16px; height: auto" src="https://voso.vn/static/v2/images/bell.png" />
+                    <a href="#" class="icon-cart-mb">
+                        <img style="width: 16px; height: auto" src="{{asset('images/bell.png')}}" />
                         <p class="carts">Thông báo</p>
                     </a>
                 </span>
             </div>
             <div class="item">
                 <span class="login_succses svg-icon">
-                    <div class="login_none bdr_none" ng-if="user == null" ng-click="signin()">
+                    @if(Auth::user())
+                    <div class="login_succses" style="display: block;" >
+                        <div><i class="fas fa-user"></i></div>
+                        <a style="font-size: 10px; position: relative; top: -3px" href="{{URL::route('merchantInfo')}}">Tài khoản</a>
+                    </div>
+                    @else
+                    <div class="login_none bdr_none" ng-click="signin()">
                         <div><i class="fas fa-user"></i></div>
                         <a href="#" style="font-size: 10px; position: relative; top: -3px">Đăng Nhập</a>
                     </div>
-                    <div class="login_succses" style="display: block;" ng-if="user != null">
-                        <div><i class="fas fa-user"></i></div>
-                        <a style="font-size: 10px; position: relative; top: -3px" href="https://voso.vn/khach-hang.html">Tài khoản</a>
-                    </div>
+                    @endif
                 </span>
             </div>
         </nav>
     </div>
-    <!-- Modal Login -->
-    <!-- <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header border-bottom-0">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="form-title text-center">
-                        <h4>Login</h4>
-                    </div>
-                    <div class="d-flex flex-column text-center">
-                        <form>
-                            <div class="form-group">
-                                <input type="email" class="form-control" id="email1"placeholder="Your email address...">
-                            </div>
-                            <div class="form-group">
-                                <input type="password" class="form-control" id="password1" placeholder="Your password...">
-                            </div>
-                            <button type="button" class="btn btn-info btn-block btn-round">Login</button>
-                        </form>
 
-                        <div class="text-center text-muted delimiter">or use a social network</div>
-                        <div class="d-flex justify-content-center social-buttons">
-                            <button type="button" class="btn btn-secondary btn-round" data-toggle="tooltip" data-placement="top" title="Twitter">
-                                <i class="fab fa-twitter"></i>
-                            </button>
-                            <button type="button" class="btn btn-secondary btn-round" data-toggle="tooltip" data-placement="top" title="Facebook">
-                                <i class="fab fa-facebook"></i>
-                            </button>
-                            <button type="button" class="btn btn-secondary btn-round" data-toggle="tooltip" data-placement="top" title="Linkedin">
-                                <i class="fab fa-linkedin"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer d-flex justify-content-center">
-                <div class="signup-section">Not a member yet? <a href="#a" class="text-info"> Sign Up</a>.</div>
-            </div>
-        </div>
-    </div> -->
-    <!-- end modal login -->
+
+
     <script type="text/ng-template" id="formAddressPcModal">
         <div class="modal-header">
             <button type="button" class="close close-mobile" ng-click="cancel()" aria-label="Close">

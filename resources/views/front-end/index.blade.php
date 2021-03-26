@@ -1948,4 +1948,5 @@
             });
         </script>
     @endif
+    
 @endsection
