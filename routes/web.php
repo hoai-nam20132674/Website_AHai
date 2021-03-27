@@ -123,6 +123,10 @@ Route::post('merchant/product/edit/{id}', 'MerchantController@postEditProduct')-
 Route::post('merchant/product/add', 'MerchantController@postAddProduct')->name('merchantPostAddProduct');
 // end Merchant route
 
+// add to cart
+Route::get('add-to-cart/{id}-{qty}', 'Controller@addToCart')->name('addToCart');
+// end add to cart
+
 Route::post('/addContact', 'Controller@addContact')->name('addContact');
 Route::get('/lien-he', 'Controller@contact')->name('contact');
 Route::get('/tra-cuu', 'Controller@cardSearch')->name('cardSearch');

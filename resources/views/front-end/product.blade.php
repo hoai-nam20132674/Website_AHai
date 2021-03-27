@@ -150,18 +150,18 @@
         <div class="top-cart-mobile" id="icon-cart-mobile">
             <a href="/gio-hang">
                 <i class="fa fa-shopping-cart"></i>
-                <span class="product-detail__quantity total-item-in-cart" ng-bind="total_items">0</span>
+                 @php
+                    $total_cart_item = Cart::count();
+                @endphp
+                <span class="product-detail__quantity total-item-in-cart" >{{$total_cart_item}}</span>
             </a>
         </div>
     </div>
 </div>
 <div class="b__detail--main-wapper" ng-controller="product" ng-init="init()">
     <div class="detail-group-btn-mobile">
-        <button class="btn-add-mobile" href="javascript:;">
-            <img src="{{asset('images/tittle-mua-chung.png')}}" alt="">
-            <p id="add-to-cart-mobile">Thêm vào giỏ</p>
-        </button>
-        <button class="btn-buy-mobile"><i class="fas fa-arrow-circle-right"></i>Mua ngay</button>
+        <button class="btn-add-mobile add-to-cart" href="{{URL::route('addToCart',[$product->id,1])}}"><i class="fas fa-cart-arrow-down" style="margin-right: 10px;"></i>THÊM VÀO GIỎ</button>
+        <button class="btn-buy-mobile"><i class="fas fa-arrow-circle-right"></i>MUA NGAY</button>
         <!-- <button class="btn-stop-mobile" ng-if="available">Hết hàng</button> -->
     </div>
     <div class="b__detail--wapper">
@@ -281,7 +281,7 @@
                                 
                                 <div class="c-button__gr group-btn-cart-desktop">
                                 	<a class="img_mess" href="javascript:;" ng-click="chat(8590)" style="border: 1px solid #c3000c; font-weight: 800; color: #c3000c"><img src="{{asset('images/chat-icon.png')}}" style="margin-right: 10px;"> Chat ngay</a>
-                                    <a href="javascript:;" class="btn-cart">
+                                    <a href="{{URL::route('addToCart',[$product->id,1])}}" class="add-to-cart btn-cart">
                                         <span id="add-to-cart">Thêm vào giỏ hàng</span>
                                     </a>
                                     <a href="javascript:;" class="btn btn-buy"><img src="{{asset('images/icon-buy-now.png')}}" />Mua ngay</a>
@@ -658,6 +658,22 @@
                 $(".login_succses_menu_mobile").toggle();
             });
         })
+    </script>
+    <script type="text/javascript">
+        $(document).on('click', '.add-to-cart', function(event) {
+            event.preventDefault();
+            url = $(this).attr('href');
+            $.ajax({
+                type: 'GET',
+                url: url,
+                dataType: 'html',
+                success: function(data) {
+                    toastr.success('Đã thêm vào giỏ hàng');
+                    $('.total-item-in-cart').text(data);
+                }
+            });
+            console.log(url);
+        });
     </script>
 
 @endsection

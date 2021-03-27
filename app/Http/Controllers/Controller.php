@@ -25,6 +25,7 @@ use App\SCID;
 use App\Contact;
 use App\Card;
 use App\Slider;
+use Cart;
 
 class Controller extends BaseController
 {
@@ -150,4 +151,20 @@ class Controller extends BaseController
         $system = System::where('id',1)->get()->first();
         return view('front-end.contact',['system'=>$system]);
     }
+
+    // add to cart
+    public function addToCart($id,$qty){
+        $product = Product::where('id',$id)->get()->first();
+        if($product->sale == ''){
+            
+            Cart::add($product->id, $product->name, $qty, $product->price, 0, ['img'=>$product->avata,'url'=>$product->url]);
+        }
+        else{
+            
+            Cart::add($product->id, $product->name, $qty, $product->sale, 0, ['img'=>$product->avata,'url'=>$product->url]);
+
+        }
+        return Cart::count();
+    }
+    // end add to cart
 }

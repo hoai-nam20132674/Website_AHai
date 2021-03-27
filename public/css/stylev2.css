@@ -6733,11 +6733,13 @@ div#onesignal-bell-container {
         background: #fff
     }
     .detail-group-btn-mobile .btn-add-mobile {
-        color: #0d71ce;
-        background: #d7ecff;
+        color: #fff;
+        background: #ea8000;
         border: none;
         width: 50%;
-        height: 100%
+        height: 100%;
+        font-weight: 800;
+
     }
     .detail-group-btn-mobile .btn-add-mobile p {
         font-style: normal;
@@ -6747,7 +6749,7 @@ div#onesignal-bell-container {
         margin-bottom: 0
     }
     .detail-group-btn-mobile .btn-buy-mobile {
-        background: #0d71ce;
+        background: #e5101d;
         border: none;
         width: 50%;
         height: 56px;

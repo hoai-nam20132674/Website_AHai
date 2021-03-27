@@ -132,9 +132,12 @@
                 </div>
                 <div class="content-box-cart">
                     <div class="b__cart" id="icon32-cart">
+                        @php
+                            $total_cart_item = Cart::count();
+                        @endphp
                         <a href="/gio-hang">
                             <img src="{{asset('images/cart-icon.svg')}}" class="img_cart" />
-                            <span class="total-item-in-cart">0</span>
+                            <span style="font-weight: 800;" class="total-item-in-cart">{{$total_cart_item}}</span>
                         </a>
                     </div>
                 </div>
