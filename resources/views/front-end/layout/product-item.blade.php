@@ -1,7 +1,7 @@
 <div class="f-product-item__thumb">
     <a href="/{{$item->url}}">
         <div class="f-product-item__thumb-img progressive replace" data-href="{{asset('uploads/images/products/avatars/'.$item->avata)}}">
-            <img class="preview thumbnail-product" src="https://hangnhatgiare.vn/wp-content/themes/hoatuoi/images/loader.gif" alt="image">
+            <img class="preview thumbnail-product" src="{{asset('images/loader.gif')}}" alt="image">
         </div>
         @if($item->sale != '' && $item->sale != $item->price)
             <div class='product-item-price product-item-price-mall'>

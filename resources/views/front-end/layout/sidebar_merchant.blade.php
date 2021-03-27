@@ -34,25 +34,26 @@
 				<div class="panel">
 					<ul>
 						<li class="">
-							<a href="/thong-bao-cap-nhat-don-hang.html">
+							<a href="#">
 								<span></span>Cập nhật đơn hàng
 							</a>
 						</li>
 						
 						<li class="">
-							<a href="/thong-bao-khuyen-mai.html">
+							<a href="#">
 								<span></span>Khuyến mãi
 							</a>
 						</li>
 						<li class="">
-							<a href="/thong-bao-khac.html">
+							<a href="#">
 								<span></span>Thông báo khác
 							</a>
 						</li>
 					</ul>
 				</div>
 			</div>
-			<script data-cfasync="false" src="https://voso.vn/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+			<!-- <script data-cfasync="false" src="https://voso.vn/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script> -->
+			<script>
 				var acc = document.getElementsByClassName("accordion");
 				var i;
 

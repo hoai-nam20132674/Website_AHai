@@ -3,9 +3,9 @@
     <div class="container">
         <div class="b__top-info">
             <ul class="b__top--left b__top--ls">
-                <li style=""><a href="tel:1900 98 98 88">Hotline: 1900 98 98 88</a></li>
+                <li style=""><a href="tel:1900 98 98 88">Hotline: {{$system->phone}}</a></li>
                 
-                <li><a href="https://voso.vn/cdn-cgi/l/email-protection#462e293234290630293529683028"><span class="__cf_email__" >email@gmail.com</span></a></li>
+                <li><a href="#"><span class="__cf_email__" >{{$system->email}}</span></a></li>
             </ul>
             <ul class="b__top--right b__top--ls">
                 @if(Auth::user())
@@ -84,11 +84,11 @@
         <div class="container" ng-controller="search">
             <div class="b__header--logo">
                 <div id="nav_list" class="b__icon--menu c-menu-expand js-menu-expand">
-                    <a href="https://voso.vn/"><i class="fas fa-bars"></i> </a>
+                    <a href="/"><i class="fas fa-bars"></i> </a>
                 </div>
                 <div class="c-app-ovelay js-app-ovelay"></div>
                 <div class="b__logo">
-                    <a href="https://voso.vn/"><img style="max-width: 90px" src="https://eskuvotszervezo.hu/wp-content/uploads/2020/07/sample-logo-png-transparent-background-1.png" /></a>
+                    <a href="/"><img style="max-width: 90px" src="{{asset('uploads/images/systems/'.$system->logo)}}" /></a>
                 </div>
                 <div class="b__search b__search-pc">
                     <div class="b__search--box">
@@ -117,23 +117,23 @@
                     </div>
                     <div class="b__tag">
                         <ul>
-                            <li><a href="https://voso.vn/tim-kiem-dau-an-nga?qqq=D%E1%BA%A7u+%C4%83n+Nga">Dầu ăn nga</a></li>
-                            <li><a href="https://voso.vn/tim-kiem-gio-me?qqq=Gi%C3%B2+me">Giò me</a></li>
-                            <li><a href="https://voso.vn/tim-kiem-gao?qqq=G%E1%BA%A1o">Gạo</a></li>
-                            <li><a href="https://voso.vn/tim-kiem-dac-san?qqq=%C4%90%E1%BA%B7c+s%E1%BA%A3n">Đặc sản</a></li>
-                            <li><a href="https://voso.vn/tim-kiem-do-gia-dung?qqq=%C4%90%E1%BB%93+gia+d%E1%BB%A5ng">Đồ gia dụng</a></li>
-                            <li><a href="https://voso.vn/tim-kiem-my-pham?qqq=M%E1%BB%B9+ph%E1%BA%A9m">Mỹ phẩm</a></li>
-                            <li><a href="https://voso.vn/tim-kiem-do-dien-tu?qqq=%C4%90%E1%BB%93+%C4%91i%E1%BB%87n+t%E1%BB%AD">Đồ điện tử</a></li>
-                            <li><a href="https://voso.vn/tim-kiem-thoi-trang?qqq=Th%E1%BB%9Di+trang">Thời trang</a></li>
-                            <li><a href="https://voso.vn/tim-kiem-the-dien-thoai?qqq=Th%E1%BA%BB+%C4%91i%E1%BB%87n+tho%E1%BA%A1i">Thẻ điện thoại</a></li>
-                            <li><a href="https://voso.vn/tim-kiem-me-va-be?qqq=M%E1%BA%B9+v%C3%A0+b%C3%A9">Mẹ và bé</a></li>
+                            <li><a href="/tìm kiếm?keyword=D%E1%BA%A7u+%C4%83n+Nga">Dầu ăn nga</a></li>
+                            <li><a href="/tìm kiếm?keyword=Gi%C3%B2+me">Giò me</a></li>
+                            <li><a href="/tìm kiếm?keyword=G%E1%BA%A1o">Gạo</a></li>
+                            <li><a href="/tìm kiếm?keyword=%C4%90%E1%BA%B7c+s%E1%BA%A3n">Đặc sản</a></li>
+                            <li><a href="/tìm kiếm?keyword=%C4%90%E1%BB%93+gia+d%E1%BB%A5ng">Đồ gia dụng</a></li>
+                            <li><a href="/tìm kiếm?keyword=M%E1%BB%B9+ph%E1%BA%A9m">Mỹ phẩm</a></li>
+                            <li><a href="/tìm kiếm?keyword=%C4%90%E1%BB%93+%C4%91i%E1%BB%87n+t%E1%BB%AD">Đồ điện tử</a></li>
+                            <li><a href="/tìm kiếm?keyword=Th%E1%BB%9Di+trang">Thời trang</a></li>
+                            <li><a href="/tìm kiếm?keyword=Th%E1%BA%BB+%C4%91i%E1%BB%87n+tho%E1%BA%A1i">Thẻ điện thoại</a></li>
+                            <li><a href="/tìm kiếm?keyword=M%E1%BA%B9+v%C3%A0+b%C3%A9">Mẹ và bé</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="content-box-cart">
                     <div class="b__cart" id="icon32-cart">
-                        <a href="https://voso.vn/gio-hang">
-                            <img src="https://voso.vn/static/v2/images/cart-icon.svg" class="img_cart" />
+                        <a href="/gio-hang">
+                            <img src="{{asset('images/cart-icon.svg')}}" class="img_cart" />
                             <span class="total-item-in-cart">0</span>
                         </a>
                     </div>

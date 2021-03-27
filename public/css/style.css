@@ -16,7 +16,7 @@ label {
 .red {
     color: red
 }
-.owl-nav{
+#slideListCategory .owl-nav {
     display: none;
 }
 

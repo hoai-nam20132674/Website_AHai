@@ -7,6 +7,7 @@ use App\ProductCate;
 use App\Product;
 use App\Menu;
 use App\User;
+use App\System;
 use App\Http\Requests\addProductRequest;
 use App\Http\Requests\editProductRequest;
 use App\Http\Requests\editPasswordRequest;
@@ -33,20 +34,23 @@ class MerchantController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function index(){
+        $system = System::where('id',1)->get()->first();
     	$categories = ProductCate::select()->get();
         $products = Product::where('user_id',Auth::user()->id)->get();
         $menus = Menu::whereNull('parent_id')->orderBy('stt','ASC')->get();
-    	return view('front-end.shop',compact('categories','products','menus'));
+    	return view('front-end.shop',compact('categories','products','menus','system'));
     }
     public function info(){
+        $system = System::where('id',1)->get()->first();
         $categories = ProductCate::select()->get();
         $menus = Menu::whereNull('parent_id')->orderBy('stt','ASC')->get();
-        return view('front-end.info',compact('categories','menus'));
+        return view('front-end.info',compact('categories','menus','system'));
     }
     public function editPassword(){
+        $system = System::where('id',1)->get()->first();
         $categories = ProductCate::select()->get();
         $menus = Menu::whereNull('parent_id')->orderBy('stt','ASC')->get();
-        return view('front-end.edit-password',compact('categories','menus'));
+        return view('front-end.edit-password',compact('categories','menus','system'));
     }
     public function postEditPassword(editPasswordRequest $request){
         $item = new User;
@@ -70,11 +74,12 @@ class MerchantController extends Controller
         return redirect()->route('merchantIndex')->with(['flash_level'=>'success','flash_message'=>'Đăng sản phẩm thành công']); 
     }
     public function editProduct($id){
+        $system = System::where('id',1)->get()->first();
         $categories = ProductCate::select()->get();
         $product = Product::where('id',$id)->get()->first();
         $menus = Menu::whereNull('parent_id')->orderBy('stt','ASC')->get();
         if($product->user_id == Auth::user()->id){
-            return view('front-end.editProduct',compact('categories','product','menus'));
+            return view('front-end.editProduct',compact('categories','product','menus','system'));
         }
         else{
             return redirect()->route('index')->with(['flash_level'=>'danger','flash_message'=>'Yêu cầu không được xử lý']);

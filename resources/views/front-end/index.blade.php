@@ -15,28 +15,29 @@
 	    <meta name="robots" content="noodp,index,follow" />
 	    <meta name="google" content="notranslate" />
 	    <meta name="keywords" content="" />
-	    <meta name="description" content="" />
+	    <meta name="description" content="{{$system->description}}" />
 	    <meta property="og:type" content="website" />
-	    <meta name="apple-itunes-app" content="app-id=1504041888">
-	    <meta name="google-play-app" content="app-id=vn.voso.buyer">
-	    <meta property="og:description" content="Sàn thương mại điện tử của khách hàng Viettelpost" />
-        <meta property="og:url" content="https://voso.vn" />
-        <meta property="og:image" content="http://voso.vn/static/images/logo/avatar_voso.png" /><meta property="og:locale" content="vi_VN" />
-        <link rel="canonical" href="" /> 
+	    <meta name="apple-itunes-app" content="">
+	    <meta name="google-play-app" content="">
+	    <meta property="og:description" content="{{$system->description}}" />
+        <meta property="og:url" content="{{$system->website}}" />
+        <meta property="og:image" content="" />
+        <meta property="og:locale" content="vi_VN" />
+         
         
-	    <title>Sàn thương mại điện tử của khách hàng Viettelpost</title>
+	    <title>{{$system->title}}</title>
 
-	    <link href="css/bootstrap.css?v=1568371445" rel="stylesheet">
-	    <link href="css/font-awesome.min.css?v=1566957476" rel="stylesheet">
-	    <link href="css/bootstrap.min.css?v=1603338119" rel="stylesheet">
-	    <link href="css/owl.carousel.min.css?v=1603338119" rel="stylesheet">
-	    <link href="css/toastr.min.css?v=1603338119" rel="stylesheet">
-	    <link href="css/fontawesome.css?v=1603338119" rel="stylesheet">
-	    <link href="css/stylev2.css?v=1614350823" rel="stylesheet">
-	    <link href="css/all.css?v=1603338119" rel="stylesheet">
-	    <link href="css/chat.css?v=1603338119" rel="stylesheet">
-	    <link href="css/style.css?v=1610977888" rel="stylesheet">
-	    <link href="css/custom.css?v=1614350823" rel="stylesheet"> 
+	    <link href="{{asset('css/bootstrap.css')}}" rel="stylesheet">
+	    <link href="{{asset('css/font-awesome.min.css')}}" rel="stylesheet">
+	    <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
+	    <link href="{{asset('css/owl.carousel.min.css')}}" rel="stylesheet">
+	    <link href="{{asset('css/toastr.min.css')}}" rel="stylesheet">
+	    <link href="{{asset('css/fontawesome.css')}}" rel="stylesheet">
+	    <link href="{{asset('css/stylev2.css')}}" rel="stylesheet">
+	    <link href="{{asset('css/all.css')}}" rel="stylesheet">
+	    <link href="{{asset('css/chat.css')}}" rel="stylesheet">
+	    <link href="{{asset('css/style.css')}}" rel="stylesheet">
+	    <link href="{{asset('css/custom.css')}}" rel="stylesheet"> 
 	    <style>
 	        .f-items_show-fullname .f-items_name{
 	            overflow: hidden;
@@ -198,15 +199,83 @@
 		        }
 		    }
 		</style>
+        <style>
+            .section-category-list .b__box--title {
+                padding: 10px ;
+                background-color: #ffffff;
+                margin-bottom: 0;
+                border-bottom: 1px solid rgba(0,0,0,.05);
+            }
+            .section-category-list .m-items a:hover {
+                text-decoration: unset;
+                color: #0a0a0a;
+            }
+            .section-category-list .m-items a {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                min-height: 123px;
+                border-right: 1px solid rgba(0,0,0,.05);
+                border-bottom: 1px solid rgba(0,0,0,.05);
+            }
 
+            .section-category-list .owl-item:last-child .m-items a{
+                border-right: none;
+            }
+            .grid-list-wrapper{
+                background-color: #ffffff;
+            }
 
-	<!--[if lt IE 9]>
-	        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-	        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-	    <![endif]-->
-	    <script>
-	        var user;
-	    </script>
+            .category-thumbnail {
+                width: 80px;
+                margin: 0 auto;
+            }
+            .category-name {
+                text-align: center;
+                -webkit-box-orient: vertical;
+                -webkit-line-clamp: 2;
+                overflow: hidden;
+                display: -webkit-box;
+                font-size: 13px;
+            }
+            
+            .section-category-list {
+                margin: 15px 0 20px 0;
+            }
+            .section-category-list .m-items a:hover {
+                box-shadow: 0 2px 4px 0 rgba(0,0,0,.25);
+                position: relative;
+            }
+            @media (max-width: 767px) {
+                .section-category-list {
+                    margin: 0px 0 10px 0;
+                }
+                .category-thumbnail {
+                    width: 55px;
+                }
+                .grid-list-wrapper .owl-dots{
+                    display: none;
+                }
+                .section-category-list .m-items a {
+                    border-right: none;
+                    border-bottom: none;
+                    min-height: 100px;
+                }
+                .section-category-list .b__box--title {
+                    border-bottom: none;
+                }
+                .section-category-list .m-items a:hover {
+                    box-shadow: none !important;
+                }
+            }
+        </style>
+        <style>
+            @media (max-width: 767px) {
+                .b__banner--gr .b__banner--info {
+                    display: none;
+                }
+            }
+        </style>
 	    <style>
 	        [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
 	            display: none !important;
@@ -260,76 +329,7 @@
             </div>
         </div>
     </div>
-    <style>
-        .section-category-list .b__box--title {
-            padding: 10px ;
-            background-color: #ffffff;
-            margin-bottom: 0;
-            border-bottom: 1px solid rgba(0,0,0,.05);
-        }
-        .section-category-list .m-items a:hover {
-            text-decoration: unset;
-            color: #0a0a0a;
-        }
-        .section-category-list .m-items a {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 123px;
-            border-right: 1px solid rgba(0,0,0,.05);
-            border-bottom: 1px solid rgba(0,0,0,.05);
-        }
-
-        .section-category-list .owl-item:last-child .m-items a{
-            border-right: none;
-        }
-        .grid-list-wrapper{
-            background-color: #ffffff;
-        }
-
-        .category-thumbnail {
-            width: 80px;
-            margin: 0 auto;
-        }
-        .category-name {
-            text-align: center;
-            -webkit-box-orient: vertical;
-            -webkit-line-clamp: 2;
-            overflow: hidden;
-            display: -webkit-box;
-            font-size: 13px;
-        }
-        
-        .section-category-list {
-            margin: 15px 0 20px 0;
-        }
-        .section-category-list .m-items a:hover {
-            box-shadow: 0 2px 4px 0 rgba(0,0,0,.25);
-            position: relative;
-        }
-        @media (max-width: 767px) {
-            .section-category-list {
-                margin: 0px 0 10px 0;
-            }
-            .category-thumbnail {
-                width: 55px;
-            }
-            .grid-list-wrapper .owl-dots{
-                display: none;
-            }
-            .section-category-list .m-items a {
-                border-right: none;
-                border-bottom: none;
-                min-height: 100px;
-            }
-            .section-category-list .b__box--title {
-                border-bottom: none;
-            }
-            .section-category-list .m-items a:hover {
-                box-shadow: none !important;
-            }
-        }
-    </style>
+    
     <div class="section-category-list">
         <div class="container contaiver-v2">
             <div class="b__box--title">
@@ -352,7 +352,7 @@
                             <a href="{{$categories[$i*2]->url}}">
                                 <div class="list-category">
                                     <div class="category-thumbnail progressive replace" data-href="{{asset('uploads/images/products/categories/'.$categories[$i*2]->avata)}}">
-                                        <img class="preview" src="https://hangnhatgiare.vn/wp-content/themes/hoatuoi/images/loader.gif" />
+                                        <img class="preview" src="{{asset('images/loader.gif')}}" />
                                     </div>
                                     <div class="category-name">{{$categories[$i*2]->name}}</div>
                                 </div>
@@ -361,7 +361,7 @@
                             <a href="{{$categories[$i*2+1]->url}}">
                                 <div class="list-category">
                                     <div class="category-thumbnail progressive replace" data-href="{{asset('uploads/images/products/categories/'.$categories[$i*2+1]->avata)}}">
-                                        <img class="preview" src="https://hangnhatgiare.vn/wp-content/themes/hoatuoi/images/loader.gif" />
+                                        <img class="preview" src="{{asset('images/loader.gif')}}" />
                                         <div class="category-name">
                                         {{$categories[$i*2+1]->name}}</div>
                                     </div>
@@ -374,7 +374,7 @@
                                 <a href="{{$categories[$count-1]->url}}">
                                     <div class="list-category">
                                         <div class="category-thumbnail progressive replace" data-href="{{asset('uploads/images/products/categories/'.$categories[$count-1]->avata)}}">
-                                            <img class="preview" src="https://hangnhatgiare.vn/wp-content/themes/hoatuoi/images/loader.gif" />
+                                            <img class="preview" src="{{asset('images/loader.gif')}}" />
                                         </div>
                                         <div class="category-name">{{$categories[$count-1]->name}}</div>
                                     </div>
@@ -389,7 +389,7 @@
                             <a href="{{$categories[$count-1]->url}}">
                                 <div class="list-category">
                                     <div class="category-thumbnail progressive replace" data-href="{{asset('uploads/images/products/categories/'.$categories[$count-1]->avata)}}">
-                                        <img class="preview" src="https://hangnhatgiare.vn/wp-content/themes/hoatuoi/images/loader.gif" />
+                                        <img class="preview" src="{{asset('images/loader.gif')}}" />
                                     </div>
                                     <div class="category-name">{{$categories[$count-1]->name}}</div>
                                 </div>
@@ -404,95 +404,13 @@
         </div>
     </div>
 </div>
-<div class="b__icon--gr" style="padding: 5px 0; margin-bottom: 10px; display: none;">
-    <div class="container contaiver-v2">
-        <div class="title" style="text-align: left !important;padding-left: 10px;">
 
-            <h3 class="b__box_h3" style="padding: 5px 0 20px 0;font-weight: 500; color: #0871ce">Dịch vụ tiện ích</h3>
-        </div>
-        <div class="b__icon--gr_info">
-            <ul>
-                <li>
-                    <a href="https://voso.vn/mall">
-                        <div class="b__img--thumbs">
-                            <img src="https://image.voso.vn/users/vosoimage/images/955ea586c860629e7933edfc0e616255?t%5B0%5D=maxSize%3Awidth%3D100%2Cheight%3D100&t%5B1%5D=compress%3Alevel%3D100&accessToken=fb81e6035d4c5039f6cdb1e6a3c75d63217c734596136c5e40c8e59172a09bca" onerror="this.src='/static/v2/images/logo.png'" />
-                        </div>
-                        <span>Voso Mall</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="https://voso.vn/san-dac-san-c137">
-                        <div class="b__img--thumbs">
-                            <img src="https://image.voso.vn/users/vosoimage/images/26c1fe772461478b1fe158d31acb07bd?t%5B0%5D=maxSize%3Awidth%3D100%2Cheight%3D100&t%5B1%5D=compress%3Alevel%3D100&accessToken=2af281fbe66415a19ae249fd96b198d68e14842cf3c6a30f2e5d7dee16253677" onerror="this.src='/static/v2/images/logo.png'" />
-                        </div>
-                        <span>Đặc sản</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="https://voso.vn/ocop">
-                        <div class="b__img--thumbs">
-                            <img src="https://image.voso.vn/users/vosoimage/images/cb3a8f77d4b08e49ab17ae2ebbb272c3?t%5B0%5D=maxSize%3Awidth%3D100%2Cheight%3D100&t%5B1%5D=compress%3Alevel%3D100&accessToken=0e4f65b58c5f76e6ecc1535986b2f3d7d511512eb5a72fee25c81cb35c0743c3" onerror="this.src='/static/v2/images/logo.png'" />
-                        </div>
-                        <span>Gian hàng OCOP</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="https://vtbay.com.vn/">
-                        <div class="b__img--thumbs">
-                            <img src="https://image.voso.vn/users/vosoimage/images/8fe1097cdeb2fa96bafc10aa70ddda11?t%5B0%5D=maxSize%3Awidth%3D100%2Cheight%3D100&t%5B1%5D=compress%3Alevel%3D100&accessToken=fd320de24d51650d0dc1364cf3b931e2e49e8182e5dbdc67b2b34512fa6651e3" onerror="this.src='/static/v2/images/logo.png'" />
-                        </div>
-                        <span>Máy bay</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="https://voso.vn/bach-hoa-online.html">
-                        <div class="b__img--thumbs">
-                            <img src="https://image.voso.vn/users/vosoimage/images/d859190c2e863e40cb8df5455a28a911?t%5B0%5D=maxSize%3Awidth%3D100%2Cheight%3D100&t%5B1%5D=compress%3Alevel%3D100&accessToken=58feed5256eafb598d33626ffa833b317e5459d1a85db361cf23e6954c048651" onerror="this.src='/static/v2/images/logo.png'" />
-                        </div>
-                        <span>Đi chợ</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="https://voso.vn/gian-hang-viet">
-                        <div class="b__img--thumbs">
-                            <img src="https://image.voso.vn/users/vosoimage/images/46fa381726da7f6ed4277595ebf61e37?t%5B0%5D=maxSize%3Awidth%3D100%2Cheight%3D100&t%5B1%5D=compress%3Alevel%3D100&accessToken=a01452b8c355ec352709e29f0bde310b6fac22370baf54929dc6b1b72028a35d" onerror="this.src='/static/v2/images/logo.png'" />
-                        </div>
-                        <span>Gian hàng Việt</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="http://staging.voso.vn/ban-do-dac-san#">
-                        <div class="b__img--thumbs">
-                            <img src="https://image.voso.vn/users/vosoimage/images/5d240c213659ffc6709cdccd5d04ccc5?t%5B0%5D=maxSize%3Awidth%3D100%2Cheight%3D100&t%5B1%5D=compress%3Alevel%3D100&accessToken=dfe7fda206cdaf441d36d2f0fb81d9ee7ad0969b9b18ad6a751d55e27aa98854" onerror="this.src='/static/v2/images/logo.png'" />
-                        </div>
-                        <span>Bản đồ đặc sản</span>
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</div>
 </div>
 
-<style>
-    @media (max-width: 767px) {
-        .b__banner--gr .b__banner--info {
-            display: none;
-        }
-    }
-</style>
+
 <div class="b__banner--gr">
     <div class="container contaiver-v2">
         <div class="b__banner--info">
-
-
-
-
-
-
-
-
-
             <a data-href="https://media3.scdn.vn/img4/2021/03_09/U6xnR9eyr69B0zhU3Jxg.png" class="flex100 progressive replace">
                 <img class="preview" src="https://media3.scdn.vn/img4/2021/03_09/U6xnR9eyr69B0zhU3Jxg.png" width="100%" />
             </a>
@@ -501,7 +419,7 @@
 </div>
 @if( Session::has('flash_message'))
     <div style="display: none;" class="note note-{{ Session::get('flash_level')}}">
-        <p class="flash_message">{{ Session::get('flash_message')}}</p>
+        <p class="flash_message" level="{{Session::get('flash_level')}}">{{ Session::get('flash_message')}}</p>
     </div>
 @endif
 @if( count($errors) > 0)
@@ -613,7 +531,7 @@
                     <h3 class="b__box_h3">Sản phẩm mới</h3>
                 </div>
                 <div class="url-all">
-                    <a href="https://voso.vn/mall" class="ml-auto">Xem tất cả <i class="fas fa-angle-double-right"></i></a>
+                    <a href="#" class="ml-auto">Xem tất cả <i class="fas fa-angle-double-right"></i></a>
                 </div>
             </div>
             <div class="b__vosoMall--content stretch">
@@ -699,7 +617,7 @@
                     <h3 class="b__box_h3">Sản phẩm nổi bật</h3>
                 </div>
                 <div class="url-all">
-                    <a href="https://voso.vn/tim-kiem-dac-san?qqq=%C4%91%E1%BA%B7c%20s%E1%BA%A3n" class="ml-auto">Xem tất cả <i class="fas fa-angle-double-right"></i></a>
+                    <a href="#" class="ml-auto">Xem tất cả <i class="fas fa-angle-double-right"></i></a>
                 </div>
             </div>
             <div class="b__vosoMall--content stretch">
@@ -784,7 +702,7 @@
                     <h3 class="b__box_h3">Sản phẩm bán chạy</h3>
                 </div>
                 <div class="url-all">
-                    <a href="https://voso.vn/cham-soc-da-c65" class="ml-auto">Xem tất cả <i class="fas fa-angle-double-right"></i></a>
+                    <a href="#" class="ml-auto">Xem tất cả <i class="fas fa-angle-double-right"></i></a>
                 </div>
             </div>
             <div class="b__vosoMall--content stretch">
@@ -1724,50 +1642,6 @@
                 </div>
             </div>
 
-<div class="b__box--title">
-
-    <div class="b__box-title">
-        <h3 class="b__box_h3">Danh mục gợi ý</h3>
-    </div>
-    <div class="url-all">
-    </div>
-</div>
-<div class="b__tags slide-list-category-name">
-    <div class="b__tags--info">
-        <div id="slideListCategoryName" class="owl-carousel">
-            <div class="m-items b__tags--ls b_tags08">
-                <a href="https://voso.vn/suc-khoe-lam-dep-c63">
-                Sức khỏe - Làm đẹp </a>
-            </div>
-            <div class="m-items b__tags--ls b_tags04">
-                <a href="https://voso.vn/cham-soc-da-c65">
-                Chăm sóc da </a>
-            </div>
-            <div class="m-items b__tags--ls b_tags04">
-                <a href="https://voso.vn/cham-soc-toc-c66">
-                Chăm sóc tóc </a>
-            </div>
-            <div class="m-items b__tags--ls b_tags03">
-                <a href="https://voso.vn/bach-hoa-c84">
-                Bách hóa </a>
-            </div>
-            <div class="m-items b__tags--ls b_tags08">
-                <a href="https://voso.vn/thoi-trang-nu-c104">
-                Thời trang Nữ </a>
-            </div>
-            <div class="m-items b__tags--ls b_tags08">
-               <a href="https://voso.vn/hang-tieu-dung-thuc-pham-c165">
-               Hàng tiêu dùng - Thực phẩm </a>
-           </div>
-           <div class="m-items b__tags--ls b_tags02">
-                <a href="https://voso.vn/dac-san-trai-cay-c225">
-                Đặc sản trái cây </a>
-            </div>
-        </div>
-    </div>
-</div>
-
-
 
 </div>
 </div>
@@ -1788,52 +1662,52 @@
         var csrfTokenName = '_csrf' ? '_csrf' : '';
         const locationVersion = '';
     </script>
-    <script src="https://voso.vn/assets/e94ae26f/jquery.js?v=1568371444"></script>
-    <script src="https://voso.vn/assets/d6da31be/yii.js?v=1566957476"></script>
-    <script src="https://voso.vn/assets/31ced6d1/js/bootstrap.js?v=1568371445"></script>
-    <script src="https://voso.vn/static/v2/js/jquery-3.2.1.min.js?v=1603338120"></script>
-    <script src="https://voso.vn/static/v2/js/bootstrap.min.js?v=1603338120"></script>
-    <script src="https://voso.vn/static/v2/js/progressive-image.js?v=1603338120"></script>
-    <script src="https://voso.vn/static/v2/js/owl.carousel.min.js?v=1603338120"></script>
-    <script src="https://voso.vn/static/v2/js/cloudzoom.js?v=1603338120"></script>
-    <script src="https://voso.vn/static/v2/js/jstars.min.js?v=1603338120"></script>
-    <script src="https://voso.vn/static/v2/js/style.js?v=1614350823"></script>
-    <script src="https://voso.vn/static/v2/js/jquery.nstSlider.js?v=1603338120"></script>
-    <script src="https://voso.vn/jsv2/jquery-ui.min.js?v=1603338118"></script>
-    <script src="https://voso.vn/jsv2/utils.js?v=1603338118"></script>
-    <script src="https://voso.vn/jsv2/inputmask.js?v=1603338118"></script>
-    <script src="https://voso.vn/jsv2/lib/imboclient.min.js?v=1603338118"></script>
-    <script src="https://voso.vn/jsv2/lib/angular.min.js?v=1603338118"></script>
-    <script src="https://voso.vn/jsv2/lib/angular-filedialog.js?v=1603338118"></script>
-    <script src="https://voso.vn/jsv2/lib/angular-ui-bootstrap.min.js?v=1603338118"></script>
-    <script src="https://voso.vn/jsv2/lib/moment.min.js?v=1603338118"></script>
-    <script src="https://voso.vn/jsv2/lib/angular-moment.min.js?v=1603338118"></script>
-    <script src="https://voso.vn/jsv2/lib/angular-local-storage.min.js?v=1603338118"></script>
-    <script src="https://voso.vn/jsv2/lib/customSelect.js?v=1603338118"></script>
-    <script src="https://voso.vn/jsv2/lib/angular-recaptcha.js?v=1603338118"></script>
-    <script src="https://voso.vn/jsv2/lib/text-angular-rangy.min.js?v=1603338118"></script>
-    <script src="https://voso.vn/jsv2/lib/text-angular-sanitize.min.js?v=1603338118"></script>
-    <script src="https://voso.vn/jsv2/lib/text-angular.min.js?v=1603338118"></script>
-    <script src="https://voso.vn/jsv2/lib/firebase-app.js?v=1603338118"></script>
-    <script src="https://voso.vn/jsv2/lib/firebase-messaging.js?v=1603338118"></script>
+    <script src="{{asset('js/jquery.js')}}"></script>
+    <script src="{{asset('js/yii.js')}}"></script>
+    <script src="{{asset('js/bootstrap.js')}}"></script>
+    <script src="{{asset('js/jquery-3.2.1.min.js')}}"></script>
+    <script src="{{asset('js/bootstrap.min.js')}}"></script>
+    <script src="{{asset('js/progressive-image.js')}}"></script>
+    <script src="{{asset('js/owl.carousel.min.js')}}"></script>
+    <script src="{{asset('js/cloudzoom.js')}}"></script>
+    <script src="{{asset('js/jstars.min.js')}}"></script>
+    <script src="{{asset('js/style.js')}}"></script>
+    <script src="{{asset('js/jquery.nstSlider.js')}}"></script>
+    <script src="{{asset('js/jquery-ui.min.js')}}"></script>
+    <script src="{{asset('js/utils.js')}}"></script>
+    <script src="{{asset('js/inputmask.js')}}"></script>
+    <script src="{{asset('js/imboclient.min.js')}}"></script>
+    <script src="{{asset('js/angular.min.js')}}"></script>
+    <script src="{{asset('js/angular-filedialog.js')}}"></script>
+    <script src="{{asset('js/angular-ui-bootstrap.min.js')}}"></script>
+    <script src="{{asset('js/moment.min.js')}}"></script>
+    <script src="{{asset('js/angular-moment.min.js')}}"></script>
+    <script src="{{asset('js/angular-local-storage.min.js')}}"></script>
+    <script src="{{asset('js/customSelect.js')}}"></script>
+    <script src="{{asset('js/angular-recaptcha.js')}}"></script>
+    <script src="{{asset('js/text-angular-rangy.min.js')}}"></script>
+    <script src="{{asset('js/text-angular-sanitize.min.js')}}"></script>
+    <script src="{{asset('js/text-angular.min.js')}}"></script>
+    <script src="{{asset('js/firebase-app.js')}}"></script>
+    <script src="{{asset('js/firebase-messaging.js')}}"></script>
     <script src="https://www.gstatic.com/firebasejs/7.15.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.15.0/firebase-database.js"></script>
-    <script src="https://voso.vn/jsv2/app.js?v=1614350823"></script>
-    <script src="https://voso.vn/jsv2/modal.js?v=1603338118"></script>
-    <script src="https://voso.vn/jsv2/firebase-notification.js?v=1603338118"></script>
-    <script src="https://voso.vn/jsv2/auth.js?v=1603338118"></script>
-    <script src="https://voso.vn/jsv2/order.js?v=1603338118"></script>
-    <script src="https://voso.vn/jsv2/search.js?v=1603338118"></script>
-    <script src="https://voso.vn/jsv2/style.js?v=1608046089"></script>
-    <script src="https://voso.vn/jsv2/angularjs-dropdown-multiselect.min.js?v=1603338118"></script>
-    <script src="https://voso.vn/jsv2/chat.js?v=1603338118"></script>
-    <script src="https://voso.vn/jsv2/angularfire.min.js?v=1603338118"></script>
-    <script src="https://voso.vn/jsv2/popup.js?v=1603338118"></script>
-    <script src="https://voso.vn/jsv2/flashsale-homepage.js?v=1610286800"></script>
-    <script src="https://voso.vn/jsv2/flashsale-page.js?v=1603338118"></script>
-    <script src="https://voso.vn/jsv2/currency-mask.js?v=1603338118"></script>
-    <script src="https://voso.vn/jsv2/toastr.min.js?v=1603338118"></script>
-    <script src="https://voso.vn/jsv2/recommendation.js?v=1614350823"></script> <script>
+    <script src="{{asset('js/app.js')}}"></script>
+    <script src="{{asset('js/modal.js')}}"></script>
+    <script src="{{asset('js/firebase-notification.js')}}"></script>
+    <script src="{{asset('js/auth.js')}}"></script>
+    <script src="{{asset('js/order.js')}}"></script>
+    <script src="{{asset('js/search.js')}}"></script>
+    <script src="{{asset('js/style-jsv2.js')}}"></script>
+    <script src="{{asset('js/angularjs-dropdown-multiselect.min.js')}}"></script>
+    <script src="{{asset('js/chat.js')}}"></script>
+    <script src="{{asset('js/angularfire.min.js')}}"></script>
+    <script src="{{asset('js/popup.js')}}"></script>
+    <script src="{{asset('js/flashsale-homepage.js')}}"></script>
+    <script src="{{asset('js/flashsale-page.js')}}"></script>
+    <script src="{{asset('js/currency-mask.js')}}"></script>
+    <script src="{{asset('js/toastr.min.js')}}"></script>
+    <script src="{{asset('js/recommendation.js')}}"></script> <script>
 
         CloudZoom.quickStart();
         $('.nstSlider').nstSlider({
@@ -1848,66 +1722,7 @@
                 $('.rightLabel').val(rightValue);
             }
         });
-    </script>
-   
-    <div id="fb-root"></div>
-    <script>
-        !function (f, b, e, v, n, t, s) {
-            if (f.fbq)return;
-            n = f.fbq = function () {
-                n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments)
-            };
-            if (!f._fbq)f._fbq = n;
-            n.push = n;
-            n.loaded = !0;
-            n.version = '2.0';
-            n.queue = [];
-            t = b.createElement(e);
-            t.async = !0;
-            t.src = v;
-            s = b.getElementsByTagName(e)[0];
-            s.parentNode.insertBefore(t, s)
-        }(window, document, 'script', 'https://connect.facebook.net/vi_VN/fbevents.js');
-
-        fbq('init', '156512524771845');
-        fbq('track', "PageView");
-
-        var customer = {"id":"535175","name":"Nguyễn Hoài Nam","email":"namnguyen20132674@gmail.com","phone":"0848384333","address":null,"provinceId":"0","districtId":"0","wardId":"0","province":null,"district":null,"ward":null};
-        var maxWeight = 25000;
-        if (customer != null) {
-            var buyer = {
-                buyerName: customer.name,
-                buyerEmail: customer.email,
-                buyerPhone: customer.phone,
-                buyerAddress: customer.address,
-                buyerProvinceId: customer.provinceId,
-                buyerDistrictId: customer.districtId,
-                province: customer.province,
-                district: customer.district,
-                ward: customer.ward,
-            };
-        }
-
-        var imboClient = new Imbo.Client({
-            hosts: ["https:\/\/image.voso.vn"],
-            user: "vosoimage",
-            publicKey: "vosoimage",
-            privateKey: "imagesovo"        });
-        </script>
-        <script>
-            var firebaseConfig = {
-                apiKey: "AIzaSyDVj-qPRypyzuP0cmV45x3_WYX208VfXys",
-                authDomain: "voso-f114c.firebaseapp.com",
-                databaseURL: "https://voso-f114c.firebaseio.com",
-                projectId: "voso-f114c",
-                storageBucket: "voso-f114c.appspot.com",
-                messagingSenderId: "636113340458",
-                appId: "1:636113340458:web:abb7f58ab4a4ed3b2b5b53",
-                measurementId: "G-SPNW8FE0RN"
-            };
-        // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
-    </script>
+    </script>    
 
     
     <script>
@@ -1935,18 +1750,6 @@
             });
         });
     </script>
-    @if( Session::has('flash_message'))
-        <script>
-            var message = $(".flash_message").text();
-            toastr.success(message);
-        </script>
-    @endif
-    @if( count($errors) > 0)
-        <script>
-            $(".error").each(function(){
-                toastr.warning($(this).text());
-            });
-        </script>
-    @endif
+    
     
 @endsection

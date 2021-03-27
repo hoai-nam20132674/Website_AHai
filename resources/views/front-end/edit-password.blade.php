@@ -15,7 +15,7 @@
 	<meta name="keywords" content="" />
 	<meta name="description" content="" />
 	<meta property="og:type" content="website" />
-	<title>Gian hàng</title>
+	<title>Thay đổi mật khẩu</title>
 
 	<link href="{{asset('css/bootstrap.css?v=1568371445')}}" rel="stylesheet">
     <link href="{{asset('css/font-awesome.min.css?v=1566957476')}}" rel="stylesheet">
@@ -150,13 +150,6 @@
 </style>
 
 
-<!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-    <script>
-    	var user;
-    </script>
    
     <style>
     	[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
@@ -183,7 +176,7 @@
 							<div class="col-md-9 col-sm-12">
 								@if( Session::has('flash_message'))
 								    <div style="display: none;" class="note note-{{ Session::get('flash_level')}}">
-								        <p class="flash_message">{{ Session::get('flash_message')}}</p>
+								        <p class="flash_message" level="{{Session::get('flash_level')}}">{{ Session::get('flash_message')}}</p>
 								    </div>
 								@endif
 								@if( count($errors) > 0)
@@ -196,19 +189,7 @@
 								        
 								@endif
 								<div class="b__seller--right b__seller--ls product-affiliate" ng-controller="create-o2o-campaign" ng-cloak>
-									<!-- <div class="b__seller--box" style="padding: 10px">
-										<div class="form-row">
-											<div class="col-md-9 col-sm-12" style="line-height: 28px;font-weight: 500">
-
-
-
-												Vui lòng cập nhật đầy đủ thông tin gian hàng
-											</div>
-											<div class="col-md-3 col-sm-12 text-right">
-												<a href="/chinh-sua-thong-tin-ban-hang-lien-ket.html" class="btn btn-outline-primary">Cập nhật</a>
-											</div>
-										</div>
-									</div> -->
+									
 									
 									<div class="b__seller--box">
 										<div class="b__title title_filter">
@@ -341,19 +322,7 @@
 						text-align: center;
 					}
 				</style>
-				<div id="popup_copy_url" class="popup_copy_url">
-					<div class="popup_content">
-						<p>Copy link chia sẻ thành công</p>
-					</div>
-				</div>
-				<script>
-					var brandIds = null;
-					var merchantIds = null;
-					var categoryIds = null;
-					var provinceIds = null;
-					var order = 0;
-				</script>
-				<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+				
 @endsection
 @section('js')
 	<script>
@@ -362,78 +331,78 @@
 								var csrfTokenName = '_csrf' ? '_csrf' : '';
 								const locationVersion = '';
 							</script>
-							<script src="https://voso.vn/assets/e94ae26f/jquery.js?v=1568371444"></script>
-						    <script src="https://voso.vn/assets/d6da31be/yii.js?v=1566957476"></script>
-						    <script src="https://voso.vn/assets/31ced6d1/js/bootstrap.js?v=1568371445"></script>
-						    <script src="https://voso.vn/static/v2/js/progressive-image.js?v=1603338120"></script>
-						    <script src="https://voso.vn/static/v2/js/jquery-ui.min.js?v=1603338120"></script>
-						    <script src="https://voso.vn/static/v2/js/bootstrap.min.js?v=1603338120"></script>
-						    <script src="https://voso.vn/static/v2/js/owl.carousel.min.js?v=1603338120"></script>
-						    <script src="https://voso.vn/static/v2/js/brands.js?v=1603338120"></script>
-						    <script src="https://voso.vn/static/v2/js/solid.js?v=1603338120"></script>
-						    <script src="https://voso.vn/static/v2/js/fontawesome.js?v=1603338120"></script>
-						    <script src="https://voso.vn/static/v2/js/jquery.nstSlider.js?v=1603338120"></script>
-						    <script src="https://voso.vn/static/v2/js/cloudzoom.js?v=1603338120"></script>
-						    <script src="https://voso.vn/static/v2/css/select2/js/select2.full.min.js?v=1603338119"></script>
-						    <script src="https://voso.vn/static/v2/js/jstars.min.js?v=1603338120"></script>
-						    <script src="https://voso.vn/static/v2/js/style.js?v=1614350823"></script>
-						    <script src="https://voso.vn/jsv2/lib/imboclient.min.js?v=1603338118"></script>
-						    <script src="https://voso.vn/jsv2/lib/bootbox.js?v=1603338118"></script>
-						    <script src="https://voso.vn/jsv2/lib/angular.min.js?v=1603338118"></script>
-						    <script src="https://voso.vn/jsv2/lib/angular-filedialog.js?v=1603338118"></script>
-						    <script src="https://voso.vn/jsv2/lib/angular-animate.min.js?v=1603338118"></script>
-						    <script src="https://voso.vn/jsv2/lib/angular-ui-bootstrap.min.js?v=1603338118"></script>
-						    <script src="https://voso.vn/jsv2/lib/moment.min.js?v=1603338118"></script>
-						    <script src="https://voso.vn/jsv2/lib/angular-moment.min.js?v=1603338118"></script>
-						    <script src="https://voso.vn/jsv2/lib/angular-local-storage.min.js?v=1603338118"></script>
-						    <script src="https://voso.vn/jsv2/lib/customSelect.js?v=1603338118"></script>
-						    <script src="https://voso.vn/jsv2/lib/angular-recaptcha.js?v=1603338118"></script>
-						    <script src="https://voso.vn/jsv2/lib/simple.money.format.js?v=1603338118"></script>
-						    <script src="https://voso.vn/jsv2/lib/text-angular-rangy.min.js?v=1603338118"></script>
-						    <script src="https://voso.vn/jsv2/lib/text-angular-sanitize.min.js?v=1603338118"></script>
-						    <script src="https://voso.vn/jsv2/lib/text-angular.min.js?v=1603338118"></script>
-						    <script src="https://voso.vn/jsv2/lib/text-angular-setup.js?v=1603338118"></script>
-						    <script src="https://voso.vn/jsv2/lib/firebase-app.js?v=1603338118"></script>
-						    <script src="https://voso.vn/jsv2/lib/firebase-messaging.js?v=1603338118"></script>
-						    <script src="https://www.gstatic.com/firebasejs/7.15.0/firebase-auth.js"></script>
-						    <script src="https://www.gstatic.com/firebasejs/7.15.0/firebase-database.js"></script>
-						    <script src="https://voso.vn/jsv2/inputmask.js?v=1603338118"></script>
-						    <script src="https://voso.vn/jsv2/utils.js?v=1603338118"></script>
-						    <script src="https://voso.vn/jsv2/app.js?v=1614350823"></script>
-						    <script src="https://voso.vn/jsv2/wallet.js?v=1603338118"></script>
-						    <script src="https://voso.vn/jsv2/modal.js?v=1603338118"></script>
-						    <script src="https://voso.vn/jsv2/firebase-notification.js?v=1603338118"></script>
-						    <script src="https://voso.vn/jsv2/auth.js?v=1603338118"></script>
-						    <script src="https://voso.vn/jsv2/main.js?v=1605193566"></script>
-						    <script src="https://voso.vn/jsv2/product.js?v=1610977888"></script>
-						    <script src="https://voso.vn/jsv2/order.js?v=1603338118"></script>
-						    <script src="https://voso.vn/jsv2/cartv2.js?v=1610981070"></script>
-						    <script src="https://voso.vn/jsv2/cartmb.js?v=1603338118"></script>
-						    <script src="https://voso.vn/jsv2/user.js?v=1603338118"></script>
-						    <script src="https://voso.vn/jsv2/footer.js?v=1603338118"></script>
-						    <script src="https://voso.vn/jsv2/search.js?v=1603338118"></script>
-						    <script src="https://voso.vn/jsv2/home.js?v=1603338118"></script>
-						    <script src="https://voso.vn/jsv2/style.js?v=1608046089"></script>
-						    <script src="https://voso.vn/jsv2/lodash.min.js?v=1603338118"></script>
-						    <script src="https://voso.vn/jsv2/angularjs-dropdown-multiselect.min.js?v=1603338118"></script>
-						    <script src="https://voso.vn/jsv2/o2o-detail.js?v=1603338118"></script>
-						    <script src="https://voso.vn/jsv2/o2o.js?v=1603338118"></script>
-						    <script src="https://voso.vn/jsv2/chat.js?v=1603338118"></script>
-						    <script src="https://voso.vn/jsv2/angularfire.min.js?v=1603338118"></script>
-						    <script src="https://voso.vn/jsv2/popup.js?v=1603338118"></script>
-						    <script src="https://voso.vn/jsv2/flashsale-homepage.js?v=1610286800"></script>
-						    <script src="https://voso.vn/jsv2/flashsale-page.js?v=1603338118"></script>
-						    <script src="https://voso.vn/jsv2/browse.js?v=1603338118"></script>
-						    <script src="https://voso.vn/jsv2/currency-mask.js?v=1603338118"></script>
-						    <script src="https://voso.vn/jsv2/custom-select.js?v=1603338118"></script>
-						    <script src="https://voso.vn/jsv2/toastr.min.js?v=1603338118"></script>
-						    <script src="https://voso.vn/jsv2/product-family-notification.js?v=1603338118"></script>
-						    <script src="https://voso.vn/jsv2/notifications-page.js?v=1607615500"></script>
-						    <script src="https://voso.vn/jsv2/buy-card.js?v=1603338131"></script>
-						    <script src="https://voso.vn/jsv2/telecharge-viettel.js?v=1603338118"></script>
-						    <script src="https://voso.vn/jsv2/wallet-withdrawals.js?v=1605193566"></script>
-						    <script src="https://voso.vn/jsv2/history-order.js?v=1610977888"></script>
-						    <script src="https://voso.vn/jsv2/recommendation.js?v=1614350823"></script> 
+							<script src="/js/jquery.js?v=1568371444"></script>
+    <!-- <script src="https://domain.com/assets/d6da31be/yii.js?v=1566957476"></script> -->
+    <script src="/js/bootstrap.js?v=1568371445"></script>
+    <script src="/js/progressive-image.js?v=1603338120"></script>
+    <script src="/js/jquery-ui.min.js?v=1603338120"></script>
+    <script src="/js/bootstrap.min.js?v=1603338120"></script>
+    <script src="/js/owl.carousel.min.js?v=1603338120"></script>
+    <!-- <script src="https://domain.com/static/v2/js/brands.js?v=1603338120"></script> -->
+    <!-- <script src="https://domain.com/static/v2/js/solid.js?v=1603338120"></script> -->
+    <script src="/js/fontawesome.js?v=1603338120"></script>
+    <script src="/js/jquery.nstSlider.js?v=1603338120"></script>
+    <script src="/js/cloudzoom.js?v=1603338120"></script>
+    <script src="/js/select2.full.min.js?v=1603338119"></script>
+    <script src="/js/jstars.min.js?v=1603338120"></script>
+    <script src="/js/style.js?v=1614350823"></script>
+    <!-- <script src="https://domain.com/jsv2/lib/imboclient.min.js?v=1603338118"></script> -->
+    <!-- <script src="https://domain.com/jsv2/lib/bootbox.js?v=1603338118"></script> -->
+    <script src="/js/angular.min.js?v=1603338118"></script>
+    <script src="/js/angular-filedialog.js?v=1603338118"></script>
+    <script src="/js/angular-animate.min.js?v=1603338118"></script>
+    <script src="/js/angular-ui-bootstrap.min.js?v=1603338118"></script>
+    <script src="/js/moment.min.js?v=1603338118"></script>
+    <script src="/js/angular-moment.min.js?v=1603338118"></script>
+    <script src="/js/angular-local-storage.min.js?v=1603338118"></script>
+    <script src="/js/customSelect.js?v=1603338118"></script>
+    <script src="/js/angular-recaptcha.js?v=1603338118"></script>
+    <!-- <script src="https://domain.com/jsv2/lib/simple.money.format.js?v=1603338118"></script> -->
+    <script src="/js/text-angular-rangy.min.js?v=1603338118"></script>
+    <script src="/js/text-angular-sanitize.min.js?v=1603338118"></script>
+    <script src="/js/text-angular.min.js?v=1603338118"></script>
+    <script src="/js/text-angular-setup.js?v=1603338118"></script>
+    <!-- <script src="https://domain.com/jsv2/lib/firebase-app.js?v=1603338118"></script> -->
+    <!-- <script src="https://domain.com/jsv2/lib/firebase-messaging.js?v=1603338118"></script> -->
+    <!-- <script src="https://www.gstatic.com/firebasejs/7.15.0/firebase-auth.js"></script> -->
+    <!-- <script src="https://www.gstatic.com/firebasejs/7.15.0/firebase-database.js"></script> -->
+    <!-- <script src="https://domain.com/jsv2/inputmask.js?v=1603338118"></script> -->
+    <!-- <script src="https://domain.com/jsv2/utils.js?v=1603338118"></script> -->
+    <script src="/js/app.js?v=1614350823"></script>
+    <!-- <script src="https://domain.com/jsv2/wallet.js?v=1603338118"></script> -->
+    <script src="/js/modal.js?v=1603338118"></script>
+    <script src="/js/firebase-notification.js?v=1603338118"></script>
+    <script src="/js/auth.js?v=1603338118"></script>
+    <!-- <script src="/js/main.js?v=1605193566"></script> -->
+    <!-- <script src="/js/product.js?v=1610977888"></script> -->
+    <!-- <script src="https://domain.com/jsv2/order.js?v=1603338118"></script> -->
+    <!-- <script src="https://domain.com/jsv2/cartv2.js?v=1610981070"></script> -->
+    <!-- <script src="https://domain.com/jsv2/cartmb.js?v=1603338118"></script> -->
+    <!-- <script src="https://domain.com/jsv2/user.js?v=1603338118"></script> -->
+    <script src="/js/footer.js?v=1603338118"></script>
+    <script src="/js/search.js?v=1603338118"></script>
+    <!-- <script src="https://domain.com/jsv2/home.js?v=1603338118"></script> -->
+    <script src="/js/style-jsv2.js?v=1608046089"></script>
+    <!-- <script src="https://domain.com/jsv2/lodash.min.js?v=1603338118"></script> -->
+    <script src="/js/angularjs-dropdown-multiselect.min.js?v=1603338118"></script>
+    <!-- <script src="https://domain.com/jsv2/o2o-detail.js?v=1603338118"></script> -->
+    <!-- <script src="https://domain.com/jsv2/o2o.js?v=1603338118"></script> -->
+    <!-- <script src="https://domain.com/jsv2/chat.js?v=1603338118"></script> -->
+    <script src="/js/angularfire.min.js?v=1603338118"></script>
+    <!-- <script src="https://domain.com/jsv2/popup.js?v=1603338118"></script> -->
+    <!-- <script src="https://domain.com/jsv2/flashsale-homepage.js?v=1610286800"></script> -->
+    <!-- <script src="https://domain.com/jsv2/flashsale-page.js?v=1603338118"></script> -->
+    <!-- <script src="https://domain.com/jsv2/browse.js?v=1603338118"></script> -->
+    <script src="/js/currency-mask.js?v=1603338118"></script>
+    <!-- <script src="https://domain.com/jsv2/custom-select.js?v=1603338118"></script> -->
+    <!-- <script src="https://domain.com/jsv2/toastr.min.js?v=1603338118"></script> -->
+    <!-- <script src="https://domain.com/jsv2/product-family-notification.js?v=1603338118"></script> -->
+    <!-- <script src="https://domain.com/jsv2/notifications-page.js?v=1607615500"></script> -->
+    <!-- <script src="https://domain.com/jsv2/buy-card.js?v=1603338131"></script> -->
+    <!-- <script src="https://domain.com/jsv2/telecharge-viettel.js?v=1603338118"></script> -->
+    <!-- <script src="https://domain.com/jsv2/wallet-withdrawals.js?v=1605193566"></script> -->
+    <!-- <script src="https://domain.com/jsv2/history-order.js?v=1610977888"></script> -->
+    <!-- <script src="https://domain.com/jsv2/recommendation.js?v=1614350823"></script>  --> 
 							<script>
 								CloudZoom.quickStart();
 								$('.nstSlider').nstSlider({
@@ -453,81 +422,7 @@
 
 
 
-							<script>
-								$(document).ready(function () {
-									;
-								});
-							</script>
-							<div id="fb-root"></div>
-
-							<script>
-        //       (function(d, s, id) {
-        // 	var js, fjs = d.getElementsByTagName(s)[0];
-        // 	if (d.getElementById(id)) return;
-        // 	js = d.createElement(s); js.id = id;
-        // 	js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js#xfbml=1&version=v3.3&autoLogAppEvents=1';
-        // 	fjs.parentNode.insertBefore(js, fjs);
-        // }(document, 'script', 'facebook-jssdk'));
-
-        !function (f, b, e, v, n, t, s) {
-        	if (f.fbq)return;
-        	n = f.fbq = function () {
-        		n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments)
-        	};
-        	if (!f._fbq)f._fbq = n;
-        	n.push = n;
-        	n.loaded = !0;
-        	n.version = '2.0';
-        	n.queue = [];
-        	t = b.createElement(e);
-        	t.async = !0;
-        	t.src = v;
-        	s = b.getElementsByTagName(e)[0];
-        	s.parentNode.insertBefore(t, s)
-        }(window, document, 'script', 'https://connect.facebook.net/vi_VN/fbevents.js');
-
-        fbq('init', '156512524771845');
-        fbq('track', "PageView");
-
-        var customer = {"id":"535175","name":"Nguyễn Hoài Nam","email":"namnguyen20132674@gmail.com","phone":"0848384333","address":null,"provinceId":"0","districtId":"0","wardId":"0","province":null,"district":null,"ward":null};
-        var maxWeight = 25000;
-        if (customer != null) {
-        	var buyer = {
-        		buyerName: customer.name,
-        		buyerEmail: customer.email,
-        		buyerPhone: customer.phone,
-        		buyerAddress: customer.address,
-        		buyerProvinceId: customer.provinceId,
-        		buyerDistrictId: customer.districtId,
-        		province: customer.province,
-        		district: customer.district,
-        		ward: customer.ward,
-        	};
-        }
-
-        var imboClient = new Imbo.Client({
-        	hosts: ["https:\/\/image.voso.vn"],
-        	user: "vosoimage",
-        	publicKey: "vosoimage",
-        	privateKey: "imagesovo"        });
-        </script>
-
-
-
-        <script>
-        	var firebaseConfig = {
-        		apiKey: "AIzaSyDVj-qPRypyzuP0cmV45x3_WYX208VfXys",
-        		authDomain: "voso-f114c.firebaseapp.com",
-        		databaseURL: "https://voso-f114c.firebaseio.com",
-        		projectId: "voso-f114c",
-        		storageBucket: "voso-f114c.appspot.com",
-        		messagingSenderId: "636113340458",
-        		appId: "1:636113340458:web:abb7f58ab4a4ed3b2b5b53",
-        		measurementId: "G-SPNW8FE0RN"
-        	};
-        // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
-    </script>
+							
 
     
     <script>
@@ -650,18 +545,6 @@
 	</script>
 
     <!-- // -->
-    @if( Session::has('flash_message'))
-        <script>
-            var message = $(".flash_message").text();
-            toastr.success(message);
-        </script>
-    @endif
-    @if( count($errors) > 0)
-        <script>
-            $(".error").each(function(){
-                toastr.warning($(this).text());
-            });
-        </script>
-    @endif
+    
     <!-- Ckeditor config -->
 @endsection

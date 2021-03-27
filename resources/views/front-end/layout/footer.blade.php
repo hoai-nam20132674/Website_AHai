@@ -21,27 +21,27 @@
                 <div class="b__footer--logo b__footer--ls" style="width: 25%">
                     <h3>về chúng tôi</h3>
                     <ul>
-                        <li><a href="https://tintuc.voso.vn/gioi-thieu-ve-viettel-post/">Giới thiệu về Chúng tôi</a></li>
-                        <li><a href="https://tintuc.voso.vn/gioi-thieu-ve-voso/">Giới thiệu về Chúng tôi</a></li>
-                        <li><a href="https://tintuc.voso.vn/co-hoi-hop-tac/">Cơ hội hợp tác</a></li>
-                        <li><a href="https://tintuc.voso.vn/quy-che-hoat-dong/">Quy chế hoạt động</a></li>
-                        <li><a href="https://tintuc.voso.vn/quy-dinh-dong-goi-hang-hoa/">Quy định đóng gói hàng hóa</a></li>
-                        <li><a href="https://tintuc.voso.vn/quy-dinh-hang-hoa-cam-gui-gui-co-dieu-kien-hang-cam-gui/">Quy định hàng hóa cấm gửi</a></li>
-                        <li><a href="https://tintuc.voso.vn/dieu-khoan-su-dung/">Điều khoản sử dụng</a></li>
-                        <li><a href="https://tintuc.voso.vn/chinh-sach-bao-mat/">Chính sách bảo mật</a></li>
+                        <li><a href="/gioi-thieu-ve-viettel-post/">Giới thiệu về Chúng tôi</a></li>
+                        <li><a href="/gioi-thieu-ve-voso/">Giới thiệu về Chúng tôi</a></li>
+                        <li><a href="/co-hoi-hop-tac/">Cơ hội hợp tác</a></li>
+                        <li><a href="/quy-che-hoat-dong/">Quy chế hoạt động</a></li>
+                        <li><a href="/quy-dinh-dong-goi-hang-hoa/">Quy định đóng gói hàng hóa</a></li>
+                        <li><a href="/quy-dinh-hang-hoa-cam-gui-gui-co-dieu-kien-hang-cam-gui/">Quy định hàng hóa cấm gửi</a></li>
+                        <li><a href="/dieu-khoan-su-dung/">Điều khoản sử dụng</a></li>
+                        <li><a href="/chinh-sach-bao-mat/">Chính sách bảo mật</a></li>
                     </ul>
                 </div>
                 <div class="b__footer--support b__footer--ls" style="width: 25%">
                     <h3>Chủ đề hỗ trợ</h3>
                     <div class="b__support--info">
                         <ul>
-                            <li><a href="https://tintuc.voso.vn/huong-dan-dat-hang/">Hướng dẫn đặt hàng</a></li>
-                            <li><a href="https://tintuc.voso.vn/ban-hang-cung-voso/">Bán hàng cùng Chúng tôi</a></li>
-                            <li><a href="https://tintuc.voso.vn/quy-trinh-mua-ban/">Quy trình mua bán</a></li>
-                            <li><a href="https://tintuc.voso.vn/giai-quyet-khieu-nai/">Giải quyết khiếu nại</a></li>
-                            <li><a href="https://tintuc.voso.vn/chinh-sach-doi-tra-hang/">Chính sách đổi trả hàng</a></li>
-                            <li><a href="https://tintuc.voso.vn/quy-trinh-thanh-toan/">Chính sách thanh toán</a></li>
-                            <li><a href="https://tintuc.voso.vn/chinh-sach-van-chuyen/">Chính sách vận chuyển</a></li>
+                            <li><a href="/huong-dan-dat-hang/">Hướng dẫn đặt hàng</a></li>
+                            <li><a href="/ban-hang-cung-voso/">Bán hàng cùng Chúng tôi</a></li>
+                            <li><a href="/quy-trinh-mua-ban/">Quy trình mua bán</a></li>
+                            <li><a href="/giai-quyet-khieu-nai/">Giải quyết khiếu nại</a></li>
+                            <li><a href="/chinh-sach-doi-tra-hang/">Chính sách đổi trả hàng</a></li>
+                            <li><a href="/quy-trinh-thanh-toan/">Chính sách thanh toán</a></li>
+                            <li><a href="/chinh-sach-van-chuyen/">Chính sách vận chuyển</a></li>
                         </ul>
                     </div>
                 </div>
@@ -126,19 +126,11 @@
                 <div class="panel">
                     <ul>
                         <li class="">
-                            <a href="https://voso.vn/gian-hang-cua-toi.html">Gian hàng của tôi</a>
+                            <a id="gh" class="sidebar" href="{{URL::route('merchantIndex')}}">Danh sách sản phẩm</a>
                         </li>
+                        
                         <li class="">
-                            <a href="https://voso.vn/tao-chien-dich-ban-hang-lien-ket.html">Danh sách sản phẩm </a>
-                        </li>
-                        <li class="">
-                            <a href="https://voso.vn/danh-sach-don-hang-ban-hang-lien-ket.html">Đơn hàng đã bán được </a>
-                        </li>
-                        <li class="">
-                            <a href="https://voso.vn/chinh-sua-thong-tin-ban-hang-lien-ket.html">Chỉnh sửa thông tin </a>
-                        </li>
-                        <li class="">
-                            <a href="https://voso.vn/user/list-introduce">Đại lý đã giới thiệu thành công</a>
+                            <a id="gh" class="sidebar" href="/danh-sach-don-hang-ban-hang-lien-ket.html">Đơn hàng đã bán</a>
                         </li>
                     </ul>
                 </div>
@@ -146,19 +138,10 @@
                 <div class="panel">
                     <ul>
                         <li class="">
-                            <a href="https://voso.vn/khach-hang.html">Thông tin cá nhân </a>
+                            <a id="tk" class="sidebar" href="{{URL::route('merchantInfo')}}">Thông tin cá nhân </a>
                         </li>
                         <li class="">
-                            <a href="https://voso.vn/doi-mat-khau.html">Thay đổi mật khẩu </a>
-                        </li>
-                        <li class="">
-                            <a href="https://voso.vn/user/wishlist">Sản phẩm yêu thích</a>
-                        </li>
-
-
-
-                        <li class="">
-                            <a href="https://voso.vn/user/feedback">Góp ý của bạn</a>
+                            <a id="tk" class="sidebar" href="{{URL::route('merchantEditPassword')}}">Thay đổi mật khẩu </a>
                         </li>
                     </ul>
                 </div>
@@ -169,24 +152,25 @@
                 <div class="panel">
                     <ul>
                         <li class="">
-                            <a href="https://voso.vn/notification/all">
+                            <a href="#">
                                 <span></span>Tất cả
                             </a>
                         </li>
                         <li class="">
-                            <a href="https://voso.vn/thong-bao-cap-nhat-don-hang.html">
+                            <a href="#">
                                 <span></span>Cập nhật đơn hàng
                             </a>
                         </li>
                         <li class="">
-                            <a href="https://voso.vn/thong-bao-khac.html">
+                            <a href="#">
                                 <span></span>Thông báo khác
                             </a>
                         </li>
                     </ul>
                 </div>
             </div>
-            <script data-cfasync="false" src="https://voso.vn/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+            <!-- <script data-cfasync="false" src="https://voso.vn/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script> -->
+            <script>
                 var acc = document.getElementsByClassName("accordion-mobile");
                 var i;
 
@@ -866,7 +850,7 @@
                     </div>
                     
                     <div class="m-rules">
-                        <p>Bằng việc đăng kí, bạn đã đồng ý với chúng tôi về <a href="https://tintuc.voso.vn/quy-che-hoat-dong/">Điều khoản dịch vụ</a> & <a href="https://tintuc.voso.vn/quy-che-hoat-dong/">chính sách bảo mật.</a></p>
+                        <p>Bằng việc đăng kí, bạn đã đồng ý với chúng tôi về <a href="/quy-che-hoat-dong/">Điều khoản dịch vụ</a> & <a href="/quy-che-hoat-dong/">chính sách bảo mật.</a></p>
                     </div>
                     <div class="form-group">
                         <button type="submit" class="btn btn-register">Đăng ký</button>

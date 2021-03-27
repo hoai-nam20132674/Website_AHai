@@ -39,7 +39,7 @@ class Controller extends BaseController
         $product_new = Product::where('display',1)->orderBy('id','DESC')->get();
         $product_hot = Product::where('display',1)->where('hot',1)->orderBy('updated_at','DESC')->get();
         $products = Product::where('display',1)->orderBy('id','DESC')->get();
-        return view('front-end.index',compact('sliders','categories','menus','best_sale','product_new','product_hot','products'));
+        return view('front-end.index',compact('sliders','categories','menus','best_sale','product_new','product_hot','products','system'));
 
 
 
@@ -121,11 +121,12 @@ class Controller extends BaseController
 
     }
     public function search(Request $request){
+        $system = System::where('id',1)->get()->first();
         $sliders = Slider::where('display',1)->orderBy('stt','ASC')->get();
         $categories = ProductCate::where('display',1)->whereNull('parent_id')->get();
         $menus = Menu::whereNull('parent_id')->orderBy('stt','ASC')->get();
         $products = Product::where('name', 'like', '%' .$request->keyword.'%')->paginate(30);
-        return view('front-end.product-search',compact('categories','menus','products','sliders','request'));
+        return view('front-end.product-search',compact('categories','menus','products','sliders','request','system'));
     }
 
     // ------------------------------------------
