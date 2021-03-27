@@ -3,26 +3,8 @@
     <div class="container">
         <div class="b__top-info">
             <ul class="b__top--left b__top--ls">
-                <li style="display: none"><a href="tel:1900 98 98 88">Hotline: 1900 98 98 88</a></li>
-                <li><a href="https://mc.voso.vn/">Kênh Người Bán</a></li>
-                <li>
-                    <div class="download-app">
-                        <span class="b_title">Tải ứng dụng</span>
-                        <div class="app-vs" style="display: none">
-                            <div class="image-qr-code">
-                                <img src="https://voso.vn/static/v2/images/qr-code.jpg" alt="">
-                            </div>
-                            <div class="image-app">
-                                <div class="image-app-androi">
-                                    <img src="https://voso.vn/static/v2/images/androi.png" alt="Play Store">
-                                </div>
-                                <div class="image-app-ios">
-                                    <img src="https://voso.vn/static/v2/images/ios.png" alt="App Store">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </li>
+                <li style=""><a href="tel:1900 98 98 88">Hotline: 1900 98 98 88</a></li>
+                
                 <li><a href="https://voso.vn/cdn-cgi/l/email-protection#462e293234290630293529683028"><span class="__cf_email__" >email@gmail.com</span></a></li>
             </ul>
             <ul class="b__top--right b__top--ls">

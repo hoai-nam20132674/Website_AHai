@@ -51,12 +51,14 @@ class Product extends Model
     	$avata->save();
 
     	$categories = $request->categories;
-    	$count = count($categories);
-    	for($j=0;$j<$count;$j++){
-            $pcid = new PCID;
-            $pcid->product_id = $this->id;
-            $pcid->cate_id = $categories[$j];
-            $pcid->save();
+        if(isset($categories)){
+        	$count = count($categories);
+        	for($j=0;$j<$count;$j++){
+                $pcid = new PCID;
+                $pcid->product_id = $this->id;
+                $pcid->cate_id = $categories[$j];
+                $pcid->save();
+            }
         }
 
         if($request->hasFile('images')){ 
@@ -108,20 +110,28 @@ class Product extends Model
         }
         $product->save();
         $categories = $request->categories;
-        $count = count($categories);
-        $itemDeletes = PCID::where('product_id',$id)->whereNotIn('cate_id',$categories)->get();
-        foreach($itemDeletes as $itemDelete){
-            $itemDelete->delete();
-        }
-        for($j=0;$j<$count;$j++){
-            $item = PCID::where('cate_id',$categories[$j])->where('product_id',$id)->get();
-            if(count($item)==0){
-                $scid = new PCID;
-                $scid->product_id = $id;
-                $scid->cate_id = $categories[$j];
-                $scid->save();
+        if(empty($categories)){
+            $itemDeletes = PCID::where('product_id',$id)->get();
+            foreach($itemDeletes as $itemDelete){
+                $itemDelete->delete();
             }
-            
+        }
+        if(isset($categories)){
+            $itemDeletes = PCID::where('product_id',$id)->whereNotIn('cate_id',$categories)->get();
+            foreach($itemDeletes as $itemDelete){
+                $itemDelete->delete();
+            }
+            $count = count($categories);
+            for($j=0;$j<$count;$j++){
+                $item = PCID::where('cate_id',$categories[$j])->where('product_id',$id)->get();
+                if(count($item)==0){
+                    $scid = new PCID;
+                    $scid->product_id = $id;
+                    $scid->cate_id = $categories[$j];
+                    $scid->save();
+                }
+                
+            }
         }
         if($request->hasFile('images')){ 
             foreach($request->file('images') as $file){

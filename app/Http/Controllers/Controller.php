@@ -31,6 +31,7 @@ class Controller extends BaseController
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
     public function index(){
+        $system = System::where('id',1)->get()->first();
         $categories = ProductCate::where('display',1)->whereNull('parent_id')->get();
         $sliders = Slider::where('display',1)->orderBy('stt','ASC')->get();
         $menus = Menu::whereNull('parent_id')->orderBy('stt','ASC')->get();
@@ -66,6 +67,7 @@ class Controller extends BaseController
         
         $categories = ProductCate::where('display',1)->whereNull('parent_id')->get();
         $menus = Menu::whereNull('parent_id')->orderBy('stt','ASC')->get();
+        $system = System::where('id',1)->get()->first();
 
     	if($key=='pi'){
             $product = Product::where('id',$id)->get()->first();
@@ -75,7 +77,7 @@ class Controller extends BaseController
             $same_products = Product::whereIn('id',$same_products_id)->where('display',1)->orderBy('id','DESC')->take(5)->get();
             $recommend_products = Product::whereIn('id',$same_products_id)->where('display',1)->orderBy('id','DESC')->skip(1)->take(10)->get();
             $images = ProductImage::where('product_id',$product->id)->where('role',0)->get();
-            return view('front-end.product',compact('categories','menus','product','images','same_products','recommend_products'));
+            return view('front-end.product',compact('categories','menus','product','images','same_products','recommend_products','system'));
     		
     	}
         
@@ -91,7 +93,7 @@ class Controller extends BaseController
             else{
                 $products = Product::whereIn('id',$pids)->where('display',1)->orderBy('price',$request->price)->paginate(30);
             }
-            return view('front-end.products',compact('categories','menus','products','categorie','sliders','request'));
+            return view('front-end.products',compact('categories','menus','products','categorie','sliders','request','system'));
         }
         // else if($key=='bi'){
         //     $blog = Blog::where('id',$id)->get()->first();
@@ -109,7 +111,7 @@ class Controller extends BaseController
         if($key=='si'){
             $user = User::where('id',$id)->get()->first();
             $products = Product::where('user_id',$id)->where('display',1)->get();
-            return view('front-end.gian-hang',compact('categories','menus','products','user'));
+            return view('front-end.gian-hang',compact('categories','menus','products','user','system'));
             
         }
         else {
