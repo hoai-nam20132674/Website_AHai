@@ -1,6 +1,6 @@
 @extends('front-end.layout.default')
 @section('body-name')
-   body-product-detail
+   body-cart
 @endsection
 @section('head')
 	
@@ -138,8 +138,10 @@
 	<div class="container">
 		<div class="page-cart-content">
 			<div class="product-buy">
-				<label class="cart-products__title">GIỎ HÀNG</label>
+				<a href="/"><label class="cart-products__title">TRANG CHỦ </label><i class="fas fa-chevron-right" style="padding: 0 5px;"></i></a>
+				<label class="cart-products__title"> GIỎ HÀNG</label>
 				<span class="cart-products__count">({{Cart::count()}})</span>
+				
 			</div>
 			<div class="cart">
 				<div class="cart-inner">
@@ -158,6 +160,7 @@
 													</a>
 												</div>
 											</li>
+
 											<li class="list-group-item ng-scope item-product" >
 												<div class="item-cart">
 

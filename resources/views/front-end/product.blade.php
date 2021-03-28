@@ -161,7 +161,7 @@
 <div class="b__detail--main-wapper" ng-controller="product" ng-init="init()">
     <div class="detail-group-btn-mobile">
         <button class="btn-add-mobile add-to-cart" href="{{URL::route('addToCart',[$product->id,1])}}"><i class="fas fa-cart-arrow-down" style="margin-right: 10px;"></i>THÊM VÀO GIỎ</button>
-        <button class="btn-buy-mobile"><i class="fas fa-arrow-circle-right"></i>MUA NGAY</button>
+        <button class="btn-buy-mobile buy-now" href="{{URL::route('addToCart',[$product->id,1])}}"><i class="fas fa-arrow-circle-right"></i>MUA NGAY</button>
         <!-- <button class="btn-stop-mobile" ng-if="available">Hết hàng</button> -->
     </div>
     <div class="b__detail--wapper">
@@ -284,8 +284,8 @@
                                     <a href="{{URL::route('addToCart',[$product->id,1])}}" class="add-to-cart btn-cart">
                                         <span id="add-to-cart">Thêm vào giỏ hàng</span>
                                     </a>
-                                    <a href="javascript:;" class="btn btn-buy"><img src="{{asset('images/icon-buy-now.png')}}" />Mua ngay</a>
-                                    <a href="javascript:;" class="btn btn-out-of-stock" ng-if="available">Hết hàng</a>
+                                    <a href="{{URL::route('addToCart',[$product->id,1])}}" class="btn btn-buy buy-now"><img src="{{asset('images/icon-buy-now.png')}}" />Mua ngay</a>
+                                    
                                 </div>
                             </div>
                         </div>
@@ -671,6 +671,18 @@
                     toastr.success('Đã thêm vào giỏ hàng');
                     $('.total-item-in-cart').text(data[0]);
                     console.log(data);
+                }
+            });
+        });
+        $(document).on('click', '.buy-now', function(event) {
+            event.preventDefault();
+            url = $(this).attr('href');
+            $.ajax({
+                type: 'GET',
+                url: url,
+                dataType: 'json',
+                success: function(data) {
+                    location.href = '/gio-hang';
                 }
             });
         });

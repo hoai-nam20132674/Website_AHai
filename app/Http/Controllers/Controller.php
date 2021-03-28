@@ -159,6 +159,9 @@ class Controller extends BaseController
         $menus = Menu::whereNull('parent_id')->orderBy('stt','ASC')->get();
         $items_cart = Cart::content();
         return view('front-end.cart',compact('system','categories','menus','items_cart'));
+        // $items_cart = Cart::search(function($cartItem, $rowId) {
+        //     return $cartItem->options->shop_name == 'ĐỒ NGỦ SEXY CZADI';
+        // });
         // dd($items_cart);
 
         
@@ -166,13 +169,28 @@ class Controller extends BaseController
     public function addToCart($id,$qty){
         $product = Product::where('id',$id)->get()->first();
         $shop = User::where('id',$product->user_id)->get()->first();
+        $item_cart = Cart::content();
+        $check_item = array();
+        if(Cart::count()){
+            $check_item = Cart::search(function($cartItem, $rowId) use($id) {
+                return $cartItem->id == $id;
+            });
+
+        }
         
-        if($product->sale == ''){
-            Cart::add($product->id, $product->name, $qty, $product->price, 0, ['img'=>$product->avata,'url'=>$product->url,'shop_name'=>$shop->name_s,'shop_id'=>$shop->id,'oldprice'=>$product->price,'shop_avatar'=>$shop->avatar]);
+        if(count($check_item)){
+            $check_item = $check_item->first();
+            Cart::update($check_item->rowId,$check_item->qty+1);
         }
         else{
-            Cart::add($product->id, $product->name, $qty, $product->sale, 0, ['img'=>$product->avata,'url'=>$product->url,'shop_name'=>$shop->name_s,'shop_id'=>$shop->id,'oldprice'=>$product->price,'shop_avatar'=>$shop->avatar]);
+            if($product->sale == ''){
+                Cart::add($product->id, $product->name, $qty, $product->price, 0, ['img'=>$product->avata,'url'=>$product->url,'shop_name'=>$shop->name_s,'shop_id'=>$shop->id,'oldprice'=>$product->price,'shop_avatar'=>$shop->avatar]);
+            }
+            else{
+                Cart::add($product->id, $product->name, $qty, $product->sale, 0, ['img'=>$product->avata,'url'=>$product->url,'shop_name'=>$shop->name_s,'shop_id'=>$shop->id,'oldprice'=>$product->price,'shop_avatar'=>$shop->avatar]);
+            }
         }
+        
         
         $array = array();
         $array[0]=Cart::count();
