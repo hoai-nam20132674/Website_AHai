@@ -2158,7 +2158,7 @@ span.promotion {
         display: none
     }
     .group_product-total-price {
-        display: none
+        /*display: none*/
     }
     .b__cart-info-left {
         background: #fff;

@@ -10634,7 +10634,7 @@ div#onesignal-bell-container {
     }
     .note-content__in textarea {
         padding: 0;
-        border-bottom: 1px solid #ccc
+        border: 1px solid #ccc
     }
     .body-cart {
         background-color: #fff
@@ -10801,7 +10801,7 @@ div#onesignal-bell-container {
     }
     .b__cart--wapper .b__cart--info .b__cart .b__cart-info-right .b__cart-content .b__cart-body .b__cart-body-products ul li .b__cart-body-product-number .group_product-price {
         padding: 0;
-        text-align: right
+        /*text-align: right*/
     }
     .b__cart--wapper .b__cart--info .b__cart .b__cart-info-right .b__cart-content .b__cart-body .b__cart-body-products ul li .b__cart-body-product-number {
         -webkit-box-align: center;
@@ -10859,8 +10859,9 @@ div#onesignal-bell-container {
     .b__cart--wapper .b__cart--info .b__cart .b__cart-info-left .b__cart-content .b__cart-footer .btn-next {
         border: none;
         font-size: 14px;
-        background: #0871ce;
+        background: #d20014;
         color: #fff;
+        font-weight: 800;
         border-radius: 2px;
         text-transform: uppercase;
         width: 50%
@@ -11005,7 +11006,7 @@ div#onesignal-bell-container {
         width: 50%
     }
     .group_product-price {
-        display: none
+        /*display: none*/
     }
     .b__cart_mb-box .address-detail {
         width: auto;

@@ -21,11 +21,11 @@
 	    <meta property="og:title" content="Giỏ hàng" />
 	    <meta property="og:description" content="" />
 	    <meta property="og:site_name" content="Giỏ hàng" />
-	    <meta property="og:url" content="{{$system->website}}/gio-hang" />
+	    <meta property="og:url" content="{{$system->website}}/dat-hang" />
 	    <meta property="og:image" content="" />
 	    <meta property="og:locale" content="vi_VN" />
 	    <link rel="canonical" href="" /> 
-	    <title>Giỏ hàng</title>
+	    <title>Đặt hàng</title>
 
 	    <link href="{{asset('css/bootstrap.css')}}" rel="stylesheet">
 	    <link href="{{asset('css/font-awesome.min.css')}}" rel="stylesheet">
@@ -134,108 +134,211 @@
         
 @endif
 
-<div class="page-cart-v3" ng-controller="review_product_in_cart">
-	<div class="container">
-		<div class="page-cart-content">
-			<div class="product-buy">
-				<a href="/"><label class="cart-products__title">TRANG CHỦ </label><i class="fas fa-chevron-right" style="padding: 0 5px;"></i></a>
-				<label class="cart-products__title"> GIỎ HÀNG</label>
-				<span class="cart-products__count">({{Cart::count()}})</span>
-				
-			</div>
-			<div class="cart">
-				<div class="cart-inner">
-					<div class="cart-products-inner">
-						<div class="cart-products__group">
-							<div class="cart-product-item">
-								<ul class="cart-products__products list-group">
-									@foreach($items_cart as $item)
-									<li class="cart-products__product list-group-item ng-scope" item-id="{{$item->rowId}}">
-										<ul class="product-by-shop list-group">
-											<li class="list-group-item">
-												<div class="merchant">
-													<a href="/{{$item->options->shop_name}}-si{{$item->options->shop_id}}">
-														<img src="{{asset('uploads/images/users/avatars/'.$item->options->shop_avatar)}}">
-														<div class="merchant__name ng-binding">{{$item->options->shop_name}}</div>
-													</a>
-												</div>
-											</li>
+<div class="b__cart--wapper" ng-controller="cart_pagev2" ng-cloak>
 
-											<li class="list-group-item ng-scope item-product" >
-												<div class="item-cart">
+    <div class="container contaiver-v2">
+        <div class="navbar-generic__back navbar-generic__back_cart">
+            <button class="top-referrer-detail-href">
+                <img src="{{asset('images/arrow-left.png')}}" alt="">
+            </button>
+            <span>ĐẶT HÀNG</span>
+        </div>
+        <div class="b__cart--info">
+            <nav class="b__breadcrumb" aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/">TRANG CHỦ</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">ĐẶT HÀNG</li>
+                </ol>
+            </nav>
+            @if(Cart::count() == 0)
+            <div class="a__cart" ng-show="packages.length == 0">
+                
+                <p class="p1">Giỏ hàng của bạn chưa có sản phẩm</p>
+                <p class="p2"><a class="btn btn-outline-primary" href="/">Mua sắm ngay</a></p>
+            </div>
+            @else
+            <div class="b__cart" >
+                <div class="row fix-mobile-cart">
+                    <div class="col-md-7 col-sm-12 b__cart-info-left">
+                        <div class="b__cart-content">
+                        	<form method="POST" action="{{URL::route('postAddOrder')}}">
+                            
+                            <div class="b__cart-body">
+                            	@if(Auth::user())
+                                	<h3 class="title-step customer-info">Thông tin khách hàng (Đang sử dụng thông tin đăng nhập)</h3>
+                                
+	                                <div class="form-row">
+	                                    <div class="form-group col-md-6 col-sm-12 col-xs-12">
+	                                        <div class="form-group" ng-class="errors.buyerName?'has-error':''">
+	                                            <label>Họ và tên <span class="text-red">(*)</span></label>
+	                                            <input type="text" required class="form-control" value="{{Auth::user()->name}}" placeholder="" >
+	                                            
+	                                        </div>
+	                                    </div>
+	                                    <div class="form-group col-md-6 col-sm-12 col-xs-12">
+	                                        <div class="form-group">
+	                                            <label>Số điện thoại <span class="text-red">(*)</span></label>
+	                                            <input type="text" value="{{Auth::user()->phone}}" required class="form-control" style="border-radius: 4px" placeholder="" >
+	                                            
+	                                        </div>
+	                                    </div>
+	                                </div>
+	                                
+	                                <div class="form-group col-md-12 col-sm-12 col-xs-12">
+	                                    <div class="form-group" ng-class="errors.buyerAddress?'has-error':''">
+	                                        <label>Địa chỉ nhận hàng<span class="text-red"></span></label>
+	                                        <input required value="{{Auth::user()->address}}" class="form-control" type="text" placeholder="" />
+	                                        
+	                                    </div>
+	                                </div>
+                                @else
+                                	<h3 class="title-step customer-info">Thông tin khách hàng</h3>
+	                                <div class="form-row">
+	                                    <div class="form-group col-md-6 col-sm-12 col-xs-12">
+	                                        <div class="form-group" ng-class="errors.buyerName?'has-error':''">
+	                                            <label>Họ và tên <span class="text-red">(*)</span></label>
+	                                            <input type="text" required class="form-control" placeholder="" >
+	                                            
+	                                        </div>
+	                                    </div>
+	                                    <div class="form-group col-md-6 col-sm-12 col-xs-12">
+	                                        <div class="form-group">
+	                                            <label>Số điện thoại <span class="text-red">(*)</span></label>
+	                                            <input type="text" required class="form-control" style="border-radius: 4px" placeholder="" >
+	                                            
+	                                        </div>
+	                                    </div>
+	                                </div>
+	                                
+	                                <div class="form-group col-md-12 col-sm-12 col-xs-12">
+	                                    <div class="form-group" ng-class="errors.buyerAddress?'has-error':''">
+	                                        <label>Địa chỉ nhận hàng<span class="text-red"></span></label>
+	                                        <input required class="form-control" type="text" placeholder="" />
+	                                        
+	                                    </div>
+	                                </div>
+                                @endif
+                                
+                                <div class="col-md-12 col-sm-6 col-xs-12 p-0" style="padding: 0 15px">
+                                    <div class="form-group" >
+                                        <div class="note-content">
+                                            <div class="note-content__in">
+                                                <label>Ghi chú</label>
+                                                <textarea placeholder="Lưu ý cho người bán..." rows="5" class="form-control customer-note" ></textarea>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
 
-													<div class="cart-products__img">
-														<a href="/{{$item->options->url}}">
-															<img alt="" src="{{asset('uploads/images/products/avatars/'.$item->options->img)}}">
-														</a>
-													</div>
-													<div class="cart-products__content">
-														<div class="product-name">
-															<p class="ng-binding">{{$item->name}}</p>
-															<span item-id="{{$item->rowId}}" class="btn-delete-product delete-item-cart" href="{{URL::route('removeItemCart',$item->rowId)}}" >Xóa</span>
-														</div>
-														<div class="product-price-cart">
-															<!-- <div class="product-price-current">
-																<span class="ng-binding">199.000đ</span>
-															</div> -->
-															<div class="product-price-discount" >
-																@if($item->price == $item->options->oldprice)
-																<span class="item-price">{!!number_format($item->price)!!} đ</span>
-																
-																@else
-																<span class="item-price">{!!number_format($item->price)!!} đ</span>
-																<span class="seperate">|</span>
-																<span class="item-oldprice">{!!number_format($item->options->oldprice)!!} đ</span>
-																@endif
-																
-															</div>
-														</div>
-														<div class="product-quantity">
-															<div class="quantity">
-																<span class="minus" id="{{$item->id}}">
-																	<img src="{{asset('images/minus.png')}}" alt="">
-																</span>
-																<input type="number" id="{{$item->id}}" min="1" onchange="updateCart({{$item->id}})" string-to-number="" old-value="{{$item->qty}}" value="{{$item->qty}}" class="">
-																<span class="plus" id="{{$item->id}}">
-																	<img src="{{asset('images/plus.png')}}" alt="">
-																</span>
-															</div>
-														</div>
-													</div>
-												</div>
-											</li>
-										</ul>
-									</li>
-									@endforeach
-								</ul>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="cart-total-prices">
-					<div class="show-mobile">
-						<div class="cart-prices">
-							<div class="prices">
-								<div class="prices__items">
-									<span class="prices__text">Tổng ({{Cart::count()}} sản phẩm)</span>
 
-								</div>
-								<div class="prices__total">
-									<span>Tổng tiền hàng</span>
-									<div class="prices__value prices__value--final" value="{{Cart::subtotal()}}">{{Cart::subtotal()}} đ
+                            </div>
+                            
+                            
+                            
+                        
+                        <div class="cart__submit">
+                            <div class="btn-re-order hidden-xs" ng-show="step <= 3">
+                                <a href="/" class="btn btn-primary re-order">MUA THÊM</a>
+                            </div>
+                            <div class="b__cart-footer order_submit_cart_pc">
 
-									</div>
-								</div>
-							</div>
-						</div>
-						<a href="{{URL::route('order')}}" class="cart__submit btn btn-primary btn-block">
-							Tiến hành đặt hàng
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+                                <div class="total-price-cart-mb">
+                                    <a href="/" class="btn btn-primary re-order">MUA THÊM</a>
+                                    <div class="total__cart__price">
+                                        <p class="title">Tổng tiền hàng</p>
+                                        <p class="value-money">{{Cart::subtotal()}} đ</p>
+                                    </div>
+                                </div>
+                                <button class="btn-next pull-right order_submit" type="submit">
+
+                                    <span >ĐẶT HÀNG</span>
+                                   
+                                </button>
+                            </div>
+                        </div>
+
+                        </form>
+                    </div>
+                </div>
+                <div class="col-md-5 col-sm-12 b__cart-info-right">
+                    <div class="b__cart-content ng-scope">
+                        <div class="b__cart-header">
+                            
+                        </div>
+                        <div class="b__cart-body">
+                            <div class="b__cart-body-products">
+                                <ul>
+                                    <li>
+                                        <span>Sản phẩm</span>
+                                        <span class="s-right">Thành tiền</span>
+                                    </li>
+                                    <li class="ng-scope">
+                                    	@foreach($items_cart as $item)
+                                        <div class="product-item-cart" style="border-bottom: 1px solid #d8d8d8; margin-bottom: 5px">
+                                            <img class="b__cart-body-product-img" src="{{asset('uploads/images/products/avatars/'.$item->options->img)}}">
+                                            <div class="cart-content">
+                                                <h4 class="product-name-cart"><a href="/{{$item->options->url}}" class="ng-binding">{{$item->name}}</a></h4>
+                                               
+
+                                               
+                                                <div class="b__cart-body-product-number">
+                                                    <span class="group_product-price ng-binding">{!!number_format($item->price)!!}<sup>đ</sup> - <span> Số lượng: {{$item->qty}}</span></span>
+                                                    @php
+                                                    	$price_item = $item->qty*$item->price;
+                                                    @endphp
+                                                    <span class="group_product-total-price ng-binding">{!!number_format($price_item)!!}<sup>đ</sup></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        @endforeach
+                                    </li><!-- end ngRepeat: item in package.items -->
+                                    
+                                    <!-- <li>
+                                        <div class="b__cart-pay-info">
+                                            <div class="b__cart-pay-group">
+                                                
+                                               
+                                                <div class="b__cart-pay-item">
+                                                    <div class="b__cart-pay-item-left">Tổng giá trị gói hàng</div>
+                                                    <div class="b__cart-pay-item-right package-total ng-binding">995,000<sup>đ</sup></div>
+                                                </div>
+                                                <div class="b__cart-pay-item" style=""></div>
+                                            </div>
+                                        </div>
+                                    </li> -->
+                                </ul>
+                            </div>
+                        </div>
+                    </div><!-- end ngRepeat: (k,package) in packages track by $index -->
+                    <div class="b__cart-content total-cart-price-pc hidden-xs">
+                        <div class="b__cart-header">
+                            <ul>
+                                <li>Tổng giá trị</li>
+                            </ul>
+                        </div>
+                        <div class="b__cart-body">
+                            <div class="b__cart-pay-info">
+                                <div class="b__cart-pay-group">
+                                    <div class="b__cart-pay-item b__cart-pay-item_total">
+                                        <div class="b__cart-pay-item-left">Tổng tiền hàng</div>
+                                        <div class="b__cart-pay-item-right">
+                                            <span class="total_b_price ng-binding" style="font-size: 24px; font-weight: bold; color: #e02020">{{Cart::subtotal()}}<sup>đ</sup></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="b__cart-content total-cart-price-mb visible-xs-block"></div>
+        </div>
+        @endif
+    </div>
+</div>
 </div>
 
 

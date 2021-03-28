@@ -974,14 +974,14 @@ i.fa.fa-question-circle {
 }
 
 .btn-primary {
-    background-color: #0971ce;
-    border-color: #0971ce
+    background-color: #ee2624;
+    border-color: #ee2624;
 }
 
 .btn-primary:hover,
 .btn-primary:focus {
-    background-color: #ffb718;
-    border-color: #ffb718
+    background-color: #d20200;
+    border-color: #d20200
 }
 
 .btn-secondary {

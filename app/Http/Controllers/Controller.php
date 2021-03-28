@@ -25,6 +25,7 @@ use App\SCID;
 use App\Contact;
 use App\Card;
 use App\Slider;
+use App\Order;
 use Cart;
 
 class Controller extends BaseController
@@ -180,7 +181,7 @@ class Controller extends BaseController
         
         if(count($check_item)){
             $check_item = $check_item->first();
-            Cart::update($check_item->rowId,$check_item->qty+1);
+            Cart::update($check_item->rowId,$check_item->qty+$qty);
         }
         else{
             if($product->sale == ''){
@@ -203,6 +204,18 @@ class Controller extends BaseController
         $array[0]=Cart::count();
         $array[1]=Cart::subtotal();
         return $array;
+    }
+    public function order(){
+        $system = System::where('id',1)->get()->first();
+        $categories = ProductCate::where('display',1)->whereNull('parent_id')->get();
+        $menus = Menu::whereNull('parent_id')->orderBy('stt','ASC')->get();
+        $items_cart = Cart::content();
+        return view('front-end.order',compact('system','categories','menus','items_cart'));
+    }
+    public function postAddOrder(Request $request){
+        $order = new Order;
+        $order->add($request);
+        return redirect()->route('cart')->with(['flash_level'=>'success','flash_message'=>'Đặt hàng thành công']);
     }
     // end add to cart
 }

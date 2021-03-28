@@ -125,6 +125,8 @@ Route::post('merchant/product/add', 'MerchantController@postAddProduct')->name('
 
 // add to cart
 Route::get('/gio-hang', 'Controller@cart')->name('cart');
+Route::get('/dat-hang', 'Controller@order')->name('order');
+Route::post('/dat-hang', 'Controller@postAddOrder')->name('postAddOrder');
 Route::get('/add-to-cart/{id}-{qty}', 'Controller@addToCart')->name('addToCart');
 Route::get('/remove-item-cart/{id}', 'Controller@removeItemCart')->name('removeItemCart');
 // end add to cart
