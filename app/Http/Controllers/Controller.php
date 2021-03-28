@@ -153,18 +153,38 @@ class Controller extends BaseController
     }
 
     // add to cart
+    public function cart(){
+        $system = System::where('id',1)->get()->first();
+        $categories = ProductCate::where('display',1)->whereNull('parent_id')->get();
+        $menus = Menu::whereNull('parent_id')->orderBy('stt','ASC')->get();
+        $items_cart = Cart::content();
+        return view('front-end.cart',compact('system','categories','menus','items_cart'));
+        // dd($items_cart);
+
+        
+    }
     public function addToCart($id,$qty){
         $product = Product::where('id',$id)->get()->first();
+        $shop = User::where('id',$product->user_id)->get()->first();
+        
         if($product->sale == ''){
-            
-            Cart::add($product->id, $product->name, $qty, $product->price, 0, ['img'=>$product->avata,'url'=>$product->url]);
+            Cart::add($product->id, $product->name, $qty, $product->price, 0, ['img'=>$product->avata,'url'=>$product->url,'shop_name'=>$shop->name_s,'shop_id'=>$shop->id,'oldprice'=>$product->price,'shop_avatar'=>$shop->avatar]);
         }
         else{
-            
-            Cart::add($product->id, $product->name, $qty, $product->sale, 0, ['img'=>$product->avata,'url'=>$product->url]);
-
+            Cart::add($product->id, $product->name, $qty, $product->sale, 0, ['img'=>$product->avata,'url'=>$product->url,'shop_name'=>$shop->name_s,'shop_id'=>$shop->id,'oldprice'=>$product->price,'shop_avatar'=>$shop->avatar]);
         }
-        return Cart::count();
+        
+        $array = array();
+        $array[0]=Cart::count();
+        $array[1]=Cart::subtotal();
+        return $array;
+    }
+    public function removeItemCart($id){
+        Cart::remove($id);
+        $array = array();
+        $array[0]=Cart::count();
+        $array[1]=Cart::subtotal();
+        return $array;
     }
     // end add to cart
 }

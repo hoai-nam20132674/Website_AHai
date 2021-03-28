@@ -666,13 +666,13 @@
             $.ajax({
                 type: 'GET',
                 url: url,
-                dataType: 'html',
+                dataType: 'json',
                 success: function(data) {
                     toastr.success('Đã thêm vào giỏ hàng');
-                    $('.total-item-in-cart').text(data);
+                    $('.total-item-in-cart').text(data[0]);
+                    console.log(data);
                 }
             });
-            console.log(url);
         });
     </script>
 

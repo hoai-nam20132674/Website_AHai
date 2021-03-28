@@ -124,7 +124,9 @@ Route::post('merchant/product/add', 'MerchantController@postAddProduct')->name('
 // end Merchant route
 
 // add to cart
-Route::get('add-to-cart/{id}-{qty}', 'Controller@addToCart')->name('addToCart');
+Route::get('/gio-hang', 'Controller@cart')->name('cart');
+Route::get('/add-to-cart/{id}-{qty}', 'Controller@addToCart')->name('addToCart');
+Route::get('/remove-item-cart/{id}', 'Controller@removeItemCart')->name('removeItemCart');
 // end add to cart
 
 Route::post('/addContact', 'Controller@addContact')->name('addContact');
