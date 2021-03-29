@@ -50,7 +50,7 @@
                     </div>
                 </li>
             <li class="login_succses" style="display: block;" >
-                <a href="#">
+                <a href="{{URL::route('merchantInfo')}}">
                     <img src="{{asset('uploads/images/systems/avatar_default.png')}}" />
                     <span class="c-admin__text">{{Auth::user()->name}}</span>
                 </a>

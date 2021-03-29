@@ -9,7 +9,10 @@
 					</li>
 					
 					<li class="">
-						<a id="gh" class="sidebar" href="/danh-sach-don-hang-ban-hang-lien-ket.html">Đơn hàng đã bán</a>
+						<a id="gh" class="sidebar" href="{{URL::route('SO')}}">Đơn hàng đã bán</a>
+					</li>
+					<li class="">
+						<a id="gh" class="sidebar" href="{{URL::route('PO')}}">Đơn hàng đã mua</a>
 					</li>
 					
 				</ul>

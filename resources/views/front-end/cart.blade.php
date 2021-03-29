@@ -421,6 +421,7 @@
 	                    $('.cart-products__count').text('('+data[0]+')');
 	                    $('.prices__value').text(data[1]+' đ');
 	                    $('.prices__value').attr('value',data[1]);
+	                    toastr.success('Đã cập nhật giỏ hàng');
 	                    
 
 	                }
@@ -449,7 +450,7 @@
                     $('.cart-products__count').text('('+data[0]+')');
                     $('.prices__value').text(data[1]+' đ');
                     $('.prices__value').attr('value',data[1]);
-                    
+                    toastr.success('Đã cập nhật giỏ hàng');
 
                 }
             });
@@ -476,7 +477,7 @@
 	                    $('.cart-products__count').text('('+data[0]+')');
 	                    $('.prices__value').text(data[1]+' đ');
 	                    $('.prices__value').attr('value',data[1]);
-	                    
+	                    toastr.success('Đã cập nhật giỏ hàng');
 
 	                }
 	            });

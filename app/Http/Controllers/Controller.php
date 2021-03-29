@@ -213,9 +213,25 @@ class Controller extends BaseController
         return view('front-end.order',compact('system','categories','menus','items_cart'));
     }
     public function postAddOrder(Request $request){
-        $order = new Order;
-        $order->add($request);
+        $items = Cart::content();
+        $shop_id = array();
+        $i = 0;
+        foreach($items as $item){
+            $shop_id[$i] = $item->options->shop_id;
+            $i++;
+        }
+        $shops = User::whereIn('id',$shop_id)->get();
+        foreach($shops as $shop){
+            $id = $shop->id;
+            $items = Cart::search(function($cartItem, $rowId) use($id) {
+                return $cartItem->options->shop_id == $id;
+            });
+            $order = new Order;
+            $order->add($request,$items);
+        }
+        Cart::destroy();
         return redirect()->route('cart')->with(['flash_level'=>'success','flash_message'=>'Đặt hàng thành công']);
+        
     }
     // end add to cart
 }

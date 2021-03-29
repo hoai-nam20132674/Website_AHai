@@ -121,6 +121,9 @@ Route::post('/merchant-creator/change-password', 'MerchantController@postEditPas
 Route::get('/merchant/product/edit/{id}', 'MerchantController@editProduct')->name('merchantEditProduct');
 Route::post('merchant/product/edit/{id}', 'MerchantController@postEditProduct')->name('merchantPostEditProduct');
 Route::post('merchant/product/add', 'MerchantController@postAddProduct')->name('merchantPostAddProduct');
+Route::get('/don-hang-ban', 'MerchantController@salesOrder')->name('SO');
+Route::get('/don-hang-mua', 'MerchantController@purchaseOrder')->name('PO');
+Route::get('/xoa-don-hang/{id}', 'MerchantController@removeOrder')->name('removeOrder');
 // end Merchant route
 
 // add to cart

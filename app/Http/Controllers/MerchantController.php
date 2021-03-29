@@ -8,11 +8,14 @@ use App\Product;
 use App\Menu;
 use App\User;
 use App\System;
+use App\Order;
+use App\OrderDetail;
 use App\Http\Requests\addProductRequest;
 use App\Http\Requests\editProductRequest;
 use App\Http\Requests\editPasswordRequest;
 use App\Http\Requests\editInfoRequest;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\Controller;
 
 class MerchantController extends Controller
 {
@@ -34,22 +37,22 @@ class MerchantController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function index(){
-        $system = System::where('id',1)->get()->first();
-    	$categories = ProductCate::select()->get();
-        $products = Product::where('user_id',Auth::user()->id)->get();
+        $categories = ProductCate::where('display',1)->whereNull('parent_id')->get();
         $menus = Menu::whereNull('parent_id')->orderBy('stt','ASC')->get();
+        $system = System::where('id',1)->get()->first();
+        $products = Product::where('user_id',Auth::user()->id)->get();
     	return view('front-end.shop',compact('categories','products','menus','system'));
     }
     public function info(){
-        $system = System::where('id',1)->get()->first();
-        $categories = ProductCate::select()->get();
+        $categories = ProductCate::where('display',1)->whereNull('parent_id')->get();
         $menus = Menu::whereNull('parent_id')->orderBy('stt','ASC')->get();
+        $system = System::where('id',1)->get()->first();
         return view('front-end.info',compact('categories','menus','system'));
     }
     public function editPassword(){
-        $system = System::where('id',1)->get()->first();
-        $categories = ProductCate::select()->get();
+        $categories = ProductCate::where('display',1)->whereNull('parent_id')->get();
         $menus = Menu::whereNull('parent_id')->orderBy('stt','ASC')->get();
+        $system = System::where('id',1)->get()->first();
         return view('front-end.edit-password',compact('categories','menus','system'));
     }
     public function postEditPassword(editPasswordRequest $request){
@@ -74,10 +77,10 @@ class MerchantController extends Controller
         return redirect()->route('merchantIndex')->with(['flash_level'=>'success','flash_message'=>'Đăng sản phẩm thành công']); 
     }
     public function editProduct($id){
-        $system = System::where('id',1)->get()->first();
-        $categories = ProductCate::select()->get();
-        $product = Product::where('id',$id)->get()->first();
+        $categories = ProductCate::where('display',1)->whereNull('parent_id')->get();
         $menus = Menu::whereNull('parent_id')->orderBy('stt','ASC')->get();
+        $system = System::where('id',1)->get()->first();
+        $product = Product::where('id',$id)->get()->first();
         if($product->user_id == Auth::user()->id){
             return view('front-end.editProduct',compact('categories','product','menus','system'));
         }
@@ -89,5 +92,36 @@ class MerchantController extends Controller
         $item = new Product;
         $item->edit($request,$id);
         return redirect()->route('merchantIndex')->with(['flash_level'=>'success','flash_message'=>'Sửa sản phẩm thành công']);
+    }
+    public function salesOrder(){
+        $categories = ProductCate::where('display',1)->whereNull('parent_id')->get();
+        $menus = Menu::whereNull('parent_id')->orderBy('stt','ASC')->get();
+        $system = System::where('id',1)->get()->first();
+        $products = Product::where('user_id',Auth::user()->id)->get();
+        $prs_id = Controller::arrayColumn($products,$col='id');
+        
+        $orders_detail = OrderDetail::whereIn('products_id',$prs_id)->get();
+        $orders_id = Controller::arrayColumn($orders_detail,$col='orders_id');
+        $orders = Order::whereIn('id',$orders_id)->get();
+        return view('front-end.s_order',compact('categories','menus','system','orders','orders_detail'));
+    }
+    public function purchaseOrder(){
+        $categories = ProductCate::where('display',1)->whereNull('parent_id')->get();
+        $menus = Menu::whereNull('parent_id')->orderBy('stt','ASC')->get();
+        $system = System::where('id',1)->get()->first();
+        $orders = Order::where('phone',Auth::user()->phone)->get();
+        $orders_id = Controller::arrayColumn($orders,$col='id');
+        $orders_detail = OrderDetail::whereIn('orders_id',$orders_id)->get();
+        return view('front-end.p_order',compact('categories','menus','system','orders','orders_detail'));
+    }
+    public function removeOrder($id){
+        $order = Order::where('id',$id)->first();
+        if(Auth::user()->phone == $order->phone){
+            $order->delete();
+            return redirect()->route('PO')->with(['flash_level'=>'success','flash_message'=>'Xóa đơn hàng thành công']);
+        }
+        else{
+            return redirect()->route('PO')->with(['flash_level'=>'danger','flash_message'=>'Xóa đơn hàng không thành công']);
+        }
     }
 }

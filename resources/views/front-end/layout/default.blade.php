@@ -6,6 +6,7 @@
     
 	<link rel="shortcut icon" href="{{asset('uploads/images/systems/'.$system->shortcut_logo)}}" />
 	<link rel="stylesheet" type="text/css" href="{{asset('css/toastr.min.css')}}">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 	
 @yield('head')
 </head>

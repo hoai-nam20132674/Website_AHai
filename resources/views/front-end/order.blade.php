@@ -162,23 +162,23 @@
                     <div class="col-md-7 col-sm-12 b__cart-info-left">
                         <div class="b__cart-content">
                         	<form method="POST" action="{{URL::route('postAddOrder')}}">
-                            
+                            <input type="hidden" name="_token" value="{{ csrf_token()}}">
                             <div class="b__cart-body">
                             	@if(Auth::user())
                                 	<h3 class="title-step customer-info">Thông tin khách hàng (Đang sử dụng thông tin đăng nhập)</h3>
                                 
 	                                <div class="form-row">
 	                                    <div class="form-group col-md-6 col-sm-12 col-xs-12">
-	                                        <div class="form-group" ng-class="errors.buyerName?'has-error':''">
+	                                        <div class="form-group" >
 	                                            <label>Họ và tên <span class="text-red">(*)</span></label>
-	                                            <input type="text" required class="form-control" value="{{Auth::user()->name}}" placeholder="" >
+	                                            <input type="text" name="name" required class="form-control" value="{{Auth::user()->name}}" placeholder="" >
 	                                            
 	                                        </div>
 	                                    </div>
 	                                    <div class="form-group col-md-6 col-sm-12 col-xs-12">
 	                                        <div class="form-group">
 	                                            <label>Số điện thoại <span class="text-red">(*)</span></label>
-	                                            <input type="text" value="{{Auth::user()->phone}}" required class="form-control" style="border-radius: 4px" placeholder="" >
+	                                            <input type="text" name="phone" value="{{Auth::user()->phone}}" required class="form-control" style="border-radius: 4px" placeholder="" >
 	                                            
 	                                        </div>
 	                                    </div>
@@ -187,7 +187,7 @@
 	                                <div class="form-group col-md-12 col-sm-12 col-xs-12">
 	                                    <div class="form-group" ng-class="errors.buyerAddress?'has-error':''">
 	                                        <label>Địa chỉ nhận hàng<span class="text-red"></span></label>
-	                                        <input required value="{{Auth::user()->address}}" class="form-control" type="text" placeholder="" />
+	                                        <input required name="address" value="{{Auth::user()->address}}" class="form-control" type="text" placeholder="" />
 	                                        
 	                                    </div>
 	                                </div>
@@ -197,14 +197,14 @@
 	                                    <div class="form-group col-md-6 col-sm-12 col-xs-12">
 	                                        <div class="form-group" ng-class="errors.buyerName?'has-error':''">
 	                                            <label>Họ và tên <span class="text-red">(*)</span></label>
-	                                            <input type="text" required class="form-control" placeholder="" >
+	                                            <input type="text" name="name" required class="form-control" placeholder="" >
 	                                            
 	                                        </div>
 	                                    </div>
 	                                    <div class="form-group col-md-6 col-sm-12 col-xs-12">
 	                                        <div class="form-group">
 	                                            <label>Số điện thoại <span class="text-red">(*)</span></label>
-	                                            <input type="text" required class="form-control" style="border-radius: 4px" placeholder="" >
+	                                            <input type="text" name="phone" required class="form-control" style="border-radius: 4px" placeholder="" >
 	                                            
 	                                        </div>
 	                                    </div>
@@ -213,7 +213,7 @@
 	                                <div class="form-group col-md-12 col-sm-12 col-xs-12">
 	                                    <div class="form-group" ng-class="errors.buyerAddress?'has-error':''">
 	                                        <label>Địa chỉ nhận hàng<span class="text-red"></span></label>
-	                                        <input required class="form-control" type="text" placeholder="" />
+	                                        <input required name="address" class="form-control" type="text" placeholder="" />
 	                                        
 	                                    </div>
 	                                </div>
@@ -224,7 +224,7 @@
                                         <div class="note-content">
                                             <div class="note-content__in">
                                                 <label>Ghi chú</label>
-                                                <textarea placeholder="Lưu ý cho người bán..." rows="5" class="form-control customer-note" ></textarea>
+                                                <textarea name="messages" placeholder="Lưu ý cho người bán..." rows="5" class="form-control customer-note" ></textarea>
                                                 
                                             </div>
                                         </div>
