@@ -358,8 +358,15 @@
 
 
                                     <div class="b__product--detail b__product--evaluate">
-                                        <h3>Đánh giá sản phẩm</h3>
+                                        <div class="row">
+
+                                            <div class="col-md-6 col-xs-6">
+                                                <h3>Đánh giá sản phẩm</h3>
+                                            </div>
+                                            
+                                        </div>
                                         <div class="b__product--evaluate_ls">
+                                            
                                             <div class="b__product--evaluate_left">
                                                 <div class="rate-sanpham">
                                                     <div class="rate-num">
@@ -369,16 +376,8 @@
                                                     <span class="jstars" data-value="4"></span>
                                                 </div>
                                             </div>
-                                            <div class="b__product--evaluate_right">
-                                                <ul>
-                                                    <li class="prd_filter active" ng-click="getRate(0)">Tất cả</li>
-                                                    <li class="prd_filter" ng-click="getRate(5)">5 Sao (<span ng-bind="countRate.c5"></span>)</li>
-                                                    <li class="prd_filter" ng-click="getRate(4)">4 Sao (<span ng-bind="countRate.c4"></span>)</li>
-                                                    <li class="prd_filter" ng-click="getRate(3)">3 Sao (<span ng-bind="countRate.c3"></span>)</li>
-                                                    <li class="prd_filter" ng-click="getRate(2)">2 Sao (<span ng-bind="countRate.c2"></span>)</li>
-                                                    <li class="prd_filter" ng-click="getRate(1)">1 Sao (<span ng-bind="countRate.c1"></span>)</li>
-                                                </ul>
-                                            </div>
+                                            
+
                                         </div>
                                         <div class="b__product--comment">
                                         	<div class="media ng-scope">
@@ -421,6 +420,13 @@
                                         	</div>
 
                                         	<!-- ngIf: rates.length==0 -->
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="b__product--evaluate_right" style="float: right;">
+                                                    <button class="btn btn-danger"><i class="fa fa-plus" style="margin-right: 5px;"></i>ĐÁNH GIÁ SẢN PHẨM</button>
+                                                </div>
+                                            </div>
                                         </div>
 
                                         

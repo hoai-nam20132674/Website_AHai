@@ -26,6 +26,7 @@ use App\Contact;
 use App\Card;
 use App\Slider;
 use App\Order;
+use App\OrderDetail;
 use Cart;
 
 class Controller extends BaseController
@@ -40,6 +41,7 @@ class Controller extends BaseController
         $best_sale = Product::where('display',1)->where('best_sale',1)->orderBy('updated_at','DESC')->get();
         $product_new = Product::where('display',1)->orderBy('id','DESC')->get();
         $product_hot = Product::where('display',1)->where('hot',1)->orderBy('updated_at','DESC')->get();
+        // $hot_orders_id = OrderDetail::where()
         $products = Product::where('display',1)->orderBy('id','DESC')->get();
         return view('front-end.index',compact('sliders','categories','menus','best_sale','product_new','product_hot','products','system'));
 

@@ -146,6 +146,9 @@
 	    overflow: hidden;
 	    margin: 0;
 	}
+	.order-detail-border{
+		border: 2px solid red;
+	}
 
 </style>
 
@@ -206,7 +209,7 @@
 							<div class="tab-content responsive-hide">
 								<div id="home" class="tab-pane fade in active ">
 									<div class="form-group search-bar">
-										<input type="text" ng-model="code" ng-change="search();" class="form-control" placeholder="Tìm kiếm theo Tên Shop, mã đơn hàng, mã bưu gửi">
+										<input type="text" ng-model="code" ng-change="search();" class="form-control" placeholder="Tìm kiếm theo mã đơn hàng, mã bưu gửi">
 									</div>
 									<div class="order-content__header table-header border-bottom" style="padding: 8px 0px 0 7px; font-size: 13px;height: 35px;">
 										<div class="order col-md-5 col-sm-12 font-weight-bold p-0">ĐƠN HÀNG</div>
@@ -243,7 +246,7 @@
 														</div>
 														
 														<a href="#chat" class="btn btn-primary visible-xs button-chat">
-															<i class="far fa-comment-dots mr-1"></i>Chat với người mua
+															<i class="fas fa-qrcode mr-1"></i>Mã đơn: MDH{{$order->id}}
 														</a>
 														@else
 														<div class="visible-xs">
@@ -255,21 +258,126 @@
 																<a href="/qua-tang-toan-quoc-s32695" target="_blank" class="shop-name visible-xs ng-binding">{{$order->name}}</a>
 															</div>
 														</div>
+														<a href="#chat" class="btn btn-primary visible-xs button-chat">
+															<i class="fas fa-qrcode mr-1"></i>Mã đơn: MDH{{$order->id}}
+														</a>
 														@endif
 
 													</div>
 												</div>
 												<div>
-													<span class="badge1 badge badge-pill pack-status visible-xs ng-binding badge-success">
-														Chờ duyệt
-													</span>
+													
+													@if($order->status ==0)
+														<div class="badge1 badge badge-pill pack-status visible-xs ng-binding badge-danger" style="padding: 3px;">
+															<div class="form-group" style="margin-bottom: 0px;">
+						                                        <select class="form-control ui-select ui-select" name="" id="">
+						                                        	<option value="0">Chờ duyệt</option>
+						                                        	<option value="1">Đang giao hàng</option>
+						                                        	<option value="2">Đã giao hàng</option>
+						                                        </select>
+						                                    </div>
+														</div>
+													@elseif($order->status ==1)
+														<div class="badge1 badge badge-pill pack-status visible-xs ng-binding badge-warning" style="padding: 3px;">
+															<div class="form-group" style="margin-bottom: 0px;">
+						                                        <select class="form-control ui-select ui-select" name="" id="">
+						                                        	<option value="1">Đang giao hàng</option>
+						                                        	<option value="0">Chờ duyệt</option>
+						                                        	<option value="2">Đã giao hàng</option>
+						                                        </select>
+						                                    </div>
+														</div>
+													@else
+														<div class="badge1 badge badge-pill pack-status visible-xs ng-binding badge-Success" style="padding: 3px;">
+															<div class="form-group" style="margin-bottom: 0px;">
+						                                        <select class="form-control ui-select ui-select" name="" id="">
+						                                        	<option value="2">Đã giao hàng</option>
+						                                        	<option value="0">Chờ duyệt</option>
+						                                        	<option value="1">Đang giao hàng</option>
+						                                        	
+						                                        </select>
+						                                    </div>
+														</div>
+													@endif
 												</div>
 												<div class="order-content__header__seller__view-shop-btn">
 												</div>
 											</div>
 											<div>
 												<!-- <a order-id="{{$order->id}}" href="{{URL::route('removeOrder',$order->id)}}" class=" remove-order mb-2 btn btn-danger btn-res detail-button hidden-xs">HỦY ĐƠN</a> -->
-												<a href="/hoa-don/48f96539" class="mb-2 btn btn-info btn-res detail-button hidden-xs">XEM CHI TIẾT</a>
+												<a href="#" id="{{$order->id}}" class="mb-2 btn btn-info btn-res detail-button hidden-xs show-detail">XEM CHI TIẾT</a>
+											</div>
+											
+										</div>
+										<div class="info-detail hidden" id="{{$order->id}}">
+											<div class="b__title title_filter">
+												<div class="form-row" style="padding-bottom: 10px">
+													<div class="col-md-6 col-sm-12">
+														<h3>Thông tin người mua</h3>
+													</div>
+													
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-md-12">
+						                            <div class="main-form">
+						                                <div class="form-body">
+						                                	<div class="row">
+						                            			<div class="col-md-6">
+								                                    <div class="form-group"  >
+								                
+								                                        <label for="name" class="control-label required">Họ tên</label>
+								                                        <input disabled class="form-control" placeholder="Nhập họ tên" data-counter="120" value="{{$order->name}}" name="name" type="text" required id="name">
+								                                    </div>
+								                
+								                                    
+								                                    <input type="hidden" name="model" value="">
+								                
+								                                    <div class="clearfix"></div>
+								                                </div>
+								                                <div class="col-md-6">
+								                                    <div class="form-group"  >
+								                
+								                                        <label for="name_s" class="control-label ">Số điện thoại</label>
+								                                        <input disabled class="form-control" placeholder="Nhập tên gian hàng" data-counter="120" value="{{$order->phone}}" name="name_s" type="text" required id="name_s">
+								                                    </div>
+								                
+								                                    
+								                                    <input type="hidden" name="model" value="">
+								                
+								                                    <div class="clearfix"></div>
+								                                </div>
+								                            </div>
+								                            <div class="row">
+						                            			<div class="col-md-12">
+								                                    <div class="form-group"  >
+								                
+								                                        <label for="phone" class="control-label required">Địa chỉ nhận hàng</label>
+								                                        <input disabled class="form-control" placeholder="Nhập sđt" data-counter="120" value="{{$order->address}}" name="phone" type="text" required id="phone">
+								                                    </div>
+								                
+								                                    
+								                                    <input type="hidden" name="model" value="">
+								                
+								                                    <div class="clearfix"></div>
+								                                </div>
+								                                
+								                            </div>
+								                            <div class="row">
+								                            	<div class="col-md-12">
+								                            		<div class="form-group"  >
+								                
+								                                        <label for="messages" class="control-label required">Ghi chú</label>
+								                                        <textarea disabled name="messages" placeholder="Lưu ý cho người bán..." rows="5" class="form-control customer-note" >{{$order->messages}}</textarea>
+								                                    </div>
+								                
+								                                    
+								                                    <input type="hidden" name="model" value="">
+								                            	</div>
+								                            </div>
+						                                </div>
+						                            </div>
+						                    </div>
 											</div>
 										</div>
 										@foreach($orders_detail as $order_detail)
@@ -293,9 +401,38 @@
 															</div>
 														</div>
 														<div class="col-md-2 text-center hidden-xs text-center">
-															<div class="badge1 badge badge-pill pack-status ng-binding badge-success">
-																Chờ duyệt
-															</div>
+															@if($order_detail->status ==0)
+																<div class="badge1 badge badge-pill pack-status ng-binding badge-danger" style="padding: 3px;">
+																	<div class="form-group" style="margin-bottom: 0px;">
+								                                        <select class="form-control ui-select ui-select" name="" id="">
+								                                        	<option value="0">Chờ duyệt</option>
+								                                        	<option value="1">Đang giao hàng</option>
+								                                        	<option value="2">Đã giao hàng</option>
+								                                        </select>
+								                                    </div>
+																</div>
+															@elseif($order_detail->status ==1)
+																<div class="badge1 badge badge-pill pack-status ng-binding badge-warning" style="padding: 3px;">
+																	<div class="form-group" style="margin-bottom: 0px;">
+								                                        <select class="form-control ui-select ui-select" name="" id="">
+								                                        	<option value="1">Đang giao hàng</option>
+								                                        	<option value="0">Chờ duyệt</option>
+								                                        	<option value="2">Đã giao hàng</option>
+								                                        </select>
+								                                    </div>
+																</div>
+															@else
+																<div class="badge1 badge badge-pill pack-status ng-binding badge-Success" style="padding: 3px;">
+																	<div class="form-group" style="margin-bottom: 0px;">
+								                                        <select class="form-control ui-select ui-select" name="" id="">
+								                                        	<option value="2">Đã giao hàng</option>
+								                                        	<option value="0">Chờ duyệt</option>
+								                                        	<option value="1">Đang giao hàng</option>
+								                                        	
+								                                        </select>
+								                                    </div>
+																</div>
+															@endif
 														</div>
 														<div class="see-more col-md-2 text-center">
 															
@@ -322,11 +459,11 @@
 															<img src="{{asset('uploads/images/users/avatars/'.$user->avatar)}}" alt="">
 														</a>
 														<div class="order-content__header__seller__name d-flex ng-scope" style="margin: 0 10px" ng-controller="chatCtrl">
-															<a title="" href="#" target="_blank" class="shop-name ng-binding">{{$order->name}}</a>
+															<a title="" href="#" target="_blank" class="shop-name ng-binding">{{$order->name}} - {{$order->phone}}</a>
 															
-															<a href="#chat" class="btn btn-primary hidden-xs button-chat">
-																<i class="far fa-comment-dots mr-1"></i>Chat với người mua
-															</a>
+															<!-- <a href="#chat" class="btn btn-primary hidden-xs button-chat">
+																<i class="fas fa-qrcode mr-1"></i>Chat với người mua
+															</a> -->
 															
 
 														</div>
@@ -335,7 +472,7 @@
 															<img src="{{asset('images/avatar_default.png')}}" alt="">
 														</a>
 														<div class="order-content__header__seller__name d-flex ng-scope" style="margin: 0 10px" ng-controller="chatCtrl">
-															<a title="" href="#" target="_blank" class="shop-name ng-binding">{{$order->name}}</a>
+															<a title="" href="#" target="_blank" class="shop-name ng-binding">{{$order->name}}  - {{$order->phone}}</a>
 														</div>
 													@endif
 												</div>
@@ -345,7 +482,7 @@
 											<div class="order-info-bottom">
 												<div class="rating-mb visible-xs">
 													<!-- <a order-id="{{$order->id}}" href="{{URL::route('removeOrder',$order->id)}}" class="remove-order mb-2 btn btn-danger btn-res detail-button visible-xs">HỦY ĐƠN</a> -->
-													<a href="/hoa-don/48f96539" class="mb-2 btn btn-info btn-res detail-button visible-xs">XEM CHI TIẾT</a>
+													<a href="#" id="{{$order->id}}" class="mb-2 btn btn-info btn-res detail-button visible-xs show-detail">XEM CHI TIẾT</a>
 													</div>
 													<div class="purchase-card-right p-relative">
 														<span class="purchase-id hidden-xs mr-4">Mã đơn hàng: <span class="order-code font-weight-bold ng-binding">MDH-{{$order->id}}</span></span>
@@ -718,6 +855,70 @@
 			});
 		});
 		
+	</script>
+	<script type="text/javascript">
+		$(document).on('click', '.show-detail', function(event) {
+			event.preventDefault();
+			id = $(this).attr('id');
+
+			if($('.info-detail[id="'+id+'"]').hasClass("hidden")){
+				$('div #group').each(function(){
+					if($(this).hasClass("order-detail-border")){
+						$(this).removeClass("order-detail-border");
+						order_id = $(this).attr('order-id');
+						$('.show-detail[id="'+order_id+'"]').text('Xem chi tiết')
+						$('.show-detail[id="'+order_id+'"]').removeClass('btn-danger');
+						$('.show-detail[id="'+order_id+'"]').addClass('btn-info');
+					}
+					else{
+
+					}
+				});
+				$('div .info-detail').each(function(){
+					if($(this).hasClass("hidden")){
+
+					}
+					else{
+						$(this).addClass("hidden");
+					}
+					
+				});
+				$('div #group[order-id="'+id+'"]').addClass("order-detail-border");
+				$('div .info-detail[id="'+id+'"]').removeClass("hidden");
+				$(this).text('Thu gọn');
+				$(this).removeClass('btn-info');
+				$(this).addClass('btn-danger');
+
+				
+				
+			}
+			else{
+				$('div #group').each(function(){
+					if($(this).hasClass("order-detail-border")){
+						$(this).removeClass("order-detail-border");
+					}
+					else{
+
+					}
+				});
+				$('div .info-detail').each(function(){
+					if($(this).hasClass("hidden")){
+
+					}
+					else{
+						$(this).addClass("hidden");
+					}
+					
+				});
+				$(this).text('Xem chi tiết');
+				$(this).removeClass('btn-danger');
+				$(this).addClass('btn-info');
+				// $('#group[order-id="'+id+'"]').removeClass("order-detail-border");
+				// $('.info-detail[id="'+id+'"]').addClass("hidden");
+				
+			}
+			console.log(id);
+		});
 	</script>
 
     

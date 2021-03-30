@@ -29,7 +29,7 @@
 }
 
 .order-history .detail-button {
-    border-radius: 21px
+    border-radius: 5px
 }
 
 .order-history .pack-status {
@@ -297,7 +297,7 @@
 }
 
 .order-history .shop-name {
-    width: 120px;
+    /*width: 120px;*/
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
