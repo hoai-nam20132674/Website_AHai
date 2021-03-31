@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th3 23, 2021 lúc 09:36 PM
--- Phiên bản máy phục vụ: 10.4.13-MariaDB
--- Phiên bản PHP: 7.4.8
+-- Thời gian đã tạo: Th3 31, 2021 lúc 11:46 AM
+-- Phiên bản máy phục vụ: 10.1.38-MariaDB
+-- Phiên bản PHP: 7.3.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -20,6 +21,36 @@ SET time_zone = "+00:00";
 --
 -- Cơ sở dữ liệu: `ahai`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `ads`
+--
+
+CREATE TABLE `ads` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `type` tinyint(1) NOT NULL,
+  `href` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `url` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `target` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `display` tinyint(1) NOT NULL,
+  `stt` int(11) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `ads`
+--
+
+INSERT INTO `ads` (`id`, `type`, `href`, `url`, `target`, `display`, `stt`, `created_at`, `updated_at`) VALUES
+(1, 2, NULL, 'GyPhS3LugjsSHkgT1tjb.png', '_self', 1, NULL, '2021-03-31 01:10:35', '2021-03-31 01:53:08'),
+(2, 1, '#', 'U6xnR9eyr69B0zhU3Jxg.png', '_self', 1, NULL, '2021-03-31 01:35:33', '2021-03-31 01:35:33'),
+(3, 2, NULL, 'gWx8HOQuCnC2sPkxeLHk.png', '_self', 1, NULL, '2021-03-31 02:31:04', '2021-03-31 02:31:04'),
+(4, 2, NULL, '163bd81bc1a24b94de0b6a6dc89deb3a_xxhdpi.jpg', '_self', 1, NULL, '2021-03-31 02:32:48', '2021-03-31 02:32:48'),
+(5, 2, NULL, '4b6ae48487e2f4f87cbe8f9ddfaad6d0_xxhdpi.jpg', '_self', 1, NULL, '2021-03-31 02:33:03', '2021-03-31 02:33:03'),
+(6, 1, NULL, '6GmTeZHHWeRDQzPKwnBT.png', '_self', 1, NULL, '2021-03-31 02:33:59', '2021-03-31 02:33:59');
 
 -- --------------------------------------------------------
 
@@ -104,7 +135,23 @@ CREATE TABLE `failed_jobs` (
   `queue` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `payload` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `exception` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `failed_at` timestamp NOT NULL DEFAULT current_timestamp()
+  `failed_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `feedback`
+--
+
+CREATE TABLE `feedback` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `product_id` bigint(20) UNSIGNED NOT NULL,
+  `user_id` bigint(20) UNSIGNED NOT NULL,
+  `rate` tinyint(1) DEFAULT NULL,
+  `messages` longtext COLLATE utf8mb4_unicode_ci,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -173,7 +220,9 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (14, '2020_07_19_180327_create_contacts_table', 1),
 (15, '2021_03_11_035924_create_orders_table', 1),
 (16, '2021_03_11_040514_create_order_details_table', 1),
-(17, '2021_03_15_021114_create_sliders_table', 1);
+(17, '2021_03_15_021114_create_sliders_table', 1),
+(18, '2021_03_31_065751_create_feedback_table', 2),
+(19, '2021_03_31_070545_create_ads_table', 2);
 
 -- --------------------------------------------------------
 
@@ -192,6 +241,15 @@ CREATE TABLE `orders` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Đang đổ dữ liệu cho bảng `orders`
+--
+
+INSERT INTO `orders` (`id`, `name`, `phone`, `address`, `messages`, `status`, `created_at`, `updated_at`) VALUES
+(1, 'Nguyễn hoài nam', '+84848384333', 'Lê thanh thị', NULL, 0, '2021-03-28 19:48:11', '2021-03-28 19:48:11'),
+(9, 'Nguyễn Hoài Nam 5', '0848384335', 'Hà Nội', NULL, 0, '2021-03-29 05:42:56', '2021-03-29 05:42:56'),
+(10, 'Nguyễn Hoài Nam', '0842829222', 'Hồ Chí Minh quận 1', 'Giao hàng ngay', 0, '2021-03-30 03:03:06', '2021-03-30 03:03:06');
+
 -- --------------------------------------------------------
 
 --
@@ -205,9 +263,20 @@ CREATE TABLE `order_details` (
   `comment` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `status` tinyint(1) NOT NULL,
   `amount` int(11) NOT NULL,
+  `qty` int(11) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `order_details`
+--
+
+INSERT INTO `order_details` (`id`, `orders_id`, `products_id`, `comment`, `status`, `amount`, `qty`, `created_at`, `updated_at`) VALUES
+(1, 1, 1, NULL, 1, 200000, 1, '2021-03-28 19:48:11', '2021-03-28 19:48:11'),
+(2, 1, 8, NULL, 0, 1, 1, '2021-03-28 19:48:11', '2021-03-28 19:48:11'),
+(14, 9, 1, NULL, 0, 200000, 1, '2021-03-29 05:42:56', '2021-03-29 05:42:56'),
+(15, 10, 7, NULL, 0, 3, 3, '2021-03-30 03:03:06', '2021-03-30 03:03:06');
 
 -- --------------------------------------------------------
 
@@ -259,7 +328,19 @@ CREATE TABLE `pcids` (
 --
 
 INSERT INTO `pcids` (`id`, `product_id`, `cate_id`, `created_at`, `updated_at`) VALUES
-(1, 1, 2, '2021-03-23 12:46:45', '2021-03-23 12:46:45');
+(1, 1, 2, '2021-03-23 12:46:45', '2021-03-23 12:46:45'),
+(3, 2, 2, '2021-03-24 21:43:43', '2021-03-24 21:43:43'),
+(4, 3, 2, '2021-03-25 21:13:45', '2021-03-25 21:13:45'),
+(5, 4, 2, '2021-03-25 21:19:47', '2021-03-25 21:19:47'),
+(6, 5, 2, '2021-03-25 21:20:40', '2021-03-25 21:20:40'),
+(7, 6, 2, '2021-03-25 21:21:11', '2021-03-25 21:21:11'),
+(8, 7, 2, '2021-03-25 21:21:36', '2021-03-25 21:21:36'),
+(9, 8, 2, '2021-03-25 21:22:08', '2021-03-25 21:22:08'),
+(10, 9, 2, '2021-03-25 21:23:02', '2021-03-25 21:23:02'),
+(11, 10, 2, '2021-03-25 21:23:27', '2021-03-25 21:23:27'),
+(13, 11, 2, '2021-03-26 19:54:51', '2021-03-26 19:54:51'),
+(14, 1, 10, '2021-03-27 00:47:30', '2021-03-27 00:47:30'),
+(15, 12, 2, '2021-03-27 00:49:26', '2021-03-27 00:49:26');
 
 -- --------------------------------------------------------
 
@@ -272,9 +353,9 @@ CREATE TABLE `products` (
   `user_id` bigint(20) UNSIGNED NOT NULL,
   `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `title` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `content` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `short_description` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `seo_description` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `content` longtext COLLATE utf8mb4_unicode_ci,
+  `short_description` longtext COLLATE utf8mb4_unicode_ci,
+  `seo_description` longtext COLLATE utf8mb4_unicode_ci,
   `seo_keyword` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `url` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `display` tinyint(1) NOT NULL,
@@ -283,7 +364,7 @@ CREATE TABLE `products` (
   `avata` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `price` int(11) NOT NULL,
   `sale` int(11) DEFAULT NULL,
-  `status` tinyint(1) NOT NULL DEFAULT 1,
+  `status` tinyint(1) NOT NULL DEFAULT '1',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -293,7 +374,18 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `user_id`, `name`, `title`, `content`, `short_description`, `seo_description`, `seo_keyword`, `url`, `display`, `hot`, `best_sale`, `avata`, `price`, `sale`, `status`, `created_at`, `updated_at`) VALUES
-(1, 2, 'Đồ Ngủ Sexy 2 Dây Gợi Cảm Đen Huyền Bí', 'Đồ Ngủ Sexy 2 Dây Gợi Cảm Đen Huyền Bí', '<p><img alt=\"\" src=\"http://localhost:8000/uploads/images/products/avatars/7fc7c76d-1144-46cb-8660-da82c7cda379.jpg\" style=\"width:100%\" /></p>', '<p><img alt=\"heart\" src=\"http://localhost:8000/auth/ckeditor/plugins/smiley/images/heart.png\" style=\"height:23px; width:23px\" title=\"heart\" />&nbsp;V&agrave;i lụa mềm mịn</p>\r\n\r\n<p><img alt=\"heart\" src=\"http://localhost:8000/auth/ckeditor/plugins/smiley/images/heart.png\" style=\"height:23px; width:23px\" title=\"heart\" />&nbsp;Tho&aacute;ng m&aacute;t sexy</p>\r\n\r\n<p><img alt=\"heart\" src=\"http://localhost:8000/auth/ckeditor/plugins/smiley/images/heart.png\" style=\"height:23px; width:23px\" title=\"heart\" />&nbsp;Miễn ph&iacute; giao h&agrave;ng với đơn &gt;500.000đ</p>\r\n\r\n<p><img alt=\"heart\" src=\"http://localhost:8000/auth/ckeditor/plugins/smiley/images/heart.png\" style=\"height:23px; width:23px\" title=\"heart\" />&nbsp;Giao h&agrave;ng trong 2-3 ng&agrave;y</p>\r\n\r\n<p><img alt=\"\" src=\"http://localhost:8000/uploads/images/products/avatars/untitled-1_825a75672b664bbca445cfd0f097c38e_master.jpg\" style=\"width:100%\" /></p>', 'Đồ Ngủ Sexy 2 Dây Gợi Cảm Đen Huyền Bí', 'Đồ Ngủ Sexy 2 Dây Gợi Cảm Đen Huyền Bí', 'do-ngu-sexy-2-day-goi-cam-den-huyen-bi-pi1', 1, 1, 1, '7fc7c76d-1144-46cb-8660-da82c7cda379.jpg', 250000, 200000, 1, '2021-03-23 12:46:45', '2021-03-23 12:54:53');
+(1, 2, 'Đồ Ngủ Sexy 2 Dây Gợi Cảm Đen Huyền Bí 69', 'Đồ Ngủ Sexy 2 Dây Gợi Cảm Đen Huyền Bí', '<p><img alt=\"\" src=\"http://localhost:8000/uploads/images/products/avatars/7fc7c76d-1144-46cb-8660-da82c7cda379.jpg\" style=\"width:100%\" /></p>', '<p><img alt=\"heart\" src=\"http://localhost:8000/auth/ckeditor/plugins/smiley/images/heart.png\" style=\"height:23px; width:23px\" title=\"heart\" />&nbsp;V&agrave;i lụa mềm mịn</p>\r\n\r\n<p><img alt=\"heart\" src=\"http://localhost:8000/auth/ckeditor/plugins/smiley/images/heart.png\" style=\"height:23px; width:23px\" title=\"heart\" />&nbsp;Tho&aacute;ng m&aacute;t sexy</p>\r\n\r\n<p><img alt=\"heart\" src=\"http://localhost:8000/auth/ckeditor/plugins/smiley/images/heart.png\" style=\"height:23px; width:23px\" title=\"heart\" />&nbsp;Miễn ph&iacute; giao h&agrave;ng với đơn &gt;500.000đ</p>\r\n\r\n<p><img alt=\"heart\" src=\"http://localhost:8000/auth/ckeditor/plugins/smiley/images/heart.png\" style=\"height:23px; width:23px\" title=\"heart\" />&nbsp;Giao h&agrave;ng trong 2-3 ng&agrave;y</p>\r\n\r\n<p><img alt=\"\" src=\"http://localhost:8000/uploads/images/products/avatars/untitled-1_825a75672b664bbca445cfd0f097c38e_master.jpg\" style=\"width:100%\" /></p>', 'Đồ Ngủ Sexy 2 Dây Gợi Cảm Đen Huyền Bí', 'Đồ Ngủ Sexy 2 Dây Gợi Cảm Đen Huyền Bí', 'do-ngu-sexy-2-day-goi-cam-den-huyen-bi-pi1', 1, 1, 1, '7fc7c76d-1144-46cb-8660-da82c7cda379.jpg', 250000, 200000, 1, '2021-03-23 12:46:45', '2021-03-27 01:17:09'),
+(2, 2, 'Đồ Ngủ Sexy 2 Dây Gợi Cảm Đen Huyền Bí 2', 'Đồ Ngủ Sexy 2 Dây Gợi Cảm Đen Huyền Bí 2', '<p>Đồ Ngủ Sexy 2 D&acirc;y Gợi Cảm Đen Huyền B&iacute; 2</p>', '<p>Đồ Ngủ Sexy 2 D&acirc;y Gợi Cảm Đen Huyền B&iacute; 2</p>', NULL, NULL, 'do-ngu-sexy-2-day-goi-cam-den-huyen-bi-2-pi2', 1, 0, 0, '3.jpg', 150000, 50000, 1, '2021-03-24 21:43:43', '2021-03-24 21:43:43'),
+(3, 2, 'Đồ Ngủ Sexy 2 Dây Gợi Cảm Đen Huyền Bív3', 'Đồ Ngủ Sexy 2 Dây Gợi Cảm Đen Huyền Bív3', '<p>Đồ Ngủ Sexy 2 D&acirc;y Gợi Cảm Đen Huyền B&iacute; 3</p>', '<h1>Đồ Ngủ Sexy 2 D&acirc;y Gợi Cảm Đen Huyền B&iacute; 3</h1>', NULL, NULL, 'do-ngu-sexy-2-day-goi-cam-den-huyen-biv3-pi3', 1, 0, 0, '334299aa-aa3b-4a7b-9b15-e6a79ce60bba.jpg', 200000, 100000, 1, '2021-03-25 21:13:45', '2021-03-25 21:13:45'),
+(4, 2, 'Đồ Ngủ Sexy 2 Dây Gợi Cảm Đen Huyền Bí 4', 'Đồ Ngủ Sexy 2 Dây Gợi Cảm Đen Huyền Bí 4', '<p>Đồ Ngủ Sexy 2 D&acirc;y Gợi Cảm Đen Huyền B&iacute; 4</p>', '<p>Đồ Ngủ Sexy 2 D&acirc;y Gợi Cảm Đen Huyền B&iacute; 4</p>', NULL, NULL, 'do-ngu-sexy-2-day-goi-cam-den-huyen-bi-4-pi4', 1, 0, 0, '5.jpg', 1, 1, 1, '2021-03-25 21:19:47', '2021-03-25 21:19:47'),
+(5, 2, 'Đồ Ngủ Sexy 2 Dây Gợi Cảm Đen Huyền Bí 5', 'Đồ Ngủ Sexy 2 Dây Gợi Cảm Đen Huyền Bí 5', '<p>Đồ Ngủ Sexy 2 D&acirc;y Gợi Cảm Đen Huyền B&iacute; 4</p>', '<p>Đồ Ngủ Sexy 2 D&acirc;y Gợi Cảm Đen Huyền B&iacute; 4</p>', NULL, NULL, 'do-ngu-sexy-2-day-goi-cam-den-huyen-bi-5-pi5', 1, 0, 0, '2.jpg', 1, 1, 1, '2021-03-25 21:20:40', '2021-03-25 21:20:40'),
+(6, 2, 'Đồ Ngủ Sexy 2 Dây Gợi Cảm Đen Huyền Bí 6', 'Đồ Ngủ Sexy 2 Dây Gợi Cảm Đen Huyền Bí 6', '<p>Đồ Ngủ Sexy 2 D&acirc;y Gợi Cảm Đen Huyền B&iacute; 6</p>', '<p>Đồ Ngủ Sexy 2 D&acirc;y Gợi Cảm Đen Huyền B&iacute; 6</p>', NULL, NULL, 'do-ngu-sexy-2-day-goi-cam-den-huyen-bi-6-pi6', 1, 0, 0, '1.jpg', 2, 2, 1, '2021-03-25 21:21:11', '2021-03-25 21:21:11'),
+(7, 2, 'Đồ Ngủ Sexy 2 Dây Gợi Cảm Đen Huyền Bí 7', 'Đồ Ngủ Sexy 2 Dây Gợi Cảm Đen Huyền Bí 7', '<p>Đồ Ngủ Sexy 2 D&acirc;y Gợi Cảm Đen Huyền B&iacute; 7</p>', '<p>Đồ Ngủ Sexy 2 D&acirc;y Gợi Cảm Đen Huyền B&iacute; 7</p>', NULL, NULL, 'do-ngu-sexy-2-day-goi-cam-den-huyen-bi-7-pi7', 1, 1, 1, '2.jpg', 1, 1, 1, '2021-03-25 21:21:36', '2021-03-26 19:52:53'),
+(8, 2, 'Đồ Ngủ Sexy 2 Dây Gợi Cảm Đen Huyền Bí 8', 'Đồ Ngủ Sexy 2 Dây Gợi Cảm Đen Huyền Bí 8', '<p>Đồ Ngủ Sexy 2 D&acirc;y Gợi Cảm Đen Huyền B&iacute; 8</p>', '<p>Đồ Ngủ Sexy 2 D&acirc;y Gợi Cảm Đen Huyền B&iacute; 8</p>', NULL, NULL, 'do-ngu-sexy-2-day-goi-cam-den-huyen-bi-8-pi8', 1, 0, 0, '3.jpg', 1, 1, 1, '2021-03-25 21:22:08', '2021-03-25 21:22:08'),
+(9, 2, 'Đồ Ngủ Sexy 2 Dây Gợi Cảm Đen Huyền Bí 9', 'Đồ Ngủ Sexy 2 Dây Gợi Cảm Đen Huyền Bí 9', '<p>Đồ Ngủ Sexy 2 D&acirc;y Gợi Cảm Đen Huyền B&iacute; 9</p>', '<p>Đồ Ngủ Sexy 2 D&acirc;y Gợi Cảm Đen Huyền B&iacute; 9</p>', NULL, NULL, 'do-ngu-sexy-2-day-goi-cam-den-huyen-bi-9-pi9', 1, 1, 1, '10325361457_2032220550.jpg', 12, 11, 1, '2021-03-25 21:23:02', '2021-03-26 19:52:34'),
+(10, 2, 'Đồ Ngủ Sexy 2 Dây Gợi Cảm Đen Huyền Bí 10', 'Đồ Ngủ Sexy 2 Dây Gợi Cảm Đen Huyền Bí 10', '<p>Đồ Ngủ Sexy 2 D&acirc;y Gợi Cảm Đen Huyền B&iacute; 10</p>', '<p>Đồ Ngủ Sexy 2 D&acirc;y Gợi Cảm Đen Huyền B&iacute; 10</p>', NULL, NULL, 'do-ngu-sexy-2-day-goi-cam-den-huyen-bi-10-pi10', 1, 1, 1, '10325364309_2032220550.jpg', 11, 1, 1, '2021-03-25 21:23:27', '2021-03-26 19:52:18'),
+(11, 3, 'Đồ Ngủ Sexy 2 Dây Gợi Cảm Đen Huyền Bí 11', 'Đồ Ngủ Sexy 2 Dây Gợi Cảm Đen Huyền Bí 11', '<p>Đồ Ngủ Sexy 2 D&acirc;y Gợi Cảm Đen Huyền B&iacute; 11</p>', '<p>Đồ Ngủ Sexy 2 D&acirc;y Gợi Cảm Đen Huyền B&iacute; 11</p>', NULL, NULL, 'do-ngu-sexy-2-day-goi-cam-den-huyen-bi-11-pi11', 1, 1, 1, '10649895812_2032220550.jpg', 1, 1, 1, '2021-03-25 21:23:54', '2021-03-26 19:52:02'),
+(12, 3, 'Đồ Ngủ Sexy 2 Dây Gợi Cảm Đen Huyền Bí 12', 'Đồ Ngủ Sexy 2 Dây Gợi Cảm Đen Huyền Bí 12', '<p>Đồ Ngủ Sexy 2 D&acirc;y Gợi Cảm Đen Huyền B&iacute; 12</p>', '<p>Đồ Ngủ Sexy 2 D&acirc;y Gợi Cảm Đen Huyền B&iacute; 12</p>', NULL, NULL, 'do-ngu-sexy-2-day-goi-cam-den-huyen-bi-12-pi12', 1, 0, 0, '12330025416_2032220550.jpg', 100000, 15000, 1, '2021-03-27 00:49:26', '2021-03-27 00:49:26');
 
 -- --------------------------------------------------------
 
@@ -334,7 +426,7 @@ INSERT INTO `product_cates` (`id`, `parent_id`, `name`, `url`, `title`, `seo_des
 (12, NULL, 'Thể thao du lịch', 'the-thao-du-lich-pc12', 'Thể thao du lịch', 'Thể thao du lịch', 'Thể thao du lịch', 'thể thao du lich.png', 1, '2021-03-23 11:22:58', '2021-03-23 11:22:58'),
 (13, NULL, 'Mẹ và bé', 'me-va-be-pc13', 'Mẹ và bé', 'Mẹ và bé', 'Mẹ và bé', 'mẹ và bé.png', 1, '2021-03-23 11:23:28', '2021-03-23 11:23:28'),
 (14, NULL, 'Thời trang trẻ em', 'thoi-trang-tre-em-pc14', 'Thời trang trẻ em', 'Thời trang trẻ em', 'Thời trang trẻ em', 'thời trang trẻ em.png', 1, '2021-03-23 11:23:55', '2021-03-23 11:23:55'),
-(15, NULL, 'Đồng hồ', 'dong-ho-pc15', 'Đồng hồ', 'Đồng hồ', 'Đồng hồ', 'đồng hồ.png', 1, '2021-03-23 11:24:53', '2021-03-23 11:24:54'),
+(15, 3, 'Tivi', 'tivi-pc15', 'Đồng hồ', 'Đồng hồ', 'Đồng hồ', 'thiết bị điện tử.png', 1, '2021-03-23 11:24:53', '2021-03-26 22:17:31'),
 (16, NULL, 'Nhà sách online', 'nha-sach-online-pc16', 'Nhà sách online', 'Nhà sách online', 'Nhà sách online', 'nhà sách online.png', 1, '2021-03-23 11:25:35', '2021-03-23 11:25:35'),
 (17, NULL, 'Đồ chơi', 'do-choi-pc17', 'Đồ chơi', 'Đồ chơi', 'Đồ chơi', 'đồ chơi.png', 1, '2021-03-23 11:26:22', '2021-03-23 11:26:22'),
 (18, NULL, 'Chăm sóc thú cưng', 'cham-soc-thu-cung-pc18', 'Chăm sóc thú cưng', 'Chăm sóc thú cưng', 'Chăm sóc thú cưng', 'Chăm sóc thú cưng.png', 1, '2021-03-23 11:26:45', '2021-03-23 11:26:45');
@@ -360,7 +452,19 @@ CREATE TABLE `product_images` (
 
 INSERT INTO `product_images` (`id`, `url`, `role`, `product_id`, `created_at`, `updated_at`) VALUES
 (1, '7fc7c76d-1144-46cb-8660-da82c7cda379.jpg', 1, 1, '2021-03-23 12:46:45', '2021-03-23 12:46:45'),
-(2, '3.jpg', 0, 1, '2021-03-23 12:46:45', '2021-03-23 12:46:45');
+(2, '3.jpg', 0, 1, '2021-03-23 12:46:45', '2021-03-23 12:46:45'),
+(3, '334299aa-aa3b-4a7b-9b15-e6a79ce60bba.jpg', 0, 1, '2021-03-23 22:57:35', '2021-03-23 22:57:35'),
+(4, '3.jpg', 1, 2, '2021-03-24 21:43:43', '2021-03-24 21:43:43'),
+(5, '334299aa-aa3b-4a7b-9b15-e6a79ce60bba.jpg', 1, 3, '2021-03-25 21:13:45', '2021-03-25 21:13:45'),
+(6, '5.jpg', 1, 4, '2021-03-25 21:19:47', '2021-03-25 21:19:47'),
+(7, '2.jpg', 1, 5, '2021-03-25 21:20:40', '2021-03-25 21:20:40'),
+(8, '1.jpg', 1, 6, '2021-03-25 21:21:11', '2021-03-25 21:21:11'),
+(9, '2.jpg', 1, 7, '2021-03-25 21:21:36', '2021-03-25 21:21:36'),
+(10, '3.jpg', 1, 8, '2021-03-25 21:22:08', '2021-03-25 21:22:08'),
+(11, '10325361457_2032220550.jpg', 1, 9, '2021-03-25 21:23:02', '2021-03-25 21:23:02'),
+(12, '10325364309_2032220550.jpg', 1, 10, '2021-03-25 21:23:27', '2021-03-25 21:23:27'),
+(13, '10649895812_2032220550.jpg', 1, 11, '2021-03-25 21:23:54', '2021-03-25 21:23:54'),
+(14, '12330025416_2032220550.jpg', 1, 12, '2021-03-27 00:49:26', '2021-03-27 00:49:26');
 
 -- --------------------------------------------------------
 
@@ -384,7 +488,7 @@ CREATE TABLE `sliders` (
 --
 
 INSERT INTO `sliders` (`id`, `href`, `url`, `target`, `display`, `stt`, `created_at`, `updated_at`) VALUES
-(1, NULL, 'GyPhS3LugjsSHkgT1tjb.png', '_self', 1, NULL, '2021-03-23 11:30:39', '2021-03-23 11:31:58'),
+(1, 'https://shopee.vn/', 'GyPhS3LugjsSHkgT1tjb.png', '_blank', 1, NULL, '2021-03-23 11:30:39', '2021-03-25 01:37:21'),
 (2, NULL, 'gWx8HOQuCnC2sPkxeLHk.png', '_self', 1, NULL, '2021-03-23 11:31:16', '2021-03-23 11:31:16');
 
 -- --------------------------------------------------------
@@ -400,7 +504,7 @@ CREATE TABLE `systems` (
   `shortcut_logo` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `title` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `seo_keyword` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `seo_description` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `seo_description` longtext COLLATE utf8mb4_unicode_ci,
   `facebook` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `instagram` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `zalo` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -409,8 +513,8 @@ CREATE TABLE `systems` (
   `address` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `phone` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `email` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `css` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `script` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `css` longtext COLLATE utf8mb4_unicode_ci,
+  `script` longtext COLLATE utf8mb4_unicode_ci,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -420,7 +524,7 @@ CREATE TABLE `systems` (
 --
 
 INSERT INTO `systems` (`id`, `name`, `logo`, `shortcut_logo`, `title`, `seo_keyword`, `seo_description`, `facebook`, `instagram`, `zalo`, `youtube`, `website`, `address`, `phone`, `email`, `css`, `script`, `created_at`, `updated_at`) VALUES
-(1, 'Website thương mại điện tử', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+(1, 'Website thương mại điện tử', 'logo.png', 'lg-u.png', 'WEBSITE THƯƠNG MẠI ĐIỆN TỬ', 'WEBSITE THƯƠNG MẠI ĐIỆN TỬ', 'WEBSITE THƯƠNG MẠI ĐIỆN TỬ', NULL, NULL, NULL, NULL, 'http://localhost:8000', 'Hà Nội', '0971459999', 'hotro@gmail.com', NULL, NULL, NULL, '2021-03-26 20:14:29');
 
 -- --------------------------------------------------------
 
@@ -451,11 +555,19 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `name_s`, `email`, `email_verified_at`, `password`, `phone`, `address`, `role`, `status`, `avatar`, `remember_token`, `created_at`, `updated_at`) VALUES
 (1, 'Nam Nguyễn', NULL, 'namnguyen20132674@gmail.com', NULL, '$2y$10$9stR5A1aWLY4Jk1hzEt8FuouOvgwS/zGE00mtlCA7g4Ww.0lqBGuO', '0848384333', NULL, 1, 1, NULL, NULL, NULL, NULL),
-(2, 'Nguyễn Hoài Nam', 'ĐỒ NGỦ SEXY CZADI', 'gianhang1@gmail.com', NULL, '$2y$10$jcCECjavtnTurlMHk4.CnOfSFJc4leBzbDNuZR90CLdHa79CdYmIK', '0842829222', NULL, 4, 1, NULL, NULL, '2021-03-23 12:00:26', '2021-03-23 12:00:26');
+(2, 'Nguyễn Hoài Nam', 'ĐỒ NGỦ SEXY CZADI', 'gianhang1@gmail.com', NULL, '$2y$10$/7yEawHG3Bc609JRbR.f5.Y81sUNIZiPPx/X/W0HpDTF4/MuGkeKi', '0842829222', 'Hồ Chí Minh quận 1', 4, 1, '9E148CC1-12DC-49B3-BACB-FB0B6BDDE51C.jpeg', NULL, '2021-03-23 12:00:26', '2021-03-27 01:20:18'),
+(3, 'Nguyễn Hoài Nam 5', 'Nguyễn Hoài Nam 5', 'gianhang2@gmail.com', NULL, '$2y$10$zIwzeu9/GIYFXl0MOPpnJuwKqbKpVeTniPNwOySK.kPDKmYVIv0j2', '0848384335', NULL, 4, 1, '9E148CC1-12DC-49B3-BACB-FB0B6BDDE51C.jpeg', NULL, '2021-03-28 19:52:20', '2021-03-28 20:12:22'),
+(4, 'Hoài Nam', NULL, 'Namnguyen@gmail.com', NULL, '$2y$10$Fl.Qxr0jphUKisBcvIhAnue8xvWsWENmJJOO698d.6Q3z8dZoOuG.', '0848384555', NULL, 4, 1, NULL, NULL, '2021-03-29 02:50:39', '2021-03-29 02:50:39');
 
 --
 -- Chỉ mục cho các bảng đã đổ
 --
+
+--
+-- Chỉ mục cho bảng `ads`
+--
+ALTER TABLE `ads`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Chỉ mục cho bảng `bcids`
@@ -489,6 +601,14 @@ ALTER TABLE `contacts`
 --
 ALTER TABLE `failed_jobs`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `feedback`
+--
+ALTER TABLE `feedback`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `feedback_product_id_foreign` (`product_id`),
+  ADD KEY `feedback_user_id_foreign` (`user_id`);
 
 --
 -- Chỉ mục cho bảng `menus`
@@ -581,6 +701,12 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT cho bảng `ads`
+--
+ALTER TABLE `ads`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
 -- AUTO_INCREMENT cho bảng `bcids`
 --
 ALTER TABLE `bcids`
@@ -611,6 +737,12 @@ ALTER TABLE `failed_jobs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT cho bảng `feedback`
+--
+ALTER TABLE `feedback`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT cho bảng `menus`
 --
 ALTER TABLE `menus`
@@ -620,19 +752,19 @@ ALTER TABLE `menus`
 -- AUTO_INCREMENT cho bảng `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT cho bảng `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT cho bảng `order_details`
 --
 ALTER TABLE `order_details`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT cho bảng `pages`
@@ -644,13 +776,13 @@ ALTER TABLE `pages`
 -- AUTO_INCREMENT cho bảng `pcids`
 --
 ALTER TABLE `pcids`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT cho bảng `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT cho bảng `product_cates`
@@ -662,7 +794,7 @@ ALTER TABLE `product_cates`
 -- AUTO_INCREMENT cho bảng `product_images`
 --
 ALTER TABLE `product_images`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT cho bảng `sliders`
@@ -680,7 +812,7 @@ ALTER TABLE `systems`
 -- AUTO_INCREMENT cho bảng `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Các ràng buộc cho các bảng đã đổ
@@ -698,6 +830,13 @@ ALTER TABLE `bcids`
 --
 ALTER TABLE `blogs`
   ADD CONSTRAINT `blogs_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
+
+--
+-- Các ràng buộc cho bảng `feedback`
+--
+ALTER TABLE `feedback`
+  ADD CONSTRAINT `feedback_product_id_foreign` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `feedback_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 
 --
 -- Các ràng buộc cho bảng `order_details`
