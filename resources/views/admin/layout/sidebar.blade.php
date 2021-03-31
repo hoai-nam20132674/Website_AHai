@@ -89,12 +89,7 @@
                             <span class="title">Simple sliders </span>
                         </a>
                     </li> -->
-                    <li class="nav-item " id="cms-plugins-contact">
-                        <a href="{{URL::route('cards')}}" class="nav-link nav-toggle">
-                            <i class="far fa-id-card"></i>
-                            <span class="title">Thẻ bảo hành</span>
-                        </a>
-                    </li>
+                    
                     
                     
                     <li class="nav-item " id="cms-core-appearance">
@@ -117,7 +112,12 @@
                                     Slider
                                 </a>
                             </li>
-                            
+                            <li class="nav-item " id="cms-core-menu">
+                                <a href="{{URL::route('adss')}}" class="nav-link">
+                                    <i class="fa fa-id-card"></i>
+                                    Banner quảng cáo
+                                </a>
+                            </li>
                             <!-- <li class="nav-item " id="cms-core-appearance-custom-css">
                                 <a href="#" class="nav-link">
                                     <i class=""></i>

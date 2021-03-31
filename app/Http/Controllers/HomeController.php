@@ -23,6 +23,8 @@ use App\Http\Requests\editCardRequest;
 use App\Http\Requests\ImportExcelRequest;
 use App\Http\Requests\addSliderRequest;
 use App\Http\Requests\editSliderRequest;
+use App\Http\Requests\addAdsRequest;
+use App\Http\Requests\editAdsRequest;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Middleware\CheckAdmin;
 use App\User;
@@ -37,6 +39,7 @@ use App\System;
 use App\Menu;
 use App\Card;
 use App\Slider;
+use App\Ads;
 use Excel;
 use App\Imports\CardImport;
 use Maatwebsite\Excel\HeadingRowImport;
@@ -421,6 +424,43 @@ class HomeController extends Controller
         $item = Slider::where('id',$id)->get()->first();
         $item->delete();
         return redirect()->route('sliders')->with(['flash_level'=>'success','flash_message'=>'Xóa slider thành công']); 
+    }
+    // end slider
+
+    //Ads
+    public function adss(Request $request){
+        if(isset($request->type)){
+            $adss = Ads::where('type',$request->type)->paginate(10);
+        }
+        else{
+            $adss = Ads::select()->paginate(10);
+        }
+        
+        return view('admin.adss',['adss'=>$adss,'request'=>$request]);
+    }
+    public function addAds(){
+        
+        return view('admin.addAds');
+    }
+    public function postAddAds(addAdsRequest $request){
+        $item = new Ads;
+        $item -> add($request);
+        return redirect()->route('adss')->with(['flash_level'=>'success','flash_message'=>'Thêm banner thành công']); 
+    }
+    public function editAds($id){
+        
+        $ads = Ads::where('id',$id)->get()->first();
+        return view('admin.editAds',['ads'=>$ads]);
+    }
+    public function postEditAds(editAdsRequest $request, $id){
+        $item = new Ads;
+        $item->edit($request,$id);
+        return redirect()->route('editAds',$id)->with(['flash_level'=>'success','flash_message'=>'Sửa banner thành công']);
+    }
+    public function deleteAds($id){
+        $item = Ads::where('id',$id)->get()->first();
+        $item->delete();
+        return redirect()->route('Adss')->with(['flash_level'=>'success','flash_message'=>'Xóa banner thành công']); 
     }
     // end slider
 }

@@ -91,15 +91,15 @@ Route::get('admin/menu/update', 'HomeController@updateMenu')->name('updateMenu')
 Route::get('admin/menu/delete/{array}', 'HomeController@deleteMenu')->name('deleteMenu');
 // end menu
 
-// card
-Route::get('admin/cards', 'HomeController@cards')->name('cards');
-Route::get('admin/card/add', 'HomeController@addCard')->name('addCard');
-Route::post('admin/card/add', 'HomeController@postAddCard')->name('postAddCard');
-Route::get('admin/card/edit/{id}', 'HomeController@editCard')->name('editCard');
-Route::post('admin/card/edit/{id}', 'HomeController@postEditCard')->name('postEditCard');
-Route::get('admin/card/delete/{id}', 'HomeController@deleteCard')->name('deleteCard');
-Route::post('admin/card/uploadExcel', 'HomeController@uploadExcel')->name('uploadExcel');
-// end card
+// Banner Ads
+Route::get('admin/adss', 'HomeController@adss')->name('adss');
+Route::get('admin/ads/add', 'HomeController@addAds')->name('addAds');
+Route::post('admin/ads/add', 'HomeController@postAddAds')->name('postAddAds');
+Route::get('admin/ads/edit/{id}', 'HomeController@editAds')->name('editAds');
+Route::post('admin/ads/edit/{id}', 'HomeController@postEditAds')->name('postEditAds');
+Route::get('admin/ads/delete/{id}', 'HomeController@deleteAds')->name('deleteAds');
+Route::post('admin/ads/uploadExcel', 'HomeController@uploadExcel')->name('uploadExcel');
+// end ads
 
 // Slider 
 Route::get('admin/sliders', 'HomeController@sliders')->name('sliders');

@@ -39,6 +39,9 @@
 	    <link href="{{asset('css/style.css')}}" rel="stylesheet">
 	    <link href="{{asset('css/custom.css')}}" rel="stylesheet"> 
 	    <style>
+            .ads-footer .items {
+                margin-right: 5px;
+            }
 	        .f-items_show-fullname .f-items_name{
 	            overflow: hidden;
 	            text-overflow: ellipsis;
@@ -406,17 +409,22 @@
 </div>
 
 </div>
+<div class="container contaiver-v2">
+    <div id="ads-body" class="owl-carousel b__banner--browser">
+        @foreach($adss as $ads)
+            @if($ads->type ==1)
+                <div class="items">
+                    <a data-href="{{asset('uploads/images/adss/'.$ads->url)}}" class="flex100 progressive replace">
+                        <img class="preview" src="https://media3.scdn.vn/img4/2021/03_09/U6xnR9eyr69B0zhU3Jxg.png" width="100%" />
+                    </a>
 
-
-<div class="b__banner--gr">
-    <div class="container contaiver-v2">
-        <div class="b__banner--info">
-            <a data-href="https://media3.scdn.vn/img4/2021/03_09/U6xnR9eyr69B0zhU3Jxg.png" class="flex100 progressive replace">
-                <img class="preview" src="https://media3.scdn.vn/img4/2021/03_09/U6xnR9eyr69B0zhU3Jxg.png" width="100%" />
-            </a>
-        </div>
+                </div>
+            @endif
+        @endforeach
+       
     </div>
 </div>
+
 @if( Session::has('flash_message'))
     <div style="display: none;" class="note note-{{ Session::get('flash_level')}}">
         <p class="flash_message" level="{{Session::get('flash_level')}}">{{ Session::get('flash_message')}}</p>
@@ -695,22 +703,24 @@
 </div>
 
 </div>
-<div class="b__link--banner">
-    <div class="container contaiver-v2">
-        <div class="b__link--banner_info">
-            <a class="progressive replace" data-href="https://media3.scdn.vn/img4/2021/03_01/uFa7gNSFnX7Ix40bBKRH.png" href="https://bit.ly/tai-app-voso">
-                <img class="preview" src="https://media3.scdn.vn/img4/2021/03_01/uFa7gNSFnX7Ix40bBKRH.png" width="100%" />
-            </a>
-            
-            <a class="progressive replace" data-href="https://media3.scdn.vn/img4/2021/01_15/GyPhS3LugjsSHkgT1tjb.png" href="https://voso.vn/bach-hoa-online.html">
-                <img class="preview" src="https://media3.scdn.vn/img4/2021/01_15/GyPhS3LugjsSHkgT1tjb.png" width="100%" />
-            </a>
-            <a class="progressive replace" data-href="https://media3.scdn.vn/img4/2021/03_01/gWx8HOQuCnC2sPkxeLHk.png" href="https://vtbay.vn/">
-                <img class="preview" src="https://media3.scdn.vn/img4/2021/03_01/gWx8HOQuCnC2sPkxeLHk.png" width="100%" />
-            </a>
-        </div>
+<div class="container contaiver-v2">
+    <div id="ads-footer" class="owl-carousel b__banner--browser">
+        
+        @foreach($adss as $ads)
+            @if($ads->type ==2)
+                <div class="items">
+                    <a data-href="{{asset('uploads/images/adss/'.$ads->url)}}" class="flex100 progressive replace">
+                        <img class="preview" src="" width="100%" />
+                    </a>
+
+                </div>
+            @endif
+        @endforeach
+       
     </div>
 </div>
+<br>
+
 <style>
 	/*.f-items{
 		width: auto !important;
@@ -841,6 +851,27 @@
             $("#show-all-tinh-thanh").click(function(){
                 $("#tinh-thanh").removeClass("tinh-thanh");
             });
+            $("#ads-body").owlCarousel({
+                items : 1,
+                loop: true,
+                autoplay : true,
+              });
+            $("#ads-footer").owlCarousel({
+                loop: true,
+                autoplay : true,
+                margin:10,
+                responsive:{
+                    0:{ //for width 0px and up
+                        items:1 //show only one item at a time
+                    },
+                    600:{ //for width 600px and up
+                        items:2 //show 3 items at a time
+                    },
+                    1000:{ //for width 1000px and up
+                        items:3 //show 5 items at a time
+                    }
+                }
+              }); 
         });
 
         $(document).ready(function(){
