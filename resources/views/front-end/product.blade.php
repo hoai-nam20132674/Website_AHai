@@ -431,12 +431,58 @@
                                         @endphp
                                         @if($check)
                                         <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="b__product--evaluate_right" style="float: right;">
-                                                    <button class="btn btn-danger" data-toggle="modal" data-target="#feedBack"><i class="fa fa-plus" style="margin-right: 5px;"></i>ĐÁNH GIÁ SẢN PHẨM</button>
-                                                </div>
+                                            <div class="col-md-12" style="text-align: right;">
+                                                <button class="btn btn-danger add-fb"><i class="fa fa-plus" style="margin-right: 5px;"></i>ĐÁNH GIÁ SẢN PHẨM</button>
                                             </div>
                                         </div>
+                                        <form method="POST" action="{{URL::route('postAddFeedback',$product->id)}}">
+                                            <input type="hidden" name="_token" value="{{ csrf_token()}}">
+                                            <div class="row fb-content">
+                                                <div class="col-md-12 mb-5">
+                                                    <div class="btn-toolbar mb-2" role="toolbar" aria-label="Toolbar with button groups">
+                                                      <div class="btn-group " role="group" aria-label="First group">
+                                                        <button type="button" class="btn rating btn-danger" value="5">5 Sao <span class="jstars" data-value="5"></span></button>
+                                                        
+                                                      </div>
+                                                      <div class="btn-group " role="group" aria-label="Second group">
+                                                        
+                                                        <button type="button" class="btn rating btn-light" value="4">4 Sao <span class="jstars" data-value="4"></span></button>
+                                                      </div>
+                                                      <div class="btn-group" role="group" aria-label="Third group">
+                                                        <button type="button" class="btn rating btn-light" value="3">3 Sao <span class="jstars" data-value="3"></span></button>
+                                                      </div>
+                                                      <div class="btn-group" role="group" aria-label="Third group">
+                                                        <button type="button" class="btn rating btn-light" value="2">2 Sao <span class="jstars" data-value="2"></span></button>
+                                                      </div>
+                                                      <div class="btn-group" role="group" aria-label="Third group">
+                                                        <button type="button" class="btn rating btn-light" value="1">1 Sao <span class="jstars" data-value="1"></span></button>
+                                                      </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+
+                                                            <div class="form-group" >
+                                                                <div class="note-content">
+                                                                    <div class="note-content__in">
+                                                                        <label>Nội dung đánh giá</label>
+                                                                        <textarea name="messages" placeholder="..." rows="5" class="form-control customer-note" ></textarea>
+                                                                        
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group hidden" >
+                                                                <input type="number" name="rate" value="">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                </div>
+                                                
+                                                <div class="col-md-12" style="text-align: right;">
+                                                    <button type="submit" class="btn btn-primary"><i class="fa fa-paper-plane" style="margin-right: 5px;"></i>GỬI ĐÁNH GIÁ SẢN PHẨM</button>
+                                                </div>
+                                            </div>
+                                        </form>
                                         @else
                                         @endif
 
@@ -652,6 +698,7 @@
             $("#show-all-tinh-thanh").click(function(){
                 $("#tinh-thanh").removeClass("tinh-thanh");
             });
+            $('.fb-content').addClass('hidden');
             
         });
 
@@ -699,6 +746,24 @@
                     location.href = '/gio-hang';
                 }
             });
+        });
+        $(document).on('click', '.add-fb', function(event) {
+            event.preventDefault();
+            $('.fb-content').removeClass('hidden');
+            $(this).addClass('hidden');
+        });
+        $(document).on('click', 'button.rating', function(event) {
+            event.preventDefault();
+            $('button.rating').each(function(){
+                if($(this).hasClass('btn-danger')){
+                    $(this).removeClass('btn-danger');
+                    $(this).addClass('btn-light');
+                }
+            });
+            $(this).removeClass('btn-light');
+            $(this).addClass('btn-danger');
+            $('input[name="rate"]').val($(this).val());
+            
         });
         
     </script>

@@ -128,6 +128,7 @@ Route::get('/xoa-don-hang/{id}', 'MerchantController@removeOrder')->name('remove
 
 // Feedback
 Route::get('/checkCreateFeedback/{product_id}', 'MerchantController@checkCreateFeedback')->name('checkCreateFeedback');
+Route::post('/postAddFeedback/{product_id}', 'MerchantController@postAddFeedback')->name('postAddFeedback');
 // end feedback
 
 // add to cart

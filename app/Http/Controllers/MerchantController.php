@@ -125,6 +125,8 @@ class MerchantController extends Controller
             return redirect()->route('PO')->with(['flash_level'=>'danger','flash_message'=>'Xóa đơn hàng không thành công']);
         }
     }
+
+    // Feedback
     public static function checkCreateFeedback($product_id){
 
         $feedback = Feedback::where('user_id',Auth::user()->id)->where('product_id',$product_id)->get();
@@ -136,4 +138,11 @@ class MerchantController extends Controller
             return false;
         }
     }
+    public function postAddFeedback($product_id, Request $request){
+        $feedback = new Feedback;
+        $feedback ->add($product_id,$request);
+        return redirect()->back()->with(['flash_level'=>'success','flash_message'=>'Đánh giá sản phẩm thành công']);
+
+    }
+    // End feedback
 }
