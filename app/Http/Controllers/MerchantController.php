@@ -10,6 +10,7 @@ use App\User;
 use App\System;
 use App\Order;
 use App\OrderDetail;
+use App\Feedback;
 use App\Http\Requests\addProductRequest;
 use App\Http\Requests\editProductRequest;
 use App\Http\Requests\editPasswordRequest;
@@ -122,6 +123,17 @@ class MerchantController extends Controller
         }
         else{
             return redirect()->route('PO')->with(['flash_level'=>'danger','flash_message'=>'Xóa đơn hàng không thành công']);
+        }
+    }
+    public static function checkCreateFeedback($product_id){
+
+        $feedback = Feedback::where('user_id',Auth::user()->id)->where('product_id',$product_id)->get();
+        $orders_detail = OrderDetail::join('orders', 'order_details.orders_id', '=', 'orders.id')->where('order_details.products_id',$product_id)->where('orders.phone',Auth::user()->phone)->select('order_details.*', 'orders.phone AS phone')->get();
+        if(count($feedback) ==0 && count($orders_detail) != 0){
+            return true;
+        }
+        else{
+            return false;
         }
     }
 }

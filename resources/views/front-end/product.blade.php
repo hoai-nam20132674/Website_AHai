@@ -421,13 +421,24 @@
 
                                         	<!-- ngIf: rates.length==0 -->
                                         </div>
+                                        @php
+                                            if(Auth::check()){
+                                                $check = App\Http\Controllers\MerchantController::checkCreateFeedback($product->id);
+                                            }
+                                            else{
+                                                $check = false;
+                                            }
+                                        @endphp
+                                        @if($check)
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <div class="b__product--evaluate_right" style="float: right;">
-                                                    <button class="btn btn-danger"><i class="fa fa-plus" style="margin-right: 5px;"></i>ĐÁNH GIÁ SẢN PHẨM</button>
+                                                    <button class="btn btn-danger" data-toggle="modal" data-target="#feedBack"><i class="fa fa-plus" style="margin-right: 5px;"></i>ĐÁNH GIÁ SẢN PHẨM</button>
                                                 </div>
                                             </div>
                                         </div>
+                                        @else
+                                        @endif
 
                                         
                                     </div>
@@ -538,11 +549,7 @@
 
 </div>
 </div>
-<div id="popup_add_product" class="popup_add_product">
-    <div class="popup_content">
-        <p>Thêm thành công</p>
-    </div>
-</div>
+
 @endsection
 @section('js')
 	<script>
@@ -645,6 +652,7 @@
             $("#show-all-tinh-thanh").click(function(){
                 $("#tinh-thanh").removeClass("tinh-thanh");
             });
+            
         });
 
         $(document).ready(function(){
@@ -692,6 +700,7 @@
                 }
             });
         });
+        
     </script>
 
 @endsection

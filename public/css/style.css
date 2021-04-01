@@ -400,7 +400,7 @@ label {
 }
 
 .modal {
-    display: block;
+    /*display: block;*/
     position: fixed;
     z-index: 9999;
     padding-top: 0;

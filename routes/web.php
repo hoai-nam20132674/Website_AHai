@@ -126,6 +126,10 @@ Route::get('/don-hang-mua', 'MerchantController@purchaseOrder')->name('PO');
 Route::get('/xoa-don-hang/{id}', 'MerchantController@removeOrder')->name('removeOrder');
 // end Merchant route
 
+// Feedback
+Route::get('/checkCreateFeedback/{product_id}', 'MerchantController@checkCreateFeedback')->name('checkCreateFeedback');
+// end feedback
+
 // add to cart
 Route::get('/gio-hang', 'Controller@cart')->name('cart');
 Route::get('/dat-hang', 'Controller@order')->name('order');
