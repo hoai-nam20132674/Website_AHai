@@ -28,6 +28,7 @@ use App\Slider;
 use App\Order;
 use App\Ads;
 use App\OrderDetail;
+use App\Feedback;
 use Cart;
 
 class Controller extends BaseController
@@ -83,7 +84,8 @@ class Controller extends BaseController
             $same_products = Product::whereIn('id',$same_products_id)->where('display',1)->orderBy('id','DESC')->take(5)->get();
             $recommend_products = Product::whereIn('id',$same_products_id)->where('display',1)->orderBy('id','DESC')->skip(1)->take(10)->get();
             $images = ProductImage::where('product_id',$product->id)->where('role',0)->get();
-            return view('front-end.product',compact('categories','menus','product','images','same_products','recommend_products','system'));
+            $feedbacks = Feedback::join('users', 'feedback.user_id', '=', 'users.id')->where('feedback.product_id',$product->id)->select('feedback.*', 'users.name AS user_name', 'users.avatar AS user_avatar')->get();
+            return view('front-end.product',compact('categories','menus','product','images','same_products','recommend_products','system','feedbacks'));
     		
     	}
         

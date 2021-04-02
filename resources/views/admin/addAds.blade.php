@@ -112,6 +112,7 @@
 									<option value="0">Quảng cáo đầu trang</option>
 									<option value="1">Quảng cáo thân trang</option>
 									<option value="2">Quảng cáo cuối trang</option>
+									<option value="3">Quảng cáo đầu danh mục</option>
 								</select>
 								<svg class="svg-next-icon svg-next-icon-size-16">
 									<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#select-chevron"></use>

@@ -45,6 +45,7 @@ class User extends Authenticatable
         $this->phone = $request->phone;
         $this->role = 4;
         $this->status = 1;
+        $this->avatar ='avatar_default.png';
         $this->password = Hash::make($request->password);
         $this->save();
         return true;
@@ -71,6 +72,7 @@ class User extends Authenticatable
             $this->phone = $request->phone;
             $this->role = $request->role;
             $this->status = $request->status;
+            $this->avatar ='avatar_default.png';
             $this->password = Hash::make($request->password);
             $this->save();
             return true;

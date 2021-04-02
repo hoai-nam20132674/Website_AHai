@@ -373,51 +373,32 @@
                                                         <span class="num-big">5</span>
                                                         <span class="num-small">/5</span>
                                                     </div>
-                                                    <span class="jstars" data-value="4"></span>
+                                                    <span class="jstars" data-value="5"></span>
                                                 </div>
                                             </div>
                                             
 
                                         </div>
                                         <div class="b__product--comment">
+                                            @foreach($feedbacks as $feedback)
                                         	<div class="media ng-scope">
-                                        		<img class="mr-3" ng-src="{{asset('images/avatar_default.png')}}" alt="khách hàng" src="{{asset('images/avatar_default.png')}}">
+                                        		<img class="mr-3" ng-src="{{asset('uploads/images/users/avatars/'.$feedback->user_avatar)}}" alt="khách hàng" src="{{asset('uploads/images/users/avatars/'.$feedback->user_avatar)}}">
                                         		<div class="media-body">
-                                        			<h5 class="mt-0 ng-binding">Trần Bửu</h5>
+                                        			<h5 class="mt-0 ng-binding">{{$feedback->user_name}}</h5>
                                         			<div class="f-items__ls main-rating">
-                                        				<span class="jstars" data-value="5"></span>
+                                        				<span class="jstars" data-value="{{$feedback->rate}}"></span>
                                         			</div>
-                                        			<div class="rating-content ng-binding">Rất tốt, chúc shop làm ăn phát đạt</div>
+                                        			<div class="rating-content ng-binding"></div>
                                         			<div class="rating-group-texts">
-                                        				<!-- ngRepeat: (ktext,rtext) in rate.texts -->
+                                        				<span>{{$feedback->messages}}</span>
                                         			</div>
-                                        			<div class="rating-group-images">
-                                        				<!-- ngRepeat: (kimage,rimage) in rate.images -->
-                                        			</div>
+                                        			
                                         			<div class="rating-time">
                                         				<span class="ng-binding">09:54 11/03/2021</span>
                                         			</div>
                                         		</div>
                                         	</div>
-                                        	<div class="media ng-scope" >
-                                        		<img class="mr-3" ng-src="{{asset('images/avatar_default.png')}}" alt="khách hàng" src="{{asset('images/avatar_default.png')}}">
-                                        		<div class="media-body">
-                                        			<h5 class="mt-0 ng-binding">Nguyễn Thị Hương Ly</h5>
-                                        			<div class="f-items__ls main-rating">
-                                        				<span class="jstars" data-value="4"></span>
-                                        			</div>
-                                        			<div class="rating-content ng-binding"></div>
-                                        			<div class="rating-group-texts">
-                                        				<!-- ngRepeat: (ktext,rtext) in rate.texts -->
-                                        			</div>
-                                        			<div class="rating-group-images">
-                                        				<!-- ngRepeat: (kimage,rimage) in rate.images -->
-                                        			</div>
-                                        			<div class="rating-time">
-                                        				<span class="ng-binding">09:45 11/03/2021</span>
-                                        			</div>
-                                        		</div>
-                                        	</div>
+                                        	@endforeach
 
                                         	<!-- ngIf: rates.length==0 -->
                                         </div>

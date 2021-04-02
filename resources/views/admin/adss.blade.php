@@ -73,6 +73,9 @@
                                         <li>
                                             <a href="?type=2" class="" data-class-item="">Quảng cáo cuối trang</a>
                                         </li>
+                                        <li>
+                                            <a href="?type=3" class="" data-class-item="">Quảng cáo đầu danh mục</a>
+                                        </li>
                                     </ul>
                             	</div>
                                 <!-- <button class="btn btn-primary btn-group">Lọc dữ liệu</button> -->

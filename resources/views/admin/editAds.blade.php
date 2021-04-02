@@ -127,15 +127,22 @@
 										<option value="0">Quảng cáo đầu trang</option>
 										<option value="1">Quảng cáo thân trang</option>
 										<option value="2">Quảng cáo cuối trang</option>
+										<option value="3">Quảng cáo đầu danh mục</option>
 									@elseif($ads->type ==1)
 										<option value="1">Quảng cáo thân trang</option>
 										<option value="0">Quảng cáo đầu trang</option>
 										<option value="2">Quảng cáo cuối trang</option>
-									@else
+										<option value="3">Quảng cáo đầu danh mục</option>
+									@elseif($ads->type ==2)
 										<option value="2">Quảng cáo cuối trang</option>
 										<option value="1">Quảng cáo thân trang</option>
 										<option value="0">Quảng cáo đầu trang</option>
-										
+										<option value="3">Quảng cáo đầu danh mục</option>
+									@else
+										<option value="3">Quảng cáo đầu danh mục</option>
+										<option value="2">Quảng cáo cuối trang</option>
+										<option value="1">Quảng cáo thân trang</option>
+										<option value="0">Quảng cáo đầu trang</option>
 									@endif
 								</select>
 								<svg class="svg-next-icon svg-next-icon-size-16">
