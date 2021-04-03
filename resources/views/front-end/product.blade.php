@@ -280,7 +280,7 @@
 
                                 
                                 <div class="c-button__gr group-btn-cart-desktop">
-                                	<a class="img_mess" href="javascript:;" ng-click="chat(8590)" style="border: 1px solid #c3000c; font-weight: 800; color: #c3000c"><img src="{{asset('images/chat-icon.png')}}" style="margin-right: 10px;"> Chat ngay</a>
+                                	<a class="img_mess" href="#" onclick="update()" style="border: 1px solid #c3000c; font-weight: 800; color: #c3000c"><img src="{{asset('images/chat-icon.png')}}" style="margin-right: 10px;"> Chat ngay</a>
                                     <a href="{{URL::route('addToCart',[$product->id,1])}}" class="add-to-cart btn-cart">
                                         <span id="add-to-cart">Thêm vào giỏ hàng</span>
                                     </a>
@@ -315,7 +315,7 @@
                                                         @endif
                                                     </div>
                                                     <ul ng-controller="chatCtrl">
-                                                        <li><a class="img_mess" href="javascript:;"><img src="{{asset('images/message.png')}}" /> Chat ngay</a></li>
+                                                        <li><a class="img_mess" onclick="update()" href="#"><img src="{{asset('images/message.png')}}" /> Chat ngay</a></li>
                                                         <li><a class="go_to_shop" href="{{$s->name_s}}-si{{$s->id}}"><img src="{{asset('images/icon_go_to_shop.png')}}" />Xem shop</a></li>
                                                     </ul>
                                                 </div>
@@ -508,7 +508,7 @@
                                             @endif
                                             <p class="detail-merchant-provice-mobile">Địa chỉ: <b style="color: #333333;">{{$s->address}}</b></p>
                                             <ul ng-controller="chatCtrl">
-                                                <li><a class="img_mess" href="javascript:;" ><img src="{{asset('images/icon_mess.png')}}" /> Chat ngay</a></li>
+                                                <li><a class="img_mess" onclick="update()" href="#" ><img src="{{asset('images/icon_mess.png')}}" /> Chat ngay</a></li>
                                                 <li><a href="{{$s->name_s}}-si{{$s->id}}"><img src="{{asset('images/icon_go_to_shop.png')}}" />Ghé thăm shop</a></li>
                                             </ul>
                                         </div>
@@ -746,6 +746,9 @@
             $('input[name="rate"]').val($(this).val());
             
         });
+        function update(){
+            swal("Chức năng đang được phát triển", "Rất xin lỗi quý khách vì sự bất tiện này!");
+        }
         
     </script>
 

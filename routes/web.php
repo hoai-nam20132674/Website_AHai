@@ -29,6 +29,7 @@ Route::post('admin/user/add', 'HomeController@postAddUser')->name('postAddUser')
 Route::get('admin/user/edit/{id}', 'HomeController@editUser')->name('editUser');
 Route::post('admin/user/edit/{id}', 'HomeController@postEditUser')->name('postEditUser');
 Route::post('admin/user/edit-password/{id}', 'HomeController@postEditPassword')->name('postEditPassword');
+Route::post('admin/user/uploadExcel', 'HomeController@uploadExcel')->name('uploadExcel');
 // end user route
 // service route
 
@@ -98,7 +99,7 @@ Route::post('admin/ads/add', 'HomeController@postAddAds')->name('postAddAds');
 Route::get('admin/ads/edit/{id}', 'HomeController@editAds')->name('editAds');
 Route::post('admin/ads/edit/{id}', 'HomeController@postEditAds')->name('postEditAds');
 Route::get('admin/ads/delete/{id}', 'HomeController@deleteAds')->name('deleteAds');
-Route::post('admin/ads/uploadExcel', 'HomeController@uploadExcel')->name('uploadExcel');
+
 // end ads
 
 // Slider 

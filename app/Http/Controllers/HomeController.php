@@ -41,7 +41,7 @@ use App\Card;
 use App\Slider;
 use App\Ads;
 use Excel;
-use App\Imports\CardImport;
+use App\Imports\UserImport;
 use Maatwebsite\Excel\HeadingRowImport;
 
 class HomeController extends Controller
@@ -70,7 +70,12 @@ class HomeController extends Controller
 
     // User custom
     public function users(Request $request){
-        $users = User::select()->paginate(15);
+        if(isset($request->role)){
+            $users = User::where('role',$request->role)->paginate(15);
+        }
+        else{
+            $users = User::select()->paginate(15);
+        }
         return view('admin.users',['users'=>$users,'request'=>$request]);
     }
     public function addUser(){
@@ -369,12 +374,12 @@ class HomeController extends Controller
         $file = $request->file('excel');
         $headings = (new HeadingRowImport)->toArray($file);
         
-        if(count($headings[0][0]) < 7 || $headings[0][0][0] != 'hang_san_xuat' || $headings[0][0][1] != 'ten_sp' || $headings[0][0][2] != 'ma_sp' || $headings[0][0][3] != 'ngay_san_xuat' || $headings[0][0][4] != 'ngay_het_han' || $headings[0][0][5] != 'khuyen_mai_thong_tin_them' || $headings[0][0][6] != 'labo'){
+        if(count($headings[0][0]) < 3 || $headings[0][0][0] != 'name' || $headings[0][0][1] != 'email' || $headings[0][0][2] != 'phone'){
             return redirect()->back()->with(['flash_level'=>'danger','flash_message'=>'Tải lên không thành công. Định dạng file dữ liệu không đúng']); 
         }
         else{
-            Excel::import(new CardImport, $file);
-            return redirect()->back()->with(['flash_level'=>'success','flash_message'=>'Tải dữ liệu lên thành công những trường dữ liệu trùng mã bảo hành sẽ không được ghi đè']); 
+            Excel::import(new UserImport, $file);
+            return redirect()->back()->with(['flash_level'=>'success','flash_message'=>'Tải dữ liệu lên thành công những trường dữ liệu trùng email hoặc số điện thoại sẽ không được ghi đè']); 
         }
         
     }

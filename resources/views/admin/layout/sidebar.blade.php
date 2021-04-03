@@ -83,12 +83,29 @@
                             
                         </ul>
                     </li>
-                    <!-- <li class="nav-item " id="cms-plugins-simple-slider">
+                    <li class="nav-item " id="cms-plugins-simple-slider">
                         <a href="#" class="nav-link nav-toggle">
-                            <i class="far fa-image"></i>
-                            <span class="title">Simple sliders </span>
+                            <i class="fa fa-users"></i>
+                            <span class="title">Thành viên</span>
+                            <span class="arrow "></span>
                         </a>
-                    </li> -->
+                        <ul class="sub-menu  hidden-ul ">
+                            <li class="nav-item " id="cms-plugins-ecommerce-customer">
+                                <a href="{{URL::route('users')}}?role=4" class="nav-link">
+                                    <i class="fa fa-user-friends"></i>
+                                    Người dùng vãng lai
+                                </a>
+                            </li>
+                            <li class="nav-item " id="cms-plugins-product-categories">
+                                <a href="{{URL::route('users')}}?role=3" class="nav-link">
+                                    <i class="fa fa-user-check"></i>
+                                    Gian hàng chiến lược
+                                </a>
+                            </li>
+                            
+                            
+                        </ul>
+                    </li>
                     
                     
                     
@@ -137,7 +154,7 @@
                         <ul class="sub-menu  hidden-ul ">
                             @if(Auth::user()->role ==1)
                             <li class="nav-item " id="cms-core-user">
-                                <a href="{{URL::route('users')}}" class="nav-link">
+                                <a href="{{URL::route('users')}}?role=2" class="nav-link">
                                     <i class="fa fa-user"></i>
                                     Quản trị viên
                                 </a>

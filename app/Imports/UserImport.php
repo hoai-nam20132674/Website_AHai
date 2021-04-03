@@ -2,7 +2,7 @@
 
 namespace App\Imports;
 
-use App\Card;
+use App\User;
 use Illuminate\Validation\Rule;
 use Maatwebsite\Excel\Concerns\Importable;
 use Maatwebsite\Excel\Concerns\ToModel;
@@ -13,10 +13,11 @@ use Maatwebsite\Excel\Concerns\WithHeadingRow;
 use Maatwebsite\Excel\Concerns\WithValidation;
 use Maatwebsite\Excel\Concerns\SkipsFailures;
 use Maatwebsite\Excel\Validators\Failure;
+use Illuminate\Support\Facades\Hash;
 
 use Throwable;
 
-class CardImport implements ToModel, WithHeadingRow, SkipsOnError, WithValidation, SkipsOnFailure
+class UserImport implements ToModel, WithHeadingRow, SkipsOnError, WithValidation, SkipsOnFailure
 {
     use Importable, SkipsFailures;
     /**
@@ -26,14 +27,13 @@ class CardImport implements ToModel, WithHeadingRow, SkipsOnError, WithValidatio
     */
     public function model(array $row)
     {
-        return new Card([
-            'name'  => $row['hang_san_xuat'],
-            'type'  => $row['ten_sp'],
-            'code'  => $row['ma_sp'],
-            'dental'=> $row['ngay_san_xuat'],
-            'time'  => $row['ngay_het_han'],
-            'tooth' => $row['khuyen_mai_thong_tin_them'],
-            'labo'  => $row['labo'],
+        return new User([
+            'name'  => $row['name'],
+            'email'  => $row['email'],
+            'phone'  => $row['phone'],
+            'role'=> 3,
+            'status'  => 1,
+            'password' => Hash::make('1'),
         ]);
 
         
@@ -43,7 +43,8 @@ class CardImport implements ToModel, WithHeadingRow, SkipsOnError, WithValidatio
     }
     public function rules(): array{
         return [
-            '*.ma_sp' => 'required|unique:cards,code'
+            '*.email' => 'required|unique:users,email',
+            '*.phone' => 'required|unique:users,phone'
         ];
     }
     public function onFailure(Failure ...$failures)

@@ -318,16 +318,13 @@
                     </div>
                 </div>
                 <div class="b__banner--right b__slider--ls">
+                    @foreach($adss_header as $ads_header)
                     <div class="b__banner--top">
-                        <a class="progressive replace" data-href="https://media3.scdn.vn/img4/2021/03_01/uFa7gNSFnX7Ix40bBKRH.png" href="https://voso.vn/dac-san-vo-so-s3145375">
-                            <img class="preview" src="https://media3.scdn.vn/img4/2021/03_01/uFa7gNSFnX7Ix40bBKRH.png" width="100%" />
+                        <a class="progressive replace" data-href="{{asset('uploads/images/adss/'.$ads_header->url)}}" href="{{$ads_header->href}}" target="{{$ads_header->target}}">
+                            <img class="preview" src="{{asset('uploads/images/adss/'.$ads_header->url)}}" width="100%" />
                         </a>
                     </div>
-                    <div class="b__banner--top">
-                        <a class="progressive replace" data-href="https://media3.scdn.vn/img4/2021/03_01/gWx8HOQuCnC2sPkxeLHk.png" href="https://voso.vn/ocop">
-                            <img class="preview" src="https://media3.scdn.vn/img4/2021/03_01/gWx8HOQuCnC2sPkxeLHk.png" width="100%" />
-                        </a>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -411,15 +408,15 @@
 </div>
 <div class="container contaiver-v2">
     <div id="ads-body" class="owl-carousel b__banner--browser">
-        @foreach($adss as $ads)
-            @if($ads->type ==1)
+        @foreach($adss_body as $ads_body)
+            
                 <div class="items">
-                    <a data-href="{{asset('uploads/images/adss/'.$ads->url)}}" class="flex100 progressive replace">
-                        <img class="preview" src="https://media3.scdn.vn/img4/2021/03_09/U6xnR9eyr69B0zhU3Jxg.png" width="100%" />
+                    <a href="{{$ads_body->href}}" target="{{$ads_body->target}}" data-href="{{asset('uploads/images/adss/'.$ads_body->url)}}" class="flex100 progressive replace">
+                        <img class="preview" src="{{asset('uploads/images/adss/'.$ads_body->url)}}" width="100%" />
                     </a>
 
                 </div>
-            @endif
+            
         @endforeach
        
     </div>
@@ -453,12 +450,13 @@
                     </div>
                 </div>
                 <div class="b__vosoMall--content stretch">
-
+                    @if(count($adss_cate)>=1)
                     <div class="b__vosoMall--banner b__vosoMall--pc">
-                        <a href="https://voso.vn/dac-san-hai-duonghdg-s1120" class="progressive replace" data-href="https://cf.shopee.vn/file/f3ceffcefc97d5bbc42f29f982ed1888">
-                            <img class="preview" src="https://cf.shopee.vn/file/f3ceffcefc97d5bbc42f29f982ed1888" width="100%" />
+                        <a href="{{$adss_cate[0]->href}}" target="{{$adss_cate[0]->target}}" class="progressive replace" data-href="{{asset('uploads/images/adss/'.$adss_cate[0]->url)}}">
+                            <img class="preview" src="{{asset('uploads/images/adss/'.$adss_cate[0]->url)}}" width="100%" />
                         </a>
                     </div>
+                    @endif
                     <div class="b__vosoMall--right ">
 
 
@@ -543,12 +541,13 @@
                 </div>
             </div>
             <div class="b__vosoMall--content stretch">
-
+                @if(count($adss_cate)>=2)
                 <div class="b__vosoMall--banner b__vosoMall--pc">
-                    <a href="https://voso.vn/flash-sale.html" class="progressive replace" data-href="https://cf.shopee.vn/file/1745822c753e7c0c1043fe990afd1d54">
-                        <img class="preview" src="https://cf.shopee.vn/file/1745822c753e7c0c1043fe990afd1d54" width="100%" />
-                    </a>
+                    <a href="{{$adss_cate[1]->href}}" target="{{$adss_cate[1]->target}}" class="progressive replace" data-href="{{asset('uploads/images/adss/'.$adss_cate[1]->url)}}">
+                            <img class="preview" src="{{asset('uploads/images/adss/'.$adss_cate[1]->url)}}" width="100%" />
+                        </a>
                 </div>
+                @endif
                 <div class="b__vosoMall--right ">
 
 
@@ -629,12 +628,13 @@
                 </div>
             </div>
             <div class="b__vosoMall--content stretch">
-
+                @if(count($adss_cate)>=3)
                 <div class="b__vosoMall--banner b__vosoMall--pc">
-                    <a href="https://voso.vn/combo-5kg-cam-cao-phong-dac-san-hoa-binh-loai-1-p12708.html" class="progressive replace" data-href="https://cf.shopee.vn/file/159fda3f3b1b99794a5e341cbfd9a33e">
-                        <img class="preview" src="https://cf.shopee.vn/file/159fda3f3b1b99794a5e341cbfd9a33e" width="100%" />
-                    </a>
+                    <a href="{{$adss_cate[2]->href}}" target="{{$adss_cate[2]->target}}" class="progressive replace" data-href="{{asset('uploads/images/adss/'.$adss_cate[2]->url)}}">
+                            <img class="preview" src="{{asset('uploads/images/adss/'.$adss_cate[2]->url)}}" width="100%" />
+                        </a>
                 </div>
+                @endif
                 <div class="b__vosoMall--right ">
 
 
@@ -706,15 +706,15 @@
 <div class="container contaiver-v2">
     <div id="ads-footer" class="owl-carousel b__banner--browser">
         
-        @foreach($adss as $ads)
-            @if($ads->type ==2)
+        @foreach($adss_footer as $ads_footer)
+           
                 <div class="items">
-                    <a data-href="{{asset('uploads/images/adss/'.$ads->url)}}" class="flex100 progressive replace">
+                    <a href="{{$ads_footer->href}}" target="{{$ads_footer->target}}" data-href="{{asset('uploads/images/adss/'.$ads_footer->url)}}" class="flex100 progressive replace">
                         <img class="preview" src="" width="100%" />
                     </a>
 
                 </div>
-            @endif
+            
         @endforeach
        
     </div>

@@ -168,7 +168,7 @@
                 <p><img style="padding-right: 3px" src="{{asset('images/offline-status-icon.png')}}" />Ngừng hoạt động</p>
                 @endif
                 <ul ng-controller="chatCtrl">
-                  <li><a class="img_mess" href="javascript:;" ><img src="{{asset('images/icon_mess.png')}}" /> Chat ngay</a></li>
+                  <li><a class="img_mess" onclick="update()" href="#" ><img src="{{asset('images/icon_mess.png')}}" /> Chat ngay</a></li>
                   <li><a href="{{$user->name_s}}-si{{$user->id}}">Ghé thăm shop</a></li>
                 </ul>
               </div>
@@ -363,6 +363,9 @@
                 $(".login_succses_menu_mobile").toggle();
             });
         })
+        function update(){
+            swal("Chức năng đang được phát triển", "Rất xin lỗi quý khách vì sự bất tiện này!");
+        }
     </script>
 
 @endsection

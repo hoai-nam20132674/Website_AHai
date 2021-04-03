@@ -26,6 +26,20 @@
 
     <div class="clearfix"></div>
     <div id="main">
+        @if( Session::has('flash_message'))
+            <div class="note note-{{ Session::get('flash_level')}}">
+                <p>{{ Session::get('flash_message')}}</p>
+            </div>
+        @endif
+        @if( count($errors) > 0)
+            
+            @foreach($errors->all() as $error)
+                <div class="note note-danger">
+                    <p>{{$error}}</p>
+                </div>
+            @endforeach
+                
+        @endif
         <div class="table-wrapper">
             
             <div class="portlet light bordered portlet-no-padding">
@@ -55,7 +69,18 @@
                                 <button class="btn btn-secondary action-item" tabindex="0" aria-controls="table-users">
                                     <span><span data-action="create" data-href="{{URL::route('addUser')}}"><i class="fa fa-plus"></i> Tạo mới</span></span>
                                 </button> 
-                                <button class="btn btn-secondary buttons-reload" tabindex="0" aria-controls="table-users"><span><i class="fas fa-sync"></i> Tải lại</span></button> 
+                                <button class="btn btn-secondary excel" tabindex="0" aria-controls="table-posts"><label for="excel" style="margin-bottom: 0px;"><i class="fas fa-file-excel" style="margin-right: 4px;"></i>Chọn File Excel</label>
+                                    
+                                </button>
+                                
+                                
+                                <form method="POST" action="{{URL::route('uploadExcel')}}" enctype="multipart/form-data" accept-charset="UTF-8" id="form_1aa3f76ebce588e61c3b18ff42edfa1a">
+                                    <input type="hidden" name="_token" value="{{ csrf_token()}}">
+                                    <input type="file" required id="excel" name="excel" class="hidden">
+                                    <button type="submit" name="submit" value="save" class="btn btn-info submitUE">
+                                        <i class="fa fa-cloud-upload-alt"></i> Upload File Excel
+                                    </button>
+                                </form>
                             </div>
                             <div id="table-users_processing" class="dataTables_processing card" style="display: none;"></div>
                             <table class="table table-striped table-hover vertical-middle dataTable no-footer" id="table-users" role="grid" aria-describedby="table-users_info" style="width: 1582px;">
@@ -111,7 +136,7 @@
                                                 @elseif($user->role == 3)
                                                 <a href="#" onclick="change({{$user->id}})" class="btn btn-info">Gian hàng chiến lược</a>
                                                 @else
-                                                <a href="#" onclick="change({{$user->id}})" class="btn btn-info">Gian hàng vãng lai</a>
+                                                <a href="#" onclick="change({{$user->id}})" class="btn btn-info">Người dùng vãng lai</a>
                                                 @endif
                                             </td>
                                             
