@@ -41,6 +41,7 @@ use App\Card;
 use App\Slider;
 use App\Ads;
 use Excel;
+use App\Imports\UsersImport;
 use App\Imports\UserImport;
 use Maatwebsite\Excel\HeadingRowImport;
 
@@ -374,7 +375,7 @@ class HomeController extends Controller
         $file = $request->file('excel');
         $headings = (new HeadingRowImport)->toArray($file);
         
-        if(count($headings[0][0]) < 3 || $headings[0][0][0] != 'name' || $headings[0][0][1] != 'email' || $headings[0][0][2] != 'phone'){
+        if(count($headings[0][0]) < 4 || $headings[0][0][0] != 'name' || $headings[0][0][1] != 'email' || $headings[0][0][2] != 'phone' || $headings[0][0][3] != 'password'){
             return redirect()->back()->with(['flash_level'=>'danger','flash_message'=>'Tải lên không thành công. Định dạng file dữ liệu không đúng']); 
         }
         else{

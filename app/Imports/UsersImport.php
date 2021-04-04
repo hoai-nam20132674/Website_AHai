@@ -14,10 +14,9 @@ use Maatwebsite\Excel\Concerns\WithValidation;
 use Maatwebsite\Excel\Concerns\SkipsFailures;
 use Maatwebsite\Excel\Validators\Failure;
 use Illuminate\Support\Facades\Hash;
-
 use Throwable;
 
-class UserImport implements ToModel, WithHeadingRow, SkipsOnError, WithValidation, SkipsOnFailure
+class UsersImport implements ToModel, WithHeadingRow, SkipsOnError, WithValidation, SkipsOnFailure
 {
     use Importable, SkipsFailures;
     /**
@@ -28,23 +27,23 @@ class UserImport implements ToModel, WithHeadingRow, SkipsOnError, WithValidatio
     public function model(array $row)
     {
         return new User([
+            //
             'name'  => $row['name'],
             'email'  => $row['email'],
+            'password' => Hash::make(1),
             'phone'  => $row['phone'],
             'role' => 3,
             'status'  => 1,
-            'password' => Hash::make($row['password']),
+            
         ]);
-
-        
     }
     public function onError(Throwable $error){
 
     }
     public function rules(): array{
         return [
-            '*.email' => 'required|unique:users,email',
-            '*.phone' => 'required|unique:users,phone'
+            // '*.email' => 'required|unique:users,email',
+            // '*.phone' => 'required|unique:users,phone'
         ];
     }
     public function onFailure(Failure ...$failures)
