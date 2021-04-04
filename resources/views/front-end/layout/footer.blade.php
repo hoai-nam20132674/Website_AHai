@@ -1,8 +1,8 @@
 <div class="new-letter">
     <div class="b__footer--form">
-        <div class="b__form--left">
+        <!-- <div class="b__form--left">
             <a href="#"><img src="https://eskuvotszervezo.hu/wp-content/uploads/2020/07/sample-logo-png-transparent-background-1.png" /></a>
-        </div>
+        </div> -->
         <div class="b__form--center">
             <p>Bạn đã sẵn sàng để nhận ưu đãi dành riêng cho khách hàng mới của chúng tôi?</p>
         </div>
@@ -57,9 +57,9 @@
                         </ul>
                     </div>
                     <ul class="icon_social">
-                        <li><a href="https://www.facebook.com/vosoviettel/?epa=SEARCH_BOX"><img src="https://voso.vn/static/v2/images/icon_fb.png" /></a></li>
-                        <li><a href="#"><img src="https://voso.vn/static/v2/images/icon_intagram.png" /></a></li>
-                        <li><a href="#"><img src="https://voso.vn/static/v2/images/icon_mail.png" /></a></li>
+                        <li><a href="#"><img src="{{asset('images/icon_fb.png')}}" /></a></li>
+                        <li><a href="#"><img src="{{asset('images/icon_intagram.png')}}" /></a></li>
+                        <li><a href="#"><img src="{{asset('images/icon_mail.png')}}" /></a></li>
                     </ul>
                 </div>
                 <div class="b__footer--social b__footer--ls d-flex flex-row-reverse" style="width: 25%">
@@ -67,10 +67,10 @@
                         <div class="b__app-icon">
                             <h3>TẢI APP</h3>
                             <p>
-                                <a href="https://play.google.com/store/apps/details?id=vn.voso.buyer" target="_blank"><img src="https://voso.vn/static/v2/upload/icon_ggplay.png" /></a>
+                                <a href="#" target="_blank"><img src="{{asset('images/icon_ggplay.png')}}" /></a>
                             </p>
                             <p>
-                                <a href="https://apps.apple.com/us/app/voso/id1504041888?ls=1" target="_blank"><img src="https://voso.vn/static/v2/upload/icon_apple.png" /></a>
+                                <a href="#" target="_blank"><img src="{{asset('images/icon_apple.png')}}" /></a>
                             </p>
                         </div>
                     </div>
@@ -81,10 +81,10 @@
                 <div class="b__app">
                     <div class="b__app-icon">
                         <div class="ad-app">
-                            <a href="https://play.google.com/store/apps/details?id=vn.voso.buyer" target="_blank"><img src="https://voso.vn/static/v2/upload/icon_ggplay.png" /></a>
+                            <a href="#" target="_blank"><img src="{{asset('images/icon_ggplay.png')}}" /></a>
                         </div>
                         <div class="ios-app">
-                            <a href="https://apps.apple.com/us/app/voso/id1504041888?ls=1" target="_blank"><img src="https://voso.vn/static/v2/upload/icon_apple.png" /></a>
+                            <a href="#" target="_blank"><img src="{{asset('images/icon_apple.png')}}" /></a>
                         </div>
                     </div>
                 </div>
@@ -92,7 +92,7 @@
             <div class="b__footer--bottom">
                 <div class="b__logo--ft">
 
-                    <a href="http://online.gov.vn/HomePage/WebsiteDisplay.aspx?DocId=53936" class="img__btc--ft"><img src="https://voso.vn/static/v2/upload/bct.png" /></a>
+                    <a href="#" class="img__btc--ft"><img src="{{asset('images/bct.png')}}" /></a>
                 </div>
                 <p>Mã số doanh nghiệp: 123456789 do Sở Kế hoạch và Đầu tư TP. Hà Nội cấp lần đầu ngày 10/03/2021.<br> Trụ sở chính: Nam Đồng - Đống Đa - Hà Nội<br /> © 2021 Bản quyền thuộc sở hữu của Tổng Công Ty ABC</p>
             </div>
@@ -214,7 +214,7 @@
 
     @endif
     </div>
-    <div class="tabbar">
+    <!-- <div class="tabbar">
         <nav class="h2-tabbar" id="lzd-h2-tabbar">
             <div class="item">
                 <span class="svg-icon">
@@ -269,7 +269,7 @@
                 </span>
             </div>
         </nav>
-    </div>
+    </div> -->
 
 
 

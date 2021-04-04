@@ -291,7 +291,7 @@ class HomeController extends Controller
         return redirect()->route('productCategories')->with(['flash_level'=>'success','flash_message'=>'Xóa danh mục sản phẩm thành công']); 
     }
     public function products(Request $request){
-        $products = Product::select()->paginate(15);
+        $products = Product::orderBy('id','DESC')->paginate(15);
         return view('admin.products',['products'=>$products,'request'=>$request]);
     }
     public function addProduct(){

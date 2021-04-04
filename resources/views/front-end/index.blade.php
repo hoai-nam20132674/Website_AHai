@@ -421,6 +421,7 @@
        
     </div>
 </div>
+<br>
 
 @if( Session::has('flash_message'))
     <div style="display: none;" class="note note-{{ Session::get('flash_level')}}">
@@ -843,6 +844,25 @@
                 $('.rightLabel').val(rightValue);
             }
         });
+    </script>
+    <script type="text/javascript">
+        $("#ads-footer").owlCarousel({
+            loop: true,
+            autoplay : true,
+            margin:10,
+            responsiveClass:true,
+            responsive:{
+                0:{ //for width 0px and up
+                    items:1, //show only one item at a time
+                },
+                600:{ //for width 600px and up
+                    items:2, //show 3 items at a time
+                },
+                1000:{ //for width 1000px and up
+                    items:3, //show 5 items at a time
+                }
+            }
+        });
     </script>    
 
     
@@ -856,22 +876,7 @@
                 loop: true,
                 autoplay : true,
               });
-            $("#ads-footer").owlCarousel({
-                loop: true,
-                autoplay : true,
-                margin:10,
-                responsive:{
-                    0:{ //for width 0px and up
-                        items:1 //show only one item at a time
-                    },
-                    600:{ //for width 600px and up
-                        items:2 //show 3 items at a time
-                    },
-                    1000:{ //for width 1000px and up
-                        items:3 //show 5 items at a time
-                    }
-                }
-              }); 
+             
         });
 
         $(document).ready(function(){

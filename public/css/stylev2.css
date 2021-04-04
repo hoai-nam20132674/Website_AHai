@@ -5363,9 +5363,9 @@ div#onesignal-bell-container {
 }
 
 .b__detail--wapper .b__detail--info .product-detail-content {
-    display: -webkit-box;
+    /*display: -webkit-box;
     display: -ms-flexbox;
-    display: flex
+    display: flex*/
 }
 
 .b__detail--wapper .b__detail--info .product-detail-content .b__product {
