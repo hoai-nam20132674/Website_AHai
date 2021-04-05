@@ -127,11 +127,24 @@ Route::get('/don-hang-mua', 'MerchantController@purchaseOrder')->name('PO');
 Route::get('/xoa-don-hang/{id}', 'MerchantController@removeOrder')->name('removeOrder');
 // end Merchant route
 
+
+
 // Feedback
 Route::get('/checkCreateFeedback/{product_id}', 'MerchantController@checkCreateFeedback')->name('checkCreateFeedback');
 Route::post('/postAddFeedback/{product_id}', 'MerchantController@postAddFeedback')->name('postAddFeedback');
 // end feedback
 
+
+Route::get('/clear', function() {
+
+   Artisan::call('cache:clear');
+   Artisan::call('config:clear');
+   Artisan::call('config:cache');
+   Artisan::call('view:clear');
+
+   return "Cleared!";
+
+});
 // add to cart
 Route::get('/gio-hang', 'Controller@cart')->name('cart');
 Route::get('/dat-hang', 'Controller@order')->name('order');
