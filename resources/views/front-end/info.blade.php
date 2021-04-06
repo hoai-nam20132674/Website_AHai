@@ -271,7 +271,7 @@
 											                                    <div class="form-group"  >
 											                
 											                                        <label for="email" class="control-label required">Email</label>
-											                                        <input disabled class="form-control" placeholder="Nhập tên gian hàng" data-counter="120" value="{{Auth::user()->email}}" name="email" type="text" required id="email">
+											                                        <input disabled class="form-control" placeholder="Nhập email" data-counter="120" value="{{Auth::user()->email}}" name="email" type="text" required id="email">
 											                                    </div>
 											                
 											                                    
