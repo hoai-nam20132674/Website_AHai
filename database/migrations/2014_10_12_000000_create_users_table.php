@@ -26,6 +26,7 @@ class CreateUsersTable extends Migration
             $table->boolean('status');
             $table->string('avatar')->nullable();
             $table->string('vp')->nullable();
+            $table->string('fb')->nullable();
             $table->bigInteger('parent_id')->nullable();
             $table->rememberToken();
             $table->timestamps();
